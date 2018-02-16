@@ -1,12 +1,17 @@
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router'
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HeaderComponent } from './header/header.component';
 import { NavComponentComponent } from './nav-component/nav-component.component';
+import { FanzonaComponent } from './fanzona/fanzona.component';
+import { ZvanicnaProdavnicaComponent } from './zvanicna-prodavnica/zvanicna-prodavnica.component';
+import { OglasiComponent } from './oglasi/oglasi.component';
+
 
 
 @NgModule({
@@ -15,20 +20,15 @@ import { NavComponentComponent } from './nav-component/nav-component.component';
     LoginComponent,
     RegisterComponent,
     HeaderComponent,
-    NavComponentComponent
+    NavComponentComponent,
+    FanzonaComponent,
+    ZvanicnaProdavnicaComponent,
+    OglasiComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([
-      {
-        path: 'login',
-        component: LoginComponent
-      },
-      {
-        path: 'register',
-        component: RegisterComponent
-      }
-    ])
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
