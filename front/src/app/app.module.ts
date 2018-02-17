@@ -11,6 +11,8 @@ import { NavComponentComponent } from './nav-component/nav-component.component';
 import { FanzonaComponent } from './fanzona/fanzona.component';
 import { ZvanicnaProdavnicaComponent } from './zvanicna-prodavnica/zvanicna-prodavnica.component';
 import { OglasiComponent } from './oglasi/oglasi.component';
+import { RekvizitService } from './rekvizit.service';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 
 
@@ -28,9 +30,12 @@ import { OglasiComponent } from './oglasi/oglasi.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    RekvizitService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

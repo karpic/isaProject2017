@@ -13,6 +13,7 @@ public class RekvizitController {
     private RekvizitRepository rekvizitRepository;
 
     @RequestMapping(method=RequestMethod.GET, value="/rekviziti")
+    @CrossOrigin(origins = "http://localhost:4200")
     public List<TematskiRekvizit> getAll(){
 
         return this.rekvizitRepository.findAll();

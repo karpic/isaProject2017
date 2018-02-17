@@ -1,4 +1,6 @@
+import { RekvizitService } from './../rekvizit.service';
 import { Component, OnInit } from '@angular/core';
+import { Rekvizit } from '../models/rekvizit';
 
 @Component({
   selector: 'app-zvanicna-prodavnica',
@@ -6,17 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./zvanicna-prodavnica.component.css']
 })
 export class ZvanicnaProdavnicaComponent implements OnInit {
-  rekviziti = [
-    { ime: "Rekvizit 1", opis: "Ovo je neki rekvizit 1"},
-    { ime: "Rekvizit 2", opis: "Ovo je neki rekvizit 1"},
-    { ime: "Rekvizit 3", opis: "Ovo je neki rekvizit 1"},
-    { ime: "Rekvizit 4", opis: "Ovo je neki rekvizit 1"}
-  ]
+  rekviziti: Rekvizit[];
 
+  getRekviziti(): void {
+    this.rekvizitService.getRekviziti()
+      .subscribe(rekviziti => this.rekviziti = rekviziti);
+  }
 
-  constructor() { }
+  constructor(private rekvizitService: RekvizitService) { }
 
   ngOnInit() {
+    this.getRekviziti();
   }
 
 }
