@@ -13,7 +13,7 @@ public class RekvizitController {
     private RekvizitRepository rekvizitRepository;
 
     @RequestMapping(method=RequestMethod.GET, value="/rekviziti")
-    public Iterable<TematskiRekvizit> getAll(){
+    public List<TematskiRekvizit> getAll(){
 
         return this.rekvizitRepository.findAll();
 
