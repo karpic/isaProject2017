@@ -2,26 +2,27 @@ package posetime.Rekviziti;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/prodavnica")
 public class RekvizitController {
 
     @Autowired
     private RekvizitRepository rekvizitRepository;
 
-    @RequestMapping(method= RequestMethod.GET)
-    public List<TematskiRekvizit> getAll(){
+    @RequestMapping(method=RequestMethod.GET, value="/rekviziti")
+    public Iterable<TematskiRekvizit> getAll(){
 
         return this.rekvizitRepository.findAll();
 
 
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value="/rekviziti")
+    public void insert(@RequestBody TematskiRekvizit rek){
+        this.rekvizitRepository.insert(rek);
     }
 }
 
