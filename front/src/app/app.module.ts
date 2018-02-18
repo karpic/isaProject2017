@@ -13,6 +13,7 @@ import { ZvanicnaProdavnicaComponent } from './zvanicna-prodavnica/zvanicna-prod
 import { OglasiComponent } from './oglasi/oglasi.component';
 import { RekvizitService } from './rekvizit.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { NoviRekvizitComponent } from './novi-rekvizit/novi-rekvizit.component';
 
 
 
@@ -25,7 +26,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     NavComponentComponent,
     FanzonaComponent,
     ZvanicnaProdavnicaComponent,
-    OglasiComponent
+    OglasiComponent,
+    NoviRekvizitComponent
   ],
   imports: [
     BrowserModule,

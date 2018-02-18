@@ -19,6 +19,7 @@ public class RekvizitController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value="/rekviziti")
+    @CrossOrigin(origins = "http://localhost:4200")
     public void insert(@RequestBody TematskiRekvizit rek){
         this.rekvizitRepository.insert(rek);
     }
