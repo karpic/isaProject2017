@@ -1,5 +1,5 @@
 .main{
-  width: 700px;
+  width: 30%;
   margin: 0 auto;
 }
 
@@ -8,6 +8,7 @@
   margin: 0 auto;
   text-align: center;
   margin-bottom: 10px;
+  border-radius: 10px;
 }
 
 .rekvizit h2{
@@ -15,17 +16,25 @@
   background-color: #e8491d;
   margin-top: 0px;
   padding: 5px;
-}
-
-
-button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
   border-radius: 6px;
 }
+
+
+button{
+  display:inline-block;
+  padding:0.3em 1.2em;
+  margin:0 0.3em 0.3em 0;
+  border-radius:10px;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#000000;
+  background-color:#989992;
+  text-align:center;
+  transition: all 0.2s;
+}
+button:hover{
+  background-color:#e8491d;
+}
+
