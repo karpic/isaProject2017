@@ -1,40 +1,48 @@
-.main{
-  width: 30%;
-  margin: 0 auto;
-}
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-.rekvizit{
-  border: 2px solid #35424a;
-  margin: 0 auto;
+.main {
+  width: 500px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+.rekvizit {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 500px;
+  margin: 0 auto 10px;
+  padding: 45px;
   text-align: center;
-  margin-bottom: 10px;
-  border-radius: 10px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-
-.rekvizit h2{
-  color: black;
-  background-color: #e8491d;
-  margin-top: 0px;
-  padding: 5px;
-  border-radius: 6px;
-}
-
-
-button{
-  display:inline-block;
-  padding:0.3em 1.2em;
-  margin:0 0.3em 0.3em 0;
-  border-radius:10px;
+.rekvizit input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
   box-sizing: border-box;
-  text-decoration:none;
-  font-family:'Roboto',sans-serif;
-  font-weight:300;
-  color:#000000;
-  background-color:#989992;
-  text-align:center;
-  transition: all 0.2s;
+  font-size: 14px;
 }
-button:hover{
-  background-color:#e8491d;
+.rekvizit button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+
+}
+.rekvizit button:hover,.rekvizit button:active,.rekvizit button:focus {
+  background: #43A047;
 }
 

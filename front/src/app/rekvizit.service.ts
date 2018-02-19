@@ -24,6 +24,15 @@ export class RekvizitService {
     );
   }
 
+  deleteRekvizit (rekvizit: Rekvizit | string): Observable<Rekvizit> {
+    const id = typeof rekvizit === 'string' ? rekvizit : rekvizit.id;
+    const url = `${this.url}/${id}`;
+
+    return this.http.delete<Rekvizit>(url, httpOptions).pipe(
+      catchError(this.handleError<Rekvizit>('deleteRekvizit'))
+    );
+  }
+
   constructor(
     private http: HttpClient
   ) { }

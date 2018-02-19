@@ -2,6 +2,6 @@
   <input type="text" placeholder="Naziv tematskog rekvizita" #ime/>
   <textarea rows=10 placeholder="Opis tematskog rekvizita" #opis></textarea>>
   <button (click)="dodajRekvizit(ime.value, opis.value)">Sačuvaj</button>
-  <button>Odustani</button>
+  <button (click)="goBack()">Odustani</button>
 
 </form>
