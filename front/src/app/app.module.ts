@@ -14,6 +14,7 @@ import { OglasiComponent } from './oglasi/oglasi.component';
 import { RekvizitService } from './rekvizit.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { NoviRekvizitComponent } from './novi-rekvizit/novi-rekvizit.component';
+import { KorisniciService } from './korisnici.service';
 
 
 
@@ -36,7 +37,8 @@ import { NoviRekvizitComponent } from './novi-rekvizit/novi-rekvizit.component';
     HttpClientModule
   ],
   providers: [
-    RekvizitService
+    RekvizitService,
+    KorisniciService
   ],
   bootstrap: [AppComponent]
 })

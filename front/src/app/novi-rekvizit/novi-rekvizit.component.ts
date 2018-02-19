@@ -16,7 +16,7 @@ export class NoviRekvizitComponent implements OnInit {
 
   }
 
-  goBack(): void{
+  goBack(): void {
     this.location.back();
   }
   constructor(

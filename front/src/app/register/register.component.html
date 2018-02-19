@@ -1,15 +1,14 @@
 <div class="register-page">
   <div class="form">
     <form class="register-form">
-      <input type="text" placeholder="Email"/>
-      <input type="password" placeholder="Šifra"/>
+      <input type="text" placeholder="Email" #email/>
+      <input type="password" placeholder="Šifra" #password/>
       <input type="password" placeholder="Ponovite Šifru">
-      <input type="text" placeholder="Ime">
-      <input type="text" placeholder="Prezime">
-      <input type="text" placeholder="Grad">
-      <input type="text" placeholder="Broj Telefona">
-      <button>Registruj se</button>
-
+      <input type="text" placeholder="Ime" #ime>
+      <input type="text" placeholder="Prezime" #prezime>
+      <input type="text" placeholder="Grad" #grad>
+      <input type="text" placeholder="Broj Telefona" #brtel>
+      <button (click)="Registruj(email.value,password.value,ime.value,prezime.value,grad.value,brtel.value)">Registruj se</button>
     </form>
   </div>
 </div>
