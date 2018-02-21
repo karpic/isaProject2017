@@ -9,9 +9,9 @@ import { Location } from '@angular/common';
 })
 export class NoviRekvizitComponent implements OnInit {
 
-  dodajRekvizit(ime: String, opis: String): void{
+  dodajRekvizit(ime: String, opis: String, cena: number): void{
 
-    this.rekvizitService.insertRekvizit( {ime, opis} as Rekvizit).subscribe();
+    this.rekvizitService.insertRekvizit( {ime, opis, cena} as Rekvizit).subscribe();
     this.goBack();
 
   }

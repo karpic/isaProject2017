@@ -9,6 +9,8 @@ public class TematskiRekvizit {
     private String id;
     private String ime;
     private String opis;
+    private int cena;
+
 
     public TematskiRekvizit(){
 
@@ -17,6 +19,14 @@ public class TematskiRekvizit {
     public TematskiRekvizit(String ime, String opis) {
         this.ime = ime;
         this.opis = opis;
+    }
+
+    public int getCena() {
+        return cena;
+    }
+
+    public void setCena(int cena) {
+        this.cena = cena;
     }
 
     public void setId(String id) {

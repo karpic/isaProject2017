@@ -1,7 +1,8 @@
 <form class="noviRekvizit">
   <input type="text" placeholder="Naziv tematskog rekvizita" #ime/>
   <textarea rows=10 placeholder="Opis tematskog rekvizita" #opis></textarea>>
-  <button (click)="dodajRekvizit(ime.value, opis.value)">Sačuvaj</button>
+  <input type="number" placeholder="Cena tematskog rekvizita" #cena>
+  <button (click)="dodajRekvizit(ime.value, opis.value, cena.value)">Sačuvaj</button>
   <button (click)="goBack()">Odustani</button>
 
 </form>

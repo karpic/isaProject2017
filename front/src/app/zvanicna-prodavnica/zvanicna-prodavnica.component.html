@@ -1,7 +1,7 @@
 <div class="main">
 
   <div class="rekvizit" *ngFor="let r of rekviziti">
-    <h2>{{r.ime}}</h2>
+    <h2>Naziv: {{r.ime}} <span id="cena">Cena: {{r.cena}} din</span></h2>
 
     <p>{{r.opis}}</p>
     <button>Rezervisi</button>
