@@ -1,9 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .main {
-  width: 500px;
-  padding: 8% 0 0;
-  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+  margin: 0 auto;
 }
 .rekvizit {
   position: relative;
@@ -31,7 +32,7 @@
   text-transform: uppercase;
   outline: 0;
   background: #4CAF50;
-  width: 100%;
+  width: 30%;
   border: 0;
   margin: 0 0 15px;
   padding: 15px;
@@ -40,7 +41,7 @@
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
-
+  border-radius: 2em;
 }
 .rekvizit button:hover,.rekvizit button:active,.rekvizit button:focus {
   background: #43A047;
@@ -48,4 +49,13 @@
 
 #cena {
   color: red;
+}
+
+.button{
+  position: relative;
+  float: right;
+}
+
+#obrisiButton{
+  background-color: red;
 }
