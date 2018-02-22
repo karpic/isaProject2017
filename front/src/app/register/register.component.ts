@@ -10,14 +10,16 @@ import { KorisniciService } from '../korisnici.service';
 })
 export class RegisterComponent implements OnInit {
 
-  Registruj(email: string, password: string, ime: string, prezime: string, grad: string, brtel: string): void {
-    this.korisniciService.insertKorisnik({ime,prezime,email,password,grad,brtel} as Korisnik).subscribe();
-  }
+  korisnik = new Korisnik('', '', '', '', '', '');
 
   constructor(private korisniciService: KorisniciService) { }
 
   ngOnInit() {
 
+  }
+
+  registruj() {
+    this.korisniciService.insertKorisnik(this.korisnik).subscribe();
   }
 
 

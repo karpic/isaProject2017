@@ -1,8 +1,10 @@
 export class Korisnik {
-  ime: string;
-  prezime: string;
-  email: string;
-  password: string;
-  grad: string;
-  brtel: string;
+  constructor(
+    public ime?: string,
+    public prezime?: string,
+    public email?: string,
+    public password?: string,
+    public grad?: string,
+    public brtel?: string,
+  ) {}
 }

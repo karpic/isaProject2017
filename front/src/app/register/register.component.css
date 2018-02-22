@@ -20,7 +20,7 @@
   outline: 0;
   background: #f2f2f2;
   width: 100%;
-  border: 0;
+  border: 1;
   margin: 0 0 15px;
   padding: 15px;
   box-sizing: border-box;
@@ -40,6 +40,24 @@
   transition: all 0.3 ease;
   cursor: pointer;
 }
-.form button:hover,.form button:active,.form button:focus {
+
+.form button:active,.form button:focus,.form button:not(disabled) {
+  background: #4CAF50;
+}
+
+.form button:hover,form button:not(disabled) {
   background: #43A047;
+}
+
+.form button:disabled {
+  background: darkgray;
+}
+
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948;
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442;
 }
