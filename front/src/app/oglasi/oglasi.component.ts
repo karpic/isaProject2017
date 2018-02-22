@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Oglas } from '../models/oglas';
+import { OglasService } from '../oglas.service';
 
 @Component({
   selector: 'app-oglasi',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./oglasi.component.css']
 })
 export class OglasiComponent implements OnInit {
+  oglasi: Oglas[];
 
-  constructor() { }
+  getOglasi(): void {
+    this.oglasiService.getOglasi()
+      .subscribe(oglasi => this.oglasi = oglasi);
+  }
+
+  constructor(private oglasiService: OglasService) { }
 
   ngOnInit() {
+    this.getOglasi();
   }
 
 }

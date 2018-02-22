@@ -1,3 +1,15 @@
-<p>
-  oglasi works!
-</p>
+<div class="main">
+  <div class="oglas" *ngFor="let oglas of oglasi">
+    <h2>{{oglas.naziv}}</h2>
+    <p>{{oglas.opis}}</p>
+    <p>Oglas traje do: {{oglas.datum | date}}</p>
+
+    <div>
+      <button >Dodaj ponudu</button>
+    </div>
+  </div>
+
+
+
+</div>
+
