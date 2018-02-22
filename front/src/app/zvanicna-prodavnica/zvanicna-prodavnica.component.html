@@ -1,13 +1,16 @@
 <div class="main">
 
   <div class="rekvizit" *ngFor="let r of rekviziti">
-    <h2>Naziv: {{r.ime}} <span id="cena">Cena: {{r.cena}} din</span></h2>
-
+    <h2>Naziv: {{r.ime}} </h2>
+    <p id="cena">Cena: {{r.cena}}</p>
     <p>{{r.opis}}</p>
-    <button>Rezervisi</button>
-    <button>(Admin) Izmeni</button>
-    <button (click)="deleteRekvizit(r)">(Admin) Obriši</button>
-    >
+    <div class="buttons">
+      <button>Rezervisi</button>
+      <button>(Admin) Izmeni</button>
+      <button (click)="deleteRekvizit(r)" id="obrisiButton">(Admin) Obriši</button>
+    </div>
+
+
   </div>
 
 </div>
