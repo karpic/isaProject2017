@@ -15,6 +15,7 @@ import { RekvizitService } from './rekvizit.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { NoviRekvizitComponent } from './novi-rekvizit/novi-rekvizit.component';
 import { KorisniciService } from './korisnici.service';
+import { EqualValidatorDirective } from './validate/equal-validator.directive';
 
 
 
@@ -28,7 +29,8 @@ import { KorisniciService } from './korisnici.service';
     FanzonaComponent,
     ZvanicnaProdavnicaComponent,
     OglasiComponent,
-    NoviRekvizitComponent
+    NoviRekvizitComponent,
+    EqualValidatorDirective
   ],
   imports: [
     BrowserModule,
