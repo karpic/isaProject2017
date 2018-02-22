@@ -2,24 +2,28 @@
   <div class="form">
     <form (ngSubmit)="registruj()" class="register-form" #registerForm="ngForm" >
       <!-- email -->
-      <input type="email" placeholder="Email" [(ngModel)]="korisnik.email" name="email" required #email/>
-
+      <input type="email" placeholder="Email" [(ngModel)]="korisnik.email" name="email" required pattern="^[a-zA-Z0–9_.+-]+@[a-zA-Z0–9-]+.[a-zA-Z0–9]+$" #email="ngModel"/>
+      <small [hidden]="email.valid || (email.pristine && !registerForm.submitted)">
+          Email is required and format should be <i>john@doe.com</i>.
+      </small>
       <!-- password -->
-      <input type="password" placeholder="Šifra" required [(ngModel)]="korisnik.password" name="password" #password/>
+      <input type="password" placeholder="Šifra" required [(ngModel)]="korisnik.password" name="password" #password="ngModel"/>
 
-      <input type="password" placeholder="Ponovite Šifru" required >
-
+      <input type="password" placeholder="Ponovite Šifru" [(ngModel)]="korisnik.confirmPassword" required validateEqual="password" name="confirmPassword" #confirmPassword="ngModel" />
+      <small [hidden]="confirmPassword.valid || (confirmPassword.pristine && !registerForm.submitted)">
+          Password mismatch
+      </small>
       <!-- ime -->
-      <input type="text" placeholder="Ime" [(ngModel)]="korisnik.ime" name="ime" required #ime >
+      <input type="text" placeholder="Ime" [(ngModel)]="korisnik.ime" name="ime" required #ime="ngModel" >
 
       <!-- prezime -->
-      <input type="text" placeholder="Prezime" [(ngModel)]="korisnik.prezime" name="prezime" required #prezime>
+      <input type="text" placeholder="Prezime" [(ngModel)]="korisnik.prezime" name="prezime" required #prezime="ngModel">
 
       <!-- grad -->
-      <input type="text" placeholder="Grad" [(ngModel)]="korisnik.grad" name="grad" required #grad>
+      <input type="text" placeholder="Grad" [(ngModel)]="korisnik.grad" name="grad" required #grad="ngModel">
 
       <!-- brtel -->
-      <input type="text" placeholder="Broj Telefona" [(ngModel)]="korisnik.brtel" name="brtel" required #brtel>
+      <input type="text" placeholder="Broj Telefona" [(ngModel)]="korisnik.brtel" name="brtel" required #brtel="ngModel">
 
       <!-- submit -->
       <button type="submit" [disabled]="!registerForm.form.valid">Registruj se</button>

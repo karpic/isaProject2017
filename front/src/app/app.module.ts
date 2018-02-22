@@ -16,6 +16,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { NoviRekvizitComponent } from './novi-rekvizit/novi-rekvizit.component';
 import { KorisniciService } from './korisnici.service';
 import { OglasService } from './oglas.service';
+import { EqualValidatorDirective } from './validate/equal-validator.directive';
 
 
 
@@ -29,7 +30,8 @@ import { OglasService } from './oglas.service';
     FanzonaComponent,
     ZvanicnaProdavnicaComponent,
     OglasiComponent,
-    NoviRekvizitComponent
+    NoviRekvizitComponent,
+    EqualValidatorDirective
   ],
   imports: [
     BrowserModule,
