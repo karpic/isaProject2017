@@ -20,6 +20,11 @@ export class ZvanicnaProdavnicaComponent implements OnInit {
     this.rekvizitService.deleteRekvizit(rekvizit).subscribe();
   }
 
+  updateRekvizitRezervisi(rekvizit: Rekvizit): void{
+    rekvizit.rezervisan = true;
+    this.rekvizitService.updateRekvizit(rekvizit).subscribe();
+  }
+
   constructor(private rekvizitService: RekvizitService) { }
 
   ngOnInit() {

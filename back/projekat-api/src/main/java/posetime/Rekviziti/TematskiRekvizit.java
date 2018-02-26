@@ -8,9 +8,18 @@ public class TematskiRekvizit {
     @Id
     private String id;
     private String ime;
+
+    public boolean isRezervisan() {
+        return rezervisan;
+    }
+
+    public void setRezervisan(boolean rezervisan) {
+        this.rezervisan = rezervisan;
+    }
+
     private String opis;
     private int cena;
-
+    private boolean rezervisan;
 
     public TematskiRekvizit(){
 

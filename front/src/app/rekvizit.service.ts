@@ -33,6 +33,14 @@ export class RekvizitService {
     );
   }
 
+  updateRekvizit(rekvizit: Rekvizit): Observable<Rekvizit> {
+    const id = typeof rekvizit === 'string' ? rekvizit : rekvizit.id;
+    const url = `${this.url}/${id}`;
+    return this.http.put<Rekvizit>(url, rekvizit, httpOptions).pipe(
+      catchError(this.handleError<Rekvizit>('updateRekvizit'))
+    );
+  }
+
   constructor(
     private http: HttpClient
   ) { }

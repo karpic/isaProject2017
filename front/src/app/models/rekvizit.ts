@@ -3,4 +3,5 @@ export class Rekvizit {
   ime: string;
   opis: string;
   cena: number;
+  rezervisan: boolean;
 }

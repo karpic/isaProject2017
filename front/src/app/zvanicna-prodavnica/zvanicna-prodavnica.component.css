@@ -46,6 +46,9 @@
 .rekvizit button:hover,.rekvizit button:active,.rekvizit button:focus {
   background: #43A047;
 }
+.rekvizit button:disabled{
+  background: #838487;
+}
 
 #cena {
   color: red;
@@ -58,4 +61,8 @@
 
 #obrisiButton{
   background-color: red;
+}
+
+#buttonIzmeni{
+   background-color:#e25b0d;
 }

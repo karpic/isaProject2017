@@ -5,9 +5,11 @@
     <p id="cena">Cena: {{r.cena}}</p>
     <p>{{r.opis}}</p>
     <div class="buttons">
-      <button>Rezervisi</button>
-      <button>(Admin) Izmeni</button>
-      <button (click)="deleteRekvizit(r)" id="obrisiButton">(Admin) Obriši</button>
+      <button *ngIf="!r.rezervisan; else elseBlock" (click)="updateRekvizitRezervisi(r)">Rezervisi</button>
+      <ng-template #elseBlock><button disabled="disabled">Rezervisano</button></ng-template>
+
+      <button id="buttonIzmeni">Izmeni</button>
+      <button (click)="deleteRekvizit(r)" id="obrisiButton">Obriši</button>
     </div>
 
 
