@@ -12,7 +12,7 @@ public class Ponuda {
     //id oglasa na koji je ponuda napravljena
     private String oglasId;
     private int iznos;
-    private String datum;
+
 
     protected Ponuda(){
 
@@ -22,7 +22,7 @@ public class Ponuda {
         this.userId = userId;
         this.oglasId = oglasId;
         this.iznos = iznos;
-        this.datum = datum;
+
     }
 
     public String getId() {
@@ -57,11 +57,5 @@ public class Ponuda {
         this.iznos = iznos;
     }
 
-    public String getDatum() {
-        return datum;
-    }
 
-    public void setDatum(String datum) {
-        this.datum = datum;
-    }
 }

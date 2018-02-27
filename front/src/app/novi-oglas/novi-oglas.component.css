@@ -1,4 +1,4 @@
-.noviRekvizit {
+.noviOglas {
   position: relative;
   z-index: 1;
   background: #FFFFFF;
@@ -8,7 +8,7 @@
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-.noviRekvizit input, textarea {
+.noviOglas input, textarea {
   font-family: "Roboto", sans-serif;
   outline: 0;
   background: #f2f2f2;
@@ -19,7 +19,7 @@
   box-sizing: border-box;
   font-size: 14px;
 }
-.noviRekvizit button {
+.noviOglas button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
@@ -34,6 +34,6 @@
   transition: all 0.3 ease;
   cursor: pointer;
 }
-.noviRekvizit button:hover,.noviRekvizit button:active,.noviRekvizit button:focus {
+.noviOglas button:hover,.noviOglas button:active,.noviOglas button:focus {
   background: #43A047;
 }

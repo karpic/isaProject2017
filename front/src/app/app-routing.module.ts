@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes, Router } from '@angular/router';
+import { NoviOglasComponent } from './novi-oglas/novi-oglas.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'fanzona', component: FanzonaComponent},
   {path: 'prodavnica', component: ZvanicnaProdavnicaComponent},
   {path: 'oglasi', component: OglasiComponent},
-  {path: 'novirekvizit', component: NoviRekvizitComponent}
+  {path: 'novirekvizit', component: NoviRekvizitComponent},
+  {path: 'novioglas', component: NoviOglasComponent}
 ]
 
 @NgModule({

@@ -1,10 +1,20 @@
 <div class="main">
   <div class="oglas" *ngFor="let oglas of oglasi">
     <h2>{{oglas.naziv}}</h2>
+    <hr>
     <p>{{oglas.opis}}</p>
+    <hr>
     <p>Oglas traje do: {{oglas.datum | date}}</p>
-
+    <hr>
+    <div class="ponude">
+      <ul>
+        <li></li>
+      </ul>
+    </div>
+    <hr>
     <div>
+      <h3>Dodajte novu ponudu</h3>
+      <input type="text" placeholder="Iznos">
       <button >Dodaj ponudu</button>
     </div>
   </div>
