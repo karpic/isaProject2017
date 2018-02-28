@@ -1,8 +1,8 @@
 export class Oglas {
-  constructor(
-    public naziv: String,
-    public opis: String,
-    public datum: Date,
-    public odobren: boolean
-  ){}
+  id: String;
+  naziv: String;
+  opis: String;
+  datum: Date;
+  odobren: boolean;
+
 }

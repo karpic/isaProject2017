@@ -9,6 +9,10 @@ public class Ponuda {
     private String id;
     //id usera koji je napravio ponudu na oglas
     private String userId;
+    private String userName;
+
+
+
     //id oglasa na koji je ponuda napravljena
     private String oglasId;
     private int iznos;
@@ -25,6 +29,13 @@ public class Ponuda {
 
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
     public String getId() {
         return id;
     }

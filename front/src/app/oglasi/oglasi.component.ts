@@ -1,3 +1,5 @@
+import { Ponuda } from './../models/ponuda';
+import { PonudeService } from './../services/ponude.service';
 import { Component, OnInit } from '@angular/core';
 import { Oglas } from '../models/oglas';
 import { OglasService } from '../oglas.service';
@@ -15,7 +17,20 @@ export class OglasiComponent implements OnInit {
       .subscribe(oglasi => this.oglasi = oglasi);
   }
 
-  constructor(private oglasiService: OglasService) { }
+  dodajPonudu(iznos: number, oglasId: String): void{
+    var ponuda =
+                {
+                  "userId": "tempUserId",
+                  "userName": "tempUserName",
+                  "oglasId": oglasId,
+                  "iznos": iznos
+                };
+    this.ponudeService.insertPonuda(ponuda as Ponuda).subscribe();
+  }
+  constructor(
+    private oglasiService: OglasService,
+    private ponudeService: PonudeService
+  ) { }
 
   ngOnInit() {
     this.getOglasi();

@@ -1,3 +1,4 @@
+import { PonudeService } from './services/ponude.service';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -18,6 +19,7 @@ import { KorisniciService } from './korisnici.service';
 import { OglasService } from './oglas.service';
 import { EqualValidatorDirective } from './validate/equal-validator.directive';
 import { NoviOglasComponent } from './novi-oglas/novi-oglas.component';
+import { SvePonudeComponent } from './sve-ponude/sve-ponude.component';
 
 
 
@@ -33,7 +35,8 @@ import { NoviOglasComponent } from './novi-oglas/novi-oglas.component';
     OglasiComponent,
     NoviRekvizitComponent,
     EqualValidatorDirective,
-    NoviOglasComponent
+    NoviOglasComponent,
+    SvePonudeComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { NoviOglasComponent } from './novi-oglas/novi-oglas.component';
   providers: [
     RekvizitService,
     KorisniciService,
-    OglasService
+    OglasService,
+    PonudeService
   ],
   bootstrap: [AppComponent]
 })

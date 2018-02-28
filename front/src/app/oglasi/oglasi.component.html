@@ -7,15 +7,13 @@
     <p>Oglas traje do: {{oglas.datum | date}}</p>
     <hr>
     <div class="ponude">
-      <ul>
-        <li></li>
-      </ul>
+      <button>Sve ponude</button>
     </div>
     <hr>
     <div>
       <h3>Dodajte novu ponudu</h3>
-      <input type="text" placeholder="Iznos">
-      <button >Dodaj ponudu</button>
+      <input type="text" placeholder="Iznos" #iznos>
+      <button (click)="dodajPonudu(iznos.value, oglas.id)">Dodaj ponudu</button>
     </div>
   </div>
 

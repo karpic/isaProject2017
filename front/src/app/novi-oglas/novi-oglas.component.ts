@@ -9,7 +9,7 @@ import { OglasService } from '../oglas.service';
   styleUrls: ['./novi-oglas.component.css']
 })
 export class NoviOglasComponent implements OnInit {
-  tempOglas: Oglas = new Oglas('', '', new Date, false);
+  tempOglas: Oglas;
 
   insertOglas(): void{
     this.oglasService.insertOglas(this.tempOglas).subscribe();
@@ -22,7 +22,9 @@ export class NoviOglasComponent implements OnInit {
   constructor(
     private location: Location,
     private oglasService: OglasService
-  ) { }
+  ) {
+
+  }
 
   ngOnInit() {
   }

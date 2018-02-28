@@ -1,7 +1,7 @@
-<form class="noviOglas">
-  <input type="text" placeholder="Naziv oglasa" [(ngModel)]="tempOglas.naziv">
-  <input type="text" placeholder="Opis oglasa" [(ngModel)]="tempOglas.opis">
-  <input type="date" [(ngModel)]="tempOglas.datum">
+<form class="noviOglas" #noviOglasForm = "ngForm">
+  <input type="text" placeholder="Naziv oglasa" [(ngModel)]="tempOglas.naziv" name="naziv">
+  <input type="text" placeholder="Opis oglasa" [(ngModel)]="tempOglas.opis" name="opis">
+  <input type="date" [(ngModel)]="tempOglas.datum" name="datum">
   <button (click)="insertOglas()">Sačuvaj</button>
   <button (click)="goBack()">Odustani</button>
 </form>

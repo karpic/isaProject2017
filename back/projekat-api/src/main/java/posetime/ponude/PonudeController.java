@@ -1,23 +1,73 @@
 package posetime.ponude;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.http.MediaType;
 
+import java.awt.*;
 import java.util.List;
 
 @RestController()
 @CrossOrigin("*")
 public class PonudeController {
     @Autowired
-    private PonudeRepository ponudeRepository;
+    private PonudaService ponudaService;
 
-    @RequestMapping(method = RequestMethod.GET, value="/ponude")
-    public List<Ponuda> getAll(){
-        return this.ponudeRepository.findAll();
+    @RequestMapping(
+            method = RequestMethod.GET,
+            value="/ponude",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<List<Ponuda>> getAll(){
+
+        List<Ponuda> ponude = this.ponudaService.findAll();
+        return new ResponseEntity<List<Ponuda>>(ponude, HttpStatus.OK);
     }
 
+    @RequestMapping(
+            method = RequestMethod.GET,
+            value = "/ponude/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Ponuda> getPonuda(@PathVariable("id") String id){
+        Ponuda ponuda = this.ponudaService.findOne(id);
+        if(ponuda == null){
+            return new ResponseEntity<Ponuda>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<Ponuda>(ponuda, HttpStatus.OK);
+    }
 
+    @RequestMapping(
+            method = RequestMethod.POST,
+            value = "/ponude",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Ponuda> insertPonuda(@RequestBody Ponuda ponuda) throws Exception{
+        Ponuda createdPonuda = this.ponudaService.create(ponuda);
+        return new ResponseEntity<Ponuda>(createdPonuda, HttpStatus.CREATED);
+    }
+
+    @RequestMapping(
+            method = RequestMethod.PUT,
+            value = "/ponude/{id}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Ponuda> updatePonuda(@PathVariable("id") String id) throws Exception{
+        Ponuda ponudaData = this.ponudaService.findOne(id);
+
+        if(ponudaData == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        Ponuda updatedPonuda = this.ponudaService.update(ponudaData);
+        if (updatedPonuda == null) {
+            return new ResponseEntity<Ponuda>(
+                    HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ResponseEntity<>(updatedPonuda, HttpStatus.OK);
+    }
 }
