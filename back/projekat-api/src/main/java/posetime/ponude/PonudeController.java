@@ -40,6 +40,16 @@ public class PonudeController {
     }
 
     @RequestMapping(
+            method = RequestMethod.GET,
+            value = "/oglasi/{id}/ponude",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<List<Ponuda>> getPonudeByOglasId(@PathVariable("id") String id){
+        List<Ponuda> ponude = this.ponudaService.findByOglasId(id);
+        return new ResponseEntity<List<Ponuda>>(ponude, HttpStatus.OK);
+    }
+
+    @RequestMapping(
             method = RequestMethod.POST,
             value = "/ponude",
             consumes = MediaType.APPLICATION_JSON_VALUE,

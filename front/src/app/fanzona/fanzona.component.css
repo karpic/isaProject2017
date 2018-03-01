@@ -1,11 +1,12 @@
 .fanzonaNav{
   /*width: 700px;
   display: block;*/
-
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   margin: 4em auto;
   grid-gap: 1em;
+  width: 100%;
 }
 
 .fanzonaNav div{

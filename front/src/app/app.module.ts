@@ -20,6 +20,8 @@ import { OglasService } from './oglas.service';
 import { EqualValidatorDirective } from './validate/equal-validator.directive';
 import { NoviOglasComponent } from './novi-oglas/novi-oglas.component';
 import { SvePonudeComponent } from './sve-ponude/sve-ponude.component';
+import { ApplicationDataSharingServiceService } from './services/application-data-sharing-service.service';
+
 
 
 
@@ -48,7 +50,8 @@ import { SvePonudeComponent } from './sve-ponude/sve-ponude.component';
     RekvizitService,
     KorisniciService,
     OglasService,
-    PonudeService
+    PonudeService,
+    ApplicationDataSharingServiceService
   ],
   bootstrap: [AppComponent]
 })

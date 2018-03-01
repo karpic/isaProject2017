@@ -12,9 +12,15 @@ const httpOptions = {
 @Injectable()
 export class PonudeService {
   private url = 'http://localhost:8080/ponude';
+  private baseServerUrl = 'http://localhost:8080';
 
   getPonude(): Observable<Ponuda[]>{
     return this.http.get<Ponuda[]>(this.url);
+  }
+
+  getPonudeByOglasId(oglasId: String): Observable<Ponuda[]>{
+    const url = `${this.baseServerUrl}/oglasi/${oglasId}/ponude`;
+    return this.http.get<Ponuda[]>(url);
   }
 
   insertPonuda(ponuda: Ponuda): Observable<Ponuda>{

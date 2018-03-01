@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.MediaType;
+import posetime.ponude.Ponuda;
+import posetime.ponude.PonudaService;
 
 import javax.print.attribute.standard.Media;
 import java.awt.*;

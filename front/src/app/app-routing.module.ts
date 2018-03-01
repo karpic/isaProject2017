@@ -4,10 +4,11 @@ import { ZvanicnaProdavnicaComponent } from './zvanicna-prodavnica/zvanicna-prod
 import { FanzonaComponent } from './fanzona/fanzona.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes, Router } from '@angular/router';
 import { NoviOglasComponent } from './novi-oglas/novi-oglas.component';
+import { SvePonudeComponent } from './sve-ponude/sve-ponude.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'prodavnica', component: ZvanicnaProdavnicaComponent},
   {path: 'oglasi', component: OglasiComponent},
   {path: 'novirekvizit', component: NoviRekvizitComponent},
-  {path: 'novioglas', component: NoviOglasComponent}
+  {path: 'novioglas', component: NoviOglasComponent},
+  {path: 'oglasi/:id/ponude', component: SvePonudeComponent}
 ]
 
 @NgModule({

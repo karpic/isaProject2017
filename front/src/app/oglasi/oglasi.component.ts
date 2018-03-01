@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { ApplicationDataSharingServiceService } from './../services/application-data-sharing-service.service';
 import { Ponuda } from './../models/ponuda';
 import { PonudeService } from './../services/ponude.service';
 import { Component, OnInit } from '@angular/core';
@@ -27,9 +29,16 @@ export class OglasiComponent implements OnInit {
                 };
     this.ponudeService.insertPonuda(ponuda as Ponuda).subscribe();
   }
+
+  prikaziSvePonudeOglasa(oglas: Oglas): void{
+    this.appDataSharing.oglas = oglas;
+
+  }
+
   constructor(
     private oglasiService: OglasService,
-    private ponudeService: PonudeService
+    private ponudeService: PonudeService,
+    private appDataSharing: ApplicationDataSharingServiceService
   ) { }
 
   ngOnInit() {

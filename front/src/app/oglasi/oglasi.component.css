@@ -1,8 +1,10 @@
 .main{
   display: grid;
+  box-sizing: border-box;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1em;
   margin: 0 auto;
+  width: 100%;
 }
 
 .oglas{

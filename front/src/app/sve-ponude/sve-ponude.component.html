@@ -1,3 +1,11 @@
-<p>
-  sve-ponude works!
-</p>
+<div class="main">
+  <div class="ponuda">
+    <h2>{{oglas.naziv}}</h2>
+
+    <ul>
+      <li *ngFor="let ponuda of ponude">
+        {{ponuda.iznos}}
+      </li>
+    </ul>
+  </div>
+</div>

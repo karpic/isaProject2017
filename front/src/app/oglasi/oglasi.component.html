@@ -7,7 +7,7 @@
     <p>Oglas traje do: {{oglas.datum | date}}</p>
     <hr>
     <div class="ponude">
-      <button>Sve ponude</button>
+      <button (click)="prikaziSvePonudeOglasa(oglas)" routerLink="/oglasi/{{oglas.id}}/ponude">Sve ponude</button>
     </div>
     <hr>
     <div>

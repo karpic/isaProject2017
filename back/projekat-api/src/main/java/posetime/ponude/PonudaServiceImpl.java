@@ -13,7 +13,14 @@ public class PonudaServiceImpl implements PonudaService{
     @Override
     public List<Ponuda> findAll() {
         List<Ponuda> ponude = this.ponudeRepository.findAll();
+
         return ponude;
+    }
+
+    @Override
+    public List<Ponuda> findByOglasId(String id) {
+         List<Ponuda> ponude = this.ponudeRepository.findByOglasId(id);
+         return ponude;
     }
 
     @Override
