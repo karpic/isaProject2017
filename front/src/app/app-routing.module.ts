@@ -1,3 +1,4 @@
+import { NovaPonudaComponent } from './nova-ponuda/nova-ponuda.component';
 import { NoviRekvizitComponent } from './novi-rekvizit/novi-rekvizit.component';
 import { OglasiComponent } from './oglasi/oglasi.component';
 import { ZvanicnaProdavnicaComponent } from './zvanicna-prodavnica/zvanicna-prodavnica.component';
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'oglasi', component: OglasiComponent},
   {path: 'novirekvizit', component: NoviRekvizitComponent},
   {path: 'novioglas', component: NoviOglasComponent},
-  {path: 'oglasi/:id/ponude', component: SvePonudeComponent}
+  {path: 'oglasi/:id/ponude', component: SvePonudeComponent},
+  {path: 'novaponuda', component: NovaPonudaComponent}
 ]
 
 @NgModule({

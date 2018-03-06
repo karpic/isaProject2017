@@ -70,13 +70,13 @@ public class RekvizitController {
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<TematskiRekvizit> updateRekvizit(@PathVariable("id") String id) throws Exception{
+    public ResponseEntity<TematskiRekvizit> updateRekvizit(@PathVariable("id") String id, @RequestBody TematskiRekvizit rekvizit) throws Exception{
         TematskiRekvizit rekvizitData = this.rekvizitService.findOne(id);
 
         if(rekvizitData == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        TematskiRekvizit updatedRekvizit = this.rekvizitService.update(rekvizitData);
+        TematskiRekvizit updatedRekvizit = this.rekvizitService.update(rekvizit);
         if (updatedRekvizit == null) {
             return new ResponseEntity<TematskiRekvizit>(
                     HttpStatus.INTERNAL_SERVER_ERROR);

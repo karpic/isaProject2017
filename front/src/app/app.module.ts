@@ -21,6 +21,7 @@ import { EqualValidatorDirective } from './validate/equal-validator.directive';
 import { NoviOglasComponent } from './novi-oglas/novi-oglas.component';
 import { SvePonudeComponent } from './sve-ponude/sve-ponude.component';
 import { ApplicationDataSharingServiceService } from './services/application-data-sharing-service.service';
+import { NovaPonudaComponent } from './nova-ponuda/nova-ponuda.component';
 
 
 
@@ -38,7 +39,8 @@ import { ApplicationDataSharingServiceService } from './services/application-dat
     NoviRekvizitComponent,
     EqualValidatorDirective,
     NoviOglasComponent,
-    SvePonudeComponent
+    SvePonudeComponent,
+    NovaPonudaComponent
   ],
   imports: [
     BrowserModule,

@@ -66,18 +66,27 @@ public class PonudeController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<Ponuda> updatePonuda(@PathVariable("id") String id) throws Exception{
+    public ResponseEntity<Ponuda> updatePonuda(@PathVariable("id") String id, @RequestBody Ponuda ponuda) throws Exception{
         Ponuda ponudaData = this.ponudaService.findOne(id);
 
         if(ponudaData == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        Ponuda updatedPonuda = this.ponudaService.update(ponudaData);
+        Ponuda updatedPonuda = this.ponudaService.update(ponuda);
         if (updatedPonuda == null) {
             return new ResponseEntity<Ponuda>(
                     HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
         return new ResponseEntity<>(updatedPonuda, HttpStatus.OK);
+    }
+
+    @RequestMapping(
+            method = RequestMethod.DELETE,
+            value = "/ponude/{id}"
+    )
+    public ResponseEntity<Ponuda> deletePonuda(@PathVariable("id") String id){
+        this.ponudaService.delete(id);
+        return new ResponseEntity<Ponuda>(HttpStatus.NO_CONTENT);
     }
 }

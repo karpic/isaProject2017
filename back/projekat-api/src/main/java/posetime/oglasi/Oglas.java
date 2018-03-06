@@ -13,7 +13,7 @@ public class Oglas {
     private String opis;
     private Date datum;
     private boolean odobren;
-
+    private String ownerUserName;
     protected Oglas(){
 
     }
@@ -63,5 +63,13 @@ public class Oglas {
 
     public void setOdobren(boolean odobren) {
         this.odobren = odobren;
+    }
+
+    public String getOwnerUserName() {
+        return ownerUserName;
+    }
+
+    public void setOwnerUserName(String ownerUserName) {
+        this.ownerUserName = ownerUserName;
     }
 }

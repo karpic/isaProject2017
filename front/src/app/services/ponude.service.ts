@@ -28,6 +28,23 @@ export class PonudeService {
       catchError(this.handleError<Ponuda>('insertPonuda'))
     );
   }
+
+  updatePonuda(ponuda: Ponuda): Observable<Ponuda>{
+    const id = typeof ponuda === 'string' ? ponuda : ponuda.id;
+    const url = `${this.url}/${id}`;
+    return this.http.put<Ponuda>(url, ponuda, httpOptions).pipe(
+      catchError(this.handleError<Ponuda>('updatePonuda'))
+    );
+  }
+
+  deletePonuda(ponuda: Ponuda | string): Observable<Ponuda> {
+    const id = typeof ponuda === 'string' ? ponuda : ponuda.id;
+    const url = `${this.url}/${id}`;
+
+    return this.http.delete<Ponuda>(url, httpOptions).pipe(
+      catchError(this.handleError<Ponuda>('deleteRekvizit'))
+    );
+  }
   constructor(private http: HttpClient) { }
 
   private handleError<T> (operation = 'operation', result?: T) {

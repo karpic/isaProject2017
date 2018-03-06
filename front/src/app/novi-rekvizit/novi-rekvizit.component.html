@@ -1,4 +1,4 @@
-<form class="noviRekvizit">
+<form class="noviRekvizit" *ngIf="!rekvizitToEdit">
   <input type="text" placeholder="Naziv tematskog rekvizita" #ime/>
   <textarea rows=10 placeholder="Opis tematskog rekvizita" #opis></textarea>>
   <input type="number" placeholder="Cena tematskog rekvizita" #cena>
@@ -6,3 +6,10 @@
   <button (click)="goBack()">Odustani</button>
 
 </form>
+
+<form class="noviRekvizit" *ngIf="rekvizitToEdit">
+    <input type="text" [(ngModel)]="rekvizitToEdit.ime" name="ime"/>
+    <textarea rows=10 [(ngModel)]="rekvizitToEdit.opis" name="opis"></textarea>>
+    <input type="number" [(ngModel)]="rekvizitToEdit.cena" name="cena">
+    <button (click)="updateRekvizit()">Sačuvaj</button>
+  </form>

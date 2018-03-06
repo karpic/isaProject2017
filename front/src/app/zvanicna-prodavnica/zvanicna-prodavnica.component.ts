@@ -9,6 +9,8 @@ import { Rekvizit } from '../models/rekvizit';
 })
 export class ZvanicnaProdavnicaComponent implements OnInit {
   rekviziti: Rekvizit[];
+  rekvizitToEdit: Rekvizit;
+  editFlag: boolean;
 
   getRekviziti(): void {
     this.rekvizitService.getRekviziti()
@@ -23,6 +25,12 @@ export class ZvanicnaProdavnicaComponent implements OnInit {
   updateRekvizitRezervisi(rekvizit: Rekvizit): void{
     rekvizit.rezervisan = true;
     this.rekvizitService.updateRekvizit(rekvizit).subscribe();
+  }
+
+  otvoriRekvizitUEditMode(rekvizit: Rekvizit): void{
+    this.rekvizitToEdit = rekvizit;
+    this.editFlag = true;
+    window.scrollTo(0,0);
   }
 
   constructor(private rekvizitService: RekvizitService) { }

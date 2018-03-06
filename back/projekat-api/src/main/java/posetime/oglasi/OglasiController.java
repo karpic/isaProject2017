@@ -61,13 +61,13 @@ public class OglasiController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<Oglas> updateOglas(@PathVariable("id") String id) throws Exception{
+    public ResponseEntity<Oglas> updateOglas(@PathVariable("id") String id, @RequestBody Oglas oglas) throws Exception{
         Oglas oglasData = this.oglasService.findOne(id);
 
         if(oglasData == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        Oglas updatedOglas = this.oglasService.update(oglasData);
+        Oglas updatedOglas = this.oglasService.update(oglas);
         if (updatedOglas == null) {
             return new ResponseEntity<Oglas>(
                     HttpStatus.INTERNAL_SERVER_ERROR);

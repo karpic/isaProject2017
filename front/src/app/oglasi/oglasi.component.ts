@@ -13,13 +13,15 @@ import { OglasService } from '../oglas.service';
 })
 export class OglasiComponent implements OnInit {
   oglasi: Oglas[];
+  oglasToEdit: Oglas;
+  editFlag: boolean;
 
   getOglasi(): void {
     this.oglasiService.getOglasi()
       .subscribe(oglasi => this.oglasi = oglasi);
   }
 
-  dodajPonudu(iznos: number, oglasId: String): void{
+  /*dodajPonudu(iznos: number, oglasId: String): void{
     var ponuda =
                 {
                   "userId": "tempUserId",
@@ -28,11 +30,26 @@ export class OglasiComponent implements OnInit {
                   "iznos": iznos
                 };
     this.ponudeService.insertPonuda(ponuda as Ponuda).subscribe();
-  }
+  }*/
 
   prikaziSvePonudeOglasa(oglas: Oglas): void{
     this.appDataSharing.oglas = oglas;
 
+  }
+
+  otvoriOglasUEditMode(oglas: Oglas): void{
+    this.oglasToEdit = oglas;
+    this.editFlag = true;
+    window.scrollTo(0,0);
+  }
+
+  deleteOglas(oglas: Oglas): void {
+    this.oglasi = this.oglasi.filter(o => o !== oglas);
+    this.oglasiService.deleteOglas(oglas).subscribe();
+  }
+
+  shareOglasId(oglas: Oglas): void{
+    this.appDataSharing.oglasId = oglas.id;
   }
 
   constructor(

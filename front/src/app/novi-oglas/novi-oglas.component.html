@@ -1,7 +1,16 @@
-<form class="noviOglas" #noviOglasForm = "ngForm">
-  <input type="text" placeholder="Naziv oglasa" [(ngModel)]="tempOglas.naziv" name="naziv">
-  <input type="text" placeholder="Opis oglasa" [(ngModel)]="tempOglas.opis" name="opis">
-  <input type="date" [(ngModel)]="tempOglas.datum" name="datum">
-  <button (click)="insertOglas()">Sačuvaj</button>
+
+<form class="noviOglas" *ngIf="!oglasToEdit">
+  <input type="text" placeholder="Naziv oglasa"  #naziv>
+  <input type="text" placeholder="Opis oglasa"  #opis>
+  <input type="date" #datum>
+  <button (click)="insertOglas(naziv.value, opis.value, datum.value)">Sačuvaj</button>
   <button (click)="goBack()">Odustani</button>
 </form>
+
+<form class="noviOglas" *ngIf="oglasToEdit">
+  <input type="text" [(ngModel)]="oglasToEdit.naziv" name="naziv">
+  <input type="text" [(ngModel)]="oglasToEdit.opis" name="opis">
+  <input type="date" [ngModel] ="oglasToEdit.datum | date:'yyyy-MM-dd'" name="datum" #datum>
+  <button (click)="updateOglas(datum.value)">Sačuvaj</button>
+</form>
+

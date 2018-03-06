@@ -4,5 +4,5 @@ export class Oglas {
   opis: String;
   datum: Date;
   odobren: boolean;
-
+  ownerUserName: string;
 }

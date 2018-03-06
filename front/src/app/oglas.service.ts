@@ -24,6 +24,23 @@ export class OglasService {
     );
   }
 
+  updateOglas(oglas: Oglas): Observable<Oglas>{
+    const id = typeof oglas === 'string' ? oglas : oglas.id;
+    const url = `${this.url}/${id}`;
+    return this.http.put<Oglas>(url, oglas, httpOptions).pipe(
+      catchError(this.handleError<Oglas>('updateOglas'))
+    );
+  }
+
+  deleteOglas(oglas: Oglas | string): Observable<Oglas> {
+    const id = typeof oglas === 'string' ? oglas : oglas.id;
+    const url = `${this.url}/${id}`;
+
+    return this.http.delete<Oglas>(url, httpOptions).pipe(
+      catchError(this.handleError<Oglas>('deleteRekvizit'))
+    );
+  }
+
   constructor(private http: HttpClient) { }
 
   private handleError<T> (operation = 'operation', result?: T) {

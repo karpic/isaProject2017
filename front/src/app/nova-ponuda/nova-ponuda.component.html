@@ -1,0 +1,10 @@
+<form class="novaPonuda" *ngIf="!ponudaToEdit">
+    <input type="text" placeholder="Iznos" #iznos>
+    <button (click)="dodajPonudu(iznos.value)">Dodaj ponudu</button>
+    <button (click)="goBack()">Nazad</button>
+</form>
+
+<form class="novaPonuda" *ngIf="ponudaToEdit">
+    <input type="text" [(ngModel)]="ponudaToEdit.iznos" name="iznos">
+    <button (click)="updatePonuda()">Izmeni ponudu</button>
+</form>

@@ -1,18 +1,24 @@
 <div class="main">
 
-  <div class="rekvizit" *ngFor="let r of rekviziti">
-    <h2>Naziv: {{r.ime}} </h2>
-    <p id="cena">Cena: {{r.cena}}</p>
-    <p>{{r.opis}}</p>
-    <div class="buttons">
-      <button *ngIf="!r.rezervisan; else elseBlock" (click)="updateRekvizitRezervisi(r)">Rezervisi</button>
-      <ng-template #elseBlock><button disabled="disabled">Rezervisano</button></ng-template>
+  <div class="mainRekviziti">
+      <div class="rekvizit" *ngFor="let r of rekviziti">
+          <h2>Naziv: {{r.ime}} </h2>
+          <p id="cena">Cena: {{r.cena}}</p>
+          <p>{{r.opis}}</p>
+          <div class="buttons">
+            <button *ngIf="!r.rezervisan; else elseBlock" (click)="updateRekvizitRezervisi(r)">Rezervisi</button>
+            <ng-template #elseBlock><button disabled="disabled">Rezervisano</button></ng-template>
 
-      <button id="buttonIzmeni">Izmeni</button>
-      <button (click)="deleteRekvizit(r)" id="obrisiButton">Obriši</button>
-    </div>
+            <button id="buttonIzmeni" (click)="otvoriRekvizitUEditMode(r)">Izmeni</button>
+            <button (click)="deleteRekvizit(r)" id="obrisiButton">Obriši</button>
+          </div>
 
 
+        </div>
+  </div>
+
+  <div class="editZona" *ngIf="editFlag">
+    <app-novi-rekvizit [rekvizitToEdit]="rekvizitToEdit"></app-novi-rekvizit>
   </div>
 
 </div>
