@@ -9,4 +9,5 @@ public interface RekvizitService {
     TematskiRekvizit create(TematskiRekvizit rekvizit) throws Exception;
     TematskiRekvizit update(TematskiRekvizit rekvizit) throws Exception;
     void delete(String id);
+
 }

@@ -2,6 +2,7 @@ package posetime.Korisnici;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import posetime.Korisnici.Role.Role;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class Korisnik {
     private String password;
     private String brtel;
     private String grad;
-    private String tip;
+    private List<Role> roles;
     private List<String> prijatelji;
     private List<String> zahtevi;
     private List<String> ponude;
@@ -26,19 +27,26 @@ public class Korisnik {
 
     }
 
-    public Korisnik(String ime, String prezime, String email, String password, String brtel, String grad, String tip, List<String> prijatelji, List<String> zahtevi, List<String> ponude, List<String> obavestenja) {
-
+    public Korisnik(String ime, String prezime, String email, String password, String brtel, String grad, List<Role> roles, List<String> prijatelji, List<String> zahtevi, List<String> ponude, List<String> obavestenja) {
         this.ime = ime;
         this.prezime = prezime;
         this.email = email;
         this.password = password;
         this.brtel = brtel;
         this.grad = grad;
-        this.tip = tip;
+        this.roles = roles;
         this.prijatelji = prijatelji;
         this.zahtevi = zahtevi;
         this.ponude = ponude;
         this.obavestenja = obavestenja;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
     public String getId() {
@@ -95,14 +103,6 @@ public class Korisnik {
 
     public void setGrad(String grad) {
         this.grad = grad;
-    }
-
-    public String getTip() {
-        return tip;
-    }
-
-    public void setTip(String tip) {
-        this.tip = tip;
     }
 
     public List<String> getPrijatelji() {
