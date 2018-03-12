@@ -41,7 +41,7 @@ public class KorisnikController {
 
     @RequestMapping(
             method = RequestMethod.POST,
-            value = "/korisnici",
+            value = "/register",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
 

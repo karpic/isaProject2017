@@ -1,9 +1,11 @@
 package posetime.obavestenja;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ObavestenjaServiceImpl implements ObavestenjaService {
     @Autowired
     private ObavestenjaRepository obavestenjaRepository;

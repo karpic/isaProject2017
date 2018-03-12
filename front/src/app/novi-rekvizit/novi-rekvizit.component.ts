@@ -10,14 +10,14 @@ import { Location } from '@angular/common';
 export class NoviRekvizitComponent implements OnInit {
   @Input() rekvizitToEdit: Rekvizit;
 
-  dodajRekvizit(ime: String, opis: String, cena: number, rezervisan: boolean): void{
+  dodajRekvizit(ime: String, opis: String, cena: number, rezervisan: boolean): void {
 
     this.rekvizitService.insertRekvizit( {ime, opis, cena, rezervisan } as Rekvizit).subscribe();
     this.goBack();
 
   }
 
-  updateRekvizit(){
+  updateRekvizit() {
     this.rekvizitService.updateRekvizit(this.rekvizitToEdit).subscribe();
   }
 

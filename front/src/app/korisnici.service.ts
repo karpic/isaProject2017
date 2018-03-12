@@ -12,7 +12,7 @@ const httpOptions = {
 @Injectable()
 export class KorisniciService {
 
-  private url = 'http://localhost:8080/korisnici';
+  private url = 'http://localhost:8080/register';
 
   insertKorisnik(korisnik: Korisnik): Observable<Korisnik> {
     return this.http.post<Korisnik>(this.url, korisnik, httpOptions).pipe(

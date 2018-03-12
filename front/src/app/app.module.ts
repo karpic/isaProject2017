@@ -1,3 +1,5 @@
+import { Interceptor } from './login/core/interceptor';
+import { TokenStorage } from './login/core/token.storage';
 import { PonudeService } from './services/ponude.service';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,7 +15,7 @@ import { FanzonaComponent } from './fanzona/fanzona.component';
 import { ZvanicnaProdavnicaComponent } from './zvanicna-prodavnica/zvanicna-prodavnica.component';
 import { OglasiComponent } from './oglasi/oglasi.component';
 import { RekvizitService } from './rekvizit.service';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NoviRekvizitComponent } from './novi-rekvizit/novi-rekvizit.component';
 import { KorisniciService } from './korisnici.service';
 import { OglasService } from './oglas.service';
@@ -22,8 +24,7 @@ import { NoviOglasComponent } from './novi-oglas/novi-oglas.component';
 import { SvePonudeComponent } from './sve-ponude/sve-ponude.component';
 import { ApplicationDataSharingServiceService } from './services/application-data-sharing-service.service';
 import { NovaPonudaComponent } from './nova-ponuda/nova-ponuda.component';
-
-
+import { AuthService } from './login/core/auth.service';
 
 
 @NgModule({
@@ -53,7 +54,14 @@ import { NovaPonudaComponent } from './nova-ponuda/nova-ponuda.component';
     KorisniciService,
     OglasService,
     PonudeService,
-    ApplicationDataSharingServiceService
+    ApplicationDataSharingServiceService,
+    TokenStorage,
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Interceptor,
+      multi : true
+    }
   ],
   bootstrap: [AppComponent]
 })
