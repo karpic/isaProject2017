@@ -10,6 +10,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes, Router } from '@angular/router';
 import { NoviOglasComponent } from './novi-oglas/novi-oglas.component';
 import { SvePonudeComponent } from './sve-ponude/sve-ponude.component';
+import { BioskopiComponent } from './bioskopi/bioskopi.component';
+import { PozoristaComponent } from './pozorista/pozorista.component';
+import { RepertoarComponent } from './repertoar/repertoar.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -20,7 +23,11 @@ const routes: Routes = [
   {path: 'novirekvizit', component: NoviRekvizitComponent},
   {path: 'novioglas', component: NoviOglasComponent},
   {path: 'oglasi/:id/ponude', component: SvePonudeComponent},
-  {path: 'novaponuda', component: NovaPonudaComponent}
+  {path: 'novaponuda', component: NovaPonudaComponent},
+  {path: 'bioskopi', component: BioskopiComponent},
+  {path: 'pozorista', component: PozoristaComponent},
+  {path: 'repertoar', component: RepertoarComponent}
+  
 ]
 
 @NgModule({

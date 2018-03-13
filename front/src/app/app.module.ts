@@ -25,6 +25,9 @@ import { SvePonudeComponent } from './sve-ponude/sve-ponude.component';
 import { ApplicationDataSharingServiceService } from './services/application-data-sharing-service.service';
 import { NovaPonudaComponent } from './nova-ponuda/nova-ponuda.component';
 import { AuthService } from './login/core/auth.service';
+import { BioskopiComponent } from './bioskopi/bioskopi.component';
+import { PozoristaComponent } from './pozorista/pozorista.component';
+import { RepertoarComponent } from './repertoar/repertoar.component';
 
 
 @NgModule({
@@ -41,7 +44,10 @@ import { AuthService } from './login/core/auth.service';
     EqualValidatorDirective,
     NoviOglasComponent,
     SvePonudeComponent,
-    NovaPonudaComponent
+    NovaPonudaComponent,
+    BioskopiComponent,
+    PozoristaComponent,
+    RepertoarComponent
   ],
   imports: [
     BrowserModule,
