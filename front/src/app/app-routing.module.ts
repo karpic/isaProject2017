@@ -13,6 +13,7 @@ import { SvePonudeComponent } from './sve-ponude/sve-ponude.component';
 import { BioskopiComponent } from './bioskopi/bioskopi.component';
 import { PozoristaComponent } from './pozorista/pozorista.component';
 import { RepertoarComponent } from './repertoar/repertoar.component';
+import { RepertoarPozoristaComponent } from './repertoar-pozorista/repertoar-pozorista.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -26,7 +27,9 @@ const routes: Routes = [
   {path: 'novaponuda', component: NovaPonudaComponent},
   {path: 'bioskopi', component: BioskopiComponent},
   {path: 'pozorista', component: PozoristaComponent},
-  {path: 'repertoar', component: RepertoarComponent}
+  {path: 'repertoar', component: RepertoarComponent},
+  {path: 'repertoar-pozorista', component: RepertoarPozoristaComponent}
+  
   
 ]
 

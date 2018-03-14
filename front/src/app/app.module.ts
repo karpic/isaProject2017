@@ -28,6 +28,7 @@ import { AuthService } from './login/core/auth.service';
 import { BioskopiComponent } from './bioskopi/bioskopi.component';
 import { PozoristaComponent } from './pozorista/pozorista.component';
 import { RepertoarComponent } from './repertoar/repertoar.component';
+import { RepertoarPozoristaComponent } from './repertoar-pozorista/repertoar-pozorista.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { RepertoarComponent } from './repertoar/repertoar.component';
     NovaPonudaComponent,
     BioskopiComponent,
     PozoristaComponent,
-    RepertoarComponent
+    RepertoarComponent,
+    RepertoarPozoristaComponent
   ],
   imports: [
     BrowserModule,
