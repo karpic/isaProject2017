@@ -8,11 +8,11 @@ import { Rekvizit } from '../models/rekvizit';
   styleUrls: ['./zvanicna-prodavnica.component.css']
 })
 export class ZvanicnaProdavnicaComponent implements OnInit {
-  rekviziti: Rekvizit[];
+  selectedRekvizit: Rekvizit;
   rekvizitToEdit: Rekvizit;
   editFlag: boolean;
 
-  getRekviziti(): void {
+  /* getRekviziti(): void {
     this.rekvizitService.getRekviziti()
       .subscribe(rekviziti => this.rekviziti = rekviziti);
   }
@@ -20,23 +20,23 @@ export class ZvanicnaProdavnicaComponent implements OnInit {
   deleteRekvizit(rekvizit: Rekvizit): void {
     this.rekviziti = this.rekviziti.filter(r => r !== rekvizit);
     this.rekvizitService.deleteRekvizit(rekvizit).subscribe();
-  }
+  } */
 
-  updateRekvizitRezervisi(rekvizit: Rekvizit): void{
+  updateRekvizitRezervisi(rekvizit: Rekvizit): void {
     rekvizit.rezervisan = true;
     this.rekvizitService.updateRekvizit(rekvizit).subscribe();
   }
 
-  otvoriRekvizitUEditMode(rekvizit: Rekvizit): void{
+  otvoriRekvizitUEditMode(rekvizit: Rekvizit): void {
     this.rekvizitToEdit = rekvizit;
     this.editFlag = true;
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }
 
   constructor(private rekvizitService: RekvizitService) { }
 
   ngOnInit() {
-    this.getRekviziti();
+    /* this.getRekviziti(); */
   }
 
 }

@@ -20,8 +20,9 @@ public class TematskiRekvizit {
     private String opis;
     private int cena;
     private boolean rezervisan;
+    private String imgLocation;
 
-    public TematskiRekvizit(){
+    public TematskiRekvizit() {
 
     }
 
@@ -60,5 +61,13 @@ public class TematskiRekvizit {
 
     public String getOpis() {
         return opis;
+    }
+
+    public String getImgLocation() {
+        return imgLocation;
+    }
+
+    public void setImgLocation(String imgLocation) {
+        this.imgLocation = imgLocation;
     }
 }

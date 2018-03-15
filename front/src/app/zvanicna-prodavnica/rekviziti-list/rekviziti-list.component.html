@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="btn btn-success">
+      Novi rekvizit
+    </div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-rekvizit-item *ngFor="let rekvizit of rekviziti" [rekvizitItem]="rekvizit" (rekvizitSelected)="onRekvizitSelected(rekvizit)"></app-rekvizit-item>
+  </div>
+</div>

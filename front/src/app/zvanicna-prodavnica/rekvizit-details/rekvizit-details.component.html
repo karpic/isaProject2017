@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-xs-12">
+    <img [src]="rekvizitToDisplay.imgLocation" alt="" class="img-responsive" style="max-height: 100px;">
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>Ime rekvizita: {{rekvizitToDisplay.ime}}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary dropdown-toggle">Uredi rekvizit
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="#">Izmeni rekvizit</a>
+        </li>
+        <li>
+          <a href="#">Obrisi rekvizit</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    {{rekvizitToDisplay.opis}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    Cena: {{rekvizitToDisplay.cena}}
+  </div>
+</div>

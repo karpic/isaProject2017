@@ -1,7 +1,11 @@
 export class Rekvizit {
-  id: string;
-  ime: string;
-  opis: string;
-  cena: number;
-  rezervisan: boolean;
+  constructor(
+    public id: string,
+    public ime: string,
+    public opis: string,
+    public cena: number,
+    public rezervisan: boolean,
+    public imgLocation: string
+  ) { }
+
 }

@@ -29,6 +29,9 @@ import { BioskopiComponent } from './bioskopi/bioskopi.component';
 import { PozoristaComponent } from './pozorista/pozorista.component';
 import { RepertoarComponent } from './repertoar/repertoar.component';
 import { RepertoarPozoristaComponent } from './repertoar-pozorista/repertoar-pozorista.component';
+import { RekvizitiListComponent } from './zvanicna-prodavnica/rekviziti-list/rekviziti-list.component';
+import { RekvizitItemComponent } from './zvanicna-prodavnica/rekviziti-list/rekvizit-item/rekvizit-item.component';
+import { RekvizitDetailsComponent } from './zvanicna-prodavnica/rekvizit-details/rekvizit-details.component';
 
 
 @NgModule({
@@ -49,7 +52,10 @@ import { RepertoarPozoristaComponent } from './repertoar-pozorista/repertoar-poz
     BioskopiComponent,
     PozoristaComponent,
     RepertoarComponent,
-    RepertoarPozoristaComponent
+    RepertoarPozoristaComponent,
+    RekvizitiListComponent,
+    RekvizitItemComponent,
+    RekvizitDetailsComponent
   ],
   imports: [
     BrowserModule,
