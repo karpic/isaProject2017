@@ -40,6 +40,7 @@ public class OglasServiceImpl implements OglasService {
         oglasToUpdate.setDatum(oglas.getDatum());
         oglasToUpdate.setOdobren(oglas.isOdobren());
         oglasToUpdate.setOwnerUserName(oglas.getOwnerUserName());
+        oglasToUpdate.setImgPath(oglas.getImgPath());
 
         Oglas updatedOglas = this.oglasiRepository.save(oglasToUpdate);
         return updatedOglas;

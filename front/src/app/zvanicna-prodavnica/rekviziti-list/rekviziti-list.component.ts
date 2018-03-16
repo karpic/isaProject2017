@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Rekvizit } from '../../models/rekvizit';
 import { RekvizitService } from '../../rekvizit.service';
 
@@ -11,12 +11,13 @@ import { RekvizitService } from '../../rekvizit.service';
 export class RekvizitiListComponent implements OnInit {
   @Output() rekvizitWasSelected: EventEmitter<any> = new EventEmitter<Rekvizit>();
   rekviziti: Rekvizit[];
-  constructor(private rekvizitService: RekvizitService) { }
 
   getRekviziti(): void {
     this.rekvizitService.getRekviziti()
       .subscribe(rekviziti => this.rekviziti = rekviziti);
   }
+
+  constructor(private rekvizitService: RekvizitService) { }
 
   ngOnInit() {
     this.getRekviziti();

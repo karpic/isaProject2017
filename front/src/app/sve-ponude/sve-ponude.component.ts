@@ -11,30 +11,26 @@ import { Location } from '@angular/common';
   styleUrls: ['./sve-ponude.component.css']
 })
 export class SvePonudeComponent implements OnInit {
-  ponude: Ponuda[];
-  oglas: Oglas;
+
   editFlag: boolean;
   ponudaToEdit: Ponuda;
 
-  getPonudeForOglas(): void{
-    this.ponudeService.getPonudeByOglasId(this.oglas.id)
-      .subscribe(ponude => this.ponude = ponude);
-  }
 
-  goBack(): void{
+
+  goBack(): void {
     this.location.back();
   }
 
-  otvoriPonudaUEditMode(ponuda: Ponuda): void{
+  otvoriPonudaUEditMode(ponuda: Ponuda): void {
     this.ponudaToEdit = ponuda;
     this.editFlag = true;
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }
 
-  deletePonuda(ponuda: Ponuda){
+  /* deletePonuda(ponuda: Ponuda){
     this.ponude = this.ponude.filter(p => p !== ponuda);
     this.ponudeService.deletePonuda(ponuda).subscribe();
-  }
+  } */
 
   constructor(
     private applicationDataSharing: ApplicationDataSharingServiceService,
@@ -43,8 +39,8 @@ export class SvePonudeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.oglas = this.applicationDataSharing.oglas;
-    this.getPonudeForOglas();
+    /* this.oglas = this.applicationDataSharing.oglas;
+    this.getPonudeForOglas(); */
   }
 
 }

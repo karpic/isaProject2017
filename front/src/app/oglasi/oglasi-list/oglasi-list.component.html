@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="btn btn-success">
+      Novi oglas
+    </div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-oglas-item *ngFor="let oglas of oglasi" [oglasItem]="oglas" (oglasSelected)="oglasSelected(oglas)"></app-oglas-item>
+  </div>
+</div>

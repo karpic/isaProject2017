@@ -1,0 +1,9 @@
+<a class="list-group-item clearfix" (click)="onSelected()">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{oglasItem.naziv}}</h4>
+    <p class="list-group-item-text">Traje do: {{oglasItem.datum | date}}</p>
+  </div>
+  <span class="pull-right">
+    <img src="{{oglasItem.imgPath}}" alt="" class="img-responsive" style="max-height:50px;">
+  </span>
+</a>

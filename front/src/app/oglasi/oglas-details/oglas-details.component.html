@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-xs-12">
+    <img [src]="oglasToDisplay.imgPath" alt="" class="img-responsive" style="max-height: 250px;">
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>Ime oglasa: {{oglasToDisplay.naziv}}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary dropdown-toggle">Uredi rekvizit
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="#">Izmeni rekvizit</a>
+        </li>
+        <li>
+          <a href="#">Obrisi rekvizit</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    {{oglasToDisplay.opis}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    Traje do: {{oglasToDisplay.datum | date}}
+  </div>
+</div>

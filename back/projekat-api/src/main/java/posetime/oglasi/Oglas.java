@@ -14,6 +14,7 @@ public class Oglas {
     private Date datum;
     private boolean odobren;
     private String ownerUserName;
+    private String imgPath;
     protected Oglas(){
 
     }
@@ -71,5 +72,13 @@ public class Oglas {
 
     public void setOwnerUserName(String ownerUserName) {
         this.ownerUserName = ownerUserName;
+    }
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
     }
 }

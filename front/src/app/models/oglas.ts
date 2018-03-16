@@ -1,8 +1,11 @@
 export class Oglas {
-  id: String;
-  naziv: String;
-  opis: String;
-  datum: Date;
-  odobren: boolean;
-  ownerUserName: string;
+  constructor(
+    public id: String,
+    public naziv: String,
+    public opis: String,
+    public datum: Date,
+    public odobren: boolean,
+    public ownerUserName: string,
+    public imgPath: string
+  ) { }
 }

@@ -1,7 +1,9 @@
 export class Ponuda {
-  id: string;
-  userId: string;
-  userName: string;
-  oglasId: string;
-  iznos: number;
+  constructor(
+    public id: string,
+    public userId: string,
+    public userName: string,
+    public oglasId: string,
+    public iznos: number
+  ) { }
 }

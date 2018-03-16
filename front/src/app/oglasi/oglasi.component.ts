@@ -1,9 +1,9 @@
+import { Oglas } from './../models/oglas';
 import { Router } from '@angular/router';
 import { ApplicationDataSharingServiceService } from './../services/application-data-sharing-service.service';
 import { Ponuda } from './../models/ponuda';
 import { PonudeService } from './../services/ponude.service';
 import { Component, OnInit } from '@angular/core';
-import { Oglas } from '../models/oglas';
 import { OglasService } from '../oglas.service';
 
 @Component({
@@ -12,14 +12,11 @@ import { OglasService } from '../oglas.service';
   styleUrls: ['./oglasi.component.css']
 })
 export class OglasiComponent implements OnInit {
-  oglasi: Oglas[];
+  selectedOglas: Oglas;
   oglasToEdit: Oglas;
   editFlag: boolean;
 
-  getOglasi(): void {
-    this.oglasiService.getOglasi()
-      .subscribe(oglasi => this.oglasi = oglasi);
-  }
+
 
   /*dodajPonudu(iznos: number, oglasId: String): void{
     var ponuda =
@@ -32,23 +29,23 @@ export class OglasiComponent implements OnInit {
     this.ponudeService.insertPonuda(ponuda as Ponuda).subscribe();
   }*/
 
-  prikaziSvePonudeOglasa(oglas: Oglas): void{
+  prikaziSvePonudeOglasa(oglas: Oglas): void {
     this.appDataSharing.oglas = oglas;
 
   }
 
-  otvoriOglasUEditMode(oglas: Oglas): void{
+  otvoriOglasUEditMode(oglas: Oglas): void {
     this.oglasToEdit = oglas;
     this.editFlag = true;
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }
 
-  deleteOglas(oglas: Oglas): void {
+  /* deleteOglas(oglas: Oglas): void {
     this.oglasi = this.oglasi.filter(o => o !== oglas);
     this.oglasiService.deleteOglas(oglas).subscribe();
-  }
+  } */
 
-  shareOglasId(oglas: Oglas): void{
+  shareOglasId(oglas: Oglas): void {
     this.appDataSharing.oglasId = oglas.id;
   }
 
@@ -59,7 +56,7 @@ export class OglasiComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getOglasi();
+    /* this.getOglasi(); */
   }
 
 }

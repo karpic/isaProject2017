@@ -1,27 +1,12 @@
-<div class="main">
-  <div class="mainOglasi">
-    <div class="oglas" *ngFor="let oglas of oglasi">
-      <h2>{{oglas.naziv}}</h2>
-      <hr>
-      <p>{{oglas.opis}}</p>
-      <hr>
-      <p>Oglas traje do: {{oglas.datum | date}}</p>
-      <hr>
-      <div class="ponude">
-        <button (click)="prikaziSvePonudeOglasa(oglas)" routerLink="/oglasi/{{oglas.id}}/ponude">Sve ponude</button>
-        <button (click)="otvoriOglasUEditMode(oglas)">Izmeni</button>
-        <button (click)="deleteOglas(oglas)">Obrisi</button>
-      </div>
-      <hr>
-      <button routerLink="/novaponuda" (click)="shareOglasId(oglas)">Dodaj ponudu</button>
-
-      <hr>
-
-
-    </div>
+<div class="row">
+  <div class="col-md-5">
+    <app-oglasi-list (oglasWasSelected)="selectedOglas = $event"></app-oglasi-list>
   </div>
-      <div class="editZona" *ngIf="editFlag">
-        <app-novi-oglas [oglasToEdit]="oglasToEdit" *ngIf="editFlag"></app-novi-oglas>
-      </div>
+  <div class="col-md-7">
+    <app-oglas-details *ngIf="selectedOglas; else infoText" [oglasToDisplay]="selectedOglas"></app-oglas-details>
+    <ng-template #infoText>
+      <p>Selektuj oglas za detalje!</p>
+    </ng-template>
+    <app-ponude *ngIf="selectedOglas" [oglas]="selectedOglas"></app-ponude>
+  </div>
 </div>
-
