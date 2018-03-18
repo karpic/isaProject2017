@@ -1,42 +1,23 @@
-<div class="fanzonaNav">
-  <div>
-    <p>Dodajte novi oglas. Nakon dodavanja novog oglasa možete prikupljati ponude do zadatog
-      datuma. Kada vreme istekne možete izabrati jednu zadovoljavajuću ponudu.
-    </p>
-    <hr>
-    <button routerLink="/novioglas">Novi oglas</button>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <ul class="nav nav-tabs">
+        <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <a routerLink="prodavnica">Zvanični rekviziti</a>
+        </li>
+        <li role="presentation" routerLinkActive="active">
+          <a routerLink="oglasi">Oglasi</a>
+        </li>
+        <li role="presentation">
+          <a routerLink="">Fan zona admin</a>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div>
-    <p>Pregled aktivnih vaših aktivnih oglasa. Možete pregledati koliko imate aktivnih oglasa,
-      izmeniti ih ili ukloniti. Takođe možete pregledati ponude drugih korisnika na vaše oglase.
-    </p>
-    <hr>
-    <button>Aktivni oglasi</button>
-  </div>
-  <div>
-    <p>Pregled zvaničnih tematskih rekvizita koji su u prodaji na blagajnama pozorišta ili
-      bioskopa. Moguće je rezervisati neki od rekvizita putem sajta.<br>
-    </p>
-    <hr>
-    <button routerLink="/prodavnica">Zvanicna prodavnica</button>
-  </div>
-
-  <div>
-    <p>Pregled svih oglasa koji su postavili korisnici sajta. Moguće je postavljati ponude
-      na željene oglase. Ukoliko vlasnik oglasa bude zadovoljan vašom ponudom i odabere je, bićete
-      obavešteni.
-    </p>
-    <hr>
-    <button routerLink="/oglasi">Oglasi</button>
-  </div>
-
-  <div>
-    <p>Prijavljeni ste kao administrator fan zone. Možete da dodajete nove tematske rekvizite koje
-      korisnici mogu da rezervišu i preuzmu na blagajnama pozorišta ili bioskopa.
-    </p>
-    <hr>
-    <button routerLink="/novirekvizit">(Admin)Dodaj rekvizit</button>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
-
 

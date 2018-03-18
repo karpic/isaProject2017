@@ -18,19 +18,19 @@ import { RepertoarPozoristaComponent } from './repertoar-pozorista/repertoar-poz
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'fanzona', component: FanzonaComponent},
-  {path: 'prodavnica', component: ZvanicnaProdavnicaComponent},
-  {path: 'oglasi', component: OglasiComponent},
+  {path: 'fanzona', component: FanzonaComponent, children: [
+    {path: 'prodavnica', component: ZvanicnaProdavnicaComponent},
+    {path: 'oglasi', component: OglasiComponent}
+  ]},
   {path: 'novirekvizit', component: NoviRekvizitComponent},
   {path: 'novioglas', component: NoviOglasComponent},
-  {path: 'oglasi/:id/ponude', component: SvePonudeComponent},
   {path: 'novaponuda', component: NovaPonudaComponent},
   {path: 'bioskopi', component: BioskopiComponent},
   {path: 'pozorista', component: PozoristaComponent},
   {path: 'repertoar', component: RepertoarComponent},
   {path: 'repertoar-pozorista', component: RepertoarPozoristaComponent}
-  
-  
+
+
 ]
 
 @NgModule({
