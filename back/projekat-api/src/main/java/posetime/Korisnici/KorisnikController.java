@@ -48,10 +48,10 @@ public class KorisnikController {
     )
     public ResponseEntity<Korisnik> insert(@RequestBody Korisnik korisnik) {
             List<Role> roles = new ArrayList<Role>();
-            roles.add(roleService.findByName(RoleNames.ROLE_USER));
+            roles.add(roleService.findByName(RoleNames.ROLE_ADMIN));
             korisnik.setRoles(roles);
             Korisnik k = korisnikService.insert(korisnik);
-            roleService.addUser(RoleNames.ROLE_USER,korisnik);
+            roleService.addUser(RoleNames.ROLE_ADMIN,korisnik);
             return new ResponseEntity<Korisnik>(k,HttpStatus.OK);
     }
 }

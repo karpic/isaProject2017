@@ -1,13 +1,16 @@
 package posetime.Korisnici;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import posetime.Korisnici.Role.Role;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -54,10 +57,16 @@ public class KorisnikServiceImpl implements UserDetailsService,KorisnikService {
         if(korisnik == null) {
             throw new UsernameNotFoundException("Invalid username or password.");
         }
-        return new org.springframework.security.core.userdetails.User(korisnik.getEmail(), korisnik.getPassword(), getAuthority());
+        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+
+        for(Role r: korisnik.getRoles()) {
+            authorities.add(new SimpleGrantedAuthority(r.getRoleName().toString()));
+        }
+
+        UserDetails userDetails = new org.springframework.security.core.userdetails.
+                User(korisnik.getEmail(), korisnik.getPassword(), authorities);
+
+        return userDetails;
     }
 
-    private List<SimpleGrantedAuthority> getAuthority() {
-        return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
-    }
 }
