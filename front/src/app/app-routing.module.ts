@@ -1,3 +1,4 @@
+import { OglasEditComponent } from './oglasi/oglas-edit/oglas-edit.component';
 import { NovaPonudaComponent } from './nova-ponuda/nova-ponuda.component';
 import { NoviRekvizitComponent } from './novi-rekvizit/novi-rekvizit.component';
 import { OglasiComponent } from './oglasi/oglasi.component';
@@ -20,10 +21,10 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'fanzona', component: FanzonaComponent, children: [
     {path: 'prodavnica', component: ZvanicnaProdavnicaComponent},
-    {path: 'oglasi', component: OglasiComponent}
+    {path: 'oglasi', component: OglasiComponent},
+    {path: 'novioglas', component: OglasEditComponent}
   ]},
   {path: 'novirekvizit', component: NoviRekvizitComponent},
-  {path: 'novioglas', component: NoviOglasComponent},
   {path: 'novaponuda', component: NovaPonudaComponent},
   {path: 'bioskopi', component: BioskopiComponent},
   {path: 'pozorista', component: PozoristaComponent},

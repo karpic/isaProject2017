@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+        <div id="user-data">
+          <div class="form-group">
+            <label for="naziv">Naziv</label>
+            <input type="text" id="naziv" class="form-control" name="naziv" required ngModel #nazivLocalRef="ngModel">
+            <span class="help-block" *ngIf="!nazivLocalRef.valid && nazivLocalRef.touched">Naziv oglasa je obavezan!</span>
+          </div>
+          <div class="form-group">
+            <label for="opis">Opis</label>
+            <input type="text" id="opis" name="opis" class="form-control" required ngModel #opisLocalRef="ngModel">
+            <span class="help-block" *ngIf="!opisLocalRef.valid && opisLocalRef.touched">Opis oglasa je obavezan!</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="datum">Datum</label>
+          <input type="date" id="datum" name="datum" required ngModel #datumLocalRef="ngModel">
+          <span class="help-block" *ngIf="!datumLocalRef.valid && datumLocalRef.touched">Datum isteka oglasa je obavezan!</span>
+        </div>
+        <div class="form-group">
+          <label for="slika">Slika(link)</label>
+          <input type="text" id="slika" name="slika" class="form-control" ngModel>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Objavi</button>
+        <button type="button" class="btn btn-warning" (click)="onResetClick()">Resetuj</button>
+        <button type="button" class="btn btn-danger" (click)="goBack()">Nazad</button>
+      </form>
+    </div>
+  </div>
+</div>

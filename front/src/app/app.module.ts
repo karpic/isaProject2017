@@ -36,6 +36,7 @@ import { OglasiListComponent } from './oglasi/oglasi-list/oglasi-list.component'
 import { OglasItemComponent } from './oglasi/oglasi-list/oglas-item/oglas-item.component';
 import { OglasDetailsComponent } from './oglasi/oglas-details/oglas-details.component';
 import { PonudeComponent } from './oglasi/ponude/ponude.component';
+import { OglasEditComponent } from './oglasi/oglas-edit/oglas-edit.component';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { PonudeComponent } from './oglasi/ponude/ponude.component';
     OglasiListComponent,
     OglasItemComponent,
     OglasDetailsComponent,
-    PonudeComponent
+    PonudeComponent,
+    OglasEditComponent
   ],
   imports: [
     BrowserModule,
