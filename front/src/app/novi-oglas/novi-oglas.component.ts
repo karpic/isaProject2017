@@ -1,3 +1,4 @@
+import { Oglas } from './../models/oglas';
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Oglas } from '../models/oglas';
