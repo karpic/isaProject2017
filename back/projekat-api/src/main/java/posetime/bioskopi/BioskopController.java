@@ -24,7 +24,7 @@ public class BioskopController {
     }
     @RequestMapping(
             method = RequestMethod.GET,
-            value = "/korisnici",
+            value ="/bioskopi",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<List<Bioskop>> getAll() {
