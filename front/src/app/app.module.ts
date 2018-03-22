@@ -36,6 +36,7 @@ import { OglasDetailsComponent } from './oglasi/oglas-details/oglas-details.comp
 import { PonudeComponent } from './oglasi/ponude/ponude.component';
 import { OglasEditComponent } from './oglasi/oglas-edit/oglas-edit.component';
 import { RekvizitEditComponent } from './zvanicna-prodavnica/rekvizit-edit/rekvizit-edit.component';
+import { AdminFanzonaComponent } from './admin-fanzona/admin-fanzona.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { RekvizitEditComponent } from './zvanicna-prodavnica/rekvizit-edit/rekvi
     OglasDetailsComponent,
     PonudeComponent,
     OglasEditComponent,
-    RekvizitEditComponent
+    RekvizitEditComponent,
+    AdminFanzonaComponent
   ],
   imports: [
     BrowserModule,

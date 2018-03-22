@@ -1,3 +1,4 @@
+import { AdminFanzonaComponent } from './admin-fanzona/admin-fanzona.component';
 import { RekvizitEditComponent } from './zvanicna-prodavnica/rekvizit-edit/rekvizit-edit.component';
 import { NoviRekvizit } from './models/novi-rekvizit';
 import { OglasEditComponent } from './oglasi/oglas-edit/oglas-edit.component';
@@ -23,7 +24,9 @@ const routes: Routes = [
     {path: 'prodavnica', component: ZvanicnaProdavnicaComponent},
     {path: 'oglasi', component: OglasiComponent},
     {path: 'novioglas', component: OglasEditComponent},
-    {path: 'novirekvizit', component: RekvizitEditComponent}
+    {path: 'admin', component: AdminFanzonaComponent, children: [
+      {path: 'novirekvizit', component: RekvizitEditComponent}
+    ]}
   ]},
   {path: 'novaponuda', component: NovaPonudaComponent},
   {path: 'bioskopi', component: BioskopiComponent},
