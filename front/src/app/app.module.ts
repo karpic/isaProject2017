@@ -16,7 +16,6 @@ import { ZvanicnaProdavnicaComponent } from './zvanicna-prodavnica/zvanicna-prod
 import { OglasiComponent } from './oglasi/oglasi.component';
 import { RekvizitService } from './rekvizit.service';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NoviRekvizitComponent } from './novi-rekvizit/novi-rekvizit.component';
 import { KorisniciService } from './korisnici.service';
 import { OglasService } from './oglas.service';
 import { EqualValidatorDirective } from './validate/equal-validator.directive';
@@ -36,7 +35,7 @@ import { OglasItemComponent } from './oglasi/oglasi-list/oglas-item/oglas-item.c
 import { OglasDetailsComponent } from './oglasi/oglas-details/oglas-details.component';
 import { PonudeComponent } from './oglasi/ponude/ponude.component';
 import { OglasEditComponent } from './oglasi/oglas-edit/oglas-edit.component';
-
+import { RekvizitEditComponent } from './zvanicna-prodavnica/rekvizit-edit/rekvizit-edit.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +47,6 @@ import { OglasEditComponent } from './oglasi/oglas-edit/oglas-edit.component';
     FanzonaComponent,
     ZvanicnaProdavnicaComponent,
     OglasiComponent,
-    NoviRekvizitComponent,
     EqualValidatorDirective,
     SvePonudeComponent,
     NovaPonudaComponent,
@@ -63,7 +61,8 @@ import { OglasEditComponent } from './oglasi/oglas-edit/oglas-edit.component';
     OglasItemComponent,
     OglasDetailsComponent,
     PonudeComponent,
-    OglasEditComponent
+    OglasEditComponent,
+    RekvizitEditComponent
   ],
   imports: [
     BrowserModule,

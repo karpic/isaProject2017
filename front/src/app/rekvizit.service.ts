@@ -1,3 +1,4 @@
+import { NoviRekvizit } from './models/novi-rekvizit';
 import { Rekvizit } from './models/rekvizit';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
@@ -18,9 +19,9 @@ export class RekvizitService {
     return this.http.get<Rekvizit[]>(this.url);
   }
 
-  insertRekvizit(rekvizit: Rekvizit): Observable<Rekvizit>{
-    return this.http.post<Rekvizit>(this.url, rekvizit, httpOptions).pipe(
-      catchError(this.handleError<Rekvizit>('insertRekvizit'))
+  insertRekvizit(rekvizit: NoviRekvizit): Observable<NoviRekvizit>{
+    return this.http.post<NoviRekvizit>(this.url, rekvizit, httpOptions).pipe(
+      catchError(this.handleError<NoviRekvizit>('insertRekvizit'))
     );
   }
 

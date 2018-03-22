@@ -1,3 +1,4 @@
+import { NoviOglas } from './../../models/novi-oglas';
 import { OglasService } from './../../oglas.service';
 import { Location } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -11,7 +12,7 @@ import { Oglas } from '../../models/oglas';
 })
 export class OglasEditComponent implements OnInit {
   @ViewChild('form') oglasForm: NgForm;
-
+  noviOglas: NoviOglas = new NoviOglas("", "", new Date(), false, "", "");
   constructor(private location: Location,
               private oglasiService: OglasService
   ) { }
@@ -20,20 +21,13 @@ export class OglasEditComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    var oglasToSubmit: {
-      naziv: '',
-      opis: '',
-      datum: '',
-      odobren: false,
-      ownerUsername: 'tempUsername',
-      imgPath: ''
-    };
 
-    oglasToSubmit.naziv = this.oglasForm.value.naziv;
-    oglasToSubmit.opis = this.oglasForm.value.opis;
-    oglasToSubmit.datum = this.oglasForm.value.datum;
-    oglasToSubmit.imgPath = this.oglasForm.value.slika;
-    /* this.oglasiService.insertOglas(oglasToSubmit as Oglas).subscribe(); */
+
+    this.noviOglas.naziv = this.oglasForm.value.naziv;
+    this.noviOglas.opis = this.oglasForm.value.opis;
+    this.noviOglas.datum = this.oglasForm.value.datum;
+    this.noviOglas.imgPath = this.oglasForm.value.slika;
+    this.oglasiService.insertOglas(this.noviOglas as NoviOglas).subscribe();
     this.goBack();
   }
 

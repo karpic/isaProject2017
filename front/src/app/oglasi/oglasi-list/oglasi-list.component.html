@@ -8,6 +8,8 @@
 <hr>
 <div class="row">
   <div class="col-xs-12">
-    <app-oglas-item *ngFor="let oglas of oglasi" [oglasItem]="oglas" (oglasSelected)="oglasSelected(oglas)"></app-oglas-item>
+    <ng-container *ngFor="let oglas of oglasi">
+        <app-oglas-item  *ngIf="oglas.odobren" [oglasItem]="oglas" (oglasSelected)="oglasSelected(oglas)"></app-oglas-item>
+    </ng-container>
   </div>
 </div>

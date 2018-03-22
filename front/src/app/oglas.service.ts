@@ -1,3 +1,4 @@
+import { NoviOglas } from './models/novi-oglas';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -18,9 +19,9 @@ export class OglasService {
     return this.http.get<Oglas[]>(this.url);
   }
 
-  insertOglas(oglas: Oglas): Observable<Oglas>{
-    return this.http.post<Oglas>(this.url, oglas, httpOptions).pipe(
-      catchError(this.handleError<Oglas>('insertOglas'))
+  insertOglas(oglas: NoviOglas): Observable<NoviOglas>{
+    return this.http.post<NoviOglas>(this.url, oglas, httpOptions).pipe(
+      catchError(this.handleError<NoviOglas>('insertOglas'))
     );
   }
 
