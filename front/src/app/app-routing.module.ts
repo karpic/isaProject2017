@@ -9,7 +9,6 @@ import { LoginComponent } from './login/login.component';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes, Router } from '@angular/router';
-import { NoviOglasComponent } from './novi-oglas/novi-oglas.component';
 import { SvePonudeComponent } from './sve-ponude/sve-ponude.component';
 import { BioskopiComponent } from './bioskopi/bioskopi.component';
 import { PozoristaComponent } from './pozorista/pozorista.component';

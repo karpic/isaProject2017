@@ -11,17 +11,7 @@
 <div class="row">
   <div class="col-xs-12">
     <div class="btn-group">
-      <button type="button" class="btn btn-primary dropdown-toggle">Uredi rekvizit
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li>
-          <a href="#">Izmeni rekvizit</a>
-        </li>
-        <li>
-          <a href="#">Obrisi rekvizit</a>
-        </li>
-      </ul>
+      <button class="btn btn-primary" (click)="onRezervisiClick()" #rezervisiBtn [disabled]="rekvizitToDisplay.rezervisan">Rezerviši</button>
     </div>
   </div>
 </div>

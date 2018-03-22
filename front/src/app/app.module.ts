@@ -20,7 +20,6 @@ import { NoviRekvizitComponent } from './novi-rekvizit/novi-rekvizit.component';
 import { KorisniciService } from './korisnici.service';
 import { OglasService } from './oglas.service';
 import { EqualValidatorDirective } from './validate/equal-validator.directive';
-import { NoviOglasComponent } from './novi-oglas/novi-oglas.component';
 import { SvePonudeComponent } from './sve-ponude/sve-ponude.component';
 import { ApplicationDataSharingServiceService } from './services/application-data-sharing-service.service';
 import { NovaPonudaComponent } from './nova-ponuda/nova-ponuda.component';
@@ -51,7 +50,6 @@ import { OglasEditComponent } from './oglasi/oglas-edit/oglas-edit.component';
     OglasiComponent,
     NoviRekvizitComponent,
     EqualValidatorDirective,
-    NoviOglasComponent,
     SvePonudeComponent,
     NovaPonudaComponent,
     BioskopiComponent,

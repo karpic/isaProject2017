@@ -11,18 +11,20 @@
 <div class="row">
   <div class="col-xs-12">
     <div class="btn-group">
-      <button type="button" class="btn btn-primary dropdown-toggle">Uredi rekvizit
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li>
-          <a href="#">Izmeni rekvizit</a>
-        </li>
-        <li>
-          <a href="#">Obrisi rekvizit</a>
-        </li>
-      </ul>
+      <button class="btn btn-primary" [hidden]="!ponudaFormActive" (click)="togglePonudaForm()">Dodaj ponudu</button>
     </div>
+  </div>
+</div>
+<div class="row" [hidden]="ponudaFormActive">
+  <div class="col-xs-12">
+    <form #ponudaForm="ngForm" (ngSubmit)="onPonudaSubmit(ponudaForm)">
+      <div class="form-group">
+        <label for="iznos">Iznos vaše ponude</label>
+        <input type="text" id="iznos" class="form-control" name="iznos" required ngModel #iznosPonude="ngModel">
+        <span class="help-block" *ngIf="!iznosPonude.valid && iznosPonude.touched">Morate da unesete iznos ponude!</span>
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="!ponudaForm.valid">Dodaj ponudu</button>
+    </form>
   </div>
 </div>
 <div class="row">

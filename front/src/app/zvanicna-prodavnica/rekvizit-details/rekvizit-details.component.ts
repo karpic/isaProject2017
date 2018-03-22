@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { RekvizitService } from './../../rekvizit.service';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { Rekvizit } from '../../models/rekvizit';
 
 @Component({
@@ -8,10 +9,15 @@ import { Rekvizit } from '../../models/rekvizit';
 })
 export class RekvizitDetailsComponent implements OnInit {
   @Input() rekvizitToDisplay: Rekvizit;
-
-  constructor() { }
+  @ViewChild('rezervisiBtn') rezervisiBtn: ElementRef;
+  constructor(private rekvizitiService: RekvizitService) { }
 
   ngOnInit() {
+  }
+
+  onRezervisiClick() {
+    this.rekvizitToDisplay.rezervisan = true;
+    this.rekvizitiService.updateRekvizit(this.rekvizitToDisplay).subscribe();
   }
 
 }
