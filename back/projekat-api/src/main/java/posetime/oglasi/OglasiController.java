@@ -30,6 +30,26 @@ public class OglasiController {
     }
 
     @RequestMapping(
+            value = "/oglasi/odobreni",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<List<Oglas>> getOdobreni(){
+        List<Oglas> odobreniOglasi = this.oglasService.findByOdobren(true);
+        return new ResponseEntity<List<Oglas>>(odobreniOglasi, HttpStatus.OK);
+    }
+
+    @RequestMapping(
+            value = "/oglasi/neodobreni",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<List<Oglas>> getNeodobreni(){
+        List<Oglas> neodobreniOglasi = this.oglasService.findByOdobren(false);
+        return new ResponseEntity<List<Oglas>>(neodobreniOglasi, HttpStatus.OK);
+    }
+
+    @RequestMapping(
             method = RequestMethod.GET,
             value = "/oglasi/{id}",
             produces = MediaType.APPLICATION_JSON_VALUE

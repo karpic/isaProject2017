@@ -17,6 +17,12 @@ public class OglasServiceImpl implements OglasService {
     }
 
     @Override
+    public List<Oglas> findByOdobren(boolean odobren) {
+        List<Oglas> odobreniOglasi = this.oglasiRepository.findByOdobren(odobren);
+        return odobreniOglasi;
+    }
+
+    @Override
     public Oglas findOne(String id) {
         Oglas oglas = this.oglasiRepository.findOne(id);
         return oglas;
