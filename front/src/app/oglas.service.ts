@@ -14,9 +14,23 @@ const httpOptions = {
 @Injectable()
 export class OglasService {
   private url = 'http://localhost:8080/oglasi';
+  private urlNeodobreni = 'http://localhost:8080/oglasi/neodobreni';
+  private urlOdobreni = 'http://localhost:8080/oglasi/odobreni';
 
   getOglasi(): Observable<Oglas[]>{
     return this.http.get<Oglas[]>(this.url);
+  }
+
+  getOglas(oglasId: string): Observable<Oglas>{
+    return this.http.get<Oglas>(this.url+'/'+oglasId);
+  }
+
+  getNeodobreni(): Observable<Oglas[]>{
+    return this.http.get<Oglas[]>(this.urlNeodobreni);
+  }
+
+  getOdobreni(): Observable<Oglas[]>{
+    return this.http.get<Oglas[]>(this.urlOdobreni);
   }
 
   insertOglas(oglas: NoviOglas): Observable<NoviOglas>{

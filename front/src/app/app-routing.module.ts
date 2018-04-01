@@ -1,3 +1,5 @@
+import { PregledPonudaComponent } from './pregled-ponuda/pregled-ponuda.component';
+import { NeodobreniOglasiComponent } from './admin-fanzona/neodobreni-oglasi/neodobreni-oglasi.component';
 import { AdminFanzonaComponent } from './admin-fanzona/admin-fanzona.component';
 import { RekvizitEditComponent } from './zvanicna-prodavnica/rekvizit-edit/rekvizit-edit.component';
 import { NoviRekvizit } from './models/novi-rekvizit';
@@ -25,10 +27,11 @@ const routes: Routes = [
     {path: 'oglasi', component: OglasiComponent},
     {path: 'novioglas', component: OglasEditComponent},
     {path: 'admin', component: AdminFanzonaComponent, children: [
-      {path: 'novirekvizit', component: RekvizitEditComponent}
+      {path: 'novirekvizit', component: RekvizitEditComponent},
+      {path: 'neodobreni', component: NeodobreniOglasiComponent}
     ]}
   ]},
-  {path: 'novaponuda', component: NovaPonudaComponent},
+  {path: 'ponude/:userId', component: PregledPonudaComponent},
   {path: 'bioskopi', component: BioskopiComponent},
   {path: 'pozorista', component: PozoristaComponent},
   {path: 'repertoar', component: RepertoarComponent},

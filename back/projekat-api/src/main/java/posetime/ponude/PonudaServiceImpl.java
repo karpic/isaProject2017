@@ -24,6 +24,12 @@ public class PonudaServiceImpl implements PonudaService{
     }
 
     @Override
+    public List<Ponuda> findByUserId(String id) {
+        List<Ponuda> ponudeForUser = this.ponudeRepository.findByUserId(id);
+        return ponudeForUser;
+    }
+
+    @Override
     public Ponuda findOne(String id) {
         Ponuda ponuda = this.ponudeRepository.findOne(id);
         return ponuda;

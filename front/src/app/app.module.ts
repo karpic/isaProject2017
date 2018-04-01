@@ -37,6 +37,8 @@ import { PonudeComponent } from './oglasi/ponude/ponude.component';
 import { OglasEditComponent } from './oglasi/oglas-edit/oglas-edit.component';
 import { RekvizitEditComponent } from './zvanicna-prodavnica/rekvizit-edit/rekvizit-edit.component';
 import { AdminFanzonaComponent } from './admin-fanzona/admin-fanzona.component';
+import { NeodobreniOglasiComponent } from './admin-fanzona/neodobreni-oglasi/neodobreni-oglasi.component';
+import { PregledPonudaComponent } from './pregled-ponuda/pregled-ponuda.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import { AdminFanzonaComponent } from './admin-fanzona/admin-fanzona.component';
     PonudeComponent,
     OglasEditComponent,
     RekvizitEditComponent,
-    AdminFanzonaComponent
+    AdminFanzonaComponent,
+    NeodobreniOglasiComponent,
+    PregledPonudaComponent
   ],
   imports: [
     BrowserModule,

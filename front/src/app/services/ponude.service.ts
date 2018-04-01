@@ -23,6 +23,11 @@ export class PonudeService {
     return this.http.get<Ponuda[]>(url);
   }
 
+  getPonudeByUserId(userId: String): Observable<Ponuda[]>{
+    const url = `${this.baseServerUrl}/ponude/korisnik/${userId}`;
+    return this.http.get<Ponuda[]>(url);
+
+  }
   insertPonuda(ponuda: Ponuda): Observable<Ponuda>{
     return this.http.post<Ponuda>(this.url, ponuda, httpOptions).pipe(
       catchError(this.handleError<Ponuda>('insertPonuda'))

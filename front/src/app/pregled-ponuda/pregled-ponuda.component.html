@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-5">
+    <a class="list-group-item clearfix" *ngFor="let ponuda of ponude" (click)="onPonudaSelect(ponuda)">
+      <div class="pull-left">
+        <h4 class="list-group-item-heading">{{ponuda.oglasId}}</h4>
+        <p class="list-group-item-text">{{ponuda.iznos}}</p>
+      </div>
+      <span class="pull-right">
+        <button class="btn btn-primary">Izmeni</button>
+        <button class="btn btn-danger">Obrisi</button>
+      </span>
+    </a>
+  </div>
+  <div class="col-md-7" *ngIf="displayedOglas; else poruka">
+    <h1>{{displayedOglas.naziv}}</h1>
+    <p>{{displayedOglas.opis}}</p>
+    <img [src]="displayedOglas.imgPath" alt="Slika oglasa" width="150">
+  </div>
+  <ng-template #poruka>
+    <p>Selektujte ponudu da vidite detalje!</p>
+  </ng-template>
+</div>
