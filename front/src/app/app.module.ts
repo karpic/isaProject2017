@@ -39,6 +39,7 @@ import { RekvizitEditComponent } from './zvanicna-prodavnica/rekvizit-edit/rekvi
 import { AdminFanzonaComponent } from './admin-fanzona/admin-fanzona.component';
 import { NeodobreniOglasiComponent } from './admin-fanzona/neodobreni-oglasi/neodobreni-oglasi.component';
 import { PregledPonudaComponent } from './pregled-ponuda/pregled-ponuda.component';
+import { RekvizitiComponent } from './admin-fanzona/rekviziti/rekviziti.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { PregledPonudaComponent } from './pregled-ponuda/pregled-ponuda.componen
     RekvizitEditComponent,
     AdminFanzonaComponent,
     NeodobreniOglasiComponent,
-    PregledPonudaComponent
+    PregledPonudaComponent,
+    RekvizitiComponent
   ],
   imports: [
     BrowserModule,

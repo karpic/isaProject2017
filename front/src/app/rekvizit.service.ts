@@ -19,6 +19,10 @@ export class RekvizitService {
     return this.http.get<Rekvizit[]>(this.url);
   }
 
+  getRekvizit(id: string): Observable<Rekvizit>{
+    return this.http.get<Rekvizit>(this.url+'/'+id);
+  }
+
   insertRekvizit(rekvizit: NoviRekvizit): Observable<NoviRekvizit>{
     return this.http.post<NoviRekvizit>(this.url, rekvizit, httpOptions).pipe(
       catchError(this.handleError<NoviRekvizit>('insertRekvizit'))

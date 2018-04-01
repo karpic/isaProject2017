@@ -6,17 +6,30 @@
         <p class="list-group-item-text">{{ponuda.iznos}}</p>
       </div>
       <span class="pull-right">
-        <button class="btn btn-primary">Izmeni</button>
-        <button class="btn btn-danger">Obrisi</button>
+        <button class="btn btn-danger" (click)="deletePonuda(ponuda)">Obrisi</button>
+        <button class="btn btn-primary" (click)="editPonudaDisplayed = !editPonudaDisplayed">Izmeni</button>
       </span>
     </a>
+
+
   </div>
   <div class="col-md-7" *ngIf="displayedOglas; else poruka">
     <h1>{{displayedOglas.naziv}}</h1>
     <p>{{displayedOglas.opis}}</p>
     <img [src]="displayedOglas.imgPath" alt="Slika oglasa" width="150">
+    <ng-template #poruka>
+      <p>Selektujte ponudu da vidite detalje!</p>
+    </ng-template>
+    <div *ngIf="editPonudaDisplayed">
+      <form #ponudaForm="ngForm" (ngSubmit)="onPonudaEdit(ponudaForm)">
+        <div class="form-group">
+          <label for="iznos">Iznos vaše ponude</label>
+          <input type="number" id="iznos" class="form-control" name="iznos" required ngModel #iznosPonude="ngModel" [(ngModel)]="selectedPonuda.iznos">
+          <span class="help-block" *ngIf="!iznosPonude.valid && iznosPonude.touched">Morate da unesete iznos ponude!</span>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!ponudaForm.valid">Izmeni ponudu</button>
+      </form>
+    </div>
   </div>
-  <ng-template #poruka>
-    <p>Selektujte ponudu da vidite detalje!</p>
-  </ng-template>
+
 </div>

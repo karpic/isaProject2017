@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Ponuda } from '../models/ponuda';
 import { Oglas } from '../models/oglas';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-pregled-ponuda',
@@ -14,6 +15,8 @@ export class PregledPonudaComponent implements OnInit {
   userId: String;
   ponude: Ponuda[];
   displayedOglas: Oglas;
+  editPonudaDisplayed = false;
+  selectedPonuda: Ponuda;
 
   getPonudeForUser() {
     this.ponudeServie.getPonudeByUserId(this.userId).subscribe(
@@ -25,6 +28,17 @@ export class PregledPonudaComponent implements OnInit {
     this.oglasiService.getOglas(ponuda.oglasId).subscribe(
       (oglas) => this.displayedOglas = oglas
     );
+    this.selectedPonuda = ponuda;
+  }
+
+  deletePonuda(ponuda: Ponuda) {
+    this.ponudeServie.deletePonuda(ponuda).subscribe();
+    this.ponude = this.ponude.filter(p => p !== ponuda);
+  }
+
+  onPonudaEdit() {
+    this.ponudeServie.updatePonuda(this.selectedPonuda).subscribe();
+    this.editPonudaDisplayed = false;
   }
 
   constructor(

@@ -18,6 +18,7 @@ import { BioskopiComponent } from './bioskopi/bioskopi.component';
 import { PozoristaComponent } from './pozorista/pozorista.component';
 import { RepertoarComponent } from './repertoar/repertoar.component';
 import { RepertoarPozoristaComponent } from './repertoar-pozorista/repertoar-pozorista.component';
+import { RekvizitiComponent } from './admin-fanzona/rekviziti/rekviziti.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -28,7 +29,9 @@ const routes: Routes = [
     {path: 'novioglas', component: OglasEditComponent},
     {path: 'admin', component: AdminFanzonaComponent, children: [
       {path: 'novirekvizit', component: RekvizitEditComponent},
-      {path: 'neodobreni', component: NeodobreniOglasiComponent}
+      {path: 'neodobreni', component: NeodobreniOglasiComponent},
+      {path: 'rekviziti', component: RekvizitiComponent},
+      {path: 'rekvizit/:rekvizitId', component: RekvizitEditComponent}
     ]}
   ]},
   {path: 'ponude/:userId', component: PregledPonudaComponent},

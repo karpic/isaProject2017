@@ -1,5 +1,5 @@
 
-  <div class="row">
+  <div class="row" *ngIf="!rekvizitToEdit">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <form #noviRekvizitForm="ngForm" (ngSubmit)="onNoviRekvizitSubmit(noviRekvizitForm)">
         <div class="form-group">
@@ -26,6 +26,37 @@
         </div>
 
         <button type="submit" class="btn btn-primary" [disabled]="!noviRekvizitForm.valid">Dodaj</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="rekvizitToEdit">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form #editRekvizitForm="ngForm" (ngSubmit)="onEidtRekvizitSubmit()">
+        <div class="form-group">
+          <label for="naziv">Naziv rekvizita</label>
+          <input type="text" id="naziv" name="naziv" class="form-control" required ngModel #rekNaziv="ngModel" [(ngModel)]="rekvizitToEdit.ime">
+          <span class="help-block" *ngIf="!rekNaziv.valid && rekNaziv.touched">Naziv rekvizita je obavezan!</span>
+        </div>
+
+        <div class="form-group">
+          <label for="opis">Opis rekvizita</label>
+          <input type="text" id="opis" name="opis" class="form-control" required ngModel #rekOpis="ngModel" [(ngModel)]="rekvizitToEdit.opis">
+          <span class="help-block" *ngIf="!rekOpis.valid && rekOpis.touched">Opis rekvizita!</span>
+        </div>
+
+        <div class="form-group">
+          <label for="cena">Cena rekvizita</label>
+          <input type="number" id="cena" name="cena" class="form-control" required ngModel #rekCena="ngModel" [(ngModel)]="rekvizitToEdit.cena">
+          <span class="help-block" *ngIf="!rekCena.valid && rekCena.touched">Cena rekvizita je obavezna!</span>
+        </div>
+
+        <div class="form-group">
+          <label for="slika">Slika rekvizita(Opciono)</label>
+          <input type="text" id="slika" name="slika" class="form-control" ngModel #rekSlika="ngModel" [(ngModel)]="rekvizitToEdit.imgLocation">
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!editRekvizitForm.valid">Dodaj</button>
       </form>
     </div>
   </div>
