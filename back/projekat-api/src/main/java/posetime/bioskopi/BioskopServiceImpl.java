@@ -12,6 +12,15 @@ public class BioskopServiceImpl implements BioskopService {
 
     @Override
     public List<Bioskop> findAll(){
-        return bioskopRepository.findAll();
+        List<Bioskop> bioskop = this.bioskopRepository.findAll();
+        return bioskop;
     }
+
+    @Override
+    public Bioskop findOne(String id){
+        Bioskop bioskop = this.bioskopRepository.findOne(id);
+        return bioskop;
+    }
+
+
 }

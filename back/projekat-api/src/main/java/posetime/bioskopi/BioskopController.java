@@ -1,14 +1,10 @@
 package posetime.bioskopi;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,8 +24,22 @@ public class BioskopController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<List<Bioskop>> getAll() {
-        List<Bioskop> bioksopi = bioskopService.findAll();
-        return new ResponseEntity<List<Bioskop>>(bioksopi, HttpStatus.OK);
+        List<Bioskop> bioskopi = this.bioskopService.findAll();
+        return new ResponseEntity<List<Bioskop>>(bioskopi, HttpStatus.OK);
     }
+
+    @RequestMapping(
+            method = RequestMethod.GET,
+            value ="/bioskopi/{id]",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Bioskop> geBioskopi(@PathVariable ("id") String id) {
+        Bioskop bioskopi = this.bioskopService.findOne(id);
+        if(bioskopi == null){
+            return new ResponseEntity<Bioskop>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<Bioskop>(bioskopi, HttpStatus.OK);
+    }
+
 
 }
