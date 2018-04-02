@@ -41,5 +41,15 @@ public class BioskopController {
         return new ResponseEntity<Bioskop>(bioskopi, HttpStatus.OK);
     }
 
+    @RequestMapping(
+            method = RequestMethod.POST,
+            value = "/bioskopi",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Bioskop> insertBioskop(@RequestBody Bioskop bioskop) throws Exception{
+        Bioskop createdBioskop  = this.bioskopService.create(bioskop);
+        return new ResponseEntity<Bioskop>(createdBioskop, HttpStatus.CREATED);
+    }
 
 }

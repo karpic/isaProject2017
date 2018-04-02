@@ -40,6 +40,9 @@ import { AdminFanzonaComponent } from './admin-fanzona/admin-fanzona.component';
 import { NeodobreniOglasiComponent } from './admin-fanzona/neodobreni-oglasi/neodobreni-oglasi.component';
 import { PregledPonudaComponent } from './pregled-ponuda/pregled-ponuda.component';
 import { RekvizitiComponent } from './admin-fanzona/rekviziti/rekviziti.component';
+import { AdminSistemComponent } from './admin-sistem/admin-sistem.component';
+import { BioskopEditComponent } from './admin-sistem/bioskop-edit/bioskop-edit.component';
+import { PozoristeEditComponent } from './admin-sistem/pozoriste-edit/pozoriste-edit.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +73,10 @@ import { RekvizitiComponent } from './admin-fanzona/rekviziti/rekviziti.componen
     AdminFanzonaComponent,
     NeodobreniOglasiComponent,
     PregledPonudaComponent,
-    RekvizitiComponent
+    RekvizitiComponent,
+    AdminSistemComponent,
+    BioskopEditComponent,
+    PozoristeEditComponent
   ],
   imports: [
     BrowserModule,

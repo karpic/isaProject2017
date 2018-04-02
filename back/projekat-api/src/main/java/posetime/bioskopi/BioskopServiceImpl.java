@@ -22,5 +22,11 @@ public class BioskopServiceImpl implements BioskopService {
         return bioskop;
     }
 
+    @Override
+    public Bioskop create(Bioskop bioskop) throws Exception {
+        Bioskop savedBioskop = this.bioskopRepository.insert(bioskop);
+        return savedBioskop;
+    }
+
 
 }

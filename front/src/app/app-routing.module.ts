@@ -1,3 +1,4 @@
+import { AdminSistemComponent } from './admin-sistem/admin-sistem.component';
 import { PregledPonudaComponent } from './pregled-ponuda/pregled-ponuda.component';
 import { NeodobreniOglasiComponent } from './admin-fanzona/neodobreni-oglasi/neodobreni-oglasi.component';
 import { AdminFanzonaComponent } from './admin-fanzona/admin-fanzona.component';
@@ -35,6 +36,7 @@ const routes: Routes = [
     ]}
   ]},
   {path: 'ponude/:userId', component: PregledPonudaComponent},
+  {path: 'sysadmin', component: AdminSistemComponent},
   {path: 'bioskopi', component: BioskopiComponent},
   {path: 'pozorista', component: PozoristaComponent},
   {path: 'repertoar', component: RepertoarComponent},

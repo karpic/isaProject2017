@@ -1,0 +1,25 @@
+<div class="row" *ngIf="!rekvizitToEdit">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <form #noviBioskopForm="ngForm" (ngSubmit)="onNoviBioskopSubmit(noviBioskopForm)">
+      <div class="form-group">
+        <label for="naziv">Naziv bioskopa</label>
+        <input type="text" id="naziv" name="naziv" class="form-control" required ngModel #bioskopNaziv="ngModel">
+        <span class="help-block" *ngIf="!bioskopNaziv.valid && bioskopNaziv.touched">Naziv bioskopa je obavezan!</span>
+      </div>
+
+      <div class="form-group">
+        <label for="adresa">Adresa bioskopa</label>
+        <input type="text" id="adresa" name="adresa" class="form-control" required ngModel #bioskopAdresa="ngModel">
+        <span class="help-block" *ngIf="!bioskopAdresa.valid && bioskopAdresa.touched">Adresa bioskopa je obavezna!</span>
+      </div>
+
+      <div class="form-group">
+        <label for="cena">Opis bioskopa</label>
+        <input type="number" id="cena" name="cena" class="form-control" required ngModel #rekCena="ngModel">
+        <span class="help-block" *ngIf="!rekCena.valid && rekCena.touched">Opis bioskopa je obavezan!</span>
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="!noviBioskopForm.valid">Dodaj</button>
+    </form>
+  </div>
+</div>

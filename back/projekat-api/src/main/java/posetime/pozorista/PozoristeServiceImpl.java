@@ -12,4 +12,11 @@ public class PozoristeServiceImpl implements PozoristeService {
 
     @Override
     public List<Pozoriste> findAll() {return pozoristeRepository.findAll();}
+
+    @Override
+    public Pozoriste create(Pozoriste pozoriste) throws Exception {
+        Pozoriste createdPozoriste = this.pozoristeRepository.insert(pozoriste);
+        return createdPozoriste;
+    }
 }
+
