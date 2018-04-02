@@ -5,8 +5,8 @@ export class NoviBioskop {
         public naziv: string,
         public adresa: string,
         public opis: string,
-        public repertoar: ArrayType,
-        public brmesta: ArrayType
+        public repertoar: Array<String>,
+        public brmesta: Array<String>
 
     ){}
 }

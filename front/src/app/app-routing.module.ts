@@ -1,3 +1,4 @@
+import { NoviBioskop } from './models/novi-bioskop.model';
 import { AdminSistemComponent } from './admin-sistem/admin-sistem.component';
 import { PregledPonudaComponent } from './pregled-ponuda/pregled-ponuda.component';
 import { NeodobreniOglasiComponent } from './admin-fanzona/neodobreni-oglasi/neodobreni-oglasi.component';
@@ -20,6 +21,8 @@ import { PozoristaComponent } from './pozorista/pozorista.component';
 import { RepertoarComponent } from './repertoar/repertoar.component';
 import { RepertoarPozoristaComponent } from './repertoar-pozorista/repertoar-pozorista.component';
 import { RekvizitiComponent } from './admin-fanzona/rekviziti/rekviziti.component';
+import { BioskopEditComponent } from './admin-sistem/bioskop-edit/bioskop-edit.component';
+import { PozoristeEditComponent } from './admin-sistem/pozoriste-edit/pozoriste-edit.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -36,7 +39,10 @@ const routes: Routes = [
     ]}
   ]},
   {path: 'ponude/:userId', component: PregledPonudaComponent},
-  {path: 'sysadmin', component: AdminSistemComponent},
+  {path: 'sysadmin', component: AdminSistemComponent, children: [
+    {path: 'novibioskop', component: BioskopEditComponent},
+    {path: 'novopozoriste', component: PozoristeEditComponent}
+  ]},
   {path: 'bioskopi', component: BioskopiComponent},
   {path: 'pozorista', component: PozoristaComponent},
   {path: 'repertoar', component: RepertoarComponent},

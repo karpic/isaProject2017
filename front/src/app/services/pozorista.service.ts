@@ -1,7 +1,6 @@
-import { NoviBioskop } from './models/novi-bioskop.model';
+import { NovoPozoriste } from './../models/novo-pozoriste.model';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Bioskopi } from './models/bioskopi';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -11,18 +10,12 @@ const httpOptions = {
 };
 
 @Injectable()
-export class BioskopiService {
+export class PozoristeService {
+  private url = 'http://localhost:8080/pozoriste';
 
-  private url = 'http://localhost:8080/bioskopi';
-
-  getBioskopi(): Observable<Bioskopi[]>{
-    return this.http.get<Bioskopi[]>(this.url);
-
-  }
-
-  insertBioskop(bioskop: NoviBioskop): Observable<NoviBioskop>{
-    return this.http.post<NoviBioskop>(this.url, bioskop, httpOptions).pipe(
-      catchError(this.handleError<NoviBioskop>('insertBioskop'))
+  insertPozoriste(pozoriste: NovoPozoriste): Observable<NovoPozoriste>{
+    return this.http.post<NovoPozoriste>(this.url, pozoriste, httpOptions).pipe(
+      catchError(this.handleError<NovoPozoriste>('insertPozoriste'))
     );
   }
 

@@ -1,3 +1,5 @@
+import { PozoristeService } from './services/pozorista.service';
+import { BioskopiService } from './bioskopi.service';
 import { Interceptor } from './login/core/interceptor';
 import { TokenStorage } from './login/core/token.storage';
 import { PonudeService } from './services/ponude.service';
@@ -44,6 +46,7 @@ import { AdminSistemComponent } from './admin-sistem/admin-sistem.component';
 import { BioskopEditComponent } from './admin-sistem/bioskop-edit/bioskop-edit.component';
 import { PozoristeEditComponent } from './admin-sistem/pozoriste-edit/pozoriste-edit.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,6 +88,8 @@ import { PozoristeEditComponent } from './admin-sistem/pozoriste-edit/pozoriste-
     HttpClientModule
   ],
   providers: [
+    BioskopiService,
+    PozoristeService,
     RekvizitService,
     KorisniciService,
     OglasService,

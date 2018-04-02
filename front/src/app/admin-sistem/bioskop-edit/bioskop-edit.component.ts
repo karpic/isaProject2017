@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { NoviBioskop } from './../../models/novi-bioskop.model';
 import { Component, OnInit } from '@angular/core';
 import { BioskopiService } from '../../bioskopi.service';
@@ -9,17 +10,24 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./bioskop-edit.component.css']
 })
 export class BioskopEditComponent implements OnInit {
-  noviBioskop: NoviBioskop;
+  noviBioskop: NoviBioskop = new NoviBioskop("","","",[], []);
 
   onNoviBioskopSubmit(forma: NgForm) {
     this.noviBioskop.naziv = forma.value.naziv;
     this.noviBioskop.adresa = forma.value.adresa;
     this.noviBioskop.opis = forma.value.opis;
-
+    this.noviBioskop.repertoar = [];
+    this.noviBioskop.brmesta = [];
+    this.bioskopiService.insertBioskop(this.noviBioskop).subscribe();
+    forma.reset();
+    this.location.back();
 
   }
 
-  constructor(private bioskopiService: BioskopiService) { }
+  constructor(
+    private bioskopiService: BioskopiService,
+    private location: Location
+  ) { }
 
   ngOnInit() {
   }

@@ -14,9 +14,9 @@
       </div>
 
       <div class="form-group">
-        <label for="cena">Opis bioskopa</label>
-        <input type="number" id="cena" name="cena" class="form-control" required ngModel #rekCena="ngModel">
-        <span class="help-block" *ngIf="!rekCena.valid && rekCena.touched">Opis bioskopa je obavezan!</span>
+        <label for="opis">Opis bioskopa</label>
+        <input type="text" id="opis" name="opis" class="form-control" required ngModel #bioskopOpis="ngModel">
+        <span class="help-block" *ngIf="!bioskopOpis.valid && bioskopOpis.touched">Opis bioskopa je obavezan!</span>
       </div>
 
       <button type="submit" class="btn btn-primary" [disabled]="!noviBioskopForm.valid">Dodaj</button>
