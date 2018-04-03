@@ -14,6 +14,9 @@ public class PozoristeServiceImpl implements PozoristeService {
     public List<Pozoriste> findAll() {return pozoristeRepository.findAll();}
 
     @Override
+    public Pozoriste findOne(String id) {return pozoristeRepository.findOne(id);}
+
+    @Override
     public Pozoriste create(Pozoriste pozoriste) throws Exception {
         Pozoriste createdPozoriste = this.pozoristeRepository.insert(pozoriste);
         return createdPozoriste;

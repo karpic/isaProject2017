@@ -6,6 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
 
 import java.awt.*;
@@ -32,6 +33,18 @@ public class PozoristeController {
         return new ResponseEntity<List<Pozoriste>>(pozorista, HttpStatus.OK);
     }
 
+    @RequestMapping(
+            method = RequestMethod.GET,
+            value ="/pozoriste/{id]",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Pozoriste> getPozorista(@PathVariable ("id") String id) {
+        Pozoriste pozorista = this.pozoristeService.findOne(id);
+        if(pozorista == null){
+            return new ResponseEntity<Pozoriste>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<Pozoriste>(pozorista, HttpStatus.OK);
+    }
     @RequestMapping(
             method = RequestMethod.POST,
             value = "/pozoriste",

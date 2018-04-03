@@ -1,20 +1,19 @@
-<div class="bioskopi-page">
-  <div class="form">
-    <table>
-     <th>Naziv 
-       <tr>{{bioskopShow.naziv}}</tr>
-     </th>
-     <th>Udaljenost
-        <tr></tr>
-      </th>
-      <th>Rejting
-          <tr></tr>
-        </th>
-        <th>Repertoar
-            <tr>
-                <button type="button" routerLink="/repertoar">Pregled</button>
-            </tr>
-          </th>
-    </table>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>Naziv bioskopa:{{bioskopiShow.naziv}}</h1>
+  </div>
+  
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+   Adresa: {{bioskopiShow.adresa}}
   </div>
 </div>
+
+<div class="row">
+  <div class="col-xs-12">
+    Opis: {{bioskopiShow.opis}}
+  </div>
+  </div>
+

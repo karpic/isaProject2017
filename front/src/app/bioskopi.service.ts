@@ -19,6 +19,9 @@ export class BioskopiService {
     return this.http.get<Bioskopi[]>(this.url);
 
   }
+  getBioskop(id: string): Observable<Bioskopi>{
+    return this.http.get<Bioskopi>(this.url+'/'+id);
+  }
 
   insertBioskop(bioskop: NoviBioskop): Observable<NoviBioskop>{
     return this.http.post<NoviBioskop>(this.url, bioskop, httpOptions).pipe(
