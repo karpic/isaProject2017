@@ -12,17 +12,13 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.web.filter.OncePerRequestFilter;
 import posetime.Korisnici.Korisnik;
 import posetime.Korisnici.KorisnikService;
-import posetime.Korisnici.Role.Role;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.awt.*;
 import java.io.IOException;
-import java.security.SignatureException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static posetime.Korisnici.Constants.HEADER_STRING;
@@ -64,8 +60,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             UserDetails userDetails = userDetailsService.loadUserByUsername(username);
             Korisnik k = korisnikService.findByEmail(username);
             List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-            for(Role r: k.getRoles()) {
-                authorities.add(new SimpleGrantedAuthority(r.getRoleName().toString()));
+            for(String r: k.getRoles()) {
+                authorities.add(new SimpleGrantedAuthority(r));
             }
             if (jwtTokenUtil.validateToken(authToken, userDetails)) {
                 UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, authorities);

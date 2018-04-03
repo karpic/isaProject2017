@@ -2,7 +2,6 @@ package posetime.Korisnici;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import posetime.Korisnici.Role.Role;
 
 import java.util.List;
 
@@ -17,7 +16,9 @@ public class Korisnik {
     private String password;
     private String brtel;
     private String grad;
-    private List<Role> roles;
+    private boolean enabled;
+    private String confirmationToken;
+    private List<String> roles;
     private List<String> prijatelji;
     private List<String> zahtevi;
     private List<String> ponude;
@@ -27,7 +28,7 @@ public class Korisnik {
 
     }
 
-    public Korisnik(String ime, String prezime, String email, String password, String brtel, String grad, List<Role> roles, List<String> prijatelji, List<String> zahtevi, List<String> ponude, List<String> obavestenja) {
+    public Korisnik(String ime, String prezime, String email, String password, String brtel, String grad, List<String> roles, List<String> prijatelji, List<String> zahtevi, List<String> ponude, List<String> obavestenja) {
         this.ime = ime;
         this.prezime = prezime;
         this.email = email;
@@ -39,13 +40,14 @@ public class Korisnik {
         this.zahtevi = zahtevi;
         this.ponude = ponude;
         this.obavestenja = obavestenja;
+        this.confirmationToken = "";
     }
 
-    public List<Role> getRoles() {
+    public List<String> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<Role> roles) {
+    public void setRoles(List<String> roles) {
         this.roles = roles;
     }
 
@@ -135,5 +137,21 @@ public class Korisnik {
 
     public void setObavestenja(List<String> obavestenja) {
         this.obavestenja = obavestenja;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getConfirmationToken() {
+        return confirmationToken;
+    }
+
+    public void setConfirmationToken(String confirmationToken) {
+        this.confirmationToken = confirmationToken;
     }
 }

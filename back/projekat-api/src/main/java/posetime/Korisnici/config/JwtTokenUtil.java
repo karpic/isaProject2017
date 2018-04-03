@@ -10,14 +10,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import posetime.Korisnici.Korisnik;
 import posetime.Korisnici.KorisnikService;
-import posetime.Korisnici.Role.Role;
 
 import static posetime.Korisnici.Constants.ACCESS_TOKEN_VALIDITY_SECONDS;
 import static posetime.Korisnici.Constants.SIGNING_KEY;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.function.Function;
@@ -62,10 +60,8 @@ public class JwtTokenUtil implements Serializable {
         Claims claims = Jwts.claims().setSubject(subject);
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
         Korisnik k = korisnikService.findByEmail(subject);
-        for(Role r: k.getRoles()) {
-            authorities.add(new SimpleGrantedAuthority(r.getRoleName().toString()));
-            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-            System.out.println(r.getRoleName().toString());
+        for(String r: k.getRoles()) {
+            authorities.add(new SimpleGrantedAuthority(r));
         }
         claims.put("scopes", authorities);
 
@@ -82,6 +78,6 @@ public class JwtTokenUtil implements Serializable {
         final String username = getUsernameFromToken(token);
         return (
                 username.equals(userDetails.getUsername())
-                        && !isTokenExpired(token));
+                        && !isTokenExpired(token) && userDetails.isEnabled());
     }
 }

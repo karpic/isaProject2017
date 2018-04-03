@@ -8,10 +8,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import posetime.Korisnici.Role.Role;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Service(value = "korisnikService")
@@ -48,7 +46,12 @@ public class KorisnikServiceImpl implements UserDetailsService,KorisnikService {
     @Override
     public Korisnik insert(Korisnik k) {
         k.setPassword(bcryptEncoder.encode(k.getPassword()));
-        return korisnikRepository.insert(k);
+        return korisnikRepository.save(k);
+    }
+
+    @Override
+    public Korisnik save(Korisnik k) {
+        return korisnikRepository.save(k);
     }
 
     @Override
@@ -59,14 +62,29 @@ public class KorisnikServiceImpl implements UserDetailsService,KorisnikService {
         }
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 
-        for(Role r: korisnik.getRoles()) {
-            authorities.add(new SimpleGrantedAuthority(r.getRoleName().toString()));
+        for(String r: korisnik.getRoles()) {
+            authorities.add(new SimpleGrantedAuthority(r));
         }
 
         UserDetails userDetails = new org.springframework.security.core.userdetails.
                 User(korisnik.getEmail(), korisnik.getPassword(), authorities);
 
         return userDetails;
+    }
+
+    @Override
+    public Korisnik findByConfirmationToken(String token) {
+        List<Korisnik> korisnici = korisnikRepository.findAll();
+
+        for(Korisnik k : korisnici) {
+            if (!k.isEnabled()) {
+                if (k.getConfirmationToken().equals(token)) {
+                    return k;
+                }
+            }
+        }
+        return null;
+
     }
 
 }
