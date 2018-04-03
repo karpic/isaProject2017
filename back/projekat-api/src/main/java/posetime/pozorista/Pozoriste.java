@@ -18,6 +18,15 @@ public class Pozoriste {
     public Pozoriste() {
 
     }
+    public Pozoriste(String id, String naziv, String adresa, String opis, List<String> repertoar, List<String> brmesta){
+
+        this.id=id;
+        this.naziv=naziv;
+        this.adresa=adresa;
+        this.opis=opis;
+        this.repertoar=repertoar;
+        this.brmesta=brmesta;
+    }
 
     public String getId() {
         return id;
@@ -67,13 +76,5 @@ public class Pozoriste {
         this.brmesta = brmesta;
     }
 
-    public Pozoriste(String id, String naziv, String adresa, String opis, List<String> repertoar, List<String> brmesta){
 
-        this.id=id;
-        this.naziv=naziv;
-        this.adresa=adresa;
-        this.opis=opis;
-        this.repertoar=repertoar;
-        this.brmesta=brmesta;
-    }
 }
