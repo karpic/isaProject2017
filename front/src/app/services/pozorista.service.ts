@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
+import { Pozorista } from '../models/pozorista';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -12,6 +13,15 @@ const httpOptions = {
 @Injectable()
 export class PozoristeService {
   private url = 'http://localhost:8080/pozoriste';
+
+  getPozorista(): Observable<Pozorista[]>{
+    return this.http.get<Pozorista[]>(this.url);
+
+  }
+  getPozoriste(id: string): Observable<Pozorista>{
+    return this.http.get<Pozorista>(this.url+'/'+id);
+  }
+
 
   insertPozoriste(pozoriste: NovoPozoriste): Observable<NovoPozoriste>{
     return this.http.post<NovoPozoriste>(this.url, pozoriste, httpOptions).pipe(

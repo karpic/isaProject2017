@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input} from '@angular/core';
+import { PozoristeService } from '../services/pozorista.service';
+import { Pozorista } from '../models/pozorista';
 
 @Component({
   selector: 'app-pozorista',
@@ -6,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pozorista.component.css']
 })
 export class PozoristaComponent implements OnInit {
-
-  constructor() { }
+@Input() pozoristaShow: PozoristeService
+  constructor(private pozoristeService: PozoristeService) { }
 
   ngOnInit() {
   }

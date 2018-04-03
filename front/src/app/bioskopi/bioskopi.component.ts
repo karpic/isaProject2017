@@ -8,14 +8,11 @@ import { BioskopiService } from '../bioskopi.service';
   styleUrls: ['./bioskopi.component.css']
 })
 export class BioskopiComponent implements OnInit {
-  @Input() bioskopShow :Bioskopi
-  bioskopi:Bioskopi[];
+  @Input() bioskopiShow :Bioskopi
+
   constructor(private bioskopiService: BioskopiService) { }
 
-  getBioskopi(): void {
-    this.bioskopiService.getBioskopi()
-      .subscribe(bioskopi => this.bioskopi = bioskopi);
-  }
+
   ngOnInit() {
   }
 

@@ -1,4 +1,4 @@
-export class Bioskopi {
+export class Pozorista {
     constructor (
         public id: string,
         public naziv: string,
