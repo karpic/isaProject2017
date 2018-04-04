@@ -8,6 +8,7 @@ export class ApplicationDataSharingServiceService {
 
   oglas: Oglas;
 
+
   //za dodavanje ponuda
   oglasId: String;
 

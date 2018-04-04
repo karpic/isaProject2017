@@ -1,21 +1,17 @@
-<div class="pozoriste-page">
-  <div class="form">
-      <table>
-          <th>Naziv
-            <tr></tr>
-          </th>
-          <th>Udaljenost
-             <tr></tr>
-           </th>
-           <th>Rejting
-               <tr></tr>
-             </th>
-             <th>Repertoar
-                 <tr>
-                     <button type="button" routerLink="/repertoar-pozorista">Pregled</button>
-                 </tr>
-               </th>
-         </table>
-  </div>
-</div>
-
+<div class="row">
+      <div class="col-xs-12">
+      <h1 *ngFor="let pozorista of pozorista">Naziv bioskopa: {{pozorista.naziv}}
+          <div class="row">
+              <div class="col-xs-12" >
+                Adresa: {{pozorista.adresa}}
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                  Opis: {{pozorista.opis}}
+                </div>
+              </div>
+      </h1>
+      </div>
+    </div>
+  

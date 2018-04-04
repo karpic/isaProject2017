@@ -9,9 +9,16 @@ import { Pozorista } from '../models/pozorista';
 })
 export class PozoristaComponent implements OnInit {
 @Input() pozoristaShow: PozoristeService
+
+pozorista : Pozorista[];
+
+getPozorista(): void{
+  this.pozoristeService.getPozorista().subscribe(pozorista => this.pozorista = pozorista)
+}
   constructor(private pozoristeService: PozoristeService) { }
 
   ngOnInit() {
+    this.getPozorista();
   }
 
 }
