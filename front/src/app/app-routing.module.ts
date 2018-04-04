@@ -1,3 +1,4 @@
+import { UserComponent } from './user/user.component';
 import { NoviBioskop } from './models/novi-bioskop.model';
 import { AdminSistemComponent } from './admin-sistem/admin-sistem.component';
 import { PregledPonudaComponent } from './pregled-ponuda/pregled-ponuda.component';
@@ -46,10 +47,9 @@ const routes: Routes = [
   {path: 'bioskopi', component: BioskopiComponent},
   {path: 'pozorista', component: PozoristaComponent},
   {path: 'repertoar', component: RepertoarComponent},
-  {path: 'repertoar-pozorista', component: RepertoarPozoristaComponent}
-
-
-]
+  {path: 'repertoar-pozorista', component: RepertoarPozoristaComponent},
+  {path: 'user', component: UserComponent}
+];
 
 @NgModule({
   exports: [

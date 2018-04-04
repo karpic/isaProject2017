@@ -45,6 +45,7 @@ import { RekvizitiComponent } from './admin-fanzona/rekviziti/rekviziti.componen
 import { AdminSistemComponent } from './admin-sistem/admin-sistem.component';
 import { BioskopEditComponent } from './admin-sistem/bioskop-edit/bioskop-edit.component';
 import { PozoristeEditComponent } from './admin-sistem/pozoriste-edit/pozoriste-edit.component';
+import { UserComponent } from './user/user.component';
 
 
 @NgModule({
@@ -79,7 +80,8 @@ import { PozoristeEditComponent } from './admin-sistem/pozoriste-edit/pozoriste-
     RekvizitiComponent,
     AdminSistemComponent,
     BioskopEditComponent,
-    PozoristeEditComponent
+    PozoristeEditComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
