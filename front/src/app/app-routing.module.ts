@@ -31,11 +31,11 @@ import { FanAdminAuthGuard } from './auth-guards/fanadmin-auth-guard.service';
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'fanzona', component: FanzonaComponent, canActivate: [FanAdminAuthGuard], children: [
+  {path: 'fanzona', component: FanzonaComponent,  children: [
     {path: 'prodavnica', component: ZvanicnaProdavnicaComponent},
     {path: 'oglasi', component: OglasiComponent},
     {path: 'novioglas', component: OglasEditComponent},
-    {path: 'admin', component: AdminFanzonaComponent, children: [
+    {path: 'admin', component: AdminFanzonaComponent, canActivateChild: [FanAdminAuthGuard],children: [
       {path: 'novirekvizit', component: RekvizitEditComponent},
       {path: 'neodobreni', component: NeodobreniOglasiComponent},
       {path: 'rekviziti', component: RekvizitiComponent},
