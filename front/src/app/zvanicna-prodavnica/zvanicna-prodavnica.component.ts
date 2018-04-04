@@ -1,6 +1,10 @@
 import { RekvizitService } from './../rekvizit.service';
 import { Component, OnInit } from '@angular/core';
 import { Rekvizit } from '../models/rekvizit';
+import * as jwt_decode from 'jwt-decode';
+
+const TOKEN_KEY = 'AuthToken';
+
 
 @Component({
   selector: 'app-zvanicna-prodavnica',
@@ -11,16 +15,7 @@ export class ZvanicnaProdavnicaComponent implements OnInit {
   selectedRekvizit: Rekvizit;
   rekvizitToEdit: Rekvizit;
   editFlag: boolean;
-
-  /* getRekviziti(): void {
-    this.rekvizitService.getRekviziti()
-      .subscribe(rekviziti => this.rekviziti = rekviziti);
-  }
-
-  deleteRekvizit(rekvizit: Rekvizit): void {
-    this.rekviziti = this.rekviziti.filter(r => r !== rekvizit);
-    this.rekvizitService.deleteRekvizit(rekvizit).subscribe();
-  } */
+  tokenPayload: string;
 
   updateRekvizitRezervisi(rekvizit: Rekvizit): void {
     rekvizit.rezervisan = true;
@@ -33,10 +28,15 @@ export class ZvanicnaProdavnicaComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
+  logToken() {
+    this.tokenPayload = jwt_decode(sessionStorage.getItem(TOKEN_KEY));
+    console.log(this.tokenPayload);
+  }
+
   constructor(private rekvizitService: RekvizitService) { }
 
   ngOnInit() {
-    /* this.getRekviziti(); */
+    this.logToken();
   }
 
 }

@@ -1,3 +1,4 @@
+
 import { PozoristeService } from './services/pozorista.service';
 import { BioskopiService } from './bioskopi.service';
 import { Interceptor } from './login/core/interceptor';
@@ -46,6 +47,7 @@ import { AdminSistemComponent } from './admin-sistem/admin-sistem.component';
 import { BioskopEditComponent } from './admin-sistem/bioskop-edit/bioskop-edit.component';
 import { PozoristeEditComponent } from './admin-sistem/pozoriste-edit/pozoriste-edit.component';
 import { UserComponent } from './user/user.component';
+import { FanAdminAuthGuard } from './auth-guards/fanadmin-auth-guard.service';
 
 
 @NgModule({
@@ -90,6 +92,7 @@ import { UserComponent } from './user/user.component';
     HttpClientModule
   ],
   providers: [
+    FanAdminAuthGuard,
     BioskopiService,
     PozoristeService,
     RekvizitService,
