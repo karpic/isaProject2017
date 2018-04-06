@@ -1,5 +1,6 @@
 package posetime.Korisnici;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,14 +10,18 @@ import java.util.List;
 public class Korisnik {
 
     @Id
+    @JsonIgnore
     private String id;
     private String ime;
     private String prezime;
     private String email;
+    @JsonIgnore
     private String password;
     private String brtel;
     private String grad;
+    @JsonIgnore
     private boolean enabled;
+    @JsonIgnore
     private String confirmationToken;
     private List<String> roles;
     private List<String> prijatelji;

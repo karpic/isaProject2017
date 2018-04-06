@@ -1,3 +1,4 @@
+import { LoginUserService } from './login/login-user.service';
 import { PozoristeService } from './services/pozorista.service';
 import { BioskopiService } from './bioskopi.service';
 import { Interceptor } from './login/core/interceptor';
@@ -99,6 +100,7 @@ import { UserComponent } from './user/user.component';
     ApplicationDataSharingServiceService,
     TokenStorage,
     AuthService,
+    LoginUserService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: Interceptor,

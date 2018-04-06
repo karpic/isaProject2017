@@ -1,3 +1,5 @@
+import { LoggedInUser } from './../models/logged-in-user';
+import { LoginUserService } from './login-user.service';
 import { TokenStorage } from './core/token.storage';
 import { AuthService } from './core/auth.service';
 import { Router } from '@angular/router';
@@ -10,16 +12,23 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
-  constructor(private router: Router, private authService: AuthService, private token: TokenStorage) { }
+  constructor(private router: Router, private authService: AuthService, private token: TokenStorage,
+    private loginUserService: LoginUserService) { }
 
   username: string;
   password: string;
+  user: LoggedInUser;
 
   login(): void {
     this.authService.attemptAuth(this.username, this.password).subscribe(
       data => {
         this.token.saveToken(data.token);
         this.router.navigate(['fanzona']);
+        this.loginUserService.getUser().subscribe(
+          user => this.user = user
+        );
+        console.log(this.user);
+        this.loginUserService.setLoggedInUser(this.user);
       }
     );
   }

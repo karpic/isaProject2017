@@ -1,5 +1,8 @@
+import { LoggedInUser } from './../models/logged-in-user';
+import { LoginUserService } from './../login/login-user.service';
 import { Component, OnInit } from '@angular/core';
-import * as jwt_decode from 'jwt-decode';
+
+
 
 
 const TOKEN_KEY = 'AuthToken';
@@ -13,9 +16,9 @@ const TOKEN_KEY = 'AuthToken';
 
 export class UserComponent implements OnInit {
 
-  tokenPayload = jwt_decode(sessionStorage.getItem(TOKEN_KEY));
+  constructor(private loginUserService: LoginUserService) { }
 
-  constructor() { }
+  user: LoggedInUser = this.loginUserService.getLoggedInUser();
 
   ngOnInit() {
   }
