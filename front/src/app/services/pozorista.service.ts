@@ -29,6 +29,25 @@ export class PozoristeService {
     );
   }
 
+  updatePozoriste(pozoriste: Pozorista): Observable<Pozorista>{
+    const id = typeof pozoriste === 'string' ? pozoriste : pozoriste.id;
+    const url = `${this.url}/${id}`;
+    return this.http.put<Pozorista>(url, pozoriste, httpOptions).pipe(
+      catchError(this.handleError<Pozorista>('updatePozoriste'))
+    );
+  }
+
+
+  deleteBioskop(pozoriste: Pozorista | string): Observable<Pozorista> {
+    const id = typeof pozoriste === 'string' ? pozoriste : pozoriste.id;
+    const url = `${this.url}/${id}`;
+
+    return this.http.delete<Pozorista>(url, httpOptions).pipe(
+      catchError(this.handleError<Pozorista>('deletePozoriste'))
+    );
+  }
+
+
   constructor(private http: HttpClient) { }
 
   private handleError<T> (operation = 'operation', result?: T) {
