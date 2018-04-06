@@ -6,16 +6,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import * as jwt_decode from 'jwt-decode';
-
-const TOKEN_KEY = 'AuthToken';
-
-const token = sessionStorage.getItem(TOKEN_KEY);
-
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    'TOKEN_PREFIX': token
+    'Content-Type': 'application/json'
   })
 };
 
