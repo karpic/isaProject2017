@@ -1,6 +1,9 @@
 package posetime.ponude;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,6 +40,9 @@ public class PonudaServiceImpl implements PonudaService{
 
     @Override
     public Ponuda create(Ponuda ponuda) throws Exception {
+        //setovanje userName na trenutno ulogovanog usera
+        UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println(userDetails.getUsername());
         Ponuda savedPonuda = this.ponudeRepository.insert(ponuda);
         return savedPonuda;
     }

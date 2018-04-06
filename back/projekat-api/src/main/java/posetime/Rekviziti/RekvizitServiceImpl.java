@@ -40,6 +40,7 @@ public class RekvizitServiceImpl implements RekvizitService {
         rekvizitToUpdate.setOpis(rekvizit.getOpis());
         rekvizitToUpdate.setRezervisan(rekvizit.isRezervisan());
         rekvizitToUpdate.setImgLocation(rekvizit.getImgLocation());
+        rekvizitToUpdate.setRezervisao(rekvizit.getRezervisao());
         TematskiRekvizit updatedRekvizit = this.rekvizitRepository.save(rekvizitToUpdate);
         return updatedRekvizit;
     }

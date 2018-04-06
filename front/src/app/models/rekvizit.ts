@@ -5,7 +5,8 @@ export class Rekvizit {
     public opis: string,
     public cena: number,
     public rezervisan: boolean,
-    public imgLocation: string
+    public imgLocation: string,
+    public rezervisao: string
   ) { }
 
 }

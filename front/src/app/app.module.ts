@@ -1,3 +1,4 @@
+import { FanzonaAuthGuard } from './auth-guards/fanzona-auth-guard.service';
 
 import { PozoristeService } from './services/pozorista.service';
 import { BioskopiService } from './bioskopi.service';
@@ -92,6 +93,7 @@ import { FanAdminAuthGuard } from './auth-guards/fanadmin-auth-guard.service';
     HttpClientModule
   ],
   providers: [
+    FanzonaAuthGuard,
     FanAdminAuthGuard,
     BioskopiService,
     PozoristeService,

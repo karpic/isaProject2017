@@ -21,6 +21,15 @@ public class TematskiRekvizit {
     private int cena;
     private boolean rezervisan;
     private String imgLocation;
+    private String rezervisao;
+
+    public String getRezervisao() {
+        return rezervisao;
+    }
+
+    public void setRezervisao(String rezervisao) {
+        this.rezervisao = rezervisao;
+    }
 
     public TematskiRekvizit() {
 

@@ -1,3 +1,4 @@
+import { FanzonaAuthGuard } from './auth-guards/fanzona-auth-guard.service';
 
 import { UserComponent } from './user/user.component';
 import { NoviBioskop } from './models/novi-bioskop.model';
@@ -31,11 +32,11 @@ import { FanAdminAuthGuard } from './auth-guards/fanadmin-auth-guard.service';
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'fanzona', component: FanzonaComponent,  children: [
+  {path: 'fanzona', component: FanzonaComponent, canActivate: [FanzonaAuthGuard], children: [
     {path: 'prodavnica', component: ZvanicnaProdavnicaComponent},
     {path: 'oglasi', component: OglasiComponent},
     {path: 'novioglas', component: OglasEditComponent},
-    {path: 'admin', component: AdminFanzonaComponent, canActivateChild: [FanAdminAuthGuard],children: [
+    {path: 'admin', component: AdminFanzonaComponent, canActivate: [FanAdminAuthGuard], children: [
       {path: 'novirekvizit', component: RekvizitEditComponent},
       {path: 'neodobreni', component: NeodobreniOglasiComponent},
       {path: 'rekviziti', component: RekvizitiComponent},

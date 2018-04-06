@@ -44,7 +44,8 @@ export class RekvizitEditComponent implements OnInit {
       opis: noviRekForm.value.opis,
       cena: noviRekForm.value.cena,
       rezervisan: false,
-      imgLocation: noviRekForm.value.slika
+      imgLocation: noviRekForm.value.slika,
+      rezervisao: ''
     }
     this.rekvizitiService.insertRekvizit(noviRekvizit as NoviRekvizit).subscribe();
     noviRekForm.reset();
