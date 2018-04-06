@@ -42,7 +42,7 @@ public class PonudaServiceImpl implements PonudaService{
     public Ponuda create(Ponuda ponuda) throws Exception {
         //setovanje userName na trenutno ulogovanog usera
         UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        System.out.println(userDetails.getUsername());
+        ponuda.setUserName(userDetails.getUsername());
         Ponuda savedPonuda = this.ponudeRepository.insert(ponuda);
         return savedPonuda;
     }

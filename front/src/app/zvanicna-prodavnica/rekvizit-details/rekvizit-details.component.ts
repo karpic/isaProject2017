@@ -20,7 +20,7 @@ export class RekvizitDetailsComponent implements OnInit {
   }
 
   onRezervisiClick() {
-    this.tokenPayload = sessionStorage.getItem(TOKEN_KEY);
+    this.tokenPayload = jwt_decode(sessionStorage.getItem(TOKEN_KEY));
     this.rekvizitToDisplay.rezervisan = true;
     this.rekvizitToDisplay.rezervisao = this.tokenPayload.sub;
     this.rekvizitiService.updateRekvizit(this.rekvizitToDisplay).subscribe();
