@@ -95,7 +95,7 @@ public class PonudaServiceImpl implements PonudaService{
         svePonudeZaOglas.stream()
                         .filter(p -> !p.getUsername().equals((ponuda.getUsername())))
                         .forEach(p -> notifyUser(p, "Vasa ponuda za oglas " + oglasZaPonudu.getNaziv() +" nije izabrana"));
-        
+
         notifyUser(ponuda, "Vasa ponuda za oglas " + oglasZaPonudu.getNaziv() +" je izabrana");
 
 
