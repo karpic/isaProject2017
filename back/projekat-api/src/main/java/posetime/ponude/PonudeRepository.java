@@ -7,4 +7,5 @@ import java.util.List;
 public interface PonudeRepository  extends MongoRepository<Ponuda, String>{
     List<Ponuda> findByOglasId(String id);
     List<Ponuda> findByUserId(String id);
+    List<Ponuda> findByUsername(String username);
 }

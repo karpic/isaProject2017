@@ -33,6 +33,12 @@ public class PonudaServiceImpl implements PonudaService{
     }
 
     @Override
+    public List<Ponuda> findByUserName(String username) {
+        List<Ponuda> ponundeForUsername = this.ponudeRepository.findByUsername(username + ".com");
+        return ponundeForUsername;
+    }
+
+    @Override
     public Ponuda findOne(String id) {
         Ponuda ponuda = this.ponudeRepository.findOne(id);
         return ponuda;
@@ -42,7 +48,7 @@ public class PonudaServiceImpl implements PonudaService{
     public Ponuda create(Ponuda ponuda) throws Exception {
         //setovanje userName na trenutno ulogovanog usera
         UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        ponuda.setUserName(userDetails.getUsername());
+        ponuda.setUsername(userDetails.getUsername());
         Ponuda savedPonuda = this.ponudeRepository.insert(ponuda);
         return savedPonuda;
     }
@@ -56,9 +62,9 @@ public class PonudaServiceImpl implements PonudaService{
 
         ponudaToUpdate.setIznos(ponuda.getIznos());
         ponudaToUpdate.setUserId(ponuda.getUserId());
-        ponudaToUpdate.setUserName(ponuda.getUserName());
+        ponudaToUpdate.setUsername(ponuda.getUsername());
         ponudaToUpdate.setOglasId(ponuda.getOglasId());
-
+        ponudaToUpdate.setIzabrana(ponuda.isIzabrana());
         Ponuda updatedPonuda = this.ponudeRepository.save(ponudaToUpdate);
         return updatedPonuda;
     }

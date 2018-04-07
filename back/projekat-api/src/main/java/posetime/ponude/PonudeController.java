@@ -51,11 +51,12 @@ public class PonudeController {
 
     @RequestMapping(
             method = RequestMethod.GET,
-            value = "ponude/korisnik/{id}",
+            value = "ponude/korisnik/{username}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<List<Ponuda>> getPonudeByUserId(@PathVariable("id") String id){
-        List<Ponuda> ponude = this.ponudaService.findByUserId(id);
+    public ResponseEntity<List<Ponuda>> getPonudeByUserId(@PathVariable("username") String username){
+        List<Ponuda> ponude = this.ponudaService.findByUserName(username);
+        System.out.println(ponude);
         return new ResponseEntity<List<Ponuda>>(ponude, HttpStatus.OK);
     }
 

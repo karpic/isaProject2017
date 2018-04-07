@@ -43,7 +43,7 @@ const routes: Routes = [
       {path: 'rekvizit/:rekvizitId', component: RekvizitEditComponent}
     ]}
   ]},
-  {path: 'ponude/:userId', component: PregledPonudaComponent},
+  {path: ':username/ponude', component: PregledPonudaComponent},
   {path: 'sysadmin', component: AdminSistemComponent, children: [
     {path: 'novibioskop', component: BioskopEditComponent},
     {path: 'novopozoriste', component: PozoristeEditComponent}

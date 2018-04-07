@@ -12,14 +12,14 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./pregled-ponuda.component.css']
 })
 export class PregledPonudaComponent implements OnInit {
-  userId: String;
+  username: String;
   ponude: Ponuda[];
   displayedOglas: Oglas;
   editPonudaDisplayed = false;
   selectedPonuda: Ponuda;
 
   getPonudeForUser() {
-    this.ponudeServie.getPonudeByUserId(this.userId).subscribe(
+    this.ponudeServie.getPonudeByUserName(this.username).subscribe(
       (ponude) => this.ponude = ponude
     );
   }
@@ -50,7 +50,7 @@ export class PregledPonudaComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
-        this.userId = params["userId"];
+        this.username = params["username"];
       }
     )
     this.getPonudeForUser();

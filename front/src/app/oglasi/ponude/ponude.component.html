@@ -1,7 +1,11 @@
 <div class="row">
   <div class="col-xs-12">
     <ul class="list-group">
-      <li class="list-group-item" *ngFor="let ponuda of ponude">{{ponuda.userName}}({{ponuda.iznos}})</li>
+      <li class="list-group-item" *ngFor="let ponuda of ponude">
+        {{ponuda.username}}({{ponuda.iznos}})
+        <button *ngIf="authenticatedUser == oglas.ownerUserName" class="btn btn-primary" (click)="izaberi(ponuda)"> Izaberi</button>
+
+      </li>
     </ul>
   </div>
 </div>
