@@ -6,7 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin',
+    'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, access-control-allow-headers',
     'Access-Control-Allow-Origin': '*'
     })
 };
@@ -22,7 +22,7 @@ export class GeocoderService{
       addressUrlPart = addressUrlPart + "+" + word;
     }
     let finalUrl = this.baseUrl + addressUrlPart + '&key=AIzaSyB79Hum1sxQbxwgiccMIGm7zzYVZnCVoDI';
-    return this.http.get(finalUrl, httpOptions);
+    return this.http.jsonp(finalUrl, 'callback');
 
   }
 
