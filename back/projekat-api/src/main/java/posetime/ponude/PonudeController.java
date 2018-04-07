@@ -100,4 +100,20 @@ public class PonudeController {
         this.ponudaService.delete(id);
         return new ResponseEntity<Ponuda>(HttpStatus.NO_CONTENT);
     }
+
+    @RequestMapping(
+            value = "/ponude/rezervisi",
+            method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Ponuda> reservisiPonudu(@RequestBody Ponuda ponuda){
+        Ponuda reservedPonuda = this.ponudaService.reserve(ponuda);
+        if (reservedPonuda != null) {
+            return new ResponseEntity<Ponuda>(ponuda, HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<Ponuda>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

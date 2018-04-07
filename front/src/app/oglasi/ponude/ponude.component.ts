@@ -25,7 +25,7 @@ export class PonudeComponent implements OnInit, OnChanges {
 
   izaberi(ponuda: Ponuda) {
     ponuda.izabrana = true;
-    this.ponudeService.updatePonuda(ponuda).subscribe();
+    this.ponudeService.reserve(ponuda).subscribe();
   }
 
   constructor(private ponudeService: PonudeService) { }

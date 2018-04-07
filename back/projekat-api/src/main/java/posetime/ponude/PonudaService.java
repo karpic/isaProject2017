@@ -12,4 +12,5 @@ public interface PonudaService {
     Ponuda create(Ponuda ponuda) throws  Exception;
     Ponuda update(Ponuda ponuda) throws Exception;
     void delete(String id);
+    Ponuda reserve(Ponuda ponuda);
 }

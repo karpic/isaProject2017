@@ -13,6 +13,7 @@ const httpOptions = {
 export class PonudeService {
   private url = 'http://localhost:8080/ponude';
   private baseServerUrl = 'http://localhost:8080';
+  private reservingUrl = 'http://localhost:8080/ponude/rezervisi';
 
   getPonude(): Observable<Ponuda[]>{
     return this.http.get<Ponuda[]>(this.url);
@@ -55,6 +56,12 @@ export class PonudeService {
 
     return this.http.delete<Ponuda>(url, httpOptions).pipe(
       catchError(this.handleError<Ponuda>('deleteRekvizit'))
+    );
+  }
+
+  reserve(ponuda: Ponuda): Observable<Ponuda> {
+    return this.http.post<Ponuda>(this.reservingUrl, ponuda, httpOptions).pipe(
+      catchError(this.handleError<Ponuda>('reserve'))
     );
   }
   constructor(private http: HttpClient) { }

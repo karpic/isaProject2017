@@ -5,6 +5,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import posetime.obavestenja.ObavestenjaService;
+import posetime.obavestenja.Obavestenje;
+import posetime.oglasi.Oglas;
+import posetime.oglasi.OglasService;
 
 import java.util.List;
 
@@ -13,6 +17,11 @@ public class PonudaServiceImpl implements PonudaService{
     @Autowired
     private PonudeRepository ponudeRepository;
 
+    @Autowired
+    private ObavestenjaService obavestenjaService;
+
+    @Autowired
+    private OglasService oglasService;
     @Override
     public List<Ponuda> findAll() {
         List<Ponuda> ponude = this.ponudeRepository.findAll();
@@ -72,5 +81,35 @@ public class PonudaServiceImpl implements PonudaService{
     @Override
     public void delete(String id) {
         this.ponudeRepository.delete(id);
+    }
+
+    @Override
+    public Ponuda reserve(Ponuda ponuda) {
+        Ponuda ponudaToUpdate = this.ponudeRepository.findOne(ponuda.getId());
+        Oglas oglasZaPonudu = this.oglasService.findOne(ponuda.getOglasId());
+
+        ponudaToUpdate.setIzabrana(ponuda.isIzabrana());
+
+        List<Ponuda> svePonudeZaOglas = this.ponudeRepository.findByOglasId(ponuda.getOglasId());
+
+        svePonudeZaOglas.stream()
+                        .filter(p -> !p.getUsername().equals((ponuda.getUsername())))
+                        .forEach(p -> notifyUser(p, "Vasa ponuda za oglas " + oglasZaPonudu.getNaziv() +" nije izabrana"));
+        
+        notifyUser(ponuda, "Vasa ponuda za oglas " + oglasZaPonudu.getNaziv() +" je izabrana");
+
+
+        Ponuda savedPonuda = this.ponudeRepository.save(ponudaToUpdate);
+        return savedPonuda;
+    }
+
+    public void notifyUser(Ponuda p, String text){
+        Obavestenje obavestenje = new Obavestenje(text, p.getUsername());
+        try{
+            Obavestenje createdObavestenje  = this.obavestenjaService.create(obavestenje);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

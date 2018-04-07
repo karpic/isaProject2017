@@ -10,6 +10,7 @@ public class Ponuda {
     private String id;
     //id usera koji je napravio ponudu na oglas
     private String userId;
+    //username usera koji je napravio ponudu
     private String username;
     private boolean izabrana;
 
