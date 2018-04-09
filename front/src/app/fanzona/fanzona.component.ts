@@ -16,10 +16,9 @@ export class FanzonaComponent implements OnInit {
 
   ngOnInit() {
     this.tokenPayload = jwt_decode(sessionStorage.getItem(TOKEN_KEY));
-    if(this.tokenPayload.scopes[0].authority === "ROLE_ADMIN"){
+    if (this.tokenPayload.scopes[0].authority === "ROLE_ADMIN") {
       this.isAdmin = true;
-    }
-    else{
+    } else {
       this.isAdmin = false;
     }
     console.log(this.isAdmin);

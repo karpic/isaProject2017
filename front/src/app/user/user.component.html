@@ -1,3 +1,5 @@
 <p>
-  {{tokenPayload.sub}}
+  {{user | json}}
+  <button routerLink='/user/edit-user'>Izmeni podatke</button>
+  {{isAdmin}}
 </p>

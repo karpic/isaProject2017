@@ -50,8 +50,12 @@ import { BioskopEditComponent } from './admin-sistem/bioskop-edit/bioskop-edit.c
 import { PozoristeEditComponent } from './admin-sistem/pozoriste-edit/pozoriste-edit.component';
 import { UserComponent } from './user/user.component';
 import { FanAdminAuthGuard } from './auth-guards/fanadmin-auth-guard.service';
+
 import { AgmCoreModule} from '@agm/core';
-import { GmLokacijaComponent } from './gm-lokacija/gm-lokacija.component'
+import { GmLokacijaComponent } from './gm-lokacija/gm-lokacija.component';
+
+import { LoginUserService } from './login/login-user.service';
+import { EditUserComponent } from './user/edit-user/edit-user.component';
 
 
 @NgModule({
@@ -88,7 +92,8 @@ import { GmLokacijaComponent } from './gm-lokacija/gm-lokacija.component'
     BioskopEditComponent,
     PozoristeEditComponent,
     UserComponent,
-    GmLokacijaComponent
+    GmLokacijaComponent,
+    EditUserComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -112,6 +117,7 @@ import { GmLokacijaComponent } from './gm-lokacija/gm-lokacija.component'
     ApplicationDataSharingServiceService,
     TokenStorage,
     AuthService,
+    LoginUserService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: Interceptor,

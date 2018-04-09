@@ -1,6 +1,6 @@
+import { LoggedInUser } from './../models/logged-in-user';
+import { LoginUserService } from './../login/login-user.service';
 import { Component, OnInit } from '@angular/core';
-import * as jwt_decode from 'jwt-decode';
-
 
 const TOKEN_KEY = 'AuthToken';
 
@@ -13,11 +13,27 @@ const TOKEN_KEY = 'AuthToken';
 
 export class UserComponent implements OnInit {
 
-  tokenPayload = jwt_decode(sessionStorage.getItem(TOKEN_KEY));
+  user: LoggedInUser = new LoggedInUser('' , '' , '' , '' , '' , [] , [] , [] , [] , []);
+  isAdmin: boolean;
 
-  constructor() { }
+  constructor(private loginUserService: LoginUserService) { }
+
+  getUser(): void {
+    this.loginUserService.getUser().subscribe(
+      data => {
+        this.user = data;
+        console.log(this.user);
+        console.log(this.user.roles);
+        if (this.user.roles.includes("ROLE_ADMIN")) {
+          this.isAdmin = true;
+        }
+      }
+    );
+
+  }
 
   ngOnInit() {
+    this.getUser();
   }
 
 }

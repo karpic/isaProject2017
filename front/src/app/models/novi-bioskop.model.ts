@@ -8,5 +8,5 @@ export class NoviBioskop {
         public repertoar: Array<String>,
         public brmesta: Array<String>
 
-    ){}
+    ) {}
 }

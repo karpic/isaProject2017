@@ -56,3 +56,28 @@ a:hover{
   background: #ffffff;
   color: #000000
 }
+
+.logoutLblPos{
+  position:fixed;
+  right:10px;
+  top:5px;
+}
+
+.buttonstyle {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background:  #35424a;
+  border: 0;
+  margin: 0 0 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.buttonstyle:hover{
+  background: #ffffff;
+  color: #000000
+}
+

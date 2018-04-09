@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import posetime.Korisnici.Role.RoleNames;
 import posetime.Korisnici.registration.EmailService;
 
+import javax.xml.ws.Response;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -74,10 +75,20 @@ public class KorisnikController {
             value = "/confirm"
     )
     public ResponseEntity<Korisnik> confirm(@RequestParam("token") String confirmationToken) {
-
         Korisnik k = korisnikService.findByConfirmationToken(confirmationToken);
         k.setEnabled(true);
         korisnikService.save(k);
         return  new ResponseEntity<Korisnik>(k,HttpStatus.OK);
+    }
+
+    @RequestMapping(
+            method = RequestMethod.GET,
+            value = "/user/{email}/",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Korisnik> getKorisnik(@PathVariable("email") String email) {
+        Korisnik k = korisnikService.findByEmail(email);
+        System.out.println(k.getEmail());
+        return new ResponseEntity<Korisnik>(k,HttpStatus.OK);
     }
 }
