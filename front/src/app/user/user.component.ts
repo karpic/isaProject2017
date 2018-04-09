@@ -13,12 +13,18 @@ const TOKEN_KEY = 'AuthToken';
 
 export class UserComponent implements OnInit {
 
-  user: LoggedInUser = this.loginUserService.getLoggedInUser();
+  user: LoggedInUser;
 
   constructor(private loginUserService: LoginUserService) { }
 
-  ngOnInit() {
+  getUser(): void {
+    this.loginUserService.getUser().subscribe(
+      user => this.user = user
+    );
+  }
 
+  ngOnInit() {
+    this.getUser();
   }
 
 }
