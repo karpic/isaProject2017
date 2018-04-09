@@ -13,14 +13,23 @@ const TOKEN_KEY = 'AuthToken';
 
 export class UserComponent implements OnInit {
 
-  user: LoggedInUser;
+  user: LoggedInUser = new LoggedInUser('' , '' , '' , '' , '' , [] , [] , [] , [] , []);
+  isAdmin: boolean;
 
   constructor(private loginUserService: LoginUserService) { }
 
   getUser(): void {
     this.loginUserService.getUser().subscribe(
-      user => this.user = user
+      data => {
+        this.user = data;
+        console.log(this.user);
+        console.log(this.user.roles);
+        if (this.user.roles.includes("ROLE_ADMIN")) {
+          this.isAdmin = true;
+        }
+      }
     );
+
   }
 
   ngOnInit() {

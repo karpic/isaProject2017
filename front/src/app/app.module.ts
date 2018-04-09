@@ -55,6 +55,7 @@ import { AgmCoreModule} from '@agm/core';
 import { GmLokacijaComponent } from './gm-lokacija/gm-lokacija.component';
 
 import { LoginUserService } from './login/login-user.service';
+import { EditUserComponent } from './user/edit-user/edit-user.component';
 
 
 @NgModule({
@@ -91,7 +92,8 @@ import { LoginUserService } from './login/login-user.service';
     BioskopEditComponent,
     PozoristeEditComponent,
     UserComponent,
-    GmLokacijaComponent
+    GmLokacijaComponent,
+    EditUserComponent
   ],
   imports: [
     AgmCoreModule.forRoot({

@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { LoggedInUser } from './../models/logged-in-user';
 import { UserComponent } from './../user/user.component';
 import { Injectable } from '@angular/core';

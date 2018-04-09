@@ -1,3 +1,4 @@
+import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { GmLokacijaComponent } from './gm-lokacija/gm-lokacija.component';
 import { FanzonaAuthGuard } from './auth-guards/fanzona-auth-guard.service';
 
@@ -54,7 +55,8 @@ const routes: Routes = [
   {path: 'repertoar', component: RepertoarComponent},
   {path: 'repertoar-pozorista', component: RepertoarPozoristaComponent},
   {path: 'user', component: UserComponent},
-  {path: 'gmlokacija/:id', component: GmLokacijaComponent}
+  {path: 'gmlokacija/:id', component: GmLokacijaComponent},
+  {path: 'user/edit-user', component: EditUserComponent}
 ];
 
 @NgModule({
