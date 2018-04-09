@@ -1,3 +1,5 @@
+import { BpAdminEditComponent } from './admin-sistem/bp-admin-edit/bp-admin-edit.component';
+import { FanzonaAdminEditComponent } from './admin-sistem/fanzona-admin-edit/fanzona-admin-edit.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { GmLokacijaComponent } from './gm-lokacija/gm-lokacija.component';
 import { FanzonaAuthGuard } from './auth-guards/fanzona-auth-guard.service';
@@ -48,7 +50,9 @@ const routes: Routes = [
   {path: ':username/ponude', component: PregledPonudaComponent},
   {path: 'sysadmin', component: AdminSistemComponent, children: [
     {path: 'novibioskop', component: BioskopEditComponent},
-    {path: 'novopozoriste', component: PozoristeEditComponent}
+    {path: 'novopozoriste', component: PozoristeEditComponent},
+    {path: 'novifanadmin', component: FanzonaAdminEditComponent},
+    {path: 'novibpadmin', component: BpAdminEditComponent}
   ]},
   {path: 'bioskopi', component: BioskopiComponent},
   {path: 'pozorista', component: PozoristaComponent},

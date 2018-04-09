@@ -56,6 +56,8 @@ import { GmLokacijaComponent } from './gm-lokacija/gm-lokacija.component';
 
 import { LoginUserService } from './login/login-user.service';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
+import { FanzonaAdminEditComponent } from './admin-sistem/fanzona-admin-edit/fanzona-admin-edit.component';
+import { BpAdminEditComponent } from './admin-sistem/bp-admin-edit/bp-admin-edit.component';
 
 
 @NgModule({
@@ -93,7 +95,9 @@ import { EditUserComponent } from './user/edit-user/edit-user.component';
     PozoristeEditComponent,
     UserComponent,
     GmLokacijaComponent,
-    EditUserComponent
+    EditUserComponent,
+    FanzonaAdminEditComponent,
+    BpAdminEditComponent
   ],
   imports: [
     AgmCoreModule.forRoot({

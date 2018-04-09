@@ -13,10 +13,24 @@ const httpOptions = {
 export class KorisniciService {
 
   private url = 'http://localhost:8080/register';
+  private urlBpAdmin = 'http://localhost:8080/register/bpadmin';
+  private urlFanadmin = 'http://localhost:8080/register/fanadmin';
 
   insertKorisnik(korisnik: Korisnik): Observable<Korisnik> {
     return this.http.post<Korisnik>(this.url, korisnik, httpOptions).pipe(
       catchError(this.handleError<Korisnik>('insertKorisnik'))
+    );
+  }
+
+  isertBpAdmin(korisnik: Korisnik): Observable<Korisnik> {
+    return this.http.post<Korisnik>(this.urlBpAdmin, korisnik, httpOptions).pipe(
+      catchError(this.handleError<Korisnik>('isertBpAdmin'))
+    );
+  }
+
+  isertFanadmin(korisnik: Korisnik): Observable<Korisnik> {
+    return this.http.post<Korisnik>(this.urlFanadmin, korisnik, httpOptions).pipe(
+      catchError(this.handleError<Korisnik>('isertFanadmin'))
     );
   }
 

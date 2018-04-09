@@ -71,6 +71,54 @@ public class KorisnikController {
     }
 
     @RequestMapping(
+            value = "/register/bpadmin",
+            method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Korisnik> insertBpAdmin(@RequestBody Korisnik korisnik){
+        List<String> roles = new ArrayList<String>();
+        roles.add("BP_ADMIN");
+        korisnik.setRoles(roles);
+        korisnik.setEnabled(true);
+        korisnik.setPrijatelji(new ArrayList<String>());
+        korisnik.setZahtevi(new ArrayList<String>());
+        korisnik.setPonude(new ArrayList<String>());
+        korisnik.setObavestenja(new ArrayList<String>());
+        korisnik.setConfirmationToken(UUID.randomUUID().toString());
+
+        System.out.println(korisnik.getIme());
+        System.out.println(korisnik.getPrezime());
+        System.out.println(korisnik.getEmail());
+        System.out.println(korisnik.getBrtel());
+        System.out.println(korisnik.getGrad());
+        System.out.println(korisnik.getPassword());
+        //Korisnik insertedKorisnik = korisnikService.insert(korisnik);
+        return new ResponseEntity<Korisnik>(HttpStatus.OK);
+    }
+
+    @RequestMapping(
+            value = "/register/fanadmin",
+            method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Korisnik> insertFanzonaAdmin(@RequestBody Korisnik korisnik){
+        List<String> roles = new ArrayList<String>();
+        roles.add("FANZONA_ADMIN");
+        korisnik.setRoles(roles);
+        korisnik.setEnabled(true);
+        korisnik.setPrijatelji(new ArrayList<String>());
+        korisnik.setZahtevi(new ArrayList<String>());
+        korisnik.setPonude(new ArrayList<String>());
+        korisnik.setObavestenja(new ArrayList<String>());
+        korisnik.setConfirmationToken(UUID.randomUUID().toString());
+
+        Korisnik insertedKorisnik = korisnikService.insert(korisnik);
+        return new ResponseEntity<Korisnik>(insertedKorisnik, HttpStatus.OK);
+    }
+
+    @RequestMapping(
             method = RequestMethod.GET,
             value = "/confirm"
     )
