@@ -19,7 +19,45 @@
         <span class="help-block" *ngIf="!pozoristeOpis.valid && pozoristeOpis.touched">Opis pozorista je obavezan!</span>
       </div>
 
+      <div class="form-group">
+          <label for="repertoar">Repertoar pozorista</label>
+          <input type="text" id="repertoar" name="repertoar" class="form-control" required ngModel #pozoristeRepertoar="ngModel">
+          <span class="help-block" *ngIf="!pozoristeRepertoar.valid && pozoristeRepertoar.touched">Repertoar je obavezan!</span>
+        </div>
+
       <button type="submit" class="btn btn-primary" [disabled]="!novoPozoristeForm.valid">Dodaj</button>
     </form>
   </div>
 </div>
+
+
+<div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <h1>Uredjivanje pozorista</h1>
+    <form #updatePozoristeForm="ngForm" (ngSubmit)="pozoristeUpdtSubmit(updatePozoristeForm)">
+      <div class="form-group">
+        <label for="naziv">Naziv pozorista</label>
+        <input type="text" id="naziv" name="naziv" class="form-control" required ngModel #PozoristeNaziv="ngModel">
+        <span class="help-block" *ngIf="!PozoristeNaziv.valid && PozoristeNaziv.touched">Naziv pozorista je obavezan!</span>
+      </div>
+
+      <div class="form-group">
+        <label for="adresa">Adresa pozorista</label>
+        <input type="text" id="adresa" name="adresa" class="form-control" required ngModel #pozoristeAdresa="ngModel">
+        <span class="help-block" *ngIf="!pozoristeAdresa.valid && pozoristeAdresa.touched">Adresa pozorista je obavezna!</span>
+      </div>
+
+      <div class="form-group">
+        <label for="opis">Opis pozorista</label>
+        <input type="text" id="opis" name="opis" class="form-control" required ngModel #pozoristeOpis="ngModel">
+        <span class="help-block" *ngIf="!pozoristeOpis.valid && pozoristeOpis.touched">Opis pozorista je obavezan!</span>
+      </div>
+
+      <div class="form-group">
+          <label for="repertoar">Repertoar pozorista</label>
+          <input type="text" id="repertoar" name="repertoar" class="form-control" required ngModel #pozoristeRepertoar="ngModel">
+          <span class="help-block" *ngIf="!pozoristeRepertoar.valid && pozoristeRepertoar.touched">Repertoar je obavezan!</span>
+        </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="!updatePozoristeForm.valid">Dodaj</button>
+    </form>
+  </div>

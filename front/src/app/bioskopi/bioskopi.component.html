@@ -1,5 +1,7 @@
   <div class="row">
     <div class="col-xs-12">
+       
+        
     <h1 *ngFor="let bioskopi of bioskopi">Naziv bioskopa: {{bioskopi.naziv}}
         <div class="row">
             <div class="col-xs-12" >
@@ -16,7 +18,7 @@
                 Repertoar: {{bioskopi.repertoar}}
               </div>
             </div>
-            <button type="button" (click)="updateBioskop()">Uredi bioskop</button>
+            <button class ="btn btn-primary" routerLink="/bioskop-edit">Uredi bioskop</button>
     </h1>
     </div>
   </div>

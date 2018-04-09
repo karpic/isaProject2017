@@ -54,7 +54,9 @@ const routes: Routes = [
   {path: 'repertoar', component: RepertoarComponent},
   {path: 'repertoar-pozorista', component: RepertoarPozoristaComponent},
   {path: 'user', component: UserComponent},
-  {path: 'gmlokacija/:id', component: GmLokacijaComponent}
+  {path: 'gmlokacija/:id', component: GmLokacijaComponent},
+  {path: 'bioskop-edit', component :BioskopEditComponent},
+  {path: 'pozoriste-edit', component :PozoristeEditComponent}
 ];
 
 @NgModule({
