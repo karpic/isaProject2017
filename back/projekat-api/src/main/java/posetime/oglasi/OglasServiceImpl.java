@@ -1,6 +1,8 @@
 package posetime.oglasi;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,6 +32,8 @@ public class OglasServiceImpl implements OglasService {
 
     @Override
     public Oglas create(Oglas oglas) throws Exception {
+        UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        oglas.setOwnerUserName(userDetails.getUsername());
         Oglas savedOglas = this.oglasiRepository.insert(oglas);
         return savedOglas;
     }

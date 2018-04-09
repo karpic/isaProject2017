@@ -3,6 +3,7 @@ import { NoviBioskop } from './../../models/novi-bioskop.model';
 import { Component, OnInit } from '@angular/core';
 import { BioskopiService } from '../../bioskopi.service';
 import { NgForm } from '@angular/forms';
+import { Bioskopi } from '../../models/bioskopi';
 
 @Component({
   selector: 'app-bioskop-edit',
@@ -11,6 +12,7 @@ import { NgForm } from '@angular/forms';
 })
 export class BioskopEditComponent implements OnInit {
   noviBioskop: NoviBioskop = new NoviBioskop("","","",[], []);
+  bioskopEdit : Bioskopi;
 
   onNoviBioskopSubmit(forma: NgForm) {
     this.noviBioskop.naziv = forma.value.naziv;
@@ -30,6 +32,12 @@ export class BioskopEditComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+
+  
+  bioskopEdt() {
+    this.bioskopiService.updateBioskop(this.bioskopEdit).subscribe();
+    this.location.back();
   }
 
 }

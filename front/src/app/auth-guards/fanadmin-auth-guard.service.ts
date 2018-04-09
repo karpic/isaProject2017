@@ -10,11 +10,7 @@ export class FanAdminAuthGuard implements CanActivate{
 
   constructor() {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if(sessionStorage.getItem(TOKEN_KEY) === null){
-      return false;
-    }
-    else{
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
       this.tokenPayload = jwt_decode(sessionStorage.getItem(TOKEN_KEY));
       if(this.tokenPayload.scopes[0].authority === "ROLE_ADMIN"){
         return true;
@@ -22,6 +18,6 @@ export class FanAdminAuthGuard implements CanActivate{
       else{
         return false;
       }
-    }
+
   }
 }

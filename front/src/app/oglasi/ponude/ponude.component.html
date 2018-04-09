@@ -1,7 +1,15 @@
 <div class="row">
   <div class="col-xs-12">
     <ul class="list-group">
-      <li class="list-group-item" *ngFor="let ponuda of ponude">{{ponuda.userName}}({{ponuda.iznos}})</li>
+      <li class="list-group-item clearfix" *ngFor="let ponuda of ponude">
+        <span class="pull-left">
+          {{ponuda.username}}({{ponuda.iznos}})
+        </span>
+        <span class="pull-right">
+          <button *ngIf="authenticatedUser == oglas.ownerUserName" class="btn btn-primary" (click)="izaberi(ponuda)" [disabled]="ponuda.izabrana"> Izaberi</button>
+        </span>
+
+      </li>
     </ul>
   </div>
 </div>

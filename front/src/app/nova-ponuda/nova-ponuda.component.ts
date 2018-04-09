@@ -17,9 +17,10 @@ export class NovaPonudaComponent implements OnInit {
     var ponuda =
                 {
                   "userId": "tempUserId",
-                  "userName": "tempUserName",
+                  "username": "tempUserName",
                   "oglasId": this.oglasId,
-                  "iznos": iznos
+                  "iznos": iznos,
+                  "izabrana": false
                 };
     this.ponudeService.insertPonuda(ponuda as Ponuda).subscribe();
     this.goBack();

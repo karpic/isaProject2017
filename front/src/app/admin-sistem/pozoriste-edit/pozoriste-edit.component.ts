@@ -3,6 +3,7 @@ import { PozoristeService } from './../../services/pozorista.service';
 import { NovoPozoriste } from './../../models/novo-pozoriste.model';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Pozorista } from '../../models/pozorista';
 
 @Component({
   selector: 'app-pozoriste-edit',
@@ -11,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PozoristeEditComponent implements OnInit {
   novoPozoriste: NovoPozoriste = new NovoPozoriste("","","",[],[]);
+  pozoristeEdit: Pozorista;
 
   onNovoPozoristeSubmit(forma: NgForm){
     this.novoPozoriste.naziv = forma.value.naziv;
@@ -29,6 +31,11 @@ export class PozoristeEditComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+
+  pozoristeEdt() {
+    this.pozoristaService.updatePozoriste(this.pozoristeEdit).subscribe();
+    this.location.back();
   }
 
 }

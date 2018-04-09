@@ -51,11 +51,12 @@ public class PonudeController {
 
     @RequestMapping(
             method = RequestMethod.GET,
-            value = "ponude/korisnik/{id}",
+            value = "ponude/korisnik/{username}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<List<Ponuda>> getPonudeByUserId(@PathVariable("id") String id){
-        List<Ponuda> ponude = this.ponudaService.findByUserId(id);
+    public ResponseEntity<List<Ponuda>> getPonudeByUserId(@PathVariable("username") String username){
+        List<Ponuda> ponude = this.ponudaService.findByUserName(username);
+        System.out.println(ponude);
         return new ResponseEntity<List<Ponuda>>(ponude, HttpStatus.OK);
     }
 
@@ -98,5 +99,21 @@ public class PonudeController {
     public ResponseEntity<Ponuda> deletePonuda(@PathVariable("id") String id){
         this.ponudaService.delete(id);
         return new ResponseEntity<Ponuda>(HttpStatus.NO_CONTENT);
+    }
+
+    @RequestMapping(
+            value = "/ponude/rezervisi",
+            method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Ponuda> reservisiPonudu(@RequestBody Ponuda ponuda){
+        Ponuda reservedPonuda = this.ponudaService.reserve(ponuda);
+        if (reservedPonuda != null) {
+            return new ResponseEntity<Ponuda>(ponuda, HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<Ponuda>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

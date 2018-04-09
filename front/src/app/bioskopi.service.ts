@@ -29,6 +29,23 @@ export class BioskopiService {
     );
   }
 
+  updateBioskop(bioskop: Bioskopi): Observable<Bioskopi>{
+    const id = typeof bioskop === 'string' ? bioskop : bioskop.id;
+    const url = `${this.url}/${id}`;
+    return this.http.put<Bioskopi>(url, bioskop, httpOptions).pipe(
+      catchError(this.handleError<Bioskopi>('updateBioskop'))
+    );
+  }
+
+  deleteBioskop(bioskop: Bioskopi | string): Observable<Bioskopi> {
+    const id = typeof bioskop === 'string' ? bioskop : bioskop.id;
+    const url = `${this.url}/${id}`;
+
+    return this.http.delete<Bioskopi>(url, httpOptions).pipe(
+      catchError(this.handleError<Bioskopi>('deleteBioskop'))
+    );
+  }
+
   constructor(private http: HttpClient) { }
 
   private handleError<T> (operation = 'operation', result?: T) {

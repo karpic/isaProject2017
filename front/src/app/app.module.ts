@@ -1,3 +1,5 @@
+import { GeocoderService } from './services/geocoder.service';
+import { FanzonaAuthGuard } from './auth-guards/fanzona-auth-guard.service';
 
 import { PozoristeService } from './services/pozorista.service';
 import { BioskopiService } from './bioskopi.service';
@@ -48,6 +50,10 @@ import { BioskopEditComponent } from './admin-sistem/bioskop-edit/bioskop-edit.c
 import { PozoristeEditComponent } from './admin-sistem/pozoriste-edit/pozoriste-edit.component';
 import { UserComponent } from './user/user.component';
 import { FanAdminAuthGuard } from './auth-guards/fanadmin-auth-guard.service';
+
+import { AgmCoreModule} from '@agm/core';
+import { GmLokacijaComponent } from './gm-lokacija/gm-lokacija.component';
+
 import { LoginUserService } from './login/login-user.service';
 
 
@@ -84,15 +90,21 @@ import { LoginUserService } from './login/login-user.service';
     AdminSistemComponent,
     BioskopEditComponent,
     PozoristeEditComponent,
-    UserComponent
+    UserComponent,
+    GmLokacijaComponent
   ],
   imports: [
+    AgmCoreModule.forRoot({
+      apiKey: ' AIzaSyB79Hum1sxQbxwgiccMIGm7zzYVZnCVoDI'
+    }),
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule
   ],
   providers: [
+    GeocoderService,
+    FanzonaAuthGuard,
     FanAdminAuthGuard,
     BioskopiService,
     PozoristeService,

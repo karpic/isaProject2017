@@ -10,4 +10,5 @@ public interface RekvizitService {
     TematskiRekvizit update(TematskiRekvizit rekvizit) throws Exception;
     void delete(String id);
 
+
 }

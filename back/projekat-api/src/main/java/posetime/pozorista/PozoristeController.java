@@ -55,4 +55,28 @@ public class PozoristeController {
         Pozoriste createdPozoriste = this.pozoristeService.create(pozoriste);
         return new ResponseEntity<>(createdPozoriste, HttpStatus.CREATED);
     }
+
+    public ResponseEntity<Pozoriste> updatePozoriste(@PathVariable("id") String id, @RequestBody Pozoriste pozoriste) throws Exception{
+        Pozoriste pozorista = this.pozoristeService.findOne(id);
+
+        if(pozorista == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        Pozoriste updatePozoriste = this.pozoristeService.update(pozoriste);
+        if (updatePozoriste == null) {
+            return new ResponseEntity<Pozoriste>(
+                    HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ResponseEntity<>(updatePozoriste, HttpStatus.OK);
+    }
+
+    @RequestMapping(
+            method = RequestMethod.DELETE,
+            value = "/pozortiste/{id}"
+    )
+    public ResponseEntity<Pozoriste> deleteBioskop(@PathVariable("id") String id){
+        this.pozoristeService.delete(id);
+        return new ResponseEntity<Pozoriste>(HttpStatus.NO_CONTENT);
+    }
 }

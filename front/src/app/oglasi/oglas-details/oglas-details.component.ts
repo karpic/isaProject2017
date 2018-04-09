@@ -24,9 +24,10 @@ export class OglasDetailsComponent implements OnInit {
     var ponuda =
                 {
                   "userId": "tempUserId",
-                  "userName": "tempUserName",
+                  "username": "tempUserName",
                   "oglasId": this.oglasToDisplay.id,
-                  "iznos": this.ponudaForm.value.iznos
+                  "iznos": this.ponudaForm.value.iznos,
+                  "izabrana": false
                 };
     this.ponudeService.insertPonuda(ponuda as Ponuda).subscribe();
     this.togglePonudaForm();

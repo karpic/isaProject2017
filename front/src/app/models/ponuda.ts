@@ -2,8 +2,9 @@ export class Ponuda {
   constructor(
     public id: string,
     public userId: string,
-    public userName: string,
+    public username: string,
     public oglasId: string,
-    public iznos: number
+    public iznos: number,
+    public izabrana: boolean
   ) { }
 }

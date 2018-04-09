@@ -10,9 +10,17 @@ public class Ponuda {
     private String id;
     //id usera koji je napravio ponudu na oglas
     private String userId;
-    private String userName;
+    //username usera koji je napravio ponudu
+    private String username;
+    private boolean izabrana;
 
+    public boolean isIzabrana() {
+        return izabrana;
+    }
 
+    public void setIzabrana(boolean izabrana) {
+        this.izabrana = izabrana;
+    }
 
     //id oglasa na koji je ponuda napravljena
     private String oglasId;
@@ -30,12 +38,12 @@ public class Ponuda {
 
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
     public String getId() {
         return id;
