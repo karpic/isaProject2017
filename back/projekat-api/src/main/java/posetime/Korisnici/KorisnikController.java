@@ -83,7 +83,7 @@ public class KorisnikController {
 
     @RequestMapping(
             method = RequestMethod.GET,
-            value = "/user/{email}",
+            value = "/user/{email}/",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<Korisnik> getKorisnik(@PathVariable("email") String email) {

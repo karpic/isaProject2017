@@ -23,14 +23,12 @@ export class LoginComponent {
     this.authService.attemptAuth(this.username, this.password).subscribe(
       data => {
         this.token.saveToken(data.token);
-        this.router.navigate(['fanzona']);
         this.loginUserService.getUser().subscribe(
-          user => this.user = user
+          user => this.loginUserService.setLoggedInUser(user)
         );
-        console.log(this.user);
-        this.loginUserService.setLoggedInUser(this.user);
       }
     );
+    this.router.navigate(['user']);
   }
 
 

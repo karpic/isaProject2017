@@ -13,7 +13,7 @@ export class LoginUserService {
   private url = 'http://localhost:8080/user';
 
   getUser(): Observable<LoggedInUser> {
-     return this.http.get<LoggedInUser>(this.url + '/' + jwt_decode(sessionStorage.getItem(TOKEN_KEY)));
+     return this.http.get<LoggedInUser>(this.url + '/' + jwt_decode(sessionStorage.getItem(TOKEN_KEY)).sub + '/');
   }
 
   getLoggedInUser(): LoggedInUser {
