@@ -1,9 +1,9 @@
-import { Component, OnInit , Input} from '@angular/core';
+import { Component, OnInit , Input, Output, EventEmitter} from '@angular/core';
 import { Bioskopi } from '../models/bioskopi';
 import { BioskopiService } from '../bioskopi.service';
 import { ApplicationDataSharingServiceService } from '../services/application-data-sharing-service.service';
-import { EventEmitter } from 'events';
-import { Output } from '@angular/core/src/metadata/directives';
+
+
 
 @Component({
   selector: 'app-bioskopi',
@@ -12,7 +12,7 @@ import { Output } from '@angular/core/src/metadata/directives';
 })
 export class BioskopiComponent implements OnInit {
  @Input() bioskopiShow: Bioskopi;
-
+ @Output() bioskopSelect: EventEmitter<any> = new EventEmitter<void>();
   bioskopi: Bioskopi[];
 
   getBioskopi(): void {
@@ -24,6 +24,11 @@ export class BioskopiComponent implements OnInit {
 
   ngOnInit() {
     this.getBioskopi();
+    console.log(this.bioskopi);
+  }
+
+  selectedBioskop() {
+    this.bioskopSelect.emit();
   }
 
 }

@@ -56,12 +56,8 @@ const routes: Routes = [
   {path: 'repertoar-pozorista', component: RepertoarPozoristaComponent},
   {path: 'user', component: UserComponent},
   {path: 'gmlokacija/:id', component: GmLokacijaComponent},
-<<<<<<< HEAD
   {path: 'bioskop-edit', component :BioskopEditComponent},
   {path: 'pozoriste-edit', component :PozoristeEditComponent}
-=======
-  {path: 'user/edit-user', component: EditUserComponent}
->>>>>>> 6c0b5ce56ff198f567a5d2790bc683093c850d71
 ];
 
 @NgModule({

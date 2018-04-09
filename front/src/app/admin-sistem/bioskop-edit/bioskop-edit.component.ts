@@ -15,7 +15,8 @@ export class BioskopEditComponent implements OnInit {
   noviBioskop: NoviBioskop = new NoviBioskop("","","",[], []);
   updtBioskop: Bioskopi;
   editFlag: boolean;
- @Input() bioskopEdit : Bioskopi;
+  bioskopId: string;
+  bioskopEdit : Bioskopi;
   bioskopi: Bioskopi[];
 
   onNoviBioskopSubmit(forma: NgForm) {
@@ -32,15 +33,23 @@ export class BioskopEditComponent implements OnInit {
 
   constructor(
     private bioskopiService: BioskopiService,
-    private location: Location
+    private location: Location,
   ) { }
 
   ngOnInit() {
+    
   }
+
   otvoriBioskopUpdt(bioskop: Bioskopi): void {
     this.updtBioskop = bioskop;
     this.editFlag = true;
     window.scrollTo(0, 0);
+  }
+
+  getBioskop() {
+    this.bioskopiService.getBioskop(this.bioskopId).subscribe(
+      (bioskop) => this.updtBioskop = bioskop
+    );
   }
 
   bioskopUpdtSubmit(forma: NgForm){
