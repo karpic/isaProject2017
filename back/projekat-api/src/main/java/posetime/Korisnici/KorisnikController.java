@@ -87,14 +87,14 @@ public class KorisnikController {
         korisnik.setObavestenja(new ArrayList<String>());
         korisnik.setConfirmationToken(UUID.randomUUID().toString());
 
-        System.out.println(korisnik.getIme());
+        /*System.out.println(korisnik.getIme());
         System.out.println(korisnik.getPrezime());
         System.out.println(korisnik.getEmail());
         System.out.println(korisnik.getBrtel());
         System.out.println(korisnik.getGrad());
-        System.out.println(korisnik.getPassword());
-        //Korisnik insertedKorisnik = korisnikService.insert(korisnik);
-        return new ResponseEntity<Korisnik>(HttpStatus.OK);
+        System.out.println(korisnik.getPassword());*/
+        Korisnik insertedKorisnik = korisnikService.insert(korisnik);
+        return new ResponseEntity<Korisnik>(insertedKorisnik, HttpStatus.OK);
     }
 
     @RequestMapping(
