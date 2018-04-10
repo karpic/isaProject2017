@@ -11,7 +11,7 @@ import { Pozorista } from '../../models/pozorista';
   styleUrls: ['./pozoriste-edit.component.css']
 })
 export class PozoristeEditComponent implements OnInit {
-  novoPozoriste: NovoPozoriste = new NovoPozoriste("","","",[],[]);
+  novoPozoriste: NovoPozoriste = new NovoPozoriste("","","",[],[], "");
 
 
   @Input() pozoristeEdit: Pozorista;
@@ -23,6 +23,7 @@ export class PozoristeEditComponent implements OnInit {
     this.novoPozoriste.opis = forma.value.opis;
     this.novoPozoriste.brmesta = [];
     this.novoPozoriste.repertoar = [];
+    this.novoPozoriste.admin = forma.value.admin;
     this.pozoristaService.insertPozoriste(this.novoPozoriste).subscribe();
     forma.reset();
     this.location.back();

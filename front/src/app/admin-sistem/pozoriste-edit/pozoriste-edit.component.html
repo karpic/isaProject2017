@@ -25,6 +25,12 @@
           <span class="help-block" *ngIf="!pozoristeRepertoar.valid && pozoristeRepertoar.touched">Repertoar je obavezan!</span>
         </div>
 
+        <div class="form-group">
+          <label for="admin">Administrator bioskopa</label>
+          <input type="text" id="admin" name="admin" class="form-control" required ngModel #pozoristeAdmin="ngModel">
+          <span class="help-block" *ngIf="!pozoristeAdmin.valid && pozoristeAdmin.touched">Administrator bioskopa je obavezan!</span>
+        </div>
+
       <button type="submit" class="btn btn-primary" [disabled]="!novoPozoristeForm.valid">Dodaj</button>
     </form>
   </div>

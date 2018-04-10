@@ -12,7 +12,7 @@ import { Bioskopi } from '../../models/bioskopi';
   styleUrls: ['./bioskop-edit.component.css']
 })
 export class BioskopEditComponent implements OnInit {
-  noviBioskop: NoviBioskop = new NoviBioskop("","","",[], []);
+  noviBioskop: NoviBioskop = new NoviBioskop("","","",[], [], "");
   updtBioskop: Bioskopi;
   editFlag: boolean;
   bioskopId: string;
@@ -25,10 +25,10 @@ export class BioskopEditComponent implements OnInit {
     this.noviBioskop.opis = forma.value.opis;
     this.noviBioskop.repertoar = [];
     this.noviBioskop.brmesta = [];
+    this.noviBioskop.admin = forma.value.admin;
     this.bioskopiService.insertBioskop(this.noviBioskop).subscribe();
     forma.reset();
     this.location.back();
-
   }
 
   constructor(
@@ -37,7 +37,7 @@ export class BioskopEditComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+
   }
 
 

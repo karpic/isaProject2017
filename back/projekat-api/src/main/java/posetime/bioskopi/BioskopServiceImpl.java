@@ -41,6 +41,8 @@ public class BioskopServiceImpl implements BioskopService {
         bioskopUpdt.setOpis((bioskop.getOpis()));
         bioskopUpdt.setRepertoar(bioskop.getRepertoar());
         bioskopUpdt.setBrmesta(bioskop.getBrmesta());
+        bioskopUpdt.setAdmin(bioskop.getAdmin());
+
 
         Bioskop updateBioskop = this.bioskopRepository.save(bioskopUpdt);
         return updateBioskop;
