@@ -1,3 +1,4 @@
+import { RecenzijaComponent } from './admin-fanzona/recenzija/recenzija.component';
 import { BpAdminEditComponent } from './admin-sistem/bp-admin-edit/bp-admin-edit.component';
 import { FanzonaAdminEditComponent } from './admin-sistem/fanzona-admin-edit/fanzona-admin-edit.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
@@ -46,7 +47,8 @@ const routes: Routes = [
       {path: 'novirekvizit', component: RekvizitEditComponent},
       {path: 'neodobreni', component: NeodobreniOglasiComponent},
       {path: 'rekviziti', component: RekvizitiComponent},
-      {path: 'rekvizit/:rekvizitId', component: RekvizitEditComponent}
+      {path: 'rekvizit/:rekvizitId', component: RekvizitEditComponent},
+      {path: 'recenzija', component: RecenzijaComponent}
     ]}
   ]},
   {path: ':username/ponude', component: PregledPonudaComponent},

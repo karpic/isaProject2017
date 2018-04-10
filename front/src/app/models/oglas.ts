@@ -6,6 +6,8 @@ export class Oglas {
     public datum: Date,
     public odobren: boolean,
     public ownerUserName: string,
-    public imgPath: string
+    public imgPath: string,
+    public status: number,
+    public adminRec: String
   ) { }
 }

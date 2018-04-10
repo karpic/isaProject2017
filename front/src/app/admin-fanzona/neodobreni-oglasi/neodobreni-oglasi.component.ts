@@ -1,6 +1,9 @@
 import { OglasService } from './../../oglas.service';
 import { Component, OnInit } from '@angular/core';
 import { Oglas } from '../../models/oglas';
+import * as jwt_decode from 'jwt-decode';
+
+const TOKEN_KEY = 'AuthToken';
 
 @Component({
   selector: 'app-neodobreni-oglasi',
@@ -9,6 +12,7 @@ import { Oglas } from '../../models/oglas';
 })
 export class NeodobreniOglasiComponent implements OnInit {
   neodobreniOglasi: Oglas[];
+  tokenPayload;
 
   getNeodobreniOglasi() {
     this.oglasiService.getNeodobreni().subscribe(
@@ -16,17 +20,12 @@ export class NeodobreniOglasiComponent implements OnInit {
     );
   }
 
-  odobriOglas(oglas: Oglas){
-    oglas.odobren = true;
+  preuzmiOglas(oglas: Oglas) {
+    this.tokenPayload = jwt_decode(sessionStorage.getItem(TOKEN_KEY));
+    oglas.status = 1;
+    oglas.adminRec = this.tokenPayload.sub;
     this.oglasiService.updateOglas(oglas).subscribe();
     this.neodobreniOglasi = this.neodobreniOglasi.filter(o => o !== oglas);
-  }
-
-  odbijOglas(oglas: Oglas) {
-    this.oglasiService.deleteOglas(oglas).subscribe();
-    this.neodobreniOglasi = this.neodobreniOglasi.filter(o => o !== oglas);
-    //implementirati jos i obavestenje korisniku da je oglas odbijen
-    //i obrisan iz sistema
   }
 
   constructor(private oglasiService: OglasService) { }

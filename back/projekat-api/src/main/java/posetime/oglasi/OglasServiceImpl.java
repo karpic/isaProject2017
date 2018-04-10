@@ -25,6 +25,24 @@ public class OglasServiceImpl implements OglasService {
     }
 
     @Override
+    public List<Oglas> findByAdminRec(String admin) {
+        List<Oglas> oglasiZaAdmina = this.oglasiRepository.findByAdminRec(admin);
+        return oglasiZaAdmina;
+    }
+
+    @Override
+    public List<Oglas> findByStatus(int status) {
+        List<Oglas> oglasiPoStatusu = this.oglasiRepository.findByStatus(status);
+        return oglasiPoStatusu;
+    }
+
+    @Override
+    public List<Oglas> findByStatusAndAdminRec(int status, String adminRec) {
+        List<Oglas> oglasi = this.oglasiRepository.findByStatusAndAdminRec(status, adminRec);
+        return oglasi;
+    }
+
+    @Override
     public Oglas findOne(String id) {
         Oglas oglas = this.oglasiRepository.findOne(id);
         return oglas;
@@ -51,6 +69,8 @@ public class OglasServiceImpl implements OglasService {
         oglasToUpdate.setOdobren(oglas.isOdobren());
         oglasToUpdate.setOwnerUserName(oglas.getOwnerUserName());
         oglasToUpdate.setImgPath(oglas.getImgPath());
+        oglasToUpdate.setStatus(oglas.getStatus());
+        oglasToUpdate.setAdminRec(oglas.getAdminRec());
 
         Oglas updatedOglas = this.oglasiRepository.save(oglasToUpdate);
         return updatedOglas;
