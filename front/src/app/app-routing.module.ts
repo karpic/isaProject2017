@@ -1,3 +1,4 @@
+import { SysadminAuthGuard } from './auth-guards/sysadmin-auth-guard.service';
 import { RecenzijaComponent } from './admin-fanzona/recenzija/recenzija.component';
 import { BpAdminEditComponent } from './admin-sistem/bp-admin-edit/bp-admin-edit.component';
 import { FanzonaAdminEditComponent } from './admin-sistem/fanzona-admin-edit/fanzona-admin-edit.component';
@@ -52,7 +53,7 @@ const routes: Routes = [
     ]}
   ]},
   {path: ':username/ponude', component: PregledPonudaComponent},
-  {path: 'sysadmin', component: AdminSistemComponent, children: [
+  {path: 'sysadmin', component: AdminSistemComponent, canActivate: [SysadminAuthGuard], children: [
     {path: 'novibioskop', component: BioskopEditComponent},
     {path: 'novopozoriste', component: PozoristeEditComponent},
     {path: 'novifanadmin', component: FanzonaAdminEditComponent},

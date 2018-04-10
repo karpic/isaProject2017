@@ -1,3 +1,5 @@
+import { BpAdminAuthGuard } from './auth-guards/bpadmin-auth-guard.service';
+import { SysadminAuthGuard } from './auth-guards/sysadmin-auth-guard.service';
 import { GeocoderService } from './services/geocoder.service';
 import { FanzonaAuthGuard } from './auth-guards/fanzona-auth-guard.service';
 
@@ -118,6 +120,8 @@ import { RecenzijaComponent } from './admin-fanzona/recenzija/recenzija.componen
     GeocoderService,
     FanzonaAuthGuard,
     FanAdminAuthGuard,
+    SysadminAuthGuard,
+    BpAdminAuthGuard,
     BioskopiService,
     PozoristeService,
     RekvizitService,
