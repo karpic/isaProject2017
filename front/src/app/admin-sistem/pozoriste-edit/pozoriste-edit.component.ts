@@ -12,7 +12,7 @@ import { Pozorista } from '../../models/pozorista';
 })
 export class PozoristeEditComponent implements OnInit {
   novoPozoriste: NovoPozoriste = new NovoPozoriste("","","",[],[]);
-  updtPozoriste: Pozorista =  new Pozorista("","","","",[],[]);
+
 
   @Input() pozoristeEdit: Pozorista;
   pozorista: Pozorista[];
@@ -36,26 +36,6 @@ export class PozoristeEditComponent implements OnInit {
   ngOnInit() {
   }
 
-  pozoristeUpdtSubmit(forma: NgForm){
-    this.updtPozoriste.naziv = forma.value.naziv;
-    this.updtPozoriste.naziv = forma.value.adresa;
-    this.updtPozoriste.naziv = forma.value.opis;
-    this.updtPozoriste.repertoar = [];
-    this.updtPozoriste.brmesta =[];
-    this.pozoristaService.updatePozoriste(this.updtPozoriste).subscribe();
-    forma.reset();
-    this.location.back();
-  }
-  
-
-  pozoristeEdt() {
-    this.pozoristaService.updatePozoriste(this.pozoristeEdit).subscribe();
-    this.location.back();
-  }
-
-  updatePozoriste(): void{
-    this.pozoristaService.updatePozoriste(this.pozoristeEdit).subscribe();
-  }
 
   deletePozoriste(pozoriste: Pozorista) {
     this.pozoristaService.deleteBioskop(pozoriste).subscribe();

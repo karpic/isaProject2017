@@ -1,6 +1,7 @@
-<div class="row" *ngIf="!rekvizitToEdit">
-  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-    <form #novoPozoristeForm="ngForm" (ngSubmit)="onNovoPozoristeSubmit(novoPozoristeForm)">
+
+<div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <h1>Uredjivanje pozorista</h1>
+    <form #updatePozoristeForm="ngForm" (ngSubmit)="pozoristeUpdtSubmit(updatePozoristeForm)">
       <div class="form-group">
         <label for="naziv">Naziv pozorista</label>
         <input type="text" id="naziv" name="naziv" class="form-control" required ngModel #PozoristeNaziv="ngModel">
@@ -25,8 +26,6 @@
           <span class="help-block" *ngIf="!pozoristeRepertoar.valid && pozoristeRepertoar.touched">Repertoar je obavezan!</span>
         </div>
 
-      <button type="submit" class="btn btn-primary" [disabled]="!novoPozoristeForm.valid">Dodaj</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!updatePozoristeForm.valid">Dodaj</button>
     </form>
   </div>
-</div>
-

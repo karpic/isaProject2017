@@ -31,6 +31,8 @@ import { RekvizitiComponent } from './admin-fanzona/rekviziti/rekviziti.componen
 import { BioskopEditComponent } from './admin-sistem/bioskop-edit/bioskop-edit.component';
 import { PozoristeEditComponent } from './admin-sistem/pozoriste-edit/pozoriste-edit.component';
 import { FanAdminAuthGuard } from './auth-guards/fanadmin-auth-guard.service';
+import { BioskopiEditComponent } from './bioskopi/bioskopi-edit/bioskopi-edit.component';
+import { PozoristaEditComponent } from './pozorista/pozorista-edit/pozorista-edit.component';
 
 
 const routes: Routes = [
@@ -60,8 +62,8 @@ const routes: Routes = [
   {path: 'repertoar-pozorista', component: RepertoarPozoristaComponent},
   {path: 'user', component: UserComponent},
   {path: 'gmlokacija/:id', component: GmLokacijaComponent},
-  {path: 'bioskop-edit', component :BioskopEditComponent},
-  {path: 'pozoriste-edit', component :PozoristeEditComponent}
+  {path: 'bioskopi-edit/:bioskopId', component :BioskopiEditComponent},
+  {path: 'pozorista-edit/:pozoristeId', component :PozoristaEditComponent},
 ];
 
 @NgModule({

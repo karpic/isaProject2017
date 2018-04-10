@@ -40,11 +40,6 @@ export class BioskopEditComponent implements OnInit {
     
   }
 
-  otvoriBioskopUpdt(bioskop: Bioskopi): void {
-    this.updtBioskop = bioskop;
-    this.editFlag = true;
-    window.scrollTo(0, 0);
-  }
 
   getBioskop() {
     this.bioskopiService.getBioskop(this.bioskopId).subscribe(
@@ -52,30 +47,5 @@ export class BioskopEditComponent implements OnInit {
     );
   }
 
-  bioskopUpdtSubmit(forma: NgForm){
-    this.updtBioskop.naziv = forma.value.naziv;
-    this.updtBioskop.naziv = forma.value.adresa;
-    this.updtBioskop.naziv = forma.value.opis;
-    this.updtBioskop.repertoar = [];
-    this.updtBioskop.brmesta =[];
-    this.bioskopiService.updateBioskop(this.updtBioskop).subscribe();
-    forma.reset();
-    this.location.back();
-  }
-  
-  bioskopEdt() {
-    this.bioskopiService.updateBioskop(this.bioskopEdit).subscribe();
-    this.location.back();
-  }
 
-  
-  updateBioskop(): void{
-    this.bioskopiService.updateBioskop(this.bioskopEdit).subscribe();
-  }
-
-  
-  deleteBioskop(bioskop: Bioskopi) {
-    this.bioskopiService.deleteBioskop(bioskop).subscribe();
-    this.bioskopi = this.bioskopi.filter(r => r !== bioskop);
-  }
 }

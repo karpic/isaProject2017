@@ -1,24 +1,13 @@
-<div class="row">
-      <div class="col-xs-12">
-         
-      <h1 *ngFor="let pozorista of pozorista">Naziv pozorista: {{pozorista.naziv}}
-          <div class="row">
-              <div class="col-xs-12" >
-                Adresa: {{pozorista.adresa}}
-              </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                  Opis: {{pozorista.opis}}
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-xs-12">
-                  Repertoar: {{pozorista.repertoar}}
-                </div>
-              </div>   
-              <button class ="btn btn-primary" routerLink="/pozoriste-edit">Uredi pozoriste</button> 
-      </h1>
-      </div>
+<a class="list-group-item clearfix" *ngFor="let pozorista of pozorista">
+    <div class="pull-left">
+      <h4 class="list-group-item-heading">Naziv pozorista: {{pozorista.naziv}}</h4>
+      <p class="list-group-item-text">Adresa: {{pozorista.adresa}}</p>
+      <p class="list-group-item-text">Opis: {{pozorista.opis}}</p>
+      <p class="list-group-item-text">Repertoar: {{pozorista.repertoar}}</p>
     </div>
-  
+    <span class="pull-right">
+      
+      <button class="btn btn-primary" [routerLink]="['../pozorista-edit/' + pozorista.id]">Izmeni</button>
+     
+    </span>
+  </a>

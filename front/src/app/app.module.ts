@@ -58,6 +58,8 @@ import { LoginUserService } from './login/login-user.service';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { FanzonaAdminEditComponent } from './admin-sistem/fanzona-admin-edit/fanzona-admin-edit.component';
 import { BpAdminEditComponent } from './admin-sistem/bp-admin-edit/bp-admin-edit.component';
+import { BioskopiEditComponent} from './bioskopi/bioskopi-edit/bioskopi-edit.component';
+import { PozoristaEditComponent } from './pozorista/pozorista-edit/pozorista-edit.component';
 
 
 @NgModule({
@@ -97,7 +99,9 @@ import { BpAdminEditComponent } from './admin-sistem/bp-admin-edit/bp-admin-edit
     GmLokacijaComponent,
     EditUserComponent,
     FanzonaAdminEditComponent,
-    BpAdminEditComponent
+    BpAdminEditComponent,
+    BioskopiEditComponent,
+    PozoristaEditComponent
   ],
   imports: [
     AgmCoreModule.forRoot({

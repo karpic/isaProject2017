@@ -1,22 +1,14 @@
-<div class="row">
-    <div class="col-xs-12">
-    <h1 *ngFor="let bioskopi of bioskopi">Naziv bioskopa: {{bioskopi.naziv}}
-        <div class="row">
-            <div class="col-xs-12" >
-              Adresa: {{bioskopi.adresa}}
-            </div>
-          </div>
-          <div class="row">
-              <div class="col-xs-12">
-                Opis: {{bioskopi.opis}}
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12">
-                Repertoar: {{bioskopi.repertoar}}
-              </div>
-            </div>
-            <button class ="btn btn-primary" routerLink="/bioskop-edit">Uredi bioskop</button>
-    </h1>
-    </div>
-  </div>
+  <a class="list-group-item clearfix" *ngFor="let bioskopi of bioskopi">
+      <div class="pull-left">
+        <h4 class="list-group-item-heading">Naziv bioskopa: {{bioskopi.naziv}}</h4>
+        <p class="list-group-item-text">Adresa: {{bioskopi.adresa}}</p>
+        <p class="list-group-item-text">Opis: {{bioskopi.opis}}</p>
+        <p class="list-group-item-text">Repertoar: {{bioskopi.repertoar}}</p>
+      </div>
+      <span class="pull-right">
+        
+        <button class="btn btn-primary" [routerLink]="['../bioskopi-edit/' + bioskopi.id]">Izmeni</button>
+       
+      </span>
+    </a>
+  
