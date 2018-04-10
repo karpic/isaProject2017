@@ -1,4 +1,4 @@
-  <a class="list-group-item clearfix" *ngFor="let bioskopi of bioskopi">
+  <a class="list-group-item clearfix" *ngFor="let bioskopi of bioskopi" (click)="onSelected()">
       <div class="pull-left">
         <h4 class="list-group-item-heading">Naziv bioskopa: {{bioskopi.naziv}}</h4>
         <p class="list-group-item-text">Adresa: {{bioskopi.adresa}}</p>
@@ -7,7 +7,7 @@
       </div>
       <span class="pull-right">
         
-        <button class="btn btn-primary" [routerLink]="['../bioskopi-edit/' + bioskopi.id]">Izmeni</button>
+        <button class="btn btn-primary" [routerLink]="['../bioskopi/' + bioskopi.id]">Izmeni</button>
        
       </span>
     </a>

@@ -15,7 +15,7 @@ import { Params } from '@angular/router/src/shared';
 export class BioskopiEditComponent implements OnInit {
   @Input() bioskopiShow: Bioskopi
   @Output() bioskopSelect: EventEmitter<any> = new EventEmitter<void>();
-  updtBioskop: Bioskopi;
+
   editFlag: boolean;
   bioskopId: string;
   bioskopEdit : Bioskopi;
@@ -34,7 +34,7 @@ export class BioskopiEditComponent implements OnInit {
    
     getBioskop() {
       this.bioskopiService.getBioskop(this.bioskopId).subscribe(
-        (bioskop) => this.updtBioskop = bioskop
+        (bioskop) => this.bioskopEdit = bioskop
       );
     }
 
@@ -45,28 +45,30 @@ export class BioskopiEditComponent implements OnInit {
           this.bioskopId = params["bioskopId"];
         }
       );
-      this.getBioskop();
-    
+      this.getBioskopi();
   }
 }
 selectedBioskop(bioskop: Bioskopi) {
   this.bioskopSelect.emit(bioskop);
 }
 
+onSelected() {
+  this.bioskopSelect.emit();
+}
 
   otvoriBioskopUpdt(bioskop: Bioskopi): void {
-    this.updtBioskop = bioskop;
+    this.bioskopEdit = bioskop;
     this.editFlag = true;
     window.scrollTo(0, 0);
   }
 
   bioskopUpdtSubmit(forma: NgForm){
-    this.updtBioskop.naziv = forma.value.naziv;
-    this.updtBioskop.naziv = forma.value.adresa;
-    this.updtBioskop.naziv = forma.value.opis;
-    this.updtBioskop.repertoar = [];
-    this.updtBioskop.brmesta =[];
-    this.bioskopiService.updateBioskop(this.updtBioskop).subscribe();
+    this.bioskopEdit.naziv = forma.value.naziv;
+    this.bioskopEdit.naziv = forma.value.adresa;
+    this.bioskopEdit.naziv = forma.value.opis;
+    this.bioskopEdit.repertoar = [];
+    this.bioskopEdit.brmesta =[];
+    this.bioskopiService.updateBioskop(this.bioskopEdit).subscribe();
     forma.reset();
     this.location.back();
   }
@@ -77,8 +79,6 @@ selectedBioskop(bioskop: Bioskopi) {
   }
 
   
-  updateBioskop(): void{
-    this.bioskopiService.updateBioskop(this.bioskopEdit).subscribe();
-  }
+ 
 
 }
