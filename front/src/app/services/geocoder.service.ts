@@ -1,31 +1,37 @@
-import { Injectable } from "@angular/core";
+import { Injectable, NgZone } from "@angular/core";
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
+import {} from '@types/googlemaps';
+import { GoogleMapsAPIWrapper, MapsAPILoader } from "@agm/core";
+import {} from '@types/googlemaps';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, access-control-allow-headers',
-    'Access-Control-Allow-Origin': '*'
-    })
-};
+
+declare var google: any;
 
 @Injectable()
-export class GeocoderService{
-  private baseUrl = 'https://maps.googleapis.com/maps/api/geocode/json?';
+export class GeocoderService extends GoogleMapsAPIWrapper{
 
-  getLonLatFromAddres(address: string): Observable<any>{
-    let words = address.split(" ");
-    let addressUrlPart = "address="
-    for(let word of words){
-      addressUrlPart = addressUrlPart + "+" + word;
-    }
-    let finalUrl = this.baseUrl + addressUrlPart + '&key=AIzaSyB79Hum1sxQbxwgiccMIGm7zzYVZnCVoDI';
-    return this.http.jsonp(finalUrl, 'callback');
-
+  getGeoLocation(address: string): Observable<any> {
+    console.log('Getting address: ', address);
+    let geocoder = new google.maps.Geocoder();
+    return Observable.create(observer => {
+        geocoder.geocode({
+            'address': address
+        }, (results, status) => {
+            if (status == google.maps.GeocoderStatus.OK) {
+                observer.next(results[0].geometry.location);
+                observer.complete();
+            } else {
+                console.log('Error: ', results, ' & Status: ', status);
+                observer.error();
+            }
+        });
+    });
   }
 
-  constructor(private http: HttpClient
-  ){}
+  constructor(private __loader: MapsAPILoader, private __zone: NgZone) {
+    super(__loader, __zone);
+  }
 }

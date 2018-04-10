@@ -64,7 +64,7 @@ const routes: Routes = [
   {path: 'repertoar', component: RepertoarComponent},
   {path: 'repertoar-pozorista', component: RepertoarPozoristaComponent},
   {path: 'user', component: UserComponent},
-  {path: 'gmlokacija/:id', component: GmLokacijaComponent},
+  {path: 'gmlokacija', component: GmLokacijaComponent},
   {path: 'bioskopi/:bioskopiId', component :BioskopiEditComponent},
   {path: 'pozorista-edit/:pozoristeId', component :PozoristaEditComponent},
 ];

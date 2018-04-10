@@ -4,7 +4,7 @@ import { BioskopiService } from '../bioskopi.service';
 import { ApplicationDataSharingServiceService } from '../services/application-data-sharing-service.service';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
 import { Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Params } from '@angular/router/src/shared';
 
 @Component({
@@ -26,7 +26,7 @@ export class BioskopiComponent implements OnInit {
   this.bioskopiService.getBioskopi()
     .subscribe(bioskopi => this.bioskopi = bioskopi);
 }
- 
+
   getBioskop() {
     this.bioskopiService.getBioskop(this.bioskopId).subscribe(
       (bioskop) => this.bioskopEdit = bioskop
@@ -34,7 +34,10 @@ export class BioskopiComponent implements OnInit {
   }
   constructor(private bioskopiService: BioskopiService,
                private location: Location,
-               private route: ActivatedRoute,) { }
+               private route: ActivatedRoute,
+               private appDataSharing: ApplicationDataSharingServiceService,
+               private router: Router
+              ) { }
 
   ngOnInit() {
   this.getBioskopi();
@@ -64,16 +67,20 @@ export class BioskopiComponent implements OnInit {
     forma.reset();
     this.location.back();
   }
-  
+
   bioskopEdt() {
     this.bioskopiService.updateBioskop(this.bioskopEdit).subscribe();
     this.location.back();
   }
 
-  
+
   updateBioskop(): void{
     this.bioskopiService.updateBioskop(this.bioskopEdit).subscribe();
   }
 
+  showOnMap(bioskop: Bioskopi) {
+    this.appDataSharing.adresa = bioskop.adresa;
+    this.router.navigate(['gmlokacija']);
+  }
 
 }

@@ -6,9 +6,8 @@
         <p class="list-group-item-text">Repertoar: {{bioskopi.repertoar}}</p>
       </div>
       <span class="pull-right">
-        
+
         <button class="btn btn-primary" [routerLink]="['../bioskopi/' + bioskopi.id]">Izmeni</button>
-       
+        <button class="btn btn-primary" (click)="showOnMap(bioskopi)">Mapa</button>
       </span>
     </a>
-  

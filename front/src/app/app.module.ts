@@ -53,7 +53,7 @@ import { PozoristeEditComponent } from './admin-sistem/pozoriste-edit/pozoriste-
 import { UserComponent } from './user/user.component';
 import { FanAdminAuthGuard } from './auth-guards/fanadmin-auth-guard.service';
 
-import { AgmCoreModule} from '@agm/core';
+import { AgmCoreModule, MapsAPILoader, NoOpMapsAPILoader} from '@agm/core';
 import { GmLokacijaComponent } from './gm-lokacija/gm-lokacija.component';
 
 import { LoginUserService } from './login/login-user.service';
@@ -136,7 +136,8 @@ import { RecenzijaComponent } from './admin-fanzona/recenzija/recenzija.componen
       provide: HTTP_INTERCEPTORS,
       useClass: Interceptor,
       multi : true
-    }
+    },
+    {provide: MapsAPILoader, useClass: NoOpMapsAPILoader}
   ],
   bootstrap: [AppComponent]
 })
