@@ -70,7 +70,8 @@ public class OglasServiceImpl implements OglasService {
         oglasToUpdate.setOwnerUserName(oglas.getOwnerUserName());
         oglasToUpdate.setImgPath(oglas.getImgPath());
         oglasToUpdate.setStatus(oglas.getStatus());
-        oglasToUpdate.setAdminRec(oglas.getAdminRec());
+        oglasToUpdate.setAdminRec(oglas.getAdminRec()
+        );
 
         Oglas updatedOglas = this.oglasiRepository.save(oglasToUpdate);
         return updatedOglas;

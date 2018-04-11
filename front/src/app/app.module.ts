@@ -63,6 +63,7 @@ import { BpAdminEditComponent } from './admin-sistem/bp-admin-edit/bp-admin-edit
 import { BioskopiEditComponent} from './bioskopi/bioskopi-edit/bioskopi-edit.component';
 import { PozoristaEditComponent } from './pozorista/pozorista-edit/pozorista-edit.component';
 import { RecenzijaComponent } from './admin-fanzona/recenzija/recenzija.component';
+import { SkalaComponent } from './admin-sistem/skala/skala.component';
 
 
 @NgModule({
@@ -105,7 +106,8 @@ import { RecenzijaComponent } from './admin-fanzona/recenzija/recenzija.componen
     BpAdminEditComponent,
     BioskopiEditComponent,
     PozoristaEditComponent,
-    RecenzijaComponent
+    RecenzijaComponent,
+    SkalaComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
