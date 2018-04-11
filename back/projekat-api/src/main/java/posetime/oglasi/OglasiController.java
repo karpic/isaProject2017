@@ -35,7 +35,7 @@ public class OglasiController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<List<Oglas>> getOdobreni(){
-        List<Oglas> odobreniOglasi = this.oglasService.findByOdobren(true);
+        List<Oglas> odobreniOglasi = this.oglasService.findByStatus(2);
         return new ResponseEntity<List<Oglas>>(odobreniOglasi, HttpStatus.OK);
     }
 
@@ -45,8 +45,16 @@ public class OglasiController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<List<Oglas>> getNeodobreni(){
-        List<Oglas> neodobreniOglasi = this.oglasService.findByOdobren(false);
+        List<Oglas> neodobreniOglasi = this.oglasService.findByStatus(0);
         return new ResponseEntity<List<Oglas>>(neodobreniOglasi, HttpStatus.OK);
+    }
+
+    @RequestMapping(
+            value = "oglasi/recenzija/{admin}"
+    )
+    public ResponseEntity<List<Oglas>> getRazmatrani(@PathVariable("admin") String admin){
+        List<Oglas> razmatraniOglasiZaAdmina = this.oglasService.findByStatusAndAdminRec(1, admin + ".com");
+        return new ResponseEntity<List<Oglas>>(razmatraniOglasiZaAdmina, HttpStatus.OK);
     }
 
     @RequestMapping(

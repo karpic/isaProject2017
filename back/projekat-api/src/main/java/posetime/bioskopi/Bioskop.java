@@ -17,6 +17,15 @@ public class Bioskop {
     private String opis;
     private List<String> repertoar;
     private List<String> brmesta;
+    private String admin;
+
+    public String getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(String admin) {
+        this.admin = admin;
+    }
 
     public Bioskop() {
 

@@ -15,6 +15,34 @@ public class Oglas {
     private boolean odobren;
     private String ownerUserName;
     private String imgPath;
+    /*
+    * Status oglasa:
+    *   0. neodobren
+    *   1. na recenziji
+    *   2. odobren
+     */
+    private int status;
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getAdminRec() {
+        return adminRec;
+    }
+
+    public void setAdminRec(String adminRec) {
+        this.adminRec = adminRec;
+    }
+
+    /*
+            admin koji vrsi recenziju za oglas
+         */
+    private String adminRec;
     protected Oglas(){
 
     }

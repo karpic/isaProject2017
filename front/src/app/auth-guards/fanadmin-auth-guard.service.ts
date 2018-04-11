@@ -12,7 +12,7 @@ export class FanAdminAuthGuard implements CanActivate{
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
       this.tokenPayload = jwt_decode(sessionStorage.getItem(TOKEN_KEY));
-      if(this.tokenPayload.scopes[0].authority === "ROLE_ADMIN"){
+      if(this.tokenPayload.scopes[0].authority === "FANZONA_ADMIN"){
         return true;
       }
       else{

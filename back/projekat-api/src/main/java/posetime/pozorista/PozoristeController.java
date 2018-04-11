@@ -56,6 +56,12 @@ public class PozoristeController {
         return new ResponseEntity<>(createdPozoriste, HttpStatus.CREATED);
     }
 
+    @RequestMapping(
+            method = RequestMethod.PUT,
+            value = "/pozoriste/{id}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
     public ResponseEntity<Pozoriste> updatePozoriste(@PathVariable("id") String id, @RequestBody Pozoriste pozoriste) throws Exception{
         Pozoriste pozorista = this.pozoristeService.findOne(id);
 

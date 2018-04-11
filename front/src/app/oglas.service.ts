@@ -16,6 +16,7 @@ export class OglasService {
   private url = 'http://localhost:8080/oglasi';
   private urlNeodobreni = 'http://localhost:8080/oglasi/neodobreni';
   private urlOdobreni = 'http://localhost:8080/oglasi/odobreni';
+  private urlOglasiRecenzija = 'http://localhost:8080/oglasi/recenzija';
 
   getOglasi(): Observable<Oglas[]>{
     return this.http.get<Oglas[]>(this.url);
@@ -31,6 +32,11 @@ export class OglasService {
 
   getOdobreni(): Observable<Oglas[]>{
     return this.http.get<Oglas[]>(this.urlOdobreni);
+  }
+
+  getNaRecenziji(admin: String): Observable<Oglas[]>{
+    console.log(this.urlOglasiRecenzija + '/' + admin)
+    return this.http.get<Oglas[]>(this.urlOglasiRecenzija + '/' + admin);
   }
 
   insertOglas(oglas: NoviOglas): Observable<NoviOglas>{

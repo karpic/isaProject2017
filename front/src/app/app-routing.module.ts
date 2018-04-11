@@ -1,3 +1,7 @@
+import { SysadminAuthGuard } from './auth-guards/sysadmin-auth-guard.service';
+import { RecenzijaComponent } from './admin-fanzona/recenzija/recenzija.component';
+import { BpAdminEditComponent } from './admin-sistem/bp-admin-edit/bp-admin-edit.component';
+import { FanzonaAdminEditComponent } from './admin-sistem/fanzona-admin-edit/fanzona-admin-edit.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { GmLokacijaComponent } from './gm-lokacija/gm-lokacija.component';
 import { FanzonaAuthGuard } from './auth-guards/fanzona-auth-guard.service';
@@ -29,6 +33,8 @@ import { RekvizitiComponent } from './admin-fanzona/rekviziti/rekviziti.componen
 import { BioskopEditComponent } from './admin-sistem/bioskop-edit/bioskop-edit.component';
 import { PozoristeEditComponent } from './admin-sistem/pozoriste-edit/pozoriste-edit.component';
 import { FanAdminAuthGuard } from './auth-guards/fanadmin-auth-guard.service';
+import { BioskopiEditComponent } from './bioskopi/bioskopi-edit/bioskopi-edit.component';
+import { PozoristaEditComponent } from './pozorista/pozorista-edit/pozorista-edit.component';
 
 
 const routes: Routes = [
@@ -42,21 +48,25 @@ const routes: Routes = [
       {path: 'novirekvizit', component: RekvizitEditComponent},
       {path: 'neodobreni', component: NeodobreniOglasiComponent},
       {path: 'rekviziti', component: RekvizitiComponent},
-      {path: 'rekvizit/:rekvizitId', component: RekvizitEditComponent}
+      {path: 'rekvizit/:rekvizitId', component: RekvizitEditComponent},
+      {path: 'recenzija', component: RecenzijaComponent}
     ]}
   ]},
   {path: ':username/ponude', component: PregledPonudaComponent},
-  {path: 'sysadmin', component: AdminSistemComponent, children: [
+  {path: 'sysadmin', component: AdminSistemComponent, canActivate: [SysadminAuthGuard], children: [
     {path: 'novibioskop', component: BioskopEditComponent},
-    {path: 'novopozoriste', component: PozoristeEditComponent}
+    {path: 'novopozoriste', component: PozoristeEditComponent},
+    {path: 'novifanadmin', component: FanzonaAdminEditComponent},
+    {path: 'novibpadmin', component: BpAdminEditComponent}
   ]},
   {path: 'bioskopi', component: BioskopiComponent},
   {path: 'pozorista', component: PozoristaComponent},
   {path: 'repertoar', component: RepertoarComponent},
   {path: 'repertoar-pozorista', component: RepertoarPozoristaComponent},
   {path: 'user', component: UserComponent},
-  {path: 'gmlokacija/:id', component: GmLokacijaComponent},
-  {path: 'user/edit-user', component: EditUserComponent}
+  {path: 'gmlokacija', component: GmLokacijaComponent},
+  {path: 'bioskopi/:bioskopiId', component :BioskopiEditComponent},
+  {path: 'pozorista-edit/:pozoristeId', component :PozoristaEditComponent},
 ];
 
 @NgModule({

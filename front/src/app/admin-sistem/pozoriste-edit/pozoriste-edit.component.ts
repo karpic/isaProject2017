@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { PozoristeService } from './../../services/pozorista.service';
 import { NovoPozoriste } from './../../models/novo-pozoriste.model';
 import { NgForm } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { Pozorista } from '../../models/pozorista';
 
 @Component({
@@ -11,8 +11,11 @@ import { Pozorista } from '../../models/pozorista';
   styleUrls: ['./pozoriste-edit.component.css']
 })
 export class PozoristeEditComponent implements OnInit {
-  novoPozoriste: NovoPozoriste = new NovoPozoriste("","","",[],[]);
-  pozoristeEdit: Pozorista;
+  novoPozoriste: NovoPozoriste = new NovoPozoriste("","","",[],[], "");
+
+
+  @Input() pozoristeEdit: Pozorista;
+  pozorista: Pozorista[];
 
   onNovoPozoristeSubmit(forma: NgForm){
     this.novoPozoriste.naziv = forma.value.naziv;
@@ -20,6 +23,7 @@ export class PozoristeEditComponent implements OnInit {
     this.novoPozoriste.opis = forma.value.opis;
     this.novoPozoriste.brmesta = [];
     this.novoPozoriste.repertoar = [];
+    this.novoPozoriste.admin = forma.value.admin;
     this.pozoristaService.insertPozoriste(this.novoPozoriste).subscribe();
     forma.reset();
     this.location.back();
@@ -33,9 +37,10 @@ export class PozoristeEditComponent implements OnInit {
   ngOnInit() {
   }
 
-  pozoristeEdt() {
-    this.pozoristaService.updatePozoriste(this.pozoristeEdit).subscribe();
-    this.location.back();
+
+  deletePozoriste(pozoriste: Pozorista) {
+    this.pozoristaService.deleteBioskop(pozoriste).subscribe();
+    this.pozorista = this.pozorista.filter(r => r !== pozoriste);
   }
 
 }

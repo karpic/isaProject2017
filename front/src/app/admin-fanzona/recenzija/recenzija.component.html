@@ -1,0 +1,15 @@
+<div class="row">
+  <a class="list-group-item clearfix" *ngFor="let oglas of oglasiNaRecenziji">
+    <div class="pull-left">
+      <h4 class="list-group-item-heading">{{oglas.naziv}}</h4>
+      <p class="list-group-item-text">Traje do: {{oglas.datum | date}}</p>
+    </div>
+    <span class="pull-right">
+      <img src="{{oglas.imgPath}}" alt="" class="img-responsive" style="max-height:50px;">
+      <button class="btn btn-primary" (click)="odobriOglas(oglas)">Odobri</button>
+      <button class="btn btn-danger" (click)="odbijOglas(oglas)">Odbij</button>
+
+    </span>
+  </a>
+
+</div>

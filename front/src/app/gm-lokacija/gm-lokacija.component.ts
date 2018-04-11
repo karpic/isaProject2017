@@ -1,10 +1,15 @@
+import { ApplicationDataSharingServiceService } from './../services/application-data-sharing-service.service';
 import { GeocoderService } from './../services/geocoder.service';
 import { Bioskopi } from './../models/bioskopi';
 import { BioskopiService } from './../bioskopi.service';
 import { PozoristeService } from './../services/pozorista.service';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Pozorista } from '../models/pozorista';
+import { MapsAPILoader } from '@agm/core';
+import {} from '@types/googlemaps';
+
+declare var google: any;
 
 @Component({
   selector: 'app-gm-lokacija',
@@ -22,40 +27,21 @@ export class GmLokacijaComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private pozoristeService: PozoristeService,
-    private bioskopService: BioskopiService,
-    private geocoderService: GeocoderService
+    private geocoderService: GeocoderService,
+    private appDataSharing: ApplicationDataSharingServiceService,
+    private _loader: MapsAPILoader,
+  private _zone: NgZone,
   ) { }
 
-  getBioskop() {
-    this.bioskopService.getBioskop(this.targetId).subscribe(
-      (bioskop) => this.bioskop = bioskop
-    );
-  }
-
-  getPozoriste() {
-    this.pozoristeService.getPozoriste(this.targetId).subscribe(
-      (pozoriste) => this.pozoriste = pozoriste
-    );
-  }
 
   getLatLon(adresa: string) {
-    this.geocoderService.getLonLatFromAddres(adresa).subscribe(
-      (data) => this.latLondata = data
+    this.geocoderService.getGeoLocation(adresa).subscribe(
+      (data) => console.log(data)
     );
-    console.log(this.latLondata);
   }
 
   ngOnInit() {
-      this.route.params.subscribe(
-        (params: Params) => {
-          this.targetId = params["id"]
-        }
-      );
-      this.getLatLon(this.adresa);
-      //this.getPozoriste();
-      //this.getBioskop();
-
+      this.getLatLon(this.appDataSharing.adresa);
   }
 
 }

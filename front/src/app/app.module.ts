@@ -1,3 +1,5 @@
+import { BpAdminAuthGuard } from './auth-guards/bpadmin-auth-guard.service';
+import { SysadminAuthGuard } from './auth-guards/sysadmin-auth-guard.service';
 import { GeocoderService } from './services/geocoder.service';
 import { FanzonaAuthGuard } from './auth-guards/fanzona-auth-guard.service';
 
@@ -51,11 +53,17 @@ import { PozoristeEditComponent } from './admin-sistem/pozoriste-edit/pozoriste-
 import { UserComponent } from './user/user.component';
 import { FanAdminAuthGuard } from './auth-guards/fanadmin-auth-guard.service';
 
-import { AgmCoreModule} from '@agm/core';
+import { AgmCoreModule, MapsAPILoader, NoOpMapsAPILoader} from '@agm/core';
 import { GmLokacijaComponent } from './gm-lokacija/gm-lokacija.component';
 
 import { LoginUserService } from './login/login-user.service';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
+import { FanzonaAdminEditComponent } from './admin-sistem/fanzona-admin-edit/fanzona-admin-edit.component';
+import { BpAdminEditComponent } from './admin-sistem/bp-admin-edit/bp-admin-edit.component';
+import { BioskopiEditComponent} from './bioskopi/bioskopi-edit/bioskopi-edit.component';
+import { PozoristaEditComponent } from './pozorista/pozorista-edit/pozorista-edit.component';
+import { RecenzijaComponent } from './admin-fanzona/recenzija/recenzija.component';
+import { SkalaComponent } from './admin-sistem/skala/skala.component';
 
 
 @NgModule({
@@ -93,7 +101,13 @@ import { EditUserComponent } from './user/edit-user/edit-user.component';
     PozoristeEditComponent,
     UserComponent,
     GmLokacijaComponent,
-    EditUserComponent
+    EditUserComponent,
+    FanzonaAdminEditComponent,
+    BpAdminEditComponent,
+    BioskopiEditComponent,
+    PozoristaEditComponent,
+    RecenzijaComponent,
+    SkalaComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -108,6 +122,8 @@ import { EditUserComponent } from './user/edit-user/edit-user.component';
     GeocoderService,
     FanzonaAuthGuard,
     FanAdminAuthGuard,
+    SysadminAuthGuard,
+    BpAdminAuthGuard,
     BioskopiService,
     PozoristeService,
     RekvizitService,
@@ -122,7 +138,8 @@ import { EditUserComponent } from './user/edit-user/edit-user.component';
       provide: HTTP_INTERCEPTORS,
       useClass: Interceptor,
       multi : true
-    }
+    },
+    {provide: MapsAPILoader, useClass: NoOpMapsAPILoader}
   ],
   bootstrap: [AppComponent]
 })

@@ -34,6 +34,7 @@ public class PozoristeServiceImpl implements PozoristeService {
         pozoristeUpdt.setOpis((pozoriste.getOpis()));
         pozoristeUpdt.setRepertoar(pozoriste.getRepertoar());
         pozoristeUpdt.setBrmesta(pozoriste.getBrmesta());
+        pozoristeUpdt.setAdmin(pozoriste.getAdmin());
 
         Pozoriste updatePozoriste = this.pozoristeRepository.save(pozoristeUpdt);
         return updatePozoriste;

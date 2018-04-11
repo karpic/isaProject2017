@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavComponentComponent } from './nav-component.component';
+import { PozoristaEditComponent } from './pozorista-edit.component';
 
-describe('NavComponentComponent', () => {
-  let component: NavComponentComponent;
-  let fixture: ComponentFixture<NavComponentComponent>;
+describe('PozoristaEditComponent', () => {
+  let component: PozoristaEditComponent;
+  let fixture: ComponentFixture<PozoristaEditComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavComponentComponent ]
+      declarations: [ PozoristaEditComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavComponentComponent);
+    fixture = TestBed.createComponent(PozoristaEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

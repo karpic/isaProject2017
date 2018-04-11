@@ -7,7 +7,7 @@ import { Oglas } from '../models/oglas';
 export class ApplicationDataSharingServiceService {
 
   oglas: Oglas;
-
+  adresa: string;
 
   //za dodavanje ponuda
   oglasId: String;

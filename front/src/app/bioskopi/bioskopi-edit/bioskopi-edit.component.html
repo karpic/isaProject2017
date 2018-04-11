@@ -1,0 +1,37 @@
+
+
+ <div class="col-xs-12">
+  <app-bioskopi *ngFor="let rekvizit of rekviziti" [bioskopiShow]="bioskop" (bioskopSelect)="selectedBioskop(bioskop)"></app-bioskopi>
+</div>
+
+<div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <h1>Uredjivanje bioskopa</h1>
+        <form #updtBioskopForm="ngForm" (ngSubmit)="bioskopEdt()">
+          <div class="form-group">
+            <label for="naziv">Naziv bioskopa</label>
+            <input type="text" id="naziv" name="naziv" class="form-control" required ngModel #bioskopNaziv="ngModel" [(ngModel)]="bioskopEdit.ime">
+            <span class="help-block" *ngIf="!bioskopNaziv.valid && bioskopNaziv.touched">Naziv bioskopa je obavezan!</span>
+          </div>
+  
+          <div class="form-group">
+            <label for="adresa">Adresa bioskopa</label>
+            <input type="text" id="adresa" name="adresa" class="form-control" required ngModel #bioskopAdresa="ngModel" [(ngModel)]="bioskopEdit.adresa">
+            <span class="help-block" *ngIf="!bioskopAdresa.valid && bioskopAdresa.touched">Adresa bioskopa!</span>
+          </div>
+  
+          <div class="form-group">
+            <label for="opis">Opis bioskopa</label>
+            <input type="text" id="opis" name="opis" class="form-control" required ngModel #bioskopOpis="ngModel" [(ngModel)]="bioskopEdit.opis">
+            <span class="help-block" *ngIf="!bioskopOpis.valid && bioskopOpis.touched">Opis bioskopa je obavezan</span>
+          </div>
+  
+          <div class="form-group">
+            <label for="opis">Repertoar</label>
+            <input type="text" id="repertoar" name="repertoar" class="form-control" required ngModel #bioskopRepertoar="ngModel" [(ngModel)]="bioskopEdit.repertoar">
+            <span class="help-block" *ngIf="!bioskopRepertoar.valid && bioskopRepertoar.touched">Repertoar bioskopa je obavezan</span>
+          </div>
+  
+          <button type="submit" class="btn btn-primary" [disabled]="!updtBioskopForm.valid">Dodaj</button>
+        </form>
+      </div>
+     

@@ -12,7 +12,7 @@ import { Oglas } from '../../models/oglas';
 })
 export class OglasEditComponent implements OnInit {
   @ViewChild('form') oglasForm: NgForm;
-  noviOglas: NoviOglas = new NoviOglas("", "", new Date(), false, "", "");
+  noviOglas: NoviOglas = new NoviOglas("", "", new Date(), false, "", "", 0, "");
   constructor(private location: Location,
               private oglasiService: OglasService
   ) { }
@@ -21,12 +21,11 @@ export class OglasEditComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-
-
     this.noviOglas.naziv = this.oglasForm.value.naziv;
     this.noviOglas.opis = this.oglasForm.value.opis;
     this.noviOglas.datum = this.oglasForm.value.datum;
     this.noviOglas.imgPath = this.oglasForm.value.slika;
+
     this.oglasiService.insertOglas(this.noviOglas as NoviOglas).subscribe();
     this.goBack();
   }
