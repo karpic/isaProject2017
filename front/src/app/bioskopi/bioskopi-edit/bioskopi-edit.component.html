@@ -1,9 +1,7 @@
 
 
- <div class="col-xs-12">
-  <app-bioskopi *ngFor="let rekvizit of rekviziti" [bioskopiShow]="bioskop" (bioskopSelect)="selectedBioskop(bioskop)"></app-bioskopi>
-</div>
 
+<div class="row" *ngIf="!bioskopEdit">
 <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
         <h1>Uredjivanje bioskopa</h1>
         <form #updtBioskopForm="ngForm" (ngSubmit)="bioskopEdt()">
@@ -33,5 +31,6 @@
   
           <button type="submit" class="btn btn-primary" [disabled]="!updtBioskopForm.valid">Dodaj</button>
         </form>
+      </div>
       </div>
      

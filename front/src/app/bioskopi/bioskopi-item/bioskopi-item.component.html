@@ -1,0 +1,12 @@
+<a class="list-group-item clearfix" (click)="onSelected()">
+    <div class="pull-right">
+      <h4 class="list-group-item-heading">Naziv: {{bioskopiShow.naziv}}</h4>
+      <p class="list-group-item-text">Adresa: {{bioskopiShow.adresa}}</p>
+      <p class="list-group-item-text">Opis: {{bioskopiShow.opis}}</p>
+    </div>
+
+    <div class="col-xs-12">
+        <app-bioskopi-item *ngFor="let bioskopi of bioskopi" [bioskopiShow]="bioskop" (bioskopSelect)="selectedBioskop(bioskop)"></app-bioskopi-item>
+      </div>
+    </a>
+    

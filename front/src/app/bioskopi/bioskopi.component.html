@@ -1,9 +1,9 @@
-  <a class="list-group-item clearfix" *ngFor="let bioskopi of bioskopi" (click)="onSelected()">
+  <a class="list-group-item clearfix" *ngFor="let bioskopiShow of bioskopi">
       <div class="pull-left">
-        <h4 class="list-group-item-heading">Naziv bioskopa: {{bioskopi.naziv}}</h4>
-        <p class="list-group-item-text">Adresa: {{bioskopi.adresa}}</p>
-        <p class="list-group-item-text">Opis: {{bioskopi.opis}}</p>
-        <p class="list-group-item-text">Repertoar: {{bioskopi.repertoar}}</p>
+        <h4 class="list-group-item-heading">Naziv bioskopa: {{bioskopiShow.naziv}}</h4>
+        <p class="list-group-item-text">Adresa: {{bioskopiShow.adresa}}</p>
+        <p class="list-group-item-text">Opis: {{bioskopiShow.opis}}</p>
+        <p class="list-group-item-text">Repertoar: {{bioskopiShow.repertoar}}</p>
       </div>
       <span class="pull-right">
 

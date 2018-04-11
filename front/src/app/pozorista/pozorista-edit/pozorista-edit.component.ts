@@ -48,6 +48,11 @@ export class PozoristaEditComponent implements OnInit {
     
   }
 }
+
+onSelected() {
+  this.pozoristeSelect.emit();
+}
+
 selectedPozoriste(pozoriste: Pozorista) {
   this.pozoristeSelect.emit(pozoriste);
 }
@@ -76,7 +81,7 @@ selectedPozoriste(pozoriste: Pozorista) {
   }
 
   
-  updateBioskop(): void{
+  updatePoozoriste(): void{
     this.pozoristaService.updatePozoriste(this.pozoristeEdit).subscribe();
   }
 

@@ -1,6 +1,8 @@
-import { Component, OnInit,Input} from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter} from '@angular/core';
 import { PozoristeService } from '../services/pozorista.service';
 import { Pozorista } from '../models/pozorista';
+
+
 
 @Component({
   selector: 'app-pozorista',
@@ -8,7 +10,8 @@ import { Pozorista } from '../models/pozorista';
   styleUrls: ['./pozorista.component.css']
 })
 export class PozoristaComponent implements OnInit {
-@Input() pozoristaShow: PozoristeService
+@Input() pozoristaShow: PozoristeService;
+@Output() pozoristaSelect: EventEmitter<any> = new EventEmitter<void>();
 
 pozorista : Pozorista[];
 

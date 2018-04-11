@@ -45,7 +45,7 @@ export class BioskopiEditComponent implements OnInit {
           this.bioskopId = params["bioskopId"];
         }
       );
-      this.getBioskopi();
+      this.getBioskop();
   }
 }
 selectedBioskop(bioskop: Bioskopi) {
@@ -56,11 +56,6 @@ onSelected() {
   this.bioskopSelect.emit();
 }
 
-  otvoriBioskopUpdt(bioskop: Bioskopi): void {
-    this.bioskopEdit = bioskop;
-    this.editFlag = true;
-    window.scrollTo(0, 0);
-  }
 
   bioskopUpdtSubmit(forma: NgForm){
     this.bioskopEdit.naziv = forma.value.naziv;

@@ -64,6 +64,7 @@ import { BioskopiEditComponent} from './bioskopi/bioskopi-edit/bioskopi-edit.com
 import { PozoristaEditComponent } from './pozorista/pozorista-edit/pozorista-edit.component';
 import { RecenzijaComponent } from './admin-fanzona/recenzija/recenzija.component';
 import { SkalaComponent } from './admin-sistem/skala/skala.component';
+import { BioskopiItemComponent } from './bioskopi/bioskopi-item/bioskopi-item.component';
 
 
 @NgModule({
@@ -107,7 +108,8 @@ import { SkalaComponent } from './admin-sistem/skala/skala.component';
     BioskopiEditComponent,
     PozoristaEditComponent,
     RecenzijaComponent,
-    SkalaComponent
+    SkalaComponent,
+    BioskopiItemComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
