@@ -66,11 +66,12 @@ const routes: Routes = [
   {path: 'repertoar', component: RepertoarComponent},
   {path: 'repertoar-pozorista', component: RepertoarPozoristaComponent},
   {path: 'user', component: UserComponent},
+  {path: 'user/edit-user', component: EditUserComponent},
   {path: 'gmlokacija', component: GmLokacijaComponent},
-  {path: 'bioskopi/:bioskopiId', component :BioskopiEditComponent},
-  {path: 'pozorista-edit/:pozoristeId', component :PozoristaEditComponent},
-  {path: 'bioskopi-list', component :BioskopiListComponent},
-  {path: 'pozorista-list', component :PozoristaListComponent},
+  {path: 'bioskopi/:bioskopiId', component : BioskopiEditComponent},
+  {path: 'pozorista-edit/:pozoristeId', component : PozoristaEditComponent},
+  {path: 'bioskopi-list', component : BioskopiListComponent},
+  {path: 'pozorista-list', component : PozoristaListComponent},
 ];
 
 @NgModule({

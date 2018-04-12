@@ -35,7 +35,12 @@ public class AuthenticationController {
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
         final Korisnik user = korisnikService.findByEmail(loginUser.getUsername());
-        final String token = jwtTokenUtil.generateToken(user);
-        return ResponseEntity.ok(new AuthToken(token));
+        if(user.isEnabled()) {
+            final String token = jwtTokenUtil.generateToken(user);
+            return ResponseEntity.ok(new AuthToken(token));
+        } else {
+            final String token = jwtTokenUtil.generateToken(null);
+            return ResponseEntity.ok(new AuthToken(token));
+        }
     }
 }

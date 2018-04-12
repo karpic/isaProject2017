@@ -1,3 +1,27 @@
-<p>
-  edit-user works!
-</p>
+<div class="login-page">
+  <div class="form">
+    <form (submit)="update()" class="login-form">
+      <div>
+        <label>Email:  </label>
+        <input type="text" name="email" [(ngModel)]="user.email"/>
+      </div>
+      <div>
+        <label>Ime:  </label>
+        <input type="text" name="ime" [(ngModel)]="user.ime"/>
+      </div>
+      <div>
+        <label>Prezime:  </label>
+        <input type="text" name="prezime" [(ngModel)]="user.prezime"/>
+      </div>
+      <div>
+        <label>Broj telefona:  </label>
+        <input type="text" name="brtel" [(ngModel)]="user.brtel"/>
+      </div>
+      <div>
+        <label>Grad:  </label>
+        <input type="text" name="grad" [(ngModel)]="user.grad"/>
+      </div>
+    </form>
+    <button class="button">Potvrdi</button>
+  </div>
+</div>

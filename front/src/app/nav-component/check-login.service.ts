@@ -8,6 +8,10 @@ export class CheckLoginService {
   @Output() change: EventEmitter<boolean> = new EventEmitter();
   constructor() { }
 
+  getLoggedIn(): boolean {
+    return this.loggedIn;
+  }
+
   toggle() {
     if (sessionStorage.getItem(TOKEN_KEY) != null) {
       this.loggedIn = true;

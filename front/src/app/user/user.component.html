@@ -1,8 +1,8 @@
-<div>
-  {{user | json}}
-  <div *ngIf="isAdmin">
-    <p>AAA</p>
-  </div>
-  <button routerLink='/user/edit-user'>Izmeni podatke</button>
-  {{isAdmin}}
+<div class="form">
+  <p>Email: {{user.email}}</p>
+  <p>Ime: {{user.ime}}</p>
+  <p>Prezime: {{user.prezime}}</p>
+  <p>Broj telefona: {{user.brtel}}</p>
+  <p>Grad: {{user.grad}}</p>
+  <button class="button" routerLink='/user/edit-user'>Izmeni podatke</button>
 </div>

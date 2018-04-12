@@ -18,7 +18,7 @@ const TOKEN_KEY = 'AuthToken';
 
 export class UserComponent implements OnInit {
 
-  user: LoggedInUser = new LoggedInUser('' , '' , '' , '' , '' , [] , [] , [] , [] , []);
+  user: LoggedInUser;
   isAdmin: boolean;
 
   constructor(private loginUserService: LoginUserService) { }
@@ -29,7 +29,7 @@ export class UserComponent implements OnInit {
         this.user = data;
         console.log(this.user);
         console.log(this.user.roles);
-        if (this.user.roles.includes("ROLE_ADMIN")) {
+        if (this.user.roles.includes('ROLE_ADMIN')) {
           this.isAdmin = true;
         }
       }
@@ -38,7 +38,7 @@ export class UserComponent implements OnInit {
   }
 
     userIsAdmin(): boolean {
-    if(this.isAdmin) {
+    if (this.isAdmin) {
       return true;
     } else {
       return false;
