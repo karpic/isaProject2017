@@ -1,3 +1,4 @@
+import { CheckLoginService } from './../nav-component/check-login.service';
 import { LoggedInUser } from './../models/logged-in-user';
 import { LoginUserService } from './login-user.service';
 import { TokenStorage } from './core/token.storage';
@@ -13,7 +14,7 @@ import { Component } from '@angular/core';
 export class LoginComponent {
 
   constructor(private router: Router, private authService: AuthService, private token: TokenStorage,
-    private loginUserService: LoginUserService) { }
+    private loginUserService: LoginUserService, private checkLoginService: CheckLoginService) { }
 
   username: string;
   password: string;
@@ -24,6 +25,7 @@ export class LoginComponent {
       data => {
         this.token.saveToken(data.token);
         this.router.navigate(['user']);
+        this.checkLoginService.toggle();
       }
     );
   }

@@ -7,12 +7,11 @@
     <li>
       <a routerLink='/bioskopi'>Bioskopi</a>
     </li>
-
-    <li>
+    <li *ngIf="!isLoggedIn">
       <a routerLink='/login'>Prijavi se</a>
     </li>
 
-    <li>
+    <li *ngIf="!isLoggedIn">
       <a routerLink='/register'>Registruj se</a>
     </li>
     <li>
@@ -23,7 +22,7 @@
     </li>
   </ul>
 </div>
-<div class="logoutLblPos">
+<div *ngIf="isLoggedIn" class="logoutLblPos">
   <button class="buttonstyle" (click)="logout()">Izloguj se</button>
   <button class="buttonstyle" routerLink='/user'>Korisnicki nalog</button>
 </div>

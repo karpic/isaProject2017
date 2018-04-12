@@ -1,13 +1,18 @@
+import { CommonModule } from '@angular/common';
 import { LoggedInUser } from './../models/logged-in-user';
 import { LoginUserService } from './../login/login-user.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 
 const TOKEN_KEY = 'AuthToken';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.css'],
+})
+
+@NgModule({
+  imports: [CommonModule]
 })
 
 
@@ -30,6 +35,14 @@ export class UserComponent implements OnInit {
       }
     );
 
+  }
+
+    userIsAdmin(): boolean {
+    if(this.isAdmin) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   ngOnInit() {

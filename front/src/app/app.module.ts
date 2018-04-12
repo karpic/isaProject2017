@@ -1,3 +1,4 @@
+import { CheckLoginService } from './nav-component/check-login.service';
 import { BpAdminAuthGuard } from './auth-guards/bpadmin-auth-guard.service';
 import { SysadminAuthGuard } from './auth-guards/sysadmin-auth-guard.service';
 import { GeocoderService } from './services/geocoder.service';
@@ -142,6 +143,7 @@ import { PozoristaListComponent } from './pozorista/pozorista-list/pozorista-lis
     TokenStorage,
     AuthService,
     LoginUserService,
+    CheckLoginService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: Interceptor,

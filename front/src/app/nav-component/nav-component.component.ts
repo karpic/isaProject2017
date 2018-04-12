@@ -1,3 +1,4 @@
+import { CheckLoginService } from './check-login.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,15 +11,21 @@ const TOKEN_KEY = 'AuthToken';
 })
 export class NavComponentComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  isLoggedIn: boolean;
+  constructor(private router: Router, private checkloginService: CheckLoginService) { }
 
   ngOnInit() {
+    this.checkloginService.change.subscribe(isLoggedIn => {
+      this.isLoggedIn = isLoggedIn;
+    });
   }
+
 
   logout(): void {
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.clear();
     this.router.navigate(['login']);
+    this.checkloginService.toggle();
 
   }
 

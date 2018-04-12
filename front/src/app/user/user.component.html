@@ -1,5 +1,8 @@
-<p>
+<div>
   {{user | json}}
+  <div *ngIf="isAdmin">
+    <p>AAA</p>
+  </div>
   <button routerLink='/user/edit-user'>Izmeni podatke</button>
   {{isAdmin}}
-</p>
+</div>
