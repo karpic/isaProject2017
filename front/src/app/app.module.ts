@@ -64,7 +64,10 @@ import { BioskopiEditComponent} from './bioskopi/bioskopi-edit/bioskopi-edit.com
 import { PozoristaEditComponent } from './pozorista/pozorista-edit/pozorista-edit.component';
 import { RecenzijaComponent } from './admin-fanzona/recenzija/recenzija.component';
 import { SkalaComponent } from './admin-sistem/skala/skala.component';
-import { BioskopiItemComponent } from './bioskopi/bioskopi-item/bioskopi-item.component';
+import { BioskopiListComponent } from './bioskopi/bioskopi-list/bioskopi-list.component';
+import { BioskopiItemComponent } from './bioskopi/bioskopi-list/bioskopi-item/bioskopi-item.component';
+import { PozoristaItemComponent } from './pozorista/pozorista-item/pozorista-item.component';
+import { PozoristaListComponent } from './pozorista/pozorista-list/pozorista-list.component';
 
 
 @NgModule({
@@ -109,7 +112,10 @@ import { BioskopiItemComponent } from './bioskopi/bioskopi-item/bioskopi-item.co
     PozoristaEditComponent,
     RecenzijaComponent,
     SkalaComponent,
-    BioskopiItemComponent
+    BioskopiItemComponent,
+    BioskopiListComponent,
+    PozoristaItemComponent,
+    PozoristaListComponent
   ],
   imports: [
     AgmCoreModule.forRoot({

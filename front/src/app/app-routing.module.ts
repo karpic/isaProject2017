@@ -35,6 +35,8 @@ import { PozoristeEditComponent } from './admin-sistem/pozoriste-edit/pozoriste-
 import { FanAdminAuthGuard } from './auth-guards/fanadmin-auth-guard.service';
 import { BioskopiEditComponent } from './bioskopi/bioskopi-edit/bioskopi-edit.component';
 import { PozoristaEditComponent } from './pozorista/pozorista-edit/pozorista-edit.component';
+import { BioskopiListComponent } from './bioskopi/bioskopi-list/bioskopi-list.component';
+import { PozoristaListComponent } from './pozorista/pozorista-list/pozorista-list.component';
 
 
 const routes: Routes = [
@@ -67,6 +69,8 @@ const routes: Routes = [
   {path: 'gmlokacija', component: GmLokacijaComponent},
   {path: 'bioskopi/:bioskopiId', component :BioskopiEditComponent},
   {path: 'pozorista-edit/:pozoristeId', component :PozoristaEditComponent},
+  {path: 'bioskopi-list', component :BioskopiListComponent},
+  {path: 'pozorista-list', component :PozoristaListComponent},
 ];
 
 @NgModule({

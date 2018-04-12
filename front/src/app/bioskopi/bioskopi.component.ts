@@ -20,6 +20,7 @@ export class BioskopiComponent implements OnInit {
  bioskopId: string;
  bioskopEdit : Bioskopi;
  bioskopi: Bioskopi[];
+ selectBioskop: Bioskopi;
 
 
  getBioskopi(): void {
@@ -42,9 +43,8 @@ export class BioskopiComponent implements OnInit {
   ngOnInit() {
     
   this.getBioskopi();
+  console.log(this.bioskopi);
 }
-
-
 
   selectedBioskop(bioskop: Bioskopi) {
     this.bioskopSelect.emit(bioskop);

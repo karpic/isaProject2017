@@ -5,9 +5,7 @@
       <p class="list-group-item-text">Opis: {{pozorista.opis}}</p>
       <p class="list-group-item-text">Repertoar: {{pozorista.repertoar}}</p>
     </div>
-    <span class="pull-right">
-      
-      <button class="btn btn-primary" routerLink="/pozorista-list">Profil</button>
-     
+    <span class="pull-right">   
+      <button class="btn btn-primary" [routerLink]="['../pozorista-edit/' + pozorista.id]">Izmeni</button>
     </span>
   </a>
