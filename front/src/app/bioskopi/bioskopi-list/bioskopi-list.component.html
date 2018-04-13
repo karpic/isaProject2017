@@ -7,10 +7,9 @@
       <p class="list-group-item-text">Spisak karata:</p>
       <p class="list-group-item-text">Broj mesta: {{bioskopiShow.brmesta}}</p>
     </div>
-    <span class="pull-right"> 
-        
-        <button class="btn btn-primary" [routerLink]="['../bioskopi/' + bioskopiShow.id]">Izmeni</button>
+    <span class="pull-right">
+
+        <button class="btn btn-primary" [routerLink]="['../bioskopi?bioskopId=' + bioskopiShow.id]">Izmeni</button>
       </span>
       </a>
-      
-      
+

@@ -18,27 +18,29 @@ export class BioskopiEditComponent implements OnInit {
 
   editFlag: boolean;
   bioskopId: string;
-  bioskopEdit : Bioskopi;
+  bioskopEdit: Bioskopi;
   bioskopi: Bioskopi[];
 
-  
+
   constructor(private bioskopiService: BioskopiService,
     private location: Location,
-    private route: ActivatedRoute,) { }
+    private route: ActivatedRoute) { }
 
 
     getBioskopi(): void {
       this.bioskopiService.getBioskopi()
         .subscribe(bioskopi => this.bioskopi = bioskopi);
     }
-   
+
     getBioskop() {
+      console.log("AAA");
+      console.log(this.bioskopId);
       this.bioskopiService.getBioskop(this.bioskopId).subscribe(
         (bioskop) => this.bioskopEdit = bioskop
       );
     }
 
-  
+
   ngOnInit() {
     if(this.route.snapshot.params['bioskopId']){
       this.route.params.subscribe(
@@ -46,6 +48,7 @@ export class BioskopiEditComponent implements OnInit {
           this.bioskopId = params["bioskopId"];
         }
       );
+      console.log("getbioskop");
       this.getBioskop();
     }
 }
@@ -68,13 +71,13 @@ onSelected() {
     forma.reset();
     this.location.back();
   }
-  
+
   bioskopEdt() {
     this.bioskopiService.updateBioskop(this.bioskopEdit).subscribe();
     this.location.back();
   }
 
-  
- 
+
+
 
 }
