@@ -6,7 +6,7 @@ import java.util.List;
 
 
 @Service
-public class KartaServiceImpl implements  KartaService{
+public class KartaServiceImpl implements KartaService{
 
     @Autowired
     private KartaRepository kartaRepository;

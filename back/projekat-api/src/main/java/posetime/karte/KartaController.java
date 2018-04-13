@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @CrossOrigin("*")
@@ -20,6 +20,7 @@ public class KartaController {
     public KartaController(KartaService kartaService) {
         this.kartaService = kartaService;
     }
+
     @RequestMapping(
             method = RequestMethod.GET,
             value = "/karte",
@@ -29,6 +30,8 @@ public class KartaController {
         List<Karta> karte = this.kartaService.findAll();
         return new ResponseEntity<List<Karta>>(karte, HttpStatus.OK);
     }
+
+
 
 
     @RequestMapping(
