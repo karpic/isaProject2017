@@ -1,4 +1,5 @@
-<a class="list-group-item clearfix" *ngFor="let karta of karte">
+<h1>Karte za brzu rezervaciju</h1>
+<a class="list-group-item clearfix" *ngFor="let karte of karte">
   <div class="pull-left">
     <h4 class="list-group-item-heading" > Projekcija/Predstava: {{karte.projPred}}</h4>
     <p class="list-group-item-text">Datum: {{karte.datum}}</p>
@@ -7,5 +8,6 @@
     <p class="list-group-item-text">Sediste: {{karte.brSedista}}</p>
     <p class="list-group-item-text">Originalna cena: {{karte.originalnaCena}}</p>
     <p class="list-group-item-text">Cena sa popustom: {{karte.popustCena}}</p>
+    <button class="btn btn-primary">Rezervisi</button>
   </div>
 </a>
