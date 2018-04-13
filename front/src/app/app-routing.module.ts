@@ -37,6 +37,7 @@ import { BioskopiEditComponent } from './bioskopi/bioskopi-edit/bioskopi-edit.co
 import { PozoristaEditComponent } from './pozorista/pozorista-edit/pozorista-edit.component';
 import { BioskopiListComponent } from './bioskopi/bioskopi-list/bioskopi-list.component';
 import { PozoristaListComponent } from './pozorista/pozorista-list/pozorista-list.component';
+import { KarteComponent } from './karte/karte.component';
 
 
 const routes: Routes = [
@@ -72,6 +73,7 @@ const routes: Routes = [
   {path: 'pozorista-edit/:pozoristeId', component : PozoristaEditComponent},
   {path: 'bioskopi-list', component : BioskopiListComponent},
   {path: 'pozorista-list', component : PozoristaListComponent},
+  {path: 'karte', component : KarteComponent},
 ];
 
 @NgModule({
