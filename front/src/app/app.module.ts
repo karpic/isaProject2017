@@ -69,6 +69,8 @@ import { BioskopiListComponent } from './bioskopi/bioskopi-list/bioskopi-list.co
 import { BioskopiItemComponent } from './bioskopi/bioskopi-list/bioskopi-item/bioskopi-item.component';
 import { PozoristaItemComponent } from './pozorista/pozorista-item/pozorista-item.component';
 import { PozoristaListComponent } from './pozorista/pozorista-list/pozorista-list.component';
+import { KarteComponent } from './karte/karte.component';
+import { KartaService } from './karta.service';
 
 
 @NgModule({
@@ -116,7 +118,8 @@ import { PozoristaListComponent } from './pozorista/pozorista-list/pozorista-lis
     BioskopiItemComponent,
     BioskopiListComponent,
     PozoristaItemComponent,
-    PozoristaListComponent
+    PozoristaListComponent,
+    KarteComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -144,6 +147,7 @@ import { PozoristaListComponent } from './pozorista/pozorista-list/pozorista-lis
     AuthService,
     LoginUserService,
     CheckLoginService,
+    KartaService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: Interceptor,

@@ -14,6 +14,7 @@ const httpOptions = {
 export class BioskopiService {
 
   private url = 'http://localhost:8080/bioskopi';
+  
 
   getBioskopi(): Observable<Bioskopi[]>{
     return this.http.get<Bioskopi[]>(this.url);

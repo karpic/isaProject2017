@@ -35,7 +35,7 @@ public class BioskopServiceImpl implements BioskopService {
         if(bioskopUpdt == null){
             throw new Exception("Nije pronadjen bioskop.");
         }
-        bioskopUpdt.setId(bioskop.getId());
+
         bioskopUpdt.setNaziv(bioskop.getNaziv());
         bioskopUpdt.setAdresa(bioskop.getAdresa());
         bioskopUpdt.setOpis((bioskop.getOpis()));

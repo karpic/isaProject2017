@@ -33,7 +33,7 @@ public class BioskopController {
             value ="/bioskopi/{id]",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<Bioskop> getBioskopi(@PathVariable ("id") String id) {
+    public ResponseEntity<Bioskop> getBioskop(@PathVariable ("id") String id) {
         Bioskop bioskopi = this.bioskopService.findOne(id);
         if(bioskopi == null){
             return new ResponseEntity<Bioskop>(HttpStatus.NOT_FOUND);

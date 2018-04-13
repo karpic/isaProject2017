@@ -25,10 +25,9 @@ public class PozoristeServiceImpl implements PozoristeService {
     public Pozoriste update(Pozoriste pozoriste) throws Exception {
         Pozoriste pozoristeUpdt = this.pozoristeRepository.findOne(pozoriste.getId());
 
-        if(pozoristeUpdt == null){
+        if(pozoristeUpdt == null) {
             throw new Exception("Nije pronadjeno pozoriste.");
         }
-        pozoristeUpdt.setId(pozoriste.getId());
         pozoristeUpdt.setNaziv(pozoriste.getNaziv());
         pozoristeUpdt.setAdresa(pozoriste.getAdresa());
         pozoristeUpdt.setOpis((pozoriste.getOpis()));

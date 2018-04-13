@@ -38,6 +38,7 @@ export class BioskopiEditComponent implements OnInit {
       );
     }
 
+  
   ngOnInit() {
     if(this.route.snapshot.params['bioskopId']){
       this.route.params.subscribe(
@@ -46,7 +47,7 @@ export class BioskopiEditComponent implements OnInit {
         }
       );
       this.getBioskop();
-  }
+    }
 }
 selectedBioskop(bioskop: Bioskopi) {
   this.bioskopSelect.emit(bioskop);

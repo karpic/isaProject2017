@@ -33,6 +33,7 @@ export class BioskopiComponent implements OnInit {
       (bioskop) => this.bioskopEdit = bioskop
     );
   }
+
   constructor(private bioskopiService: BioskopiService,
                private location: Location,
                private route: ActivatedRoute,
