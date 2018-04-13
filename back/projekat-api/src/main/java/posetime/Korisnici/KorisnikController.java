@@ -54,6 +54,8 @@ public class KorisnikController {
             korisnik.setZahtevi(new ArrayList<String>());
             korisnik.setPonude(new ArrayList<String>());
             korisnik.setObavestenja(new ArrayList<String>());
+            korisnik.setPasswordChanged(false);
+            korisnik.setBodovi(0);
             korisnik.setConfirmationToken(UUID.randomUUID().toString());
 
             String appUrl = "http://localhost:8080";
@@ -81,6 +83,8 @@ public class KorisnikController {
         roles.add("BP_ADMIN");
         korisnik.setRoles(roles);
         korisnik.setEnabled(true);
+        korisnik.setPasswordChanged(false);
+        korisnik.setBodovi(0);
         korisnik.setPrijatelji(new ArrayList<String>());
         korisnik.setZahtevi(new ArrayList<String>());
         korisnik.setPonude(new ArrayList<String>());
@@ -108,6 +112,8 @@ public class KorisnikController {
         roles.add("FANZONA_ADMIN");
         korisnik.setRoles(roles);
         korisnik.setEnabled(true);
+        korisnik.setPasswordChanged(false);
+        korisnik.setBodovi(0);
         korisnik.setPrijatelji(new ArrayList<String>());
         korisnik.setZahtevi(new ArrayList<String>());
         korisnik.setPonude(new ArrayList<String>());
@@ -138,5 +144,28 @@ public class KorisnikController {
         Korisnik k = korisnikService.findByEmail(email);
         System.out.println(k.getEmail());
         return new ResponseEntity<Korisnik>(k,HttpStatus.OK);
+    }
+
+    @RequestMapping(
+            method = RequestMethod.PUT,
+            value = "/user/{email}/",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Korisnik> updateOglas(@PathVariable("email") String email, @RequestBody Korisnik korisnik) throws Exception{
+        Korisnik user = this.korisnikService.findByEmail(email);
+
+        if(user == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        user.setIme(korisnik.getIme());
+        user.setPrezime(korisnik.getPrezime());
+        user.setGrad(korisnik.getGrad());
+        user.setBrtel(korisnik.getBrtel());
+
+        Korisnik updatedUser = this.korisnikService.save(user);
+
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

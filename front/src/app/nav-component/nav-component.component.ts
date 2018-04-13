@@ -16,7 +16,9 @@ export class NavComponentComponent implements OnInit {
   constructor(private router: Router, private checkloginService: CheckLoginService) { }
 
   ngOnInit() {
-    this.isLoggedIn = this.checkloginService.getLoggedIn();
+    if (sessionStorage.getItem(TOKEN_KEY) != null) {
+      this.isLoggedIn = true;
+    }
     this.checkloginService.change.subscribe(isLoggedIn => {
       this.isLoggedIn = isLoggedIn;
     });

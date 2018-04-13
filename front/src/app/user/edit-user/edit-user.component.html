@@ -2,10 +2,6 @@
   <div class="form">
     <form (submit)="update()" class="login-form">
       <div>
-        <label>Email:  </label>
-        <input type="text" name="email" [(ngModel)]="user.email"/>
-      </div>
-      <div>
         <label>Ime:  </label>
         <input type="text" name="ime" [(ngModel)]="user.ime"/>
       </div>
@@ -22,6 +18,6 @@
         <input type="text" name="grad" [(ngModel)]="user.grad"/>
       </div>
     </form>
-    <button class="button">Potvrdi</button>
+    <button class="submit">Potvrdi</button>
   </div>
 </div>

@@ -22,11 +22,14 @@ public class Korisnik {
     private boolean enabled;
     @JsonIgnore
     private String confirmationToken;
+    private boolean passwordChanged;
+    private int bodovi;
     private List<String> roles;
     private List<String> prijatelji;
     private List<String> zahtevi;
     private List<String> ponude;
     private List<String> obavestenja;
+
 
     public Korisnik() {
 
@@ -45,6 +48,22 @@ public class Korisnik {
         this.ponude = ponude;
         this.obavestenja = obavestenja;
         this.confirmationToken = "";
+    }
+
+    public boolean isPasswordChanged() {
+        return passwordChanged;
+    }
+
+    public void setPasswordChanged(boolean passwordChanged) {
+        this.passwordChanged = passwordChanged;
+    }
+
+    public int getBodovi() {
+        return bodovi;
+    }
+
+    public void setBodovi(int bodovi) {
+        this.bodovi = bodovi;
     }
 
     public List<String> getRoles() {
