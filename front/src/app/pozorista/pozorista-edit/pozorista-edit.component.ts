@@ -23,7 +23,7 @@ export class PozoristaEditComponent implements OnInit {
 
   constructor(private pozoristaService: PozoristeService,
     private location: Location,
-    private route: ActivatedRoute,) { }
+    private route: ActivatedRoute) { }
 
   
     getPozorista(): void {

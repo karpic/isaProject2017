@@ -70,11 +70,12 @@ const routes: Routes = [
   {path: 'user', component: UserComponent},
   {path: 'user/edit-user', component: EditUserComponent},
   {path: 'gmlokacija', component: GmLokacijaComponent},
-  {path: 'bioskopi-edit', component : BioskopiEditComponent},
-  {path: 'pozorista-edit/:pozoristeId', component : PozoristaEditComponent},
+  {path: 'bioskopi/:bioskopId', component : BioskopiEditComponent},
+  {path: 'pozorista/:pozoristeId', component : PozoristaEditComponent},
   {path: 'bioskopi-list', component : BioskopiListComponent},
   {path: 'pozorista-list', component : PozoristaListComponent},
   {path: 'karte', component : KarteComponent},
+  
 ];
 
 @NgModule({

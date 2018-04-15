@@ -1,11 +1,11 @@
-<a class="list-group-item clearfix" *ngFor="let pozorista of pozorista">
+<a class="list-group-item clearfix" *ngFor="let pozoristaShow of pozorista">
     <div class="pull-left">
-      <h4 class="list-group-item-heading">Naziv pozorista: {{pozorista.naziv}}</h4>
-      <p class="list-group-item-text">Adresa: {{pozorista.adresa}}</p>
-      <p class="list-group-item-text">Opis: {{pozorista.opis}}</p>
-      <p class="list-group-item-text">Repertoar: {{pozorista.repertoar}}</p>
+      <h4 class="list-group-item-heading">Naziv pozorista: {{pozoristaShow.naziv}}</h4>
+      <p class="list-group-item-text">Adresa: {{pozoristaShow.adresa}}</p>
+      <p class="list-group-item-text">Opis: {{pozoristaShow.opis}}</p>
+      <p class="list-group-item-text">Repertoar: {{pozoristaShow.repertoar}}</p>
     </div>
     <span class="pull-right">   
-      <button class="btn btn-primary" [routerLink]="['../pozorista-edit/' + pozorista.id]">Izmeni</button>
+      <button class="btn btn-primary" [routerLink]="['/pozorista/' + pozoristaShow.id]">Izmeni</button>
     </span>
   </a>

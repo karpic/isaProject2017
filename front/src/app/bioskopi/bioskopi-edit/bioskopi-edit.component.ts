@@ -16,15 +16,9 @@ export class BioskopiEditComponent implements OnInit {
   @Input() bioskopiShow: Bioskopi
   @Output() bioskopSelect: EventEmitter<any> = new EventEmitter<void>();
 
-
   bioskopId: string;
-<<<<<<< HEAD
   bioskopEdit : Bioskopi;
-
-=======
-  bioskopEdit: Bioskopi;
   bioskopi: Bioskopi[];
->>>>>>> f77988c03ba64935e65ac1c200cea3cf8361bbaa
 
 
   constructor(private bioskopiService: BioskopiService,
@@ -33,26 +27,34 @@ export class BioskopiEditComponent implements OnInit {
 
    
     getBioskop() {
-      console.log("AAA");
-      console.log(this.bioskopId);
       this.bioskopiService.getBioskop(this.bioskopId).subscribe(
         (bioskop) => this.bioskopEdit = bioskop
       );
     }
 
 
-  ngOnInit() {
+ ngOnInit() {
     if(this.route.snapshot.params['bioskopId']){
       this.route.params.subscribe(
         (params: Params) => {
           this.bioskopId = params["bioskopId"];
         }
       );
-      console.log("getbioskop");
       this.getBioskop();
-    }
-   
+    }  
 }
+
+/*ngOnInit(){
+if(this.route.snapshot.params['bioskopId']){
+  this.route.params.subscribe(params => {
+    console.log(params.bioskopId);
+    this.bioskopId = params.bioskopId;
+  });
+  this.getBioskop();
+}
+}*/
+
+
 selectedBioskop(bioskop: Bioskopi) {
   this.bioskopSelect.emit(bioskop);
 }

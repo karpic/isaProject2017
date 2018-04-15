@@ -14,14 +14,25 @@ export class PozoristaComponent implements OnInit {
 @Output() pozoristaSelect: EventEmitter<any> = new EventEmitter<void>();
 
 pozorista : Pozorista[];
+pozoristeId: string;
+pozoristeEdit: Pozorista;
+
 
 getPozorista(): void{
   this.pozoristeService.getPozorista().subscribe(pozorista => this.pozorista = pozorista)
 }
+
+getPozoriste() {
+  this.pozoristeService.getPozoriste(this.pozoristeId).subscribe(
+    (pozoriste) => this.pozoristeEdit = pozoriste
+  );
+}
+
   constructor(private pozoristeService: PozoristeService) { }
 
   ngOnInit() {
     this.getPozorista();
+    console.log(this.pozorista);
   }
 
 }

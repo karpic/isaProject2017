@@ -36,7 +36,6 @@ getBioskop() {
 
   ngOnInit() {
    this.getBioskopi();
-   console.log(this.bioskopi);
   }
   selectedBioskop(bioskop: Bioskopi) {
     this.bioskopSelect.emit(bioskop);
