@@ -3,6 +3,9 @@ import { Bioskopi } from '../../models/bioskopi';
 import { BioskopiService } from '../../bioskopi.service';
 
 
+
+
+
 @Component({
   selector: 'app-bioskopi-list',
   templateUrl: './bioskopi-list.component.html',
@@ -12,8 +15,11 @@ export class BioskopiListComponent implements OnInit {
   
 @Output() bioskopSelect: EventEmitter<any> = new EventEmitter<void>();
 bioskopi: Bioskopi[];
+bioskopId: string;
+bioskopEdit : Bioskopi;
 
-  constructor(private bioskopiService: BioskopiService) { }
+  constructor(private bioskopiService: BioskopiService,
+           ) { }
 
   
  getBioskopi(): void {
@@ -21,9 +27,16 @@ bioskopi: Bioskopi[];
     .subscribe(bioskopi => this.bioskopi = bioskopi);
 }
 
+getBioskop() {
+  this.bioskopiService.getBioskop(this.bioskopId).subscribe(
+    (bioskop) => this.bioskopEdit = bioskop
+  );
+}
+
 
   ngOnInit() {
-    this.getBioskopi();
+   this.getBioskopi();
+   console.log(this.bioskopi);
   }
   selectedBioskop(bioskop: Bioskopi) {
     this.bioskopSelect.emit(bioskop);

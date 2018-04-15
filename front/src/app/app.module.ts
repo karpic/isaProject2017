@@ -117,7 +117,7 @@ import { KartaService } from './karta.service';
     SkalaComponent,
     BioskopiItemComponent,
     BioskopiListComponent,
-    PozoristaItemComponent,
+    PozoristaItemComponent,   
     PozoristaListComponent,
     KarteComponent
   ],

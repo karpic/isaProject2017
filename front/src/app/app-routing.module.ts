@@ -52,7 +52,8 @@ const routes: Routes = [
       {path: 'neodobreni', component: NeodobreniOglasiComponent},
       {path: 'rekviziti', component: RekvizitiComponent},
       {path: 'rekvizit/:rekvizitId', component: RekvizitEditComponent},
-      {path: 'recenzija', component: RecenzijaComponent}
+      {path: 'recenzija', component: RecenzijaComponent},
+     
     ]}
   ]},
   {path: ':username/ponude', component: PregledPonudaComponent},
@@ -69,7 +70,7 @@ const routes: Routes = [
   {path: 'user', component: UserComponent},
   {path: 'user/edit-user', component: EditUserComponent},
   {path: 'gmlokacija', component: GmLokacijaComponent},
-  {path: 'bioskopi/:bioskopiId', component : BioskopiEditComponent},
+  {path: 'bioskopi-edit', component : BioskopiEditComponent},
   {path: 'pozorista-edit/:pozoristeId', component : PozoristaEditComponent},
   {path: 'bioskopi-list', component : BioskopiListComponent},
   {path: 'pozorista-list', component : PozoristaListComponent},

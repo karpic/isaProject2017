@@ -3,8 +3,8 @@ import { Bioskopi } from '../../models/bioskopi';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
 import { Location } from '@angular/common';
 import { BioskopiService } from '../../bioskopi.service';
-import { ActivatedRoute } from '@angular/router';
-import { Params } from '@angular/router/src/shared';
+import { ActivatedRoute, Params } from '@angular/router';
+
 
 
 @Component({
@@ -16,21 +16,16 @@ export class BioskopiEditComponent implements OnInit {
   @Input() bioskopiShow: Bioskopi
   @Output() bioskopSelect: EventEmitter<any> = new EventEmitter<void>();
 
-  editFlag: boolean;
+
   bioskopId: string;
   bioskopEdit : Bioskopi;
-  bioskopi: Bioskopi[];
+
 
   
   constructor(private bioskopiService: BioskopiService,
     private location: Location,
-    private route: ActivatedRoute,) { }
+    private route: ActivatedRoute) { }
 
-
-    getBioskopi(): void {
-      this.bioskopiService.getBioskopi()
-        .subscribe(bioskopi => this.bioskopi = bioskopi);
-    }
    
     getBioskop() {
       this.bioskopiService.getBioskop(this.bioskopId).subscribe(
@@ -48,6 +43,7 @@ export class BioskopiEditComponent implements OnInit {
       );
       this.getBioskop();
     }
+   
 }
 selectedBioskop(bioskop: Bioskopi) {
   this.bioskopSelect.emit(bioskop);
