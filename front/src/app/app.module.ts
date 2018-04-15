@@ -71,6 +71,10 @@ import { PozoristaItemComponent } from './pozorista/pozorista-item/pozorista-ite
 import { PozoristaListComponent } from './pozorista/pozorista-list/pozorista-list.component';
 import { KarteComponent } from './karte/karte.component';
 import { KartaService } from './karta.service';
+import { RezervacijaComponent } from './rezervacija/rezervacija.component';
+import { Rezervacija2Component } from './rezervacija/rezervacija2/rezervacija2.component';
+import { Rezervacija3Component } from './rezervacija/rezervacija3/rezervacija3.component';
+import { Rezervacija4Component } from './rezervacija/rezervacija4/rezervacija4.component';
 
 
 @NgModule({
@@ -119,7 +123,11 @@ import { KartaService } from './karta.service';
     BioskopiListComponent,
     PozoristaItemComponent,   
     PozoristaListComponent,
-    KarteComponent
+    KarteComponent,
+    RezervacijaComponent,
+    Rezervacija2Component,
+    Rezervacija3Component,
+    Rezervacija4Component
   ],
   imports: [
     AgmCoreModule.forRoot({

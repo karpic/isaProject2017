@@ -1,11 +1,17 @@
-import { map } from 'rxjs/operators';
+import { of } from 'rxjs/observable/of';
+import { map, catchError } from 'rxjs/operators';
 import { LoggedInUser } from './../models/logged-in-user';
 import { UserComponent } from './../user/user.component';
 import { Injectable } from '@angular/core';
 import * as jwt_decode from 'jwt-decode';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 const TOKEN_KEY = 'AuthToken';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable()
 export class LoginUserService {
@@ -25,8 +31,27 @@ export class LoginUserService {
     this.user = user;
   }
 
+  updateUser(updateUser: LoggedInUser): Observable<LoggedInUser> {
+    return this.http.put<LoggedInUser>(this.url + '/' + updateUser.email + '/' , updateUser, httpOptions).pipe(
+      catchError(this.handleError<LoggedInUser>('updateUser'))
+    );
+  }
+
   constructor(private http: HttpClient) { }
 
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // TODO: better job of transforming error for user consumption
+
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
 
 
 }

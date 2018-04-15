@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { LoginUserService } from './../../login/login-user.service';
 import { LoggedInUser } from './../../models/logged-in-user';
 import { Component, OnInit } from '@angular/core';
@@ -11,7 +12,7 @@ export class EditUserComponent implements OnInit {
 
   user: LoggedInUser;
 
-  constructor(private loginUserService: LoginUserService) { }
+  constructor(private loginUserService: LoginUserService, private router: Router) { }
 
   getUser(): void {
     this.loginUserService.getUser().subscribe(
@@ -23,7 +24,8 @@ export class EditUserComponent implements OnInit {
   }
 
   update() {
-
+    this.loginUserService.updateUser(this.user).subscribe();
+    this.router.navigate(['user']);
   }
 
   ngOnInit() {
