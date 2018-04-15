@@ -45,6 +45,8 @@ public class PozoristeController {
         }
         return new ResponseEntity<Pozoriste>(pozorista, HttpStatus.OK);
     }
+
+
     @RequestMapping(
             method = RequestMethod.POST,
             value = "/pozoriste",
