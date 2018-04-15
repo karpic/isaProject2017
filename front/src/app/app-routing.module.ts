@@ -1,3 +1,4 @@
+import { SkalaComponent } from './admin-sistem/skala/skala.component';
 import { SysadminAuthGuard } from './auth-guards/sysadmin-auth-guard.service';
 import { RecenzijaComponent } from './admin-fanzona/recenzija/recenzija.component';
 import { BpAdminEditComponent } from './admin-sistem/bp-admin-edit/bp-admin-edit.component';
@@ -53,7 +54,7 @@ const routes: Routes = [
       {path: 'rekviziti', component: RekvizitiComponent},
       {path: 'rekvizit/:rekvizitId', component: RekvizitEditComponent},
       {path: 'recenzija', component: RecenzijaComponent},
-     
+
     ]}
   ]},
   {path: ':username/ponude', component: PregledPonudaComponent},
@@ -61,7 +62,8 @@ const routes: Routes = [
     {path: 'novibioskop', component: BioskopEditComponent},
     {path: 'novopozoriste', component: PozoristeEditComponent},
     {path: 'novifanadmin', component: FanzonaAdminEditComponent},
-    {path: 'novibpadmin', component: BpAdminEditComponent}
+    {path: 'novibpadmin', component: BpAdminEditComponent},
+    {path: 'skala', component: SkalaComponent}
   ]},
   {path: 'bioskopi', component: BioskopiComponent},
   {path: 'pozorista', component: PozoristaComponent},
@@ -75,7 +77,7 @@ const routes: Routes = [
   {path: 'bioskopi-list', component : BioskopiListComponent},
   {path: 'pozorista-list', component : PozoristaListComponent},
   {path: 'karte', component : KarteComponent},
-  
+
 ];
 
 @NgModule({

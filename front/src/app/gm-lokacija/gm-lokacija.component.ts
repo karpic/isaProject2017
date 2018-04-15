@@ -24,24 +24,25 @@ export class GmLokacijaComponent implements OnInit {
   targetId: string;
   adresa: string = "Novi Sad Bulevar Oslobodjenja";
   latLondata: any;
-
+  lat = 51.673858;
+  lon = 7.815982;
   constructor(
     private route: ActivatedRoute,
     private geocoderService: GeocoderService,
     private appDataSharing: ApplicationDataSharingServiceService,
     private _loader: MapsAPILoader,
-  private _zone: NgZone,
+    private _zone: NgZone,
   ) { }
 
 
-  getLatLon(adresa: string) {
+  /* getLatLon(adresa: string) {
     this.geocoderService.getGeoLocation(adresa).subscribe(
       (data) => console.log(data)
     );
-  }
+  } */
 
   ngOnInit() {
-      this.getLatLon(this.appDataSharing.adresa);
+      //this.getLatLon(this.appDataSharing.adresa);
   }
 
 }
