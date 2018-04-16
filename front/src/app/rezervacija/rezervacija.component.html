@@ -7,7 +7,7 @@
           {{bioskopiShow.naziv}}
         </option>
     </select>
-    <button [routerLink]="['/rezervacija2/' + selectedBioskop]">Izaberi bioskop</button>
+    <button [routerLink]="['/rezervacija2/bioskop/' + selectedBioskop]">Izaberi bioskop</button>
   </form>
   <p>You selected: {{selectedBioskop}}</p>
 </div>
@@ -17,7 +17,7 @@
     <select [(ngModel)]="selectedPozoriste" name="selectPoz">
       <option *ngFor="let pozoristaShow of pozorista" [ngValue]="pozoristaShow.id">{{pozoristaShow.naziv}}</option>
     </select>
-    <button>Izaberi pozoriste</button>
+    <button [routerLink]="['/rezervacija2/pozoriste/' + selectedPozoriste]">Izaberi pozoriste</button>
   </form>
   <p>You selected: {{selectedPozoriste}}</p>
 </div>

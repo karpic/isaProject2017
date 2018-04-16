@@ -82,7 +82,8 @@ const routes: Routes = [
   {path: 'pozorista-list', component : PozoristaListComponent},
   {path: 'karte', component : KarteComponent},
   {path: 'rezervacija', component: RezervacijaComponent},
-  {path: 'rezervacija2/:bioskopId', component: Rezervacija2Component},
+  {path: 'rezervacija2/bioskop/:bioskopId', component: Rezervacija2Component},
+  {path: 'rezervacija2/pozoriste/:pozoristeId', component: Rezervacija2Component},
   {path: 'rezervacija3', component: Rezervacija3Component},
   {path: 'rezervacija4', component: Rezervacija4Component}
 

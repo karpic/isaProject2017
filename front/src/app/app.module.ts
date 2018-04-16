@@ -128,7 +128,7 @@ import { Rezervacija4Component } from './rezervacija/rezervacija4/rezervacija4.c
     RezervacijaComponent,
     Rezervacija2Component,
     Rezervacija3Component,
-    Rezervacija4Component
+    Rezervacija4Component,
   ],
   imports: [
     AgmCoreModule.forRoot({

@@ -37,6 +37,10 @@ export class LoginUserService {
     );
   }
 
+  getUserByname(ime: string, prezime: string): Observable<LoggedInUser[]> {
+    return this.http.get<LoggedInUser[]>(this.url + '/parameters?ime=' + ime + '&' + 'prezime=' + prezime );
+  }
+
   constructor(private http: HttpClient) { }
 
   private handleError<T> (operation = 'operation', result?: T) {

@@ -13,7 +13,7 @@ export class RezervacijaComponent implements OnInit {
   bioskopi: Bioskopi[];
   pozorista: Pozorista[];
   selectedBioskop: string;
-  slectedPozoriste: string;
+  selectedPozoriste: string;
   constructor(private bioskopiService: BioskopiService, private pozoristeService: PozoristeService) { }
 
   ngOnInit() {

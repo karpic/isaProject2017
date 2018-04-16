@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { LoggedInUser } from './../models/logged-in-user';
 import { LoginUserService } from './../login/login-user.service';
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit, NgModule, Input } from '@angular/core';
 
 const TOKEN_KEY = 'AuthToken';
 
@@ -17,9 +17,13 @@ const TOKEN_KEY = 'AuthToken';
 
 
 export class UserComponent implements OnInit {
+  @Input() userShow: LoggedInUser;
 
   user: LoggedInUser;
   isAdmin: boolean;
+  ime = '';
+  prezime = '';
+  pretrazeniKorisnici: LoggedInUser[];
 
   constructor(private loginUserService: LoginUserService) { }
 
@@ -37,12 +41,10 @@ export class UserComponent implements OnInit {
 
   }
 
-    userIsAdmin(): boolean {
-    if (this.isAdmin) {
-      return true;
-    } else {
-      return false;
-    }
+  findUser(): void {
+    this.loginUserService.getUserByname(this.ime, this.prezime).subscribe(
+      data => this.pretrazeniKorisnici = data
+    );
   }
 
   ngOnInit() {

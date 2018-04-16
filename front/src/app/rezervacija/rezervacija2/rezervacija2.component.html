@@ -1,3 +1,16 @@
-<p>
-  {{bioskop.naziv}}
-</p>
+<div *ngIf="bioskopBool">
+  <h1>Bioskop: {{bioskop.naziv}}</h1>
+  <form>
+    <select [(ngModel)]="selectedMovie" name="select">
+      <option></option>
+    </select>
+  </form>
+</div>
+<div *ngIf="pozoristeBool">
+  <h1>Pozoriste: {{pozoriste.naziv}}</h1>
+  <form>
+    <select [(ngModel)]="selectedShow" name="select">
+      <option></option>
+    </select>
+  </form>
+</div>

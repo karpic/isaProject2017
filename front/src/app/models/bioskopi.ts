@@ -7,5 +7,5 @@ export class Bioskopi {
         public repertoar: Array<String>,
         public brmesta: Array<String>,
         public admin: String
-    ){}
+    ) {}
 }

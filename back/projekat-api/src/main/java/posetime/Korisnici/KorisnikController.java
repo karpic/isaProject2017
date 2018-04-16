@@ -12,10 +12,11 @@ import posetime.Korisnici.registration.EmailService;
 import javax.xml.ws.Response;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("*")
 public class KorisnikController {
 
     @Autowired
@@ -168,4 +169,30 @@ public class KorisnikController {
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @RequestMapping(
+            method = RequestMethod.GET,
+            value = "/user/parameters",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<List<Korisnik>> getUserByName(@RequestParam Map<String,String> requestParams) {
+        String ime = requestParams.get("ime");
+        String prezime = requestParams.get("prezime");
+        if(ime.equals("") && !prezime.equals("")) {
+            return new ResponseEntity<List<Korisnik>>(korisnikService.findBySurname(prezime),HttpStatus.OK);
+        }
+
+        if(prezime.equals("") && !ime.equals("")) {
+            return new ResponseEntity<List<Korisnik>>(korisnikService.findByName(ime), HttpStatus.OK);
+        }
+
+        if(!ime.equals("") && !prezime.equals("")) {
+            return new ResponseEntity<List<Korisnik>>(korisnikService.findByInfo(ime,prezime), HttpStatus.OK);
+        }
+
+        return new ResponseEntity<List<Korisnik>>(HttpStatus.NOT_FOUND);
+
+    }
+
+
 }

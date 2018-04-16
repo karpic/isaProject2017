@@ -50,7 +50,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable().
                 authorizeRequests()
                 .antMatchers("/token/*", "/").permitAll()
-                .antMatchers("/user","/user/*").hasAnyAuthority("ROLE_ADMIN","ROLE_USER")
+                //.antMatchers("/user","/user/*").hasAnyAuthority("ROLE_ADMIN","ROLE_USER")
+                .antMatchers("/rezervacija","/rezervacija2/*","/rezervacija3/*","rezervacija3/*").hasAnyAuthority("ROLE_USER","ROLE_ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
@@ -61,7 +62,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/confirm","/register","/bioskopi","/pozorista","/bioskopi/*","/pozorista/*","/karte");
+        web.ignoring().antMatchers("/user","/user/*","/confirm","/register","/bioskopi","/pozorista","/bioskopi/*","/pozorista/*","/karte");
+
     }
 
     @Bean

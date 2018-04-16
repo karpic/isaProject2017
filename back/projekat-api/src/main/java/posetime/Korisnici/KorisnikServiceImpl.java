@@ -50,6 +50,42 @@ public class KorisnikServiceImpl implements UserDetailsService,KorisnikService {
     }
 
     @Override
+    public List<Korisnik> findByName(String name) {
+        List<Korisnik> korisnici = korisnikRepository.findAll();
+        List<Korisnik> pronadjeni = new ArrayList<Korisnik>();
+        for(Korisnik k : korisnici) {
+            if(k.getIme().toLowerCase().equals(name.toLowerCase())) {
+                pronadjeni.add(k);
+            }
+        }
+        return pronadjeni;
+    }
+
+    @Override
+    public List<Korisnik> findBySurname(String surname) {
+        List<Korisnik> korisnici = korisnikRepository.findAll();
+        List<Korisnik> pronadjeni = new ArrayList<Korisnik>();
+        for(Korisnik k : korisnici) {
+            if(k.getPrezime().toLowerCase().equals(surname.toLowerCase())) {
+                pronadjeni.add(k);
+            }
+        }
+        return pronadjeni;
+    }
+
+    @Override
+    public List<Korisnik> findByInfo(String name, String surname) {
+        List<Korisnik> korisnici = korisnikRepository.findAll();
+        List<Korisnik> pronadjeni = new ArrayList<Korisnik>();
+        for(Korisnik k : korisnici) {
+            if(k.getIme().toLowerCase().equals(name.toLowerCase()) && k.getPrezime().toLowerCase().equals(surname.toLowerCase())) {
+                pronadjeni.add(k);
+            }
+        }
+        return pronadjeni;
+    }
+
+    @Override
     public Korisnik save(Korisnik k) {
         return korisnikRepository.save(k);
     }

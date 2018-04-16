@@ -1,4 +1,4 @@
-import { Component, OnInit, Input,Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Bioskopi } from '../../models/bioskopi';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
 import { Location } from '@angular/common';
