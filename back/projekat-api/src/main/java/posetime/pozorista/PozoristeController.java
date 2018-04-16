@@ -9,10 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import java.awt.*;
-
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("*")
 public class PozoristeController {
 
     @Autowired
@@ -35,7 +33,7 @@ public class PozoristeController {
 
     @RequestMapping(
             method = RequestMethod.GET,
-            value ="/pozorista/{id]",
+            value ="/pozorista/{id}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<Pozoriste> getPozorista(@PathVariable ("id") String id) {
@@ -81,7 +79,7 @@ public class PozoristeController {
 
     @RequestMapping(
             method = RequestMethod.DELETE,
-            value = "/pozortiste/{id}"
+            value = "/pozortista/{id}"
     )
     public ResponseEntity<Pozoriste> deleteBioskop(@PathVariable("id") String id){
         this.pozoristeService.delete(id);
