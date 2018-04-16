@@ -22,8 +22,8 @@
 
       <div class="form-group">
           <label for="repertoar">Repertoar pozorista</label>
-          <input type="text" id="repertoar" name="repertoar" class="form-control" required ngModel #pozoristeRepertoar="ngModel" [(ngModel)]="pozoristeEdit.repertoar">
-          <span class="help-block" *ngIf="!pozoristeRepertoar.valid && pozoristeRepertoar.touched">Repertoar je obavezan!</span>
+          <input type="text" id="repertoar" name="repertoar" class="form-control" [(ngModel)]="pozoristeEdit.repertoar">
+          
         </div>
 
       <button type="submit" class="btn btn-primary" [disabled]="!editPozoristeForma.valid">Dodaj</button>

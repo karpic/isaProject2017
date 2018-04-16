@@ -11,10 +11,16 @@ public class PozoristeServiceImpl implements PozoristeService {
     private PozoristeRepository pozoristeRepository;
 
     @Override
-    public List<Pozoriste> findAll() {return pozoristeRepository.findAll();}
+    public List<Pozoriste> findAll() {
+        List<Pozoriste> pozoriste = this.pozoristeRepository.findAll();
+        return pozoriste;
+    }
 
     @Override
-    public Pozoriste findOne(String id) {return pozoristeRepository.findOne(id);}
+    public Pozoriste findOne(String id) {
+        Pozoriste pozoriste = this.pozoristeRepository.findOne(id);
+        return pozoriste;
+    }
 
     @Override
     public Pozoriste create(Pozoriste pozoriste) throws Exception {

@@ -1,6 +1,7 @@
 import { Component, OnInit,Input, Output, EventEmitter} from '@angular/core';
 import { PozoristeService } from '../services/pozorista.service';
 import { Pozorista } from '../models/pozorista';
+import { Location } from '@angular/common';
 
 
 
@@ -28,11 +29,22 @@ getPozoriste() {
   );
 }
 
-  constructor(private pozoristeService: PozoristeService) { }
+  constructor(private pozoristeService: PozoristeService,
+              private location: Location) { }
 
   ngOnInit() {
     this.getPozorista();
     console.log(this.pozorista);
   }
 
+
+  pozoristeEdt() {
+    this.pozoristeService.updatePozoriste(this.pozoristeEdit).subscribe();
+    this.location.back();
+  }
+
+
+  updatePozoriste(): void{
+    this.pozoristeService.updatePozoriste(this.pozoristeEdit).subscribe();
+  }
 }

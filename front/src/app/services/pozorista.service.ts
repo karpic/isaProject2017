@@ -34,12 +34,12 @@ export class PozoristeService {
     const id = typeof pozoriste === 'string' ? pozoriste : pozoriste.id;
     const url = `${this.url}/${id}`;
     return this.http.put<Pozorista>(url, pozoriste, httpOptions).pipe(
-      catchError(this.handleError<Pozorista>('updatePozoriste'))
+      catchError(this.handleError<Pozorista>('updatePozorista'))
     );
   }
 
 
-  deleteBioskop(pozoriste: Pozorista | string): Observable<Pozorista> {
+  deletePozoriste(pozoriste: Pozorista | string): Observable<Pozorista> {
     const id = typeof pozoriste === 'string' ? pozoriste : pozoriste.id;
     const url = `${this.url}/${id}`;
 
