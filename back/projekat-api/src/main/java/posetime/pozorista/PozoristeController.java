@@ -24,7 +24,7 @@ public class PozoristeController {
 
     @RequestMapping(
             method = RequestMethod.GET,
-            value = "/pozoriste",
+            value = "/pozorista",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
 
@@ -35,7 +35,7 @@ public class PozoristeController {
 
     @RequestMapping(
             method = RequestMethod.GET,
-            value ="/pozoriste/{id]",
+            value ="/pozorista/{id]",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<Pozoriste> getPozorista(@PathVariable ("id") String id) {
@@ -60,7 +60,7 @@ public class PozoristeController {
 
     @RequestMapping(
             method = RequestMethod.PUT,
-            value = "/pozoriste/{id}",
+            value = "/pozorista/{id}",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )

@@ -30,7 +30,7 @@ public class BioskopController {
 
     @RequestMapping(
             method = RequestMethod.GET,
-            value ="/bioskopi/{id]",
+            value ="/bioskopi/{id}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<Bioskop> getBioskop(@PathVariable ("id") String id) {

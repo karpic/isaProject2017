@@ -61,7 +61,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/confirm","/register","/bioskopi","/pozoriste","/bioskopi/{id},/pozoriste/{id}","/karte");
+        web.ignoring().antMatchers("/confirm","/register","/bioskopi","/pozorista","/bioskopi/*","/pozorista/*","/karte");
     }
 
     @Bean
