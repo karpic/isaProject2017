@@ -1,3 +1,7 @@
+import { Rezervacija4Component } from './rezervacija/rezervacija4/rezervacija4.component';
+import { Rezervacija3Component } from './rezervacija/rezervacija3/rezervacija3.component';
+import { Rezervacija2Component } from './rezervacija/rezervacija2/rezervacija2.component';
+import { RezervacijaComponent } from './rezervacija/rezervacija.component';
 import { SkalaComponent } from './admin-sistem/skala/skala.component';
 import { SysadminAuthGuard } from './auth-guards/sysadmin-auth-guard.service';
 import { RecenzijaComponent } from './admin-fanzona/recenzija/recenzija.component';
@@ -77,6 +81,10 @@ const routes: Routes = [
   {path: 'bioskopi-list', component : BioskopiListComponent},
   {path: 'pozorista-list', component : PozoristaListComponent},
   {path: 'karte', component : KarteComponent},
+  {path: 'rezervacija', component: RezervacijaComponent},
+  {path: 'rezervacija2/:bioskopId', component: Rezervacija2Component},
+  {path: 'rezervacija3', component: Rezervacija3Component},
+  {path: 'rezervacija4', component: Rezervacija4Component}
 
 ];
 
