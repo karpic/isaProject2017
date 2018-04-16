@@ -1,3 +1,4 @@
+import { SkalaService } from './services/skala.service';
 import { CheckLoginService } from './nav-component/check-login.service';
 import { BpAdminAuthGuard } from './auth-guards/bpadmin-auth-guard.service';
 import { SysadminAuthGuard } from './auth-guards/sysadmin-auth-guard.service';
@@ -121,7 +122,7 @@ import { Rezervacija4Component } from './rezervacija/rezervacija4/rezervacija4.c
     SkalaComponent,
     BioskopiItemComponent,
     BioskopiListComponent,
-    PozoristaItemComponent,   
+    PozoristaItemComponent,
     PozoristaListComponent,
     KarteComponent,
     RezervacijaComponent,
@@ -131,7 +132,7 @@ import { Rezervacija4Component } from './rezervacija/rezervacija4/rezervacija4.c
   ],
   imports: [
     AgmCoreModule.forRoot({
-      apiKey: ' AIzaSyB79Hum1sxQbxwgiccMIGm7zzYVZnCVoDI'
+      apiKey: 'AIzaSyB79Hum1sxQbxwgiccMIGm7zzYVZnCVoDI'
     }),
     BrowserModule,
     FormsModule,
@@ -139,6 +140,7 @@ import { Rezervacija4Component } from './rezervacija/rezervacija4/rezervacija4.c
     HttpClientModule
   ],
   providers: [
+    SkalaService,
     GeocoderService,
     FanzonaAuthGuard,
     FanAdminAuthGuard,

@@ -12,7 +12,7 @@ const httpOptions = {
 
 @Injectable()
 export class PozoristeService {
-  private url = 'http://localhost:8080/pozoriste';
+  private url = 'http://localhost:8080/pozorista';
 
 
   getPozorista(): Observable<Pozorista[]>{
