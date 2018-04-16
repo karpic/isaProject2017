@@ -10,6 +10,8 @@ import { PozoristeService } from './../../services/pozorista.service';
 export class PozoristaListComponent implements OnInit {
 @Output() pozoristeSelect: EventEmitter<any> = new EventEmitter<void>(); 
 pozorista: Pozorista[];
+pozoristeId: string;
+pozoristeEdit: Pozorista;
 
   constructor(private pozoristeService: PozoristeService) { }
 
@@ -18,7 +20,11 @@ pozorista: Pozorista[];
       .subscribe(pozorista => this.pozorista = pozorista);
   }
   
-  
+  getPozoriste() {
+    this.pozoristeService.getPozoriste(this.pozoristeId).subscribe(
+      (pozoriste) => this.pozoristeEdit = pozoriste
+    );
+  }
     ngOnInit() {
       this.getPozorista();
     }

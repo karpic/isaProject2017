@@ -33,7 +33,7 @@ export class PozoristaEditComponent implements OnInit {
    
     getPozoriste() {
       this.pozoristaService.getPozoriste(this.pozoristeId).subscribe(
-        (bioskop) => this.updtPozoriste = bioskop
+        (pozoriste) => this.pozoristeEdit = pozoriste
       );
     }
 

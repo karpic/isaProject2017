@@ -39,7 +39,7 @@ export class PozoristeEditComponent implements OnInit {
 
 
   deletePozoriste(pozoriste: Pozorista) {
-    this.pozoristaService.deleteBioskop(pozoriste).subscribe();
+    this.pozoristaService.deletePozoriste(pozoriste).subscribe();
     this.pozorista = this.pozorista.filter(r => r !== pozoriste);
   }
 

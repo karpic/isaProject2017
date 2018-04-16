@@ -30,7 +30,7 @@ export class BioskopiService {
     );
   }
 
-  updateBioskop(bioskop: Bioskopi): Observable<Bioskopi>{
+  updateBioskop(bioskop: Bioskopi): Observable<Bioskopi> {
     const id = typeof bioskop === 'string' ? bioskop : bioskop.id;
     const url = `${this.url}/${id}`;
     return this.http.put<Bioskopi>(url, bioskop, httpOptions).pipe(
