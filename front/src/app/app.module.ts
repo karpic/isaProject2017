@@ -77,6 +77,7 @@ import { Rezervacija2Component } from './rezervacija/rezervacija2/rezervacija2.c
 import { Rezervacija3Component } from './rezervacija/rezervacija3/rezervacija3.component';
 import { Rezervacija4Component } from './rezervacija/rezervacija4/rezervacija4.component';
 import { ZahteviComponent } from './user/zahtevi/zahtevi.component';
+import { PrijateljiComponent } from './user/prijatelji/prijatelji.component';
 
 
 @NgModule({
@@ -131,6 +132,7 @@ import { ZahteviComponent } from './user/zahtevi/zahtevi.component';
     Rezervacija3Component,
     Rezervacija4Component,
     ZahteviComponent,
+    PrijateljiComponent,
   ],
   imports: [
     AgmCoreModule.forRoot({

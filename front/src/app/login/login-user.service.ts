@@ -47,6 +47,20 @@ export class LoginUserService {
       catchError(this.handleError<LoggedInUser>('addFriend')));
   }
 
+  acceptFriend(user: LoggedInUser, from: string): Observable<LoggedInUser> {
+    return this.http.put<LoggedInUser>(this.url + '/respond?action=accept&from=' + from, user, httpOptions).pipe(
+      catchError(this.handleError<LoggedInUser>('acceptFriend')));
+  }
+
+  declineFriend(user: LoggedInUser, from: string): Observable<LoggedInUser> {
+    return this.http.put<LoggedInUser>(this.url + '/respond?action=decline&from=' + from, user, httpOptions).pipe(
+      catchError(this.handleError<LoggedInUser>('declineFriend')));
+  }
+
+  getRequests(user: LoggedInUser): Observable<LoggedInUser[]> {
+    return this.http.get<LoggedInUser[]>(this.url + '/requests/' + user.email + '/' , httpOptions );
+  }
+
   constructor(private http: HttpClient) { }
 
   private handleError<T> (operation = 'operation', result?: T) {

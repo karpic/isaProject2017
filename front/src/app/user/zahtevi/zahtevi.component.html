@@ -1,5 +1,7 @@
-<div *ngFor="let zahtev of user.zahtevi">
-  {{zahtev}}
-  <button (click)="accept(zahtev)">Prihvati</button>
-  <button (click)="decline(zahtev)">Odbij</button>
-</div>
+<ul *ngFor="let zahtev of user.zahtevi">
+  <li>
+    {{zahtev}}
+    <button (click)="accept(zahtev)">Prihvati</button>
+    <button (click)="decline(zahtev)">Odbij</button>
+  </li>
+</ul>
