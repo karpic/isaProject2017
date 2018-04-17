@@ -2,6 +2,8 @@ package posetime.pozorista;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import posetime.prestave.Predstave;
+
 import java.util.List;
 
 @Document (collection = "Pozorista")
@@ -12,7 +14,7 @@ public class Pozoriste {
     private String naziv;
     private String adresa;
     private String opis;
-    private List<String> repertoar;
+    private Predstave repertoar;
     private List<String> brmesta;
     private String admin;
 
@@ -27,7 +29,7 @@ public class Pozoriste {
     public Pozoriste() {
 
     }
-    public Pozoriste(String id, String naziv, String adresa, String opis, List<String> repertoar, List<String> brmesta){
+    public Pozoriste(String id, String naziv, String adresa, String opis, Predstave repertoar, List<String> brmesta){
 
         this.id=id;
         this.naziv=naziv;
@@ -69,11 +71,11 @@ public class Pozoriste {
         this.opis = opis;
     }
 
-    public List<String> getRepertoar() {
+    public Predstave getRepertoar() {
         return repertoar;
     }
 
-    public void setRepertoar(List<String> repertoar) {
+    public void setRepertoar(Predstave repertoar) {
         this.repertoar = repertoar;
     }
 
