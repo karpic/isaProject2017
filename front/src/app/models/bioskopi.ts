@@ -1,10 +1,12 @@
+import { Filmovi } from "./filmovi";
+
 export class Bioskopi {
     constructor (
         public id: string,
         public naziv: string,
         public adresa: string,
         public opis: string,
-        public repertoar: Array<String>,
+        public repertoar: Array<Filmovi>,
         public brmesta: Array<String>,
         public admin: String
     ) {}

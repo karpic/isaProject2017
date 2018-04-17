@@ -70,7 +70,7 @@ export class BioskopiComponent implements OnInit {
     this.bioskopiService.updateBioskop(this.bioskopEdit).subscribe();
     forma.reset();
     this.location.back();
-  }
+  }*
 
   bioskopEdt() {
     this.bioskopiService.updateBioskop(this.bioskopEdit).subscribe();
