@@ -3,6 +3,7 @@ package posetime.bioskopi;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import posetime.filmovi.Filmovi;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class Bioskop {
     private String naziv;
     private String adresa;
     private String opis;
-    private List<String> repertoar;
+    private Filmovi repertoar;
     private List<String> brmesta;
     private String admin;
 
@@ -30,7 +31,7 @@ public class Bioskop {
     public Bioskop() {
 
     }
-    public Bioskop(String id, String naziv, String adresa, String opis, List<String> repertoar, List<String> brmesta){
+    public Bioskop(String id, String naziv, String adresa, String opis, Filmovi repertoar, List<String> brmesta){
 
         this.id=id;
         this.naziv=naziv;
@@ -72,11 +73,11 @@ public class Bioskop {
         this.opis = opis;
     }
 
-    public List<String> getRepertoar() {
+    public Filmovi getRepertoar() {
         return repertoar;
     }
 
-    public void setRepertoar(List<String> repertoar) {
+    public void setRepertoar(Filmovi repertoar) {
         this.repertoar = repertoar;
     }
 
