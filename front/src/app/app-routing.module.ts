@@ -94,13 +94,10 @@ const routes: Routes = [
   {path: 'rezervacija3', component: Rezervacija3Component},
   {path: 'rezervacija4', component: Rezervacija4Component},
   {path: 'user/zahtevi', component: ZahteviComponent},
-<<<<<<< HEAD
-  {path: 'prijatelji', component: PrijateljiComponent}
-=======
   {path: 'filmovi', component: FilmoviComponent},
   {path: 'predstave', component: PredstaveComponent},
   {path: 'filmovi-edit', component: FilmoviEditComponent},
->>>>>>> 4336d5de10ab519cf233288d8175455643bdf4a3
+  {path: 'prijatelji', component: PrijateljiComponent}
 
 ];
 

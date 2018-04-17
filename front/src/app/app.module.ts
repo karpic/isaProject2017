@@ -1,3 +1,4 @@
+import { PrijateljiComponent } from './user/prijatelji/prijatelji.component';
 import { SkalaService } from './services/skala.service';
 import { CheckLoginService } from './nav-component/check-login.service';
 import { BpAdminAuthGuard } from './auth-guards/bpadmin-auth-guard.service';
@@ -79,14 +80,10 @@ import { Rezervacija4Component } from './rezervacija/rezervacija4/rezervacija4.c
 import { FilmoviComponent } from './filmovi/filmovi.component';
 import { PredstaveComponent } from './predstave/predstave.component';
 import { ZahteviComponent } from './user/zahtevi/zahtevi.component';
-<<<<<<< HEAD
-import { PrijateljiComponent } from './user/prijatelji/prijatelji.component';
-=======
 import { FilmoviService } from './filmovi.service';
 import { PredstaveService } from './predstave.service';
 import { FilmoviEditComponent } from './filmovi/filmovi-edit/filmovi-edit.component';
 import { PredstaveEditComponent } from './predstave/predstave-edit/predstave-edit.component';
->>>>>>> 4336d5de10ab519cf233288d8175455643bdf4a3
 
 
 @NgModule({
@@ -143,12 +140,9 @@ import { PredstaveEditComponent } from './predstave/predstave-edit/predstave-edi
     FilmoviComponent,
     PredstaveComponent,
     ZahteviComponent,
-<<<<<<< HEAD
-    PrijateljiComponent,
-=======
     FilmoviEditComponent,
     PredstaveEditComponent,
->>>>>>> 4336d5de10ab519cf233288d8175455643bdf4a3
+    PrijateljiComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
