@@ -4,6 +4,7 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Predstave } from './models/predstave';
+import { NovaPredstava } from './models/nova-predstava';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -23,9 +24,9 @@ export class PredstaveService {
     return this.http.get<Predstave>(this.url+'/'+id);
   }
 
-  insertPredstava(predstava: Predstave): Observable<Predstave>{
-    return this.http.post<Predstave>(this.url, predstava, httpOptions).pipe(
-      catchError(this.handleError<Predstave>('insertPredstava'))
+  insertPredstava(predstava: NovaPredstava): Observable<NovaPredstava>{
+    return this.http.post<NovaPredstava>(this.url, predstava, httpOptions).pipe(
+      catchError(this.handleError<NovaPredstava>('insertPredstava'))
     );
   }
 

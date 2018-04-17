@@ -3,6 +3,7 @@ import { FilmoviService } from '../../filmovi.service';
 import { Location } from '@angular/common';
 import { Filmovi } from '../../models/filmovi';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
+import { NoviFilm } from '../../models/novi-film';
 
 @Component({
   selector: 'app-filmovi-edit',
@@ -10,7 +11,7 @@ import { NgForm } from '@angular/forms/src/directives/ng_form';
   styleUrls: ['./filmovi-edit.component.css']
 })
 export class FilmoviEditComponent implements OnInit {
-  noviFilm: Filmovi = new Filmovi("","","","","","","","","","","",200);
+  noviFilm: NoviFilm = new NoviFilm("","","","","","","","","","",1);
   updtFilm: Filmovi;
   editFlag: boolean;
   filmId: string;
@@ -39,6 +40,8 @@ export class FilmoviEditComponent implements OnInit {
                 forma.reset();
                 this.location.back();
               }
+
+              
               getFilm() {
                 this.filmoviService.getFilm(this.filmId).subscribe(
                   (film) => this.filmEdt = film

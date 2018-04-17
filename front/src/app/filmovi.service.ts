@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { NoviFilm } from './models/novi-film';
 
 
 const httpOptions = {
@@ -23,9 +24,9 @@ export class FilmoviService {
     return this.http.get<Filmovi>(this.url+'/'+id);
   }
 
-  insertFilm(film: Filmovi): Observable<Filmovi>{
-    return this.http.post<Filmovi>(this.url, film, httpOptions).pipe(
-      catchError(this.handleError<Filmovi>('insertFilm'))
+  insertFilm(film: NoviFilm): Observable<NoviFilm>{
+    return this.http.post<NoviFilm>(this.url, film, httpOptions).pipe(
+      catchError(this.handleError<NoviFilm>('insertFilm'))
     );
   }
 

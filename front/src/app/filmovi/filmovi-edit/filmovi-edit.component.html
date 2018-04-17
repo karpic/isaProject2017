@@ -1,0 +1,49 @@
+<div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <form #noviFilmForm="ngForm" (ngSubmit)="noviFilmSubmit(noviFilmForm)">
+      <div class="form-group">
+        <label for="naziv">Naziv filma</label>
+        <input type="text" id="naziv" name="naziv" class="form-control" required ngModel #filmNaziv="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="glumci">Glumci filma</label>
+        <input type="text" id="glumci" name="glumci" class="form-control" required ngModel #filmGlumci="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="zanr">Zanr filma</label>
+        <input type="text" id="zanr" name="zanr" class="form-control" required ngModel #filmZanr="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="reditelj">Reditelj filma</label>
+        <input type="text" id="reditelj" name="reditelj" class="form-control" required ngModel  #filmReditelj="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="trajanje">Trajanje filma</label>
+        <input type="text" id="trajanje" name="trajanje" class="form-control" required ngModel #filmTrajanje="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="poster">Poster filma</label>
+        <input type="text" id="poster" name="poster" class="form-control" required ngModel #filmPoster="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="ocena">Ocena filma</label>
+        <input type="text" id="ocena" name="ocena" class="form-control" required ngModel #filmOcena="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="opis">Opis filma</label>
+        <input type="text" id="opis" name="opis" class="form-control" required ngModel #filmOpis="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="sala">Sala filma</label>
+        <input type="text" id="sala" name="sala" class="form-control" required ngModel #filmSala="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="termin">Termin filma</label>
+        <input type="text" id="termin" name="termin" class="form-control" required ngModel #filmTermin="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="cena">Cena filma</label>
+        <input type="num" id="cena" name="cena" class="form-control" required ngModel #filmCena="ngModel">
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!noviFilmForm.valid">Dodaj</button>
+</form>
+</div>

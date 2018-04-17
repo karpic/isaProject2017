@@ -97,6 +97,7 @@ const routes: Routes = [
   {path: 'filmovi', component: FilmoviComponent},
   {path: 'predstave', component: PredstaveComponent},
   {path: 'filmovi-edit', component: FilmoviEditComponent},
+  {path: 'predstave-edit', component: PredstaveEditComponent}
   {path: 'prijatelji', component: PrijateljiComponent}
 
 ];
