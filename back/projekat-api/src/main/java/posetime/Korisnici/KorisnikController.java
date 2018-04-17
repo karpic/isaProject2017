@@ -209,6 +209,46 @@ public class KorisnikController {
         return new ResponseEntity<Korisnik>(HttpStatus.OK);
     }
 
+    @RequestMapping(
+            method = RequestMethod.PUT,
+            value = "/user/respond",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Korisnik> respondToRequest(@RequestParam Map<String,String> params, @RequestBody Korisnik korisnik) {
+        String action = params.get("action");
+        String from = params.get("from");
+        Korisnik to = korisnikService.findByEmail(korisnik.getEmail());
+        to.getZahtevi().remove(from);
+        if(action.equals("accept")) {
+            Korisnik userFrom = korisnikService.findByEmail(from);
+            to.getPrijatelji().add(from);
+            userFrom.getPrijatelji().add(to.getEmail());
+            korisnikService.save(userFrom);
+        }
+
+        korisnikService.save(to);
+
+        return new ResponseEntity<Korisnik>(HttpStatus.OK);
+    }
+
+    @RequestMapping(
+            method = RequestMethod.GET,
+            value = "/user/requests/{email}",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<List<Korisnik>> getRequests(@PathVariable("email") String email) {
+        Korisnik korisnik = korisnikService.findByEmail(email);
+        List<Korisnik> zahtevi = new ArrayList<Korisnik>();
+
+        for(String s : korisnik.getZahtevi()) {
+            Korisnik k = korisnikService.findByEmail(s);
+            zahtevi.add(k);
+        }
+
+        return new ResponseEntity<List<Korisnik>>(zahtevi,HttpStatus.OK);
+    }
+
 
 
 }

@@ -1,3 +1,4 @@
+import { PrijateljiComponent } from './user/prijatelji/prijatelji.component';
 import { SkalaService } from './services/skala.service';
 import { CheckLoginService } from './nav-component/check-login.service';
 import { BpAdminAuthGuard } from './auth-guards/bpadmin-auth-guard.service';
@@ -141,6 +142,7 @@ import { PredstaveEditComponent } from './predstave/predstave-edit/predstave-edi
     ZahteviComponent,
     FilmoviEditComponent,
     PredstaveEditComponent,
+    PrijateljiComponent
   ],
   imports: [
     AgmCoreModule.forRoot({

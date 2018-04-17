@@ -1,3 +1,4 @@
+import { PrijateljiComponent } from './user/prijatelji/prijatelji.component';
 import { ZahteviComponent } from './user/zahtevi/zahtevi.component';
 import { Rezervacija4Component } from './rezervacija/rezervacija4/rezervacija4.component';
 import { Rezervacija3Component } from './rezervacija/rezervacija3/rezervacija3.component';
@@ -97,6 +98,7 @@ const routes: Routes = [
   {path: 'predstave', component: PredstaveComponent},
   {path: 'filmovi-edit', component: FilmoviEditComponent},
   {path: 'predstave-edit', component: PredstaveEditComponent}
+  {path: 'prijatelji', component: PrijateljiComponent}
 
 ];
 
