@@ -8,7 +8,7 @@
   </form>
   <ul>
     <div *ngFor="let userShow of pretrazeniKorisnici">
-    <li>
+    <li *ngIf="!isFriend(userShow.email)">
       {{userShow.email}}
       {{userShow.ime}}
       {{userShow.prezime}}

@@ -48,6 +48,14 @@ export class UserComponent implements OnInit {
     );
   }
 
+  isFriend(email: string): boolean {
+    if (this.user.prijatelji.includes(email) || this.user.zahtevi.includes(email) || this.user.email === email) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   addFriend(email: string): void {
     this.loginUserService.addFriend(this.user, email).subscribe();
   }

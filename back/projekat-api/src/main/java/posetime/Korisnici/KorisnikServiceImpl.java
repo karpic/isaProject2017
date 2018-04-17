@@ -54,7 +54,7 @@ public class KorisnikServiceImpl implements UserDetailsService,KorisnikService {
         List<Korisnik> korisnici = korisnikRepository.findAll();
         List<Korisnik> pronadjeni = new ArrayList<Korisnik>();
         for(Korisnik k : korisnici) {
-            if(k.getIme().toLowerCase().equals(name.toLowerCase())) {
+            if(k.getIme().toLowerCase().contains(name.toLowerCase())) {
                 pronadjeni.add(k);
             }
         }
@@ -66,7 +66,7 @@ public class KorisnikServiceImpl implements UserDetailsService,KorisnikService {
         List<Korisnik> korisnici = korisnikRepository.findAll();
         List<Korisnik> pronadjeni = new ArrayList<Korisnik>();
         for(Korisnik k : korisnici) {
-            if(k.getPrezime().toLowerCase().equals(surname.toLowerCase())) {
+            if(k.getPrezime().toLowerCase().contains(surname.toLowerCase())) {
                 pronadjeni.add(k);
             }
         }
@@ -78,7 +78,7 @@ public class KorisnikServiceImpl implements UserDetailsService,KorisnikService {
         List<Korisnik> korisnici = korisnikRepository.findAll();
         List<Korisnik> pronadjeni = new ArrayList<Korisnik>();
         for(Korisnik k : korisnici) {
-            if(k.getIme().toLowerCase().equals(name.toLowerCase()) && k.getPrezime().toLowerCase().equals(surname.toLowerCase())) {
+            if(k.getIme().toLowerCase().contains(name.toLowerCase()) && k.getPrezime().toLowerCase().contains(surname.toLowerCase())) {
                 pronadjeni.add(k);
             }
         }
