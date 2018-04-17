@@ -76,8 +76,12 @@ import { RezervacijaComponent } from './rezervacija/rezervacija.component';
 import { Rezervacija2Component } from './rezervacija/rezervacija2/rezervacija2.component';
 import { Rezervacija3Component } from './rezervacija/rezervacija3/rezervacija3.component';
 import { Rezervacija4Component } from './rezervacija/rezervacija4/rezervacija4.component';
+<<<<<<< HEAD
 import { FilmoviComponent } from './filmovi/filmovi.component';
 import { PredstaveComponent } from './predstave/predstave.component';
+=======
+import { ZahteviComponent } from './user/zahtevi/zahtevi.component';
+>>>>>>> 1c195427efd676dd0f5e6257813da496473736f4
 
 
 @NgModule({
@@ -131,8 +135,12 @@ import { PredstaveComponent } from './predstave/predstave.component';
     Rezervacija2Component,
     Rezervacija3Component,
     Rezervacija4Component,
+<<<<<<< HEAD
     FilmoviComponent,
     PredstaveComponent,
+=======
+    ZahteviComponent,
+>>>>>>> 1c195427efd676dd0f5e6257813da496473736f4
   ],
   imports: [
     AgmCoreModule.forRoot({
