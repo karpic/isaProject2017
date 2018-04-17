@@ -1,3 +1,49 @@
-<p>
-  predstave-edit works!
-</p>
+<div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+  <form #novaPredstavaForm="ngForm" (ngSubmit)="novaPredstavaSubmit(novaPredstavaForm)">
+    <div class="form-group">
+      <label for="naziv">Naziv predstave</label>
+      <input type="text" id="naziv" name="naziv" class="form-control" required ngModel #predstavaNaziv="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="glumci">Glumci predstave</label>
+      <input type="text" id="glumci" name="glumci" class="form-control" required ngModel #PredstavaGlumci="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="zanr">Zanr predstave</label>
+      <input type="text" id="zanr" name="zanr" class="form-control" required ngModel #PredstavaZanr="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="reditelj">Reditelj predstave</label>
+      <input type="text" id="reditelj" name="reditelj" class="form-control" required ngModel  #PredstavaReditelj="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="trajanje">Trajanje predstave</label>
+      <input type="text" id="trajanje" name="trajanje" class="form-control" required ngModel #PredstavaTrajanje="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="poster">Poster predstave</label>
+      <input type="text" id="poster" name="poster" class="form-control" required ngModel #PredstavaPoster="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="ocena">Ocena predstave</label>
+      <input type="text" id="ocena" name="ocena" class="form-control" required ngModel #PredstavaOcena="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="opis">Opis predstave</label>
+      <input type="text" id="opis" name="opis" class="form-control" required ngModel #PredstavaOpis="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="sala">Sala predstave</label>
+      <input type="text" id="sala" name="sala" class="form-control" required ngModel #PredstavaSala="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="termin">Termin predstave</label>
+      <input type="text" id="termin" name="termin" class="form-control" required ngModel #filmTermin="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="cena">Cena predstave</label>
+      <input type="num" id="cena" name="cena" class="form-control" required ngModel #filmCena="ngModel">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!novaPredstavaForm.valid">Dodaj</button>
+</form>
+</div>
