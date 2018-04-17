@@ -41,6 +41,12 @@ export class LoginUserService {
     return this.http.get<LoggedInUser[]>(this.url + '/parameters?ime=' + ime + '&' + 'prezime=' + prezime );
   }
 
+  addFriend(user: LoggedInUser, to: string): Observable<LoggedInUser> {
+    console.log(this.url + '/request?to=' + to);
+    return this.http.put<LoggedInUser>(this.url + '/request?to=' + to, user, httpOptions).pipe(
+      catchError(this.handleError<LoggedInUser>('addFriend')));
+  }
+
   constructor(private http: HttpClient) { }
 
   private handleError<T> (operation = 'operation', result?: T) {

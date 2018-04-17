@@ -194,5 +194,21 @@ public class KorisnikController {
 
     }
 
+    @RequestMapping(
+            method = RequestMethod.PUT,
+            value = "/user/request",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Korisnik> addFriend(@RequestParam Map<String,String> request, @RequestBody Korisnik korisnik) {
+        String to = request.get("to");
+        System.out.println("From: " + korisnik.getEmail() + " To: " + to );
+        Korisnik primalac = korisnikService.findByEmail(to);
+        primalac.getZahtevi().add(korisnik.getEmail());
+        korisnikService.save(primalac);
+        return new ResponseEntity<Korisnik>(HttpStatus.OK);
+    }
+
+
 
 }

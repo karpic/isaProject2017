@@ -18,6 +18,7 @@ const TOKEN_KEY = 'AuthToken';
 
 export class UserComponent implements OnInit {
   @Input() userShow: LoggedInUser;
+  @Input() completedParam;
 
   user: LoggedInUser;
   isAdmin: boolean;
@@ -45,6 +46,10 @@ export class UserComponent implements OnInit {
     this.loginUserService.getUserByname(this.ime, this.prezime).subscribe(
       data => this.pretrazeniKorisnici = data
     );
+  }
+
+  addFriend(email: string): void {
+    this.loginUserService.addFriend(this.user, email).subscribe();
   }
 
   ngOnInit() {

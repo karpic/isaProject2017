@@ -10,7 +10,9 @@
     <div *ngFor="let userShow of pretrazeniKorisnici">
     <li>
       {{userShow.email}}
-      <button>dodaj</button>
+      {{userShow.ime}}
+      {{userShow.prezime}}
+      <button (click)="addFriend(userShow.email)">dodaj</button>
     </li>
 
     </div>
