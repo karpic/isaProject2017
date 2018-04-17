@@ -249,6 +249,42 @@ public class KorisnikController {
         return new ResponseEntity<List<Korisnik>>(zahtevi,HttpStatus.OK);
     }
 
+    @RequestMapping(
+            method = RequestMethod.GET,
+            value = "/user/friends/{email}",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<List<Korisnik>> getFriends(@PathVariable("email") String email) {
+        Korisnik korisnik = korisnikService.findByEmail(email);
+        List<Korisnik> prijatelji = new ArrayList<Korisnik>();
+
+        for(String s : korisnik.getPrijatelji()) {
+            Korisnik k = korisnikService.findByEmail(s);
+            prijatelji.add(k);
+        }
+
+        return new ResponseEntity<List<Korisnik>>(prijatelji,HttpStatus.OK);
+    }
+
+    @RequestMapping(
+            method = RequestMethod.PUT,
+            value = "/user/friends/{email}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Korisnik> deleteFriend(@PathVariable("email") String email,@RequestBody Korisnik korisnik) {
+        Korisnik korisnik1 = korisnikService.findByEmail(korisnik.getEmail());
+        Korisnik korisnik2 = korisnikService.findByEmail(email);
+
+        korisnik1.getPrijatelji().remove(korisnik2.getEmail());
+        korisnik2.getPrijatelji().remove(korisnik1.getEmail());
+
+        korisnikService.save(korisnik1);
+        korisnikService.save(korisnik2);
+
+        return new ResponseEntity<Korisnik>(HttpStatus.OK);
+    }
+
 
 
 }

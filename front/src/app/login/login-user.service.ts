@@ -61,6 +61,15 @@ export class LoginUserService {
     return this.http.get<LoggedInUser[]>(this.url + '/requests/' + user.email + '/' , httpOptions );
   }
 
+  getFriends(user: LoggedInUser): Observable<LoggedInUser[]> {
+    return this.http.get<LoggedInUser[]>(this.url + '/friends/' + user.email + '/' , httpOptions );
+  }
+
+  deleteFriend(user: LoggedInUser, email: string): Observable<LoggedInUser> {
+    return this.http.put<LoggedInUser>(this.url + '/friends/' + email + '/', user, httpOptions).pipe(
+      catchError(this.handleError<LoggedInUser>('deleteFriend')));
+  }
+
   constructor(private http: HttpClient) { }
 
   private handleError<T> (operation = 'operation', result?: T) {

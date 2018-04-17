@@ -1,7 +1,9 @@
-<ul *ngFor="let zahtev of user.zahtevi">
+<ul *ngFor="let prijatelj of requests">
   <li>
-    {{zahtev}}
-    <button (click)="accept(zahtev)">Prihvati</button>
-    <button (click)="decline(zahtev)">Odbij</button>
+    {{prijatelj.ime}}
+    {{prijatelj.prezime}}
+    {{prijatelj.email}}
+    <button (click)="accept(prijatelj.email)">Prihvati</button>
+    <button (click)="decline(prijatelj.email)">Odbij</button>
   </li>
 </ul>
