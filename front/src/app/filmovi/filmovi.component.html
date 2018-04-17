@@ -1,3 +1,14 @@
-<p>
-  filmovi works!
-</p>
+<a class="list-group-item clearfix" *ngFor="let filmoviShow of filmovi">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading" > Naziv filma: {{filmoviShow.naziv}}</h4>
+    <p class="list-group-item-text">Glumci: {{filmoviShow.glumci}}</p>
+    <p class="list-group-item-text">Zanr: {{filmoviShow.zanr}}</p>
+    <p class="list-group-item-text">Reditelj: {{filmoviShow.reditelj}}</p>
+    <p class="list-group-item-text">Trajanje: {{filmoviShow.trajanje}}</p>
+    <p class="list-group-item-text">Poster: {{filmoviShow.poster}}</p>
+    <p class="list-group-item-text">Ocena: {{filmoviShow.ocena}}</p>
+    <p class="list-group-item-text">Opis: {{filmoviShow.opis}}</p>
+    <p class="list-group-item-text">Sala: {{filmoviShow.sala}}</p>
+    <p class="list-group-item-text">termin: {{filmoviShow.termin}}</p>
+  </div>
+</a>

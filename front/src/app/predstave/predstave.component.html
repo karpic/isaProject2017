@@ -1,3 +1,16 @@
-<p>
-  predstave works!
-</p>
+<a class="list-group-item clearfix" *ngFor="let predstaveShow of predstave">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading" > Naziv predstave: {{predstaveShow.naziv}}</h4>
+    <p class="list-group-item-text">Glumci: {{predstaveShow.glumci}}</p>
+    <p class="list-group-item-text">Zanr: {{predstaveShow.zanr}}</p>
+    <p class="list-group-item-text">Reditelj: {{predstaveShow.reditelj}}</p>
+    <p class="list-group-item-text">Trajanje: {{predstaveShow.trajanje}}</p>
+    <p class="list-group-item-text">Poster: {{predstaveShow.poster}}</p>
+    <p class="list-group-item-text">Ocena: {{predstaveShow.ocena}}</p>
+    <p class="list-group-item-text">Opis: {{predstaveShow.opis}}</p>
+    <p class="list-group-item-text">Sala: {{predstaveShow.sala}}</p>
+    <p class="list-group-item-text">termin: {{predstaveShow.termin}}</p>
+  </div>
+  <span class="pull-right"> 
+  </span>
+</a>

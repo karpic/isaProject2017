@@ -76,12 +76,13 @@ import { RezervacijaComponent } from './rezervacija/rezervacija.component';
 import { Rezervacija2Component } from './rezervacija/rezervacija2/rezervacija2.component';
 import { Rezervacija3Component } from './rezervacija/rezervacija3/rezervacija3.component';
 import { Rezervacija4Component } from './rezervacija/rezervacija4/rezervacija4.component';
-<<<<<<< HEAD
 import { FilmoviComponent } from './filmovi/filmovi.component';
 import { PredstaveComponent } from './predstave/predstave.component';
-=======
 import { ZahteviComponent } from './user/zahtevi/zahtevi.component';
->>>>>>> 1c195427efd676dd0f5e6257813da496473736f4
+import { FilmoviService } from './filmovi.service';
+import { PredstaveService } from './predstave.service';
+import { FilmoviEditComponent } from './filmovi/filmovi-edit/filmovi-edit.component';
+import { PredstaveEditComponent } from './predstave/predstave-edit/predstave-edit.component';
 
 
 @NgModule({
@@ -135,12 +136,11 @@ import { ZahteviComponent } from './user/zahtevi/zahtevi.component';
     Rezervacija2Component,
     Rezervacija3Component,
     Rezervacija4Component,
-<<<<<<< HEAD
     FilmoviComponent,
     PredstaveComponent,
-=======
     ZahteviComponent,
->>>>>>> 1c195427efd676dd0f5e6257813da496473736f4
+    FilmoviEditComponent,
+    PredstaveEditComponent,
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -170,6 +170,8 @@ import { ZahteviComponent } from './user/zahtevi/zahtevi.component';
     LoginUserService,
     CheckLoginService,
     KartaService,
+    FilmoviService,
+    PredstaveService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: Interceptor,
