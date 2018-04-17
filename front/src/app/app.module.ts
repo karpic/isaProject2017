@@ -76,8 +76,17 @@ import { RezervacijaComponent } from './rezervacija/rezervacija.component';
 import { Rezervacija2Component } from './rezervacija/rezervacija2/rezervacija2.component';
 import { Rezervacija3Component } from './rezervacija/rezervacija3/rezervacija3.component';
 import { Rezervacija4Component } from './rezervacija/rezervacija4/rezervacija4.component';
+import { FilmoviComponent } from './filmovi/filmovi.component';
+import { PredstaveComponent } from './predstave/predstave.component';
 import { ZahteviComponent } from './user/zahtevi/zahtevi.component';
+<<<<<<< HEAD
 import { PrijateljiComponent } from './user/prijatelji/prijatelji.component';
+=======
+import { FilmoviService } from './filmovi.service';
+import { PredstaveService } from './predstave.service';
+import { FilmoviEditComponent } from './filmovi/filmovi-edit/filmovi-edit.component';
+import { PredstaveEditComponent } from './predstave/predstave-edit/predstave-edit.component';
+>>>>>>> 4336d5de10ab519cf233288d8175455643bdf4a3
 
 
 @NgModule({
@@ -131,8 +140,15 @@ import { PrijateljiComponent } from './user/prijatelji/prijatelji.component';
     Rezervacija2Component,
     Rezervacija3Component,
     Rezervacija4Component,
+    FilmoviComponent,
+    PredstaveComponent,
     ZahteviComponent,
+<<<<<<< HEAD
     PrijateljiComponent,
+=======
+    FilmoviEditComponent,
+    PredstaveEditComponent,
+>>>>>>> 4336d5de10ab519cf233288d8175455643bdf4a3
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -162,6 +178,8 @@ import { PrijateljiComponent } from './user/prijatelji/prijatelji.component';
     LoginUserService,
     CheckLoginService,
     KartaService,
+    FilmoviService,
+    PredstaveService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: Interceptor,

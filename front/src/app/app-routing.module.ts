@@ -45,6 +45,11 @@ import { PozoristaEditComponent } from './pozorista/pozorista-edit/pozorista-edi
 import { BioskopiListComponent } from './bioskopi/bioskopi-list/bioskopi-list.component';
 import { PozoristaListComponent } from './pozorista/pozorista-list/pozorista-list.component';
 import { KarteComponent } from './karte/karte.component';
+import { FilmoviComponent } from './filmovi/filmovi.component';
+import { PredstaveComponent } from './predstave/predstave.component';
+import { FilmoviEditComponent } from './filmovi/filmovi-edit/filmovi-edit.component';
+import { PredstaveEditComponent } from './predstave/predstave-edit/predstave-edit.component';
+
 
 
 const routes: Routes = [
@@ -89,7 +94,13 @@ const routes: Routes = [
   {path: 'rezervacija3', component: Rezervacija3Component},
   {path: 'rezervacija4', component: Rezervacija4Component},
   {path: 'user/zahtevi', component: ZahteviComponent},
+<<<<<<< HEAD
   {path: 'prijatelji', component: PrijateljiComponent}
+=======
+  {path: 'filmovi', component: FilmoviComponent},
+  {path: 'predstave', component: PredstaveComponent},
+  {path: 'filmovi-edit', component: FilmoviEditComponent},
+>>>>>>> 4336d5de10ab519cf233288d8175455643bdf4a3
 
 ];
 
