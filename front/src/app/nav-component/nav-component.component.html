@@ -29,7 +29,7 @@
   </ul>
 </div>
 <div *ngIf="isLoggedIn" class="logoutLblPos">
-  <button class="buttonstyle">Zahtevi</button>
+  <button class="buttonstyle" routerLink='/user/zahtevi'>Zahtevi</button>
   <button class="buttonstyle" (click)="logout()">Izloguj se</button>
   <button class="buttonstyle" routerLink='/user'>Korisnicki nalog</button>
 </div>
