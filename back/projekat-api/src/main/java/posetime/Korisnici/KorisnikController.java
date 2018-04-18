@@ -1,15 +1,20 @@
 package posetime.Korisnici;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.MediaType;
+import org.springframework.web.servlet.view.RedirectView;
 import posetime.Korisnici.Role.RoleNames;
 import posetime.Korisnici.registration.EmailService;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.xml.ws.Response;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -129,11 +134,13 @@ public class KorisnikController {
             method = RequestMethod.GET,
             value = "/confirm"
     )
-    public ResponseEntity<Korisnik> confirm(@RequestParam("token") String confirmationToken) {
+    public RedirectView confirm(@RequestParam("token") String confirmationToken){
         Korisnik k = korisnikService.findByConfirmationToken(confirmationToken);
         k.setEnabled(true);
         korisnikService.save(k);
-        return  new ResponseEntity<Korisnik>(k,HttpStatus.OK);
+        RedirectView redirectView = new RedirectView();
+        redirectView.setUrl("http://localhost:4200/login");
+        return redirectView;
     }
 
     @RequestMapping(
