@@ -4,6 +4,7 @@ import { Predstave } from '../../models/predstave';
 import { PredstaveService } from '../../predstave.service';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
 import { Location } from '@angular/common';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-predstave-edit',
@@ -21,7 +22,8 @@ export class PredstaveEditComponent implements OnInit {
 
 
   constructor(private predstaveService: PredstaveService,
-              private location: Location) { }
+              private location: Location,
+              private route: ActivatedRoute) { }
 
               
             
@@ -47,8 +49,23 @@ export class PredstaveEditComponent implements OnInit {
                 this.predstaveService.getPredstava(this.predstavaId).subscribe(
                   (predstava) => this.predstavaEdt = predstava
                 );
-              } 
+              }
+              
+              predstavaEdit() {
+                this.predstaveService.updatePredstava(this.predstavaEdt).subscribe();
+                this.location.back();
+              }
+
+
   ngOnInit() {
+    if(this.route.snapshot.params['predstavaId']){
+      this.route.params.subscribe(
+        (params: Params) => {
+          this.predstavaId = params["predstavaId"];
+        }
+      );
+      this.getPredstava();
+    }  
   }
 
 }

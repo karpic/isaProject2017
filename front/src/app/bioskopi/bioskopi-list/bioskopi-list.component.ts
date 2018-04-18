@@ -1,6 +1,7 @@
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { Bioskopi } from '../../models/bioskopi';
 import { BioskopiService } from '../../bioskopi.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 
 
@@ -19,6 +20,7 @@ bioskopId: string;
 bioskopEdit : Bioskopi;
 
   constructor(private bioskopiService: BioskopiService,
+              private route: ActivatedRoute
            ) { }
 
   

@@ -28,6 +28,12 @@ predstavaEdt: Predstave;
       );
     }
 
+    
+    deletePredstava(predstava: Predstave) {
+      this.predstaveService.deletePredstava(predstava).subscribe();
+      this.predstave = this.predstave.filter(f => f !== predstava);
+    }
+
 
   ngOnInit() {
     this.getPredstave();

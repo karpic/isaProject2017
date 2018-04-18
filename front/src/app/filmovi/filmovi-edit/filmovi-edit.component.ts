@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { Filmovi } from '../../models/filmovi';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
 import { NoviFilm } from '../../models/novi-film';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-filmovi-edit',
@@ -20,7 +21,8 @@ export class FilmoviEditComponent implements OnInit {
 
 
   constructor(private filmoviService: FilmoviService,
-              private location: Location) { }
+              private location: Location,
+              private route: ActivatedRoute) { }
 
               
             
@@ -47,8 +49,24 @@ export class FilmoviEditComponent implements OnInit {
                   (film) => this.filmEdt = film
                 );
               } 
+
+              filmEdit() {
+                this.filmoviService.updateFilm(this.filmEdt).subscribe();
+                this.location.back();
+              }
+
+             
+
             
   ngOnInit() {
+    if(this.route.snapshot.params['filmId']){
+      this.route.params.subscribe(
+        (params: Params) => {
+          this.filmId = params["filmId"];
+        }
+      );
+      this.getFilm();
+    }  
 
   }
 

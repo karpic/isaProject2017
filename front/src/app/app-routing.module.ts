@@ -84,6 +84,7 @@ const routes: Routes = [
   {path: 'user/edit-user', component: EditUserComponent},
   {path: 'gmlokacija', component: GmLokacijaComponent},
   {path: 'bioskopi/:bioskopId', component : BioskopiEditComponent},
+  {path: 'filmovi/:filmId', component :FilmoviEditComponent},
   {path: 'pozorista/:pozoristeId', component : PozoristaEditComponent},
   {path: 'bioskopi-list', component : BioskopiListComponent},
   {path: 'pozorista-list', component : PozoristaListComponent},
@@ -98,7 +99,8 @@ const routes: Routes = [
   {path: 'predstave', component: PredstaveComponent},
   {path: 'filmovi-edit', component: FilmoviEditComponent},
   {path: 'predstave-edit', component: PredstaveEditComponent},
-  {path: 'prijatelji', component: PrijateljiComponent}
+  {path: 'prijatelji', component: PrijateljiComponent},
+  {path: 'predstave/:predstavaId', component: PredstaveEditComponent},
 
 ];
 

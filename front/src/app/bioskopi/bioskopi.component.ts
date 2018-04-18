@@ -66,7 +66,7 @@ export class BioskopiComponent implements OnInit {
     this.bioskopEdit.naziv = forma.value.adresa;
     this.bioskopEdit.naziv = forma.value.opis;
     this.bioskopEdit.repertoar = [];
-    this.bioskopEdit.brmesta =[];
+    this.bioskopEdit.brmesta = forma.value.brmesta;
     this.bioskopiService.updateBioskop(this.bioskopEdit).subscribe();
     forma.reset();
     this.location.back();

@@ -11,5 +11,7 @@
     <p class="list-group-item-text">Sala: {{filmoviShow.sala}}</p>
     <p class="list-group-item-text">termin: {{filmoviShow.termin}}</p>
   </div>
+  <button class="btn btn-primary" [routerLink]="['/filmovi/' + filmoviShow.id]">Uredi film</button> 
+  <button class="btn btn-danger" (click)="deleteFilm(filmoviShow)">Obrisi</button>
 </a>
 <button class="btn btn-primary" routerLink="/filmovi-edit">Dodaj film</button> 

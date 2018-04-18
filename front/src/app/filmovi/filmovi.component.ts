@@ -27,7 +27,11 @@ filmEdt: Filmovi;
         (film) => this.filmEdt = film
       );
     }
-
+    
+    deleteFilm(film: Filmovi) {
+      this.filmoviService.deleteFilm(film).subscribe();
+      this.filmovi = this.filmovi.filter(f => f !== film);
+    }
 
   ngOnInit() {
     this.getFilmovi();

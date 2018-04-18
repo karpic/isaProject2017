@@ -11,5 +11,7 @@
     <p class="list-group-item-text">Sala: {{predstaveShow.sala}}</p>
     <p class="list-group-item-text">termin: {{predstaveShow.termin}}</p>
   </div>
+  <button class="btn btn-primary" [routerLink]="['/predstave/' + predstaveShow.id]">Uredi predstavu</button> 
+  <button class="btn btn-danger" (click)="deletePredstava(predstaveShow)">Obrisi</button>
 </a>
 <button class="btn btn-primary" routerLink="/predstave-edit">Dodaj predstavu</button> 

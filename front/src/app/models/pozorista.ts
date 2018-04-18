@@ -7,7 +7,7 @@ export class Pozorista {
         public adresa: string,
         public opis: string,
         public repertoar: Array<Predstave>,
-        public brmesta: Array<String>,
+        public brmesta: string,
         public admin: String
     ){}
 }

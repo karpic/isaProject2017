@@ -7,7 +7,7 @@ export class Bioskopi {
         public adresa: string,
         public opis: string,
         public repertoar: Array<Filmovi>,
-        public brmesta: Array<String>,
+        public brmesta: string,
         public admin: String
     ) {}
 }

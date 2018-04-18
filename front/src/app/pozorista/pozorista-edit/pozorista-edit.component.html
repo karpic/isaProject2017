@@ -23,8 +23,13 @@
       <div class="form-group">
           <label for="repertoar">Repertoar pozorista</label>
           <input type="text" id="repertoar" name="repertoar" class="form-control" [(ngModel)]="pozoristeEdit.repertoar">
-          
         </div>
+
+        <div class="form-group">
+          <label for="brmesta">Broj mesta</label>
+          <input type="text" id="brmesta" name="brmesta" class="form-control"  [(ngModel)]="pozoristeEdit.brmesta">
+        </div>
+
 
       <button type="submit" class="btn btn-primary" [disabled]="!editPozoristeForma.valid">Dodaj</button>
     </form>

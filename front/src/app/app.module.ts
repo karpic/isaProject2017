@@ -84,6 +84,8 @@ import { FilmoviService } from './filmovi.service';
 import { PredstaveService } from './predstave.service';
 import { FilmoviEditComponent } from './filmovi/filmovi-edit/filmovi-edit.component';
 import { PredstaveEditComponent } from './predstave/predstave-edit/predstave-edit.component';
+import { SalaComponent } from './sala/sala.component';
+import { SalaService } from './sala.service';
 
 
 @NgModule({
@@ -142,7 +144,8 @@ import { PredstaveEditComponent } from './predstave/predstave-edit/predstave-edi
     ZahteviComponent,
     FilmoviEditComponent,
     PredstaveEditComponent,
-    PrijateljiComponent
+    PrijateljiComponent,
+    SalaComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -174,6 +177,7 @@ import { PredstaveEditComponent } from './predstave/predstave-edit/predstave-edi
     KartaService,
     FilmoviService,
     PredstaveService,
+    SalaService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: Interceptor,

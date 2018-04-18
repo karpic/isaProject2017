@@ -1,3 +1,4 @@
+
 <a class="list-group-item clearfix" *ngFor="let bioskopiShow of bioskopi">
     <div class="pull-left">
       <h4 class="list-group-item-heading" > Naziv bioskopa: {{bioskopiShow.naziv}}</h4>
@@ -11,6 +12,7 @@
     <span class="pull-right"> 
         <button class="btn btn-primary" [routerLink]="['/bioskopi/' + bioskopiShow.id]">Izmeni</button>
         <button class="btn btn-primary" routerLink="/filmovi">Pregled filmova</button>
+        <button class="btn btn-primary" routerLink="/karte">Karte</button>
       </span>
       </a>
 

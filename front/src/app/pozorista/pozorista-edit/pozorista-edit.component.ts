@@ -69,7 +69,7 @@ selectedPozoriste(pozoriste: Pozorista) {
     this.updtPozoriste.naziv = forma.value.adresa;
     this.updtPozoriste.naziv = forma.value.opis;
     this.updtPozoriste.repertoar = [];
-    this.updtPozoriste.brmesta =[];
+    this.updtPozoriste.brmesta =forma.value.brmesta;
     this.pozoristaService.updatePozoriste(this.updtPozoriste).subscribe();
     forma.reset();
     this.location.back();

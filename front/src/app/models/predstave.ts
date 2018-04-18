@@ -1,3 +1,5 @@
+import {Sala} from "./sala"
+
 export class Predstave{
     constructor(
         public id:string,
@@ -9,7 +11,7 @@ export class Predstave{
         public poster:string,
         public ocena:string,
         public opis:string,
-        public sala:string,
+        public sala:Array<Sala>,
         public termin:string,
         public cena:number,
     ){}
