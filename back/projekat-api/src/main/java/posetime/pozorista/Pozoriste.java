@@ -15,7 +15,7 @@ public class Pozoriste {
     private String adresa;
     private String opis;
     private Predstave repertoar;
-    private List<String> brmesta;
+    private String brmesta;
     private String admin;
 
     public String getAdmin() {
@@ -29,7 +29,7 @@ public class Pozoriste {
     public Pozoriste() {
 
     }
-    public Pozoriste(String id, String naziv, String adresa, String opis, Predstave repertoar, List<String> brmesta){
+    public Pozoriste(String id, String naziv, String adresa, String opis, Predstave repertoar, String brmesta){
 
         this.id=id;
         this.naziv=naziv;
@@ -79,11 +79,11 @@ public class Pozoriste {
         this.repertoar = repertoar;
     }
 
-    public List<String> getBrmesta() {
+    public String getBrmesta() {
         return brmesta;
     }
 
-    public void setBrmesta(List<String> brmesta) {
+    public void setBrmesta(String brmesta) {
         this.brmesta = brmesta;
     }
 

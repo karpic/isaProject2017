@@ -17,7 +17,7 @@ public class Bioskop {
     private String adresa;
     private String opis;
     private Filmovi repertoar;
-    private List<String> brmesta;
+    private String brmesta;
     private String admin;
 
     public String getAdmin() {
@@ -31,7 +31,7 @@ public class Bioskop {
     public Bioskop() {
 
     }
-    public Bioskop(String id, String naziv, String adresa, String opis, Filmovi repertoar, List<String> brmesta){
+    public Bioskop(String id, String naziv, String adresa, String opis, Filmovi repertoar, String brmesta){
 
         this.id=id;
         this.naziv=naziv;
@@ -81,11 +81,11 @@ public class Bioskop {
         this.repertoar = repertoar;
     }
 
-    public List<String> getBrmesta() {
+    public String getBrmesta() {
         return brmesta;
     }
 
-    public void setBrmesta(List<String> brmesta) {
+    public void setBrmesta(String brmesta) {
         this.brmesta = brmesta;
     }
 

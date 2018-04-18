@@ -2,6 +2,7 @@ package posetime.prestave;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import posetime.Sala.Sala;
 
 @Document(collection = "Predstave")
 public class Predstave {
@@ -16,7 +17,7 @@ public class Predstave {
     private String poster;
     private String ocena;
     private String opis;
-    private String sala;
+    private Sala sala;
     private String termin;
     private int cena;
 
@@ -92,11 +93,11 @@ public class Predstave {
         this.opis = opis;
     }
 
-    public String getSala() {
+    public Sala getSala() {
         return sala;
     }
 
-    public void setSala(String sala) {
+    public void setSala(Sala sala) {
         this.sala = sala;
     }
 
@@ -116,7 +117,7 @@ public class Predstave {
         this.cena = cena;
     }
 
-    public Predstave(String id, String naziv, String glumci, String zanr, String reditelj, String trajanje, String poster, String ocena, String opis, String sala, String termin, int cena) {
+    public Predstave(String id, String naziv, String glumci, String zanr, String reditelj, String trajanje, String poster, String ocena, String opis, Sala sala, String termin, int cena) {
         this.id = id;
         this.naziv = naziv;
         this.glumci = glumci;
