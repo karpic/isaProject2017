@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FilmoviService } from '../filmovi.service';
 import { Filmovi } from '../models/filmovi';
-
+import { ActivatedRoute, Router ,Params} from '@angular/router';
+import { Bioskopi } from '../models/bioskopi';
+import { BioskopiService } from '../bioskopi.service';
 @Component({
   selector: 'app-filmovi',
   templateUrl: './filmovi.component.html',
@@ -13,8 +15,12 @@ export class FilmoviComponent implements OnInit {
 filmovi: Filmovi[];
 filmId: string;
 filmEdt: Filmovi;
+bioskopId: string;
 
-  constructor(private filmoviService: FilmoviService) { }
+
+  constructor(private filmoviService: FilmoviService,
+         private route: ActivatedRoute,
+          private bioskopiService: BioskopiService) { }
 
 
   getFilmovi(): void {
@@ -34,8 +40,16 @@ filmEdt: Filmovi;
     }
 
   ngOnInit() {
-    this.getFilmovi();
-    console.log(this.filmovi);
+    if(this.route.snapshot.params['bioskopId']){
+      this.route.params.subscribe(
+        (params: Params) => {
+          this.bioskopId = params["bioskopId"];
+        }
+      
+      );
+      this.getFilmovi();
+    
   }
+}
 
 }

@@ -4,14 +4,13 @@
       <h4 class="list-group-item-heading" > Naziv bioskopa: {{bioskopiShow.naziv}}</h4>
       <p class="list-group-item-text">Adresa: {{bioskopiShow.adresa}}</p>
       <p class="list-group-item-text">Opis: {{bioskopiShow.opis}}</p>
-      <p class="list-group-item-text">Repertoar: {{bioskopiShow.repertoar}}</p>
       <p class="list-group-item-text">Spisak karata:</p>
       <p class="list-group-item-text">Broj mesta: {{bioskopiShow.brmesta}}</p>
     </div>
 
     <span class="pull-right"> 
         <button class="btn btn-primary" [routerLink]="['/bioskopi/' + bioskopiShow.id]">Izmeni</button>
-        <button class="btn btn-primary" routerLink="/filmovi">Pregled filmova</button>
+        <button class="btn btn-primary" [routerLink]="['/filmovi/bioskopi/' + bioskopiShow.id]">Pregled filmova</button>
         <button class="btn btn-primary" routerLink="/karte">Karte</button>
       </span>
       </a>

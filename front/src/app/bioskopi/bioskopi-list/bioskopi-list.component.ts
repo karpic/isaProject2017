@@ -7,6 +7,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 
 
+
 @Component({
   selector: 'app-bioskopi-list',
   templateUrl: './bioskopi-list.component.html',
@@ -18,6 +19,7 @@ export class BioskopiListComponent implements OnInit {
 bioskopi: Bioskopi[];
 bioskopId: string;
 bioskopEdit : Bioskopi;
+
 
   constructor(private bioskopiService: BioskopiService,
               private route: ActivatedRoute
@@ -38,6 +40,7 @@ getBioskop() {
 
   ngOnInit() {
    this.getBioskopi();
+
   }
   selectedBioskop(bioskop: Bioskopi) {
     this.bioskopSelect.emit(bioskop);

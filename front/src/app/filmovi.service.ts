@@ -15,6 +15,8 @@ const httpOptions = {
 export class FilmoviService {
 
   private url = 'http://localhost:8080/filmovi';
+  private urlBioskopi = 'http://localhost:8080/bioskopi/filmovi/{id}';
+
 
   getFilmovi(): Observable<Filmovi[]>{
     return this.http.get<Filmovi[]>(this.url);
@@ -25,7 +27,7 @@ export class FilmoviService {
   }
 
   insertFilm(film: NoviFilm): Observable<NoviFilm>{
-    return this.http.post<NoviFilm>(this.url, film, httpOptions).pipe(
+    return this.http.post<NoviFilm>(this.urlBioskopi, film, httpOptions).pipe(
       catchError(this.handleError<NoviFilm>('insertFilm'))
     );
   }
