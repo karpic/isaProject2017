@@ -1,6 +1,7 @@
-<ul *ngFor="let prijatelj of user.prijatelji">
+<ul *ngFor="let prijatelj of friends">
   <li>
-    {{prijatelj}}
-    <button>Ukloni</button>
+    {{prijatelj.ime}}
+    {{prijatelj.prezime}}
+    <button (click)="delete(prijatelj.email)">Ukloni</button>
   </li>
 </ul>

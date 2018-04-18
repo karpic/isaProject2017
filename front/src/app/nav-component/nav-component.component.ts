@@ -1,3 +1,4 @@
+import { LoggedInUser } from './../models/logged-in-user';
 import { LoginUserService } from './../login/login-user.service';
 import { CheckLoginService } from './check-login.service';
 import { Router } from '@angular/router';
@@ -13,16 +14,31 @@ const TOKEN_KEY = 'AuthToken';
 export class NavComponentComponent implements OnInit {
 
   isLoggedIn: boolean;
-  constructor(private router: Router, private checkloginService: CheckLoginService) { }
+  user: LoggedInUser;
+  numberOfRequests = '';
+  constructor(private router: Router, private checkloginService: CheckLoginService,
+              private loginUserService: LoginUserService) { }
 
   ngOnInit() {
     if (sessionStorage.getItem(TOKEN_KEY) != null) {
+      this.getUser();
       this.isLoggedIn = true;
     }
     this.checkloginService.change.subscribe(isLoggedIn => {
       this.isLoggedIn = isLoggedIn;
     });
     console.log(this.isLoggedIn);
+  }
+
+  getUser() {
+    this.loginUserService.getUser().subscribe(
+      data => {
+        this.user = data;
+        if (this.user.zahtevi.length !== 0) {
+          this.numberOfRequests = '(' + this.user.zahtevi.length.toString() + ')';
+        }
+      }
+    );
   }
 
   logout(): void {

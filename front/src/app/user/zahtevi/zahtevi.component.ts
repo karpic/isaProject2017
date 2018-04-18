@@ -17,15 +17,11 @@ export class ZahteviComponent implements OnInit {
     this.loginUserService.getUser().subscribe(
       data => {
         this.user = data;
-
-      }
-    );
-  }
-
-  getRequests(): void {
-    this.loginUserService.getRequests(this.user).subscribe(
-      data => {
-        this.requests = data;
+        this.loginUserService.getRequests(this.user).subscribe(
+          zahtevi => {
+            this.requests = zahtevi;
+          }
+        );
       }
     );
   }
@@ -42,7 +38,6 @@ export class ZahteviComponent implements OnInit {
 
   ngOnInit() {
     this.getUser();
-    this.getRequests();
   }
 
 

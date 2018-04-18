@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class PrijateljiComponent implements OnInit {
 
   user: LoggedInUser;
+  friends: LoggedInUser[];
 
   constructor(private loginUserService: LoginUserService) { }
 
@@ -17,8 +18,18 @@ export class PrijateljiComponent implements OnInit {
     this.loginUserService.getUser().subscribe(
       data => {
         this.user = data;
+        this.loginUserService.getFriends(this.user).subscribe(
+          prijatelji => {
+            this.friends = prijatelji;
+          }
+        );
       }
     );
+  }
+
+  delete(email: string): void {
+    this.loginUserService.deleteFriend(this.user, email).subscribe();
+    window.location.reload();
   }
 
   ngOnInit() {

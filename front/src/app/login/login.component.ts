@@ -26,6 +26,7 @@ export class LoginComponent {
         this.token.saveToken(data.token);
         this.router.navigate(['user']);
         this.checkLoginService.toggle();
+        window.location.reload();
       }
     );
   }
