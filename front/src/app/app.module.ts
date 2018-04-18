@@ -150,13 +150,13 @@ import { SysadminEditComponent } from './admin-sistem/sysadmin-edit/sysadmin-edi
     SysadminEditComponent
   ],
   imports: [
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyB79Hum1sxQbxwgiccMIGm7zzYVZnCVoDI'
-    }),
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB79Hum1sxQbxwgiccMIGm7zzYVZnCVoDI'
+    }),
   ],
   providers: [
     SkalaService,

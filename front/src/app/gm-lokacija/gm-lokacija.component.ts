@@ -17,11 +17,6 @@ declare var google: any;
   styleUrls: ['./gm-lokacija.component.css']
 })
 export class GmLokacijaComponent implements OnInit {
-  bioskopFlag: boolean;
-  pozoristeFlag: boolean;
-  pozoriste: Pozorista;
-  bioskop: Bioskopi
-  targetId: string;
   adresa: string = "Novi Sad Bulevar Oslobodjenja";
   latLondata: any;
   lat = 51.673858;
