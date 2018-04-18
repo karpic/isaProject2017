@@ -131,6 +131,29 @@ public class KorisnikController {
     }
 
     @RequestMapping(
+            value = "/register/sysadmin",
+            method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Korisnik> insertSysAdmin(@RequestBody Korisnik korisnik){
+        List<String> roles = new ArrayList<String>();
+        roles.add("ROLE_ADMIN");
+        korisnik.setRoles(roles);
+        korisnik.setEnabled(true);
+        korisnik.setPasswordChanged(false);
+        korisnik.setBodovi(0);
+        korisnik.setPrijatelji(new ArrayList<String>());
+        korisnik.setZahtevi(new ArrayList<String>());
+        korisnik.setPonude(new ArrayList<String>());
+        korisnik.setObavestenja(new ArrayList<String>());
+        korisnik.setConfirmationToken(UUID.randomUUID().toString());
+
+        Korisnik insertedKorisnik = korisnikService.insert(korisnik);
+        return new ResponseEntity<Korisnik>(insertedKorisnik, HttpStatus.OK);
+    }
+
+    @RequestMapping(
             method = RequestMethod.GET,
             value = "/confirm"
     )
