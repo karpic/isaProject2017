@@ -1,0 +1,42 @@
+<div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+  <h1>Dodavane novog sistemskog administratora</h1>
+  <form #noviAdmin="ngForm" (ngSubmit)="onNoviAdminSubmit(noviAdmin)">
+    <div class="form-group">
+      <label for="ime">Ime</label>
+      <input type="text" id="ime" name="ime" class="form-control" required ngModel #imeRef="ngModel">
+      <span class="help-block" *ngIf="!imeRef.valid && imeRef.touched">Ime je obavezno!</span>
+    </div>
+
+    <div class="form-group">
+      <label for="prezime">Prezime</label>
+      <input type="text" id="prezime" name="prezime" class="form-control" required ngModel #prezimeRef="ngModel">
+      <span class="help-block" *ngIf="!prezimeRef.valid && prezimeRef.touched">Prezime je obavezno!</span>
+    </div>
+
+    <div class="form-group">
+      <label for="grad">Grad</label>
+      <input type="text" id="grad" name="grad" class="form-control" required ngModel #gradRef="ngModel">
+      <span class="help-block" *ngIf="!gradRef.valid && gradRef.touched">Grad je obavezan!</span>
+    </div>
+
+    <div class="form-group">
+      <label for="brtel">Broj telefona</label>
+      <input type="text" id="brtel" name="brtel" class="form-control" required ngModel #brtelRef="ngModel">
+      <span class="help-block" *ngIf="!brtelRef.valid && brtelRef.touched">Broj telefona je obavezan!</span>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" class="form-control" required ngModel #emailRef="ngModel" email>
+      <span class="help-block" *ngIf="!emailRef.valid && emailRef.touched">Email je obavezan!</span>
+    </div>
+
+    <div class="form-group">
+      <label for="pass">Sifra</label>
+      <input type="password" id="pass" name="pass" class="form-control" required ngModel #passRef="ngModel">
+      <span class="help-block" *ngIf="!passRef.valid && passRef.touched">Sifra je obavezna!</span>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!noviAdmin.valid">Dodaj</button>
+  </form>
+</div>

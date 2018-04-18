@@ -49,6 +49,7 @@ import { FilmoviComponent } from './filmovi/filmovi.component';
 import { PredstaveComponent } from './predstave/predstave.component';
 import { FilmoviEditComponent } from './filmovi/filmovi-edit/filmovi-edit.component';
 import { PredstaveEditComponent } from './predstave/predstave-edit/predstave-edit.component';
+import { SysadminEditComponent } from './admin-sistem/sysadmin-edit/sysadmin-edit.component';
 
 
 
@@ -74,6 +75,7 @@ const routes: Routes = [
     {path: 'novopozoriste', component: PozoristeEditComponent},
     {path: 'novifanadmin', component: FanzonaAdminEditComponent},
     {path: 'novibpadmin', component: BpAdminEditComponent},
+    {path: 'novisysadmin', component: SysadminEditComponent},
     {path: 'skala', component: SkalaComponent}
   ]},
   {path: 'bioskopi', component: BioskopiComponent},

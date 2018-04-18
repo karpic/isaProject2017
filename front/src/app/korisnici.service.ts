@@ -15,6 +15,7 @@ export class KorisniciService {
   private url = 'http://localhost:8080/register';
   private urlBpAdmin = 'http://localhost:8080/register/bpadmin';
   private urlFanadmin = 'http://localhost:8080/register/fanadmin';
+  private urlSysAdmin = 'http://localhost:8080/register/sysadmin';
 
   insertKorisnik(korisnik: Korisnik): Observable<Korisnik> {
     return this.http.post<Korisnik>(this.url, korisnik, httpOptions).pipe(
@@ -34,7 +35,13 @@ export class KorisniciService {
     );
   }
 
-  
+  isertSysadmin(korisnik: Korisnik): Observable<Korisnik> {
+    return this.http.post<Korisnik>(this.urlSysAdmin, korisnik, httpOptions).pipe(
+      catchError(this.handleError<Korisnik>('isertSysadmin'))
+    );
+  }
+
+
   constructor(private http: HttpClient) { }
 
   private handleError<T> (operation = 'operation', result?: T) {

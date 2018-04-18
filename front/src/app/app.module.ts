@@ -86,6 +86,7 @@ import { FilmoviEditComponent } from './filmovi/filmovi-edit/filmovi-edit.compon
 import { PredstaveEditComponent } from './predstave/predstave-edit/predstave-edit.component';
 import { SalaComponent } from './sala/sala.component';
 import { SalaService } from './sala.service';
+import { SysadminEditComponent } from './admin-sistem/sysadmin-edit/sysadmin-edit.component';
 
 
 @NgModule({
@@ -145,7 +146,8 @@ import { SalaService } from './sala.service';
     FilmoviEditComponent,
     PredstaveEditComponent,
     PrijateljiComponent,
-    SalaComponent
+    SalaComponent,
+    SysadminEditComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
