@@ -1,0 +1,11 @@
+<div class="row" *ngIf="!salaEdt">
+<div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <form #novaSalaForm="ngForm" (ngSubmit)="novaSalaSubmit(novaSalaForm)">
+      <div class="form-group">
+        <label for="brmesta">Broj mesta:</label>
+        <input type="text" id="brmesta" name="brmesta" class="form-control" required ngModel #salaBrmesta="ngModel">
+      </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!novaSalaForm.valid">Dodaj</button>
+</form>
+</div>
