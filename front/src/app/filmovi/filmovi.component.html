@@ -8,11 +8,12 @@
     <p class="list-group-item-text">Poster: {{filmoviShow.poster}}</p>
     <p class="list-group-item-text">Ocena: {{filmoviShow.ocena}}</p>
     <p class="list-group-item-text">Opis: {{filmoviShow.opis}}</p>
-    <p class="list-group-item-text">Sala: {{filmoviShow.sala}}</p>
     <p class="list-group-item-text">termin: {{filmoviShow.termin}}</p>
   </div>
+  <span class="pull-right"> 
   <button class="btn btn-primary" [routerLink]="['/filmovi/' + filmoviShow.id]">Uredi film</button> 
   <button class="btn btn-danger" (click)="deleteFilm(filmoviShow)">Obrisi</button>
   <button class="btn btn-primary" [routerLink]="['/sale/filmovi/' + filmoviShow.id]">Pogledaj sale</button>
+  </span>
 </a>
 <button class="btn btn-primary" routerLink="/filmovi-edit">Dodaj film</button> 

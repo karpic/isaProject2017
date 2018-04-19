@@ -14,7 +14,7 @@ import { Location } from '@angular/common';
 })
 export class SalaEditComponent implements OnInit {
 
-  novaSala: NovaSala = new NovaSala("");
+  novaSala: NovaSala = new NovaSala(0,0);
   updtSala: Sala;
   editFlag: boolean;
   salaId: string;
@@ -30,6 +30,7 @@ export class SalaEditComponent implements OnInit {
             
         novaSalaSubmit(forma: NgForm) {
                 this.novaSala.brmesta = forma.value.brmesta;
+                this.novaSala.brSlobodnih = forma.value.brSlobodnih;
                 this.salaService.insertSala(this.novaSala).subscribe();
                 forma.reset();
                 this.location.back();

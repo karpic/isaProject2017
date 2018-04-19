@@ -3,7 +3,12 @@
     <form #novaSalaForm="ngForm" (ngSubmit)="novaSalaSubmit(novaSalaForm)">
       <div class="form-group">
         <label for="brmesta">Broj mesta:</label>
-        <input type="text" id="brmesta" name="brmesta" class="form-control" required ngModel #salaBrmesta="ngModel">
+        <input type="number" id="brmesta" name="brmesta" class="form-control" required ngModel #salaBrmesta="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="brSlobodnih">Broj slobodnih mesta:</label>
+        <input type="number" id="brSlobodnih" name="brSlobodnih" class="form-control" required ngModel #salaBrSlm="ngModel">
       </div>
 
     <button type="submit" class="btn btn-primary" [disabled]="!novaSalaForm.valid">Dodaj</button>

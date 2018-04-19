@@ -1,6 +1,7 @@
 export class Sala{
     constructor(
         public id:string,
-        public brmesta:string
+        public brmesta:number,
+        public brSlobodnih:number
     ){}
 }

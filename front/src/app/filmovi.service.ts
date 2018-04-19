@@ -5,6 +5,7 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NoviFilm } from './models/novi-film';
+import { Bioskopi } from './models/bioskopi';
 
 
 const httpOptions = {
@@ -15,7 +16,7 @@ const httpOptions = {
 export class FilmoviService {
 
   private url = 'http://localhost:8080/filmovi';
-  private urlBioskopi = 'http://localhost:8080/bioskopi/filmovi/{id}';
+
 
 
   getFilmovi(): Observable<Filmovi[]>{

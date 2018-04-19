@@ -5,6 +5,7 @@ import { Filmovi } from '../../models/filmovi';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
 import { NoviFilm } from '../../models/novi-film';
 import { ActivatedRoute, Params } from '@angular/router';
+import { BioskopiService } from '../../bioskopi.service';
 
 @Component({
   selector: 'app-filmovi-edit',
@@ -12,15 +13,16 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./filmovi-edit.component.css']
 })
 export class FilmoviEditComponent implements OnInit {
-  noviFilm: NoviFilm = new NoviFilm("","","","","","","","","","",1);
+  noviFilm: NoviFilm = new NoviFilm("","","","","","","","","","",0);
   updtFilm: Filmovi;
   editFlag: boolean;
   filmId: string;
   filmEdt : Filmovi;
   filmovi: Filmovi[];
-
+  bioskopId: string
 
   constructor(private filmoviService: FilmoviService,
+              private bioskopiService: BioskopiService,
               private location: Location,
               private route: ActivatedRoute) { }
 

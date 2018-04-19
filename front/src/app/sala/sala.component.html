@@ -1,6 +1,10 @@
 <a class="list-group-item clearfix" *ngFor="let salaShow of sale">
     <div class="pull-left">
       <h4 class="list-group-item-heading" >Broj mesta: {{salaShow.brmesta}}</h4>
+      <h4 class="list-group-item-heading" >Broj slobodnih mesta: {{salaShow.brSlobodnih}}</h4>
     </div>
+    <span class="pull-right"> 
+    <button class="btn btn-danger" (click)="deleteSala(salaShow)">Obrisi</button>
+    </span>
   </a>
   <button class="btn btn-primary" routerLink="/sala-edit">Dodaj salu</button> 

@@ -8,10 +8,12 @@
     <p class="list-group-item-text">Poster: {{predstaveShow.poster}}</p>
     <p class="list-group-item-text">Ocena: {{predstaveShow.ocena}}</p>
     <p class="list-group-item-text">Opis: {{predstaveShow.opis}}</p>
-    <p class="list-group-item-text">Sala: {{predstaveShow.sala}}</p>
     <p class="list-group-item-text">termin: {{predstaveShow.termin}}</p>
   </div>
+  <span class="pull-right"> 
   <button class="btn btn-primary" [routerLink]="['/predstave/' + predstaveShow.id]">Uredi predstavu</button> 
   <button class="btn btn-danger" (click)="deletePredstava(predstaveShow)">Obrisi</button>
+  <button class="btn btn-primary" [routerLink]="['/sale/predstave/' + predstaveShow.id]">Pogledaj sale</button>
+  </span>
 </a>
 <button class="btn btn-primary" routerLink="/predstave-edit">Dodaj predstavu</button> 

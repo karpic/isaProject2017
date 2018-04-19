@@ -1,5 +1,6 @@
 export class NovaSala{
     constructor(
-        public brmesta:string
+        public brmesta:number,
+        public brSlobodnih:number
     ){}
 }
