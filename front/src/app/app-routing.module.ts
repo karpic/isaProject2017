@@ -50,6 +50,8 @@ import { PredstaveComponent } from './predstave/predstave.component';
 import { FilmoviEditComponent } from './filmovi/filmovi-edit/filmovi-edit.component';
 import { PredstaveEditComponent } from './predstave/predstave-edit/predstave-edit.component';
 import { SysadminEditComponent } from './admin-sistem/sysadmin-edit/sysadmin-edit.component';
+import {SalaComponent} from './sala/sala.component';
+import { SalaEditComponent } from './sala/sala-edit/sala-edit.component';
 
 
 
@@ -103,6 +105,8 @@ const routes: Routes = [
   {path: 'predstave-edit', component: PredstaveEditComponent},
   {path: 'prijatelji', component: PrijateljiComponent},
   {path: 'predstave/:predstavaId', component: PredstaveEditComponent},
+  {path: 'sale/filmovi/:filmoviId', component: SalaComponent},
+  {path: 'sala-edit', component: SalaEditComponent},
 
 ];
 

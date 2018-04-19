@@ -87,6 +87,7 @@ import { PredstaveEditComponent } from './predstave/predstave-edit/predstave-edi
 import { SalaComponent } from './sala/sala.component';
 import { SalaService } from './sala.service';
 import { SysadminEditComponent } from './admin-sistem/sysadmin-edit/sysadmin-edit.component';
+import { SalaEditComponent } from './sala/sala-edit/sala-edit.component';
 
 
 @NgModule({
@@ -147,7 +148,8 @@ import { SysadminEditComponent } from './admin-sistem/sysadmin-edit/sysadmin-edi
     PredstaveEditComponent,
     PrijateljiComponent,
     SalaComponent,
-    SysadminEditComponent
+    SysadminEditComponent,
+    SalaEditComponent
   ],
   imports: [
     BrowserModule,

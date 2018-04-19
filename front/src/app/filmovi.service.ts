@@ -27,7 +27,7 @@ export class FilmoviService {
   }
 
   insertFilm(film: NoviFilm): Observable<NoviFilm>{
-    return this.http.post<NoviFilm>(this.urlBioskopi, film, httpOptions).pipe(
+    return this.http.post<NoviFilm>(this.url, film, httpOptions).pipe(
       catchError(this.handleError<NoviFilm>('insertFilm'))
     );
   }

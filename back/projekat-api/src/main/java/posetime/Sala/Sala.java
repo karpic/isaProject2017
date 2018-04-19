@@ -26,6 +26,9 @@ public class Sala {
         this.brmesta = brmesta;
     }
 
+    public Sala(){
+
+    }
     public Sala(String id, String brmesta) {
         this.id = id;
 

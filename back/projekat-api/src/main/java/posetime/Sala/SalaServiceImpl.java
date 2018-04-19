@@ -22,4 +22,30 @@ public class SalaServiceImpl implements SalaService {
         Sala sala = this.salaRepository.findOne(id);
         return sala;
     }
+
+    @Override
+    public Sala create(Sala sala) throws Exception {
+        Sala savedSala = this.salaRepository.insert(sala);
+        return savedSala;
+    }
+
+    @Override
+    public Sala update(Sala sala) throws Exception {
+        Sala salaUpdt = this.salaRepository.findOne(sala.getId());
+
+
+        if(salaUpdt == null){
+            throw new Exception("Nije pronadjena sala.");
+        }
+        salaUpdt.setBrmesta(sala.getBrmesta());
+
+        Sala updateSala = this.salaRepository.save(salaUpdt);
+        return updateSala;
+    }
+
+    @Override
+    public void delete(String id) {
+        this.salaRepository.delete(id);
+    }
+
 }

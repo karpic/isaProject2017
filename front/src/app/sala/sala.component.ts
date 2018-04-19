@@ -27,8 +27,16 @@ salaEdt: Sala;
       );
     }
 
+
+    deleteSala(sala: Sala) {
+      this.salaService.deleteSala(sala).subscribe();
+      this.sale = this.sale.filter(s => s !== sala);
+    }
+
+    
   ngOnInit() {
     this.getSale();
+    console.log(this.sale);
   }
 
 }
