@@ -7,9 +7,6 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Pozorista } from '../models/pozorista';
 import { MapsAPILoader } from '@agm/core';
-import {} from '@types/googlemaps';
-
-declare var google: any;
 
 @Component({
   selector: 'app-gm-lokacija',
@@ -19,14 +16,12 @@ declare var google: any;
 export class GmLokacijaComponent implements OnInit {
   adresa: string = "Novi Sad Bulevar Oslobodjenja";
   latLondata: any;
-  lat = 51.673858;
-  lon = 7.815982;
+  lat: number = 51.673858;
+  lon: number = 7.815982;
   constructor(
     private route: ActivatedRoute,
-    private geocoderService: GeocoderService,
     private appDataSharing: ApplicationDataSharingServiceService,
-    private _loader: MapsAPILoader,
-    private _zone: NgZone,
+    private geocoderService: GeocoderService
   ) { }
 
 
