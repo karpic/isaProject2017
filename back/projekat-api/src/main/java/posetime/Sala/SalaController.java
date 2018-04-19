@@ -39,4 +39,45 @@ public class SalaController {
         }
         return new ResponseEntity<Sala>(sale, HttpStatus.OK);
     }
+
+    @RequestMapping(
+            method = RequestMethod.POST,
+            value = "/sale",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Sala> insertSala(@RequestBody Sala sale) throws Exception{
+        Sala createdSala  = this.salaService.create(sale);
+        return new ResponseEntity<Sala>(createdSala, HttpStatus.CREATED);
+    }
+
+    @RequestMapping(
+            method = RequestMethod.PUT,
+            value = "/sale/{id}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Sala> updateSala(@PathVariable("id") String id, @RequestBody Sala sala) throws Exception{
+        Sala sale = this.salaService.findOne(id);
+
+        if(sale == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        Sala updateSala = this.salaService.update(sala);
+        if (updateSala == null) {
+            return new ResponseEntity<Sala>(
+                    HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ResponseEntity<>(updateSala, HttpStatus.OK);
+    }
+
+    @RequestMapping(
+            method = RequestMethod.DELETE,
+            value = "/sale/{id}"
+    )
+    public ResponseEntity<Sala> deleteSala(@PathVariable("id") String id){
+        this.salaService.delete(id);
+        return new ResponseEntity<Sala>(HttpStatus.NO_CONTENT);
+    }
 }
