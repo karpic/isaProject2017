@@ -21,14 +21,18 @@ public class Filmovi {
     private String termin;
     private int cena;
 
+
     public Filmovi(){
 
     }
+
+
 
     public Filmovi(String id, String naziv, String glumci, String zanr, String reditelj, String trajanje, String poster, String ocena, String opis, Sala sala, String termin, int cena) {
 
         this.id = id;
         this.naziv = naziv;
+
         this.glumci = glumci;
         this.zanr = zanr;
         this.reditelj = reditelj;
@@ -39,6 +43,7 @@ public class Filmovi {
         this.sala = sala;
         this.termin = termin;
         this.cena = cena;
+
     }
 
     public String getId() {

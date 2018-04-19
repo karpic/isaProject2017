@@ -38,7 +38,7 @@ public class SalaServiceImpl implements SalaService {
             throw new Exception("Nije pronadjena sala.");
         }
         salaUpdt.setBrmesta(sala.getBrmesta());
-
+        salaUpdt.setBrSlobodnih(sala.getBrSlobodnih());
         Sala updateSala = this.salaRepository.save(salaUpdt);
         return updateSala;
     }

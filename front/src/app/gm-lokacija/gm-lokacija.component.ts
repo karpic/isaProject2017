@@ -8,31 +8,50 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { Pozorista } from '../models/pozorista';
 import { MapsAPILoader } from '@agm/core';
 
+declare var google: any;
+
 @Component({
   selector: 'app-gm-lokacija',
   templateUrl: './gm-lokacija.component.html',
   styleUrls: ['./gm-lokacija.component.css']
 })
 export class GmLokacijaComponent implements OnInit {
-  adresa: string = "Novi Sad Bulevar Oslobodjenja";
-  latLondata: any;
   lat: number = 51.673858;
   lon: number = 7.815982;
+  adresa: string;
   constructor(
     private route: ActivatedRoute,
     private appDataSharing: ApplicationDataSharingServiceService,
-    private geocoderService: GeocoderService
+    private geocoderService: GeocoderService,
+    private _loader: MapsAPILoader,
+    private _zone: NgZone
   ) { }
 
-
-  /* getLatLon(adresa: string) {
-    this.geocoderService.getGeoLocation(adresa).subscribe(
-      (data) => console.log(data)
-    );
-  } */
+  getLatLonForAdress() {
+    this.geocoderService.getGeocoding(this.adresa)
+            .subscribe(
+            result => {
+                // needs to run inside zone to update the map
+                this._zone.run(() => {
+                    this.lat = result.lat();
+                    this.lon = result.lng();
+                });
+            },
+            error => console.log(error),
+            () => console.log('Geocoding completed!')
+            );
+  }
 
   ngOnInit() {
-      //this.getLatLon(this.appDataSharing.adresa);
+    this.adresa = this.appDataSharing.adresa;
+    console.log(this.adresa);
+    /* this.route.params.subscribe(
+      (params: Params) => {
+        this.adresa = params["adresa"];
+        console.log(this.adresa)
+      }
+    ); */
+    this.getLatLonForAdress();
   }
 
 }

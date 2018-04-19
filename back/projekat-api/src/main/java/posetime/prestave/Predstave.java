@@ -21,6 +21,7 @@ public class Predstave {
     private String termin;
     private int cena;
 
+
     public String getId() {
         return id;
     }
@@ -131,9 +132,12 @@ public class Predstave {
         this.sala = sala;
         this.termin = termin;
         this.cena = cena;
+
     }
 
     public Predstave(){
 
     }
+
+
 }

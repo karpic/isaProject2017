@@ -2,6 +2,8 @@ import { Component, OnInit,Input, Output, EventEmitter} from '@angular/core';
 import { PozoristeService } from '../services/pozorista.service';
 import { Pozorista } from '../models/pozorista';
 import { Location } from '@angular/common';
+import { ApplicationDataSharingServiceService } from '../services/application-data-sharing-service.service';
+import { Router } from '@angular/router';
 
 
 
@@ -30,7 +32,10 @@ getPozoriste() {
 }
 
   constructor(private pozoristeService: PozoristeService,
-              private location: Location) { }
+              private location: Location,
+              private appDataSharing: ApplicationDataSharingServiceService,
+              private router: Router
+            ) { }
 
   ngOnInit() {
     this.getPozorista();
@@ -46,5 +51,10 @@ getPozoriste() {
 
   updatePozoriste(): void{
     this.pozoristeService.updatePozoriste(this.pozoristeEdit).subscribe();
+  }
+
+  showOnMap(pozoste: Pozorista){
+    this.appDataSharing.adresa = pozoste.adresa;
+    this.router.navigate(['gmlokacija']);
   }
 }
