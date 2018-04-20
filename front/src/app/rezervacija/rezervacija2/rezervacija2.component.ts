@@ -33,6 +33,7 @@ export class Rezervacija2Component implements OnInit {
       this.bioskopBool = true;
       this.pozoristeBool = false;
       this.getBioskop();
+
     }
     if (this.route.snapshot.url[1].path === 'pozoriste') {
       this.route.params.subscribe(
@@ -48,7 +49,10 @@ export class Rezervacija2Component implements OnInit {
 
   getBioskop() {
     this.bioskopiService.getBioskop(this.bioskopId).subscribe(
-      (bioskop) => this.bioskop = bioskop
+      (bioskop) => {
+        this.bioskop = bioskop;
+        console.log(this.bioskop);
+      }
     );
   }
 
