@@ -6,6 +6,7 @@ import { NgForm } from '@angular/forms/src/directives/ng_form';
 import { NoviFilm } from '../../models/novi-film';
 import { ActivatedRoute, Params } from '@angular/router';
 import { BioskopiService } from '../../bioskopi.service';
+import { Bioskopi } from '../../models/bioskopi';
 
 @Component({
   selector: 'app-filmovi-edit',
@@ -20,15 +21,18 @@ export class FilmoviEditComponent implements OnInit {
   filmEdt : Filmovi;
   filmovi: Filmovi[];
   bioskopId: string
+  bioskopEdit: Bioskopi;
 
   constructor(private filmoviService: FilmoviService,
               private bioskopiService: BioskopiService,
               private location: Location,
               private route: ActivatedRoute) { }
 
-              
-            
+             
+           
+
         noviFilmSubmit(forma: NgForm) {
+        
                 this.noviFilm.naziv = forma.value.naziv;
                 this.noviFilm.glumci = forma.value.glumci;
                 this.noviFilm.zanr = forma.value.zanr;
@@ -44,6 +48,7 @@ export class FilmoviEditComponent implements OnInit {
                 forma.reset();
                 this.location.back();
               }
+            
 
               
               getFilm() {

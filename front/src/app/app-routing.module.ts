@@ -110,8 +110,6 @@ const routes: Routes = [
   {path: 'sale/predstave/:predstavaId', component: SalaComponent},
   {path: 'sala-edit', component: SalaEditComponent},
   {path: 'filmovi/bioskopi/:bioskopId', component: FilmoviComponent},
-  {path: 'adminBp', component: AdminBpComponent},
-
 ];
 
 @NgModule({

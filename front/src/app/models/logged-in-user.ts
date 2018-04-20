@@ -9,6 +9,7 @@ export class LoggedInUser {
     public prijatelji: Array<String>,
     public zahtevi: Array<String>,
     public ponude: Array<String>,
-    public obavestenja: Array<String>
+    public obavestenja: Array<String>,
+    public password: string
   ) {}
 }
