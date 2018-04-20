@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import posetime.bioskopi.Bioskop;
+import posetime.bioskopi.BioskopService;
 
 import java.util.List;
 
@@ -15,6 +17,9 @@ public class FilmoviController {
 
   @Autowired
   private FilmoviService filmoviService;
+
+  @Autowired
+  private BioskopService bioskopService;
 
 
 
@@ -44,12 +49,17 @@ public class FilmoviController {
 
     @RequestMapping(
             method = RequestMethod.POST,
-            value = "/filmovi",
+            value = "/filmovi/bioskopi/{id}",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<Filmovi> insertFilm(@RequestBody Filmovi filmovi) throws Exception{
+    public ResponseEntity<Filmovi> insertFilm(@RequestBody Filmovi filmovi, @PathVariable ("id") String id, @PathVariable ("idf") String idf) throws Exception{
         Filmovi createdFilm  = this.filmoviService.create(filmovi);
+        Bioskop b = bioskopService.findOne(id);
+        Filmovi f = filmoviService.findOne(idf);
+        String idfilm = f.getId();
+        b.getRepertoar().add(idfilm);
+        bioskopService.update(b);
         return new ResponseEntity<Filmovi>(createdFilm, HttpStatus.CREATED);
     }
 

@@ -47,4 +47,45 @@ public class KartaController {
         return new ResponseEntity<Karta>(karta, HttpStatus.OK);
     }
 
+
+    @RequestMapping(
+            method = RequestMethod.POST,
+            value = "/karte",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Karta> insertKarta(@RequestBody Karta karte) throws Exception{
+        Karta createdKarta  = this.kartaService.create(karte);
+        return new ResponseEntity<Karta>(createdKarta, HttpStatus.CREATED);
+    }
+
+    @RequestMapping(
+            method = RequestMethod.PUT,
+            value = "/karte/{id}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Karta> updateKarta(@PathVariable("id") String id, @RequestBody Karta karta) throws Exception{
+        Karta karte = this.kartaService.findOne(id);
+
+        if(karte == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        Karta updateKarta = this.kartaService.update(karta);
+        if (updateKarta == null) {
+            return new ResponseEntity<Karta>(
+                    HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ResponseEntity<>(updateKarta, HttpStatus.OK);
+    }
+
+    @RequestMapping(
+            method = RequestMethod.DELETE,
+            value = "/karte/{id}"
+    )
+    public ResponseEntity<Karta> deleteFilm(@PathVariable("id") String id){
+        this.kartaService.delete(id);
+        return new ResponseEntity<Karta>(HttpStatus.NO_CONTENT);
+    }
 }

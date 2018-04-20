@@ -5,10 +5,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import posetime.filmovi.Filmovi;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Document(collection = "Bioskopi")
-
 public class Bioskop {
 
     @Id
@@ -16,7 +16,7 @@ public class Bioskop {
     private String naziv;
     private String adresa;
     private String opis;
-    private Filmovi repertoar;
+    private ArrayList<String> repertoar;
     private String brmesta;
     private String admin;
 
@@ -31,7 +31,8 @@ public class Bioskop {
     public Bioskop() {
 
     }
-    public Bioskop(String id, String naziv, String adresa, String opis, Filmovi repertoar, String brmesta){
+
+    public Bioskop(String id, String naziv, String adresa, String opis, ArrayList<String> repertoar, String brmesta){
 
         this.id=id;
         this.naziv=naziv;
@@ -73,11 +74,11 @@ public class Bioskop {
         this.opis = opis;
     }
 
-    public Filmovi getRepertoar() {
+    public ArrayList<String> getRepertoar() {
         return repertoar;
     }
 
-    public void setRepertoar(Filmovi repertoar) {
+    public void setRepertoar(ArrayList<String> repertoar) {
         this.repertoar = repertoar;
     }
 
