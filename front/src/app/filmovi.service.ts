@@ -16,21 +16,18 @@ const httpOptions = {
 export class FilmoviService {
 
   private url = 'http://localhost:8080/filmovi';
-  private urlBioskopi = 'http://localhost:8080/filmovi/bioskopi/{id}'
+  private urlBioskopi = 'http://localhost:8080/filmovi/bioskopi';
 
-
-
-
-  getFilmovi(): Observable<Filmovi[]>{
+  getFilmovi(): Observable<Filmovi[]> {
     return this.http.get<Filmovi[]>(this.url);
 
   }
-  getFilm(id: string): Observable<Filmovi>{
-    return this.http.get<Filmovi>(this.url+'/'+id);
+  getFilm(id: string): Observable<Filmovi> {
+    return this.http.get<Filmovi>(this.url + '/' + id);
   }
 
-  insertFilm(film: NoviFilm): Observable<NoviFilm>{
-    return this.http.post<NoviFilm>(this.urlBioskopi, film, httpOptions).pipe(
+  insertFilm(film: NoviFilm, bioskopId: string): Observable<NoviFilm> {
+    return this.http.post<NoviFilm>(this.urlBioskopi + '/' + bioskopId , film, httpOptions).pipe(
       catchError(this.handleError<NoviFilm>('insertFilm'))
     );
   }
@@ -55,7 +52,7 @@ export class FilmoviService {
   constructor(private http: HttpClient) { }
 
 
-  private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure

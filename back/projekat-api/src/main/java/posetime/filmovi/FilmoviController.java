@@ -53,12 +53,11 @@ public class FilmoviController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<Filmovi> insertFilm(@RequestBody Filmovi filmovi, @PathVariable ("id") String id, @PathVariable ("idf") String idf) throws Exception{
+    public ResponseEntity<Filmovi> insertFilm(@RequestBody Filmovi filmovi, @PathVariable ("id") String id) throws Exception{
         Filmovi createdFilm  = this.filmoviService.create(filmovi);
+        System.out.println("IDDDD: " + id);
         Bioskop b = bioskopService.findOne(id);
-        Filmovi f = filmoviService.findOne(idf);
-        String idfilm = f.getId();
-        b.getRepertoar().add(idfilm);
+        b.getRepertoar().add(createdFilm.getId());
         bioskopService.update(b);
         return new ResponseEntity<Filmovi>(createdFilm, HttpStatus.CREATED);
     }

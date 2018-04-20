@@ -50,66 +50,73 @@ import { PredstaveComponent } from './predstave/predstave.component';
 import { FilmoviEditComponent } from './filmovi/filmovi-edit/filmovi-edit.component';
 import { PredstaveEditComponent } from './predstave/predstave-edit/predstave-edit.component';
 import { SysadminEditComponent } from './admin-sistem/sysadmin-edit/sysadmin-edit.component';
-import {SalaComponent} from './sala/sala.component';
+import { SalaComponent } from './sala/sala.component';
 import { SalaEditComponent } from './sala/sala-edit/sala-edit.component';
 import { AdminBpComponent } from './admin-bp/admin-bp.component';
 
 
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'fanzona', component: FanzonaComponent, canActivate: [FanzonaAuthGuard], children: [
-    {path: 'prodavnica', component: ZvanicnaProdavnicaComponent},
-    {path: 'oglasi', component: OglasiComponent},
-    {path: 'novioglas', component: OglasEditComponent},
-    {path: 'admin', component: AdminFanzonaComponent, canActivate: [FanAdminAuthGuard], children: [
-      {path: 'novirekvizit', component: RekvizitEditComponent},
-      {path: 'neodobreni', component: NeodobreniOglasiComponent},
-      {path: 'rekviziti', component: RekvizitiComponent},
-      {path: 'rekvizit/:rekvizitId', component: RekvizitEditComponent},
-      {path: 'recenzija', component: RecenzijaComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  {
+    path: 'fanzona', component: FanzonaComponent, canActivate: [FanzonaAuthGuard], children: [
+      { path: 'prodavnica', component: ZvanicnaProdavnicaComponent },
+      { path: 'oglasi', component: OglasiComponent },
+      { path: 'novioglas', component: OglasEditComponent },
+      {
+        path: 'admin', component: AdminFanzonaComponent, canActivate: [FanAdminAuthGuard], children: [
+          { path: 'novirekvizit', component: RekvizitEditComponent },
+          { path: 'neodobreni', component: NeodobreniOglasiComponent },
+          { path: 'rekviziti', component: RekvizitiComponent },
+          { path: 'rekvizit/:rekvizitId', component: RekvizitEditComponent },
+          { path: 'recenzija', component: RecenzijaComponent },
 
-    ]}
-  ]},
-  {path: ':username/ponude', component: PregledPonudaComponent},
-  {path: 'sysadmin', component: AdminSistemComponent, canActivate: [SysadminAuthGuard], children: [
-    {path: 'novibioskop', component: BioskopEditComponent},
-    {path: 'novopozoriste', component: PozoristeEditComponent},
-    {path: 'novifanadmin', component: FanzonaAdminEditComponent},
-    {path: 'novibpadmin', component: BpAdminEditComponent},
-    {path: 'novisysadmin', component: SysadminEditComponent},
-    {path: 'skala', component: SkalaComponent}
-  ]},
-  {path: 'bioskopi', component: BioskopiComponent},
-  {path: 'pozorista', component: PozoristaComponent},
-  {path: 'repertoar', component: RepertoarComponent},
-  {path: 'repertoar-pozorista', component: RepertoarPozoristaComponent},
-  {path: 'user', component: UserComponent},
-  {path: 'user/edit-user', component: EditUserComponent},
-  {path: 'gmlokacija', component: GmLokacijaComponent},
-  {path: 'bioskopi/:bioskopId', component : BioskopiEditComponent},
-  {path: 'filmovi/:filmId', component :FilmoviEditComponent},
-  {path: 'pozorista/:pozoristeId', component : PozoristaEditComponent},
-  {path: 'bioskopi-list', component : BioskopiListComponent},
-  {path: 'pozorista-list', component : PozoristaListComponent},
-  {path: 'karte', component : KarteComponent},
-  {path: 'rezervacija', component: RezervacijaComponent},
-  {path: 'rezervacija2/bioskop/:bioskopId', component: Rezervacija2Component},
-  {path: 'rezervacija2/pozoriste/:pozoristeId', component: Rezervacija2Component},
-  {path: 'rezervacija3', component: Rezervacija3Component},
-  {path: 'rezervacija4', component: Rezervacija4Component},
-  {path: 'user/zahtevi', component: ZahteviComponent},
-  {path: 'filmovi/bioskopi/:bioskopId', component: FilmoviComponent},
-  {path: 'predstave/pozorista/:pozoristeId', component: PredstaveComponent},
-  {path: 'filmovi-edit', component: FilmoviEditComponent},
-  {path: 'predstave-edit', component: PredstaveEditComponent},
-  {path: 'prijatelji', component: PrijateljiComponent},
-  {path: 'predstave/:predstavaId', component: PredstaveEditComponent},
-  {path: 'sale/filmovi/:filmoviId', component: SalaComponent},
-  {path: 'sale/predstave/:predstavaId', component: SalaComponent},
-  {path: 'sala-edit', component: SalaEditComponent},
-  {path: 'filmovi/bioskopi/:bioskopId', component: FilmoviComponent},
+        ]
+      }
+    ]
+  },
+  { path: ':username/ponude', component: PregledPonudaComponent },
+  {
+    path: 'sysadmin', component: AdminSistemComponent, canActivate: [SysadminAuthGuard], children: [
+      { path: 'novibioskop', component: BioskopEditComponent },
+      { path: 'novopozoriste', component: PozoristeEditComponent },
+      { path: 'novifanadmin', component: FanzonaAdminEditComponent },
+      { path: 'novibpadmin', component: BpAdminEditComponent },
+      { path: 'novisysadmin', component: SysadminEditComponent },
+      { path: 'skala', component: SkalaComponent }
+    ]
+  },
+  { path: 'bioskopi', component: BioskopiComponent },
+  { path: 'pozorista', component: PozoristaComponent },
+  { path: 'repertoar', component: RepertoarComponent },
+  { path: 'repertoar-pozorista', component: RepertoarPozoristaComponent },
+  { path: 'user', component: UserComponent },
+  { path: 'user/edit-user', component: EditUserComponent },
+  { path: 'gmlokacija', component: GmLokacijaComponent },
+  { path: 'bioskopi/:bioskopId', component: BioskopiEditComponent },
+  { path: 'filmovi/:filmId', component: FilmoviEditComponent },
+  { path: 'pozorista/:pozoristeId', component: PozoristaEditComponent },
+  { path: 'bioskopi-list', component: BioskopiListComponent },
+  { path: 'pozorista-list', component: PozoristaListComponent },
+  { path: 'karte', component: KarteComponent },
+  { path: 'rezervacija', component: RezervacijaComponent },
+  { path: 'rezervacija2/bioskop/:bioskopId', component: Rezervacija2Component },
+  { path: 'rezervacija2/pozoriste/:pozoristeId', component: Rezervacija2Component },
+  { path: 'rezervacija3', component: Rezervacija3Component },
+  { path: 'rezervacija4', component: Rezervacija4Component },
+  { path: 'user/zahtevi', component: ZahteviComponent },
+  { path: 'filmovi/bioskopi/:bioskopId', component: FilmoviComponent },
+  { path: 'predstave/pozorista/:pozoristeId', component: PredstaveComponent },
+  { path: 'filmovi-edit', component: FilmoviEditComponent },
+  { path: 'filmovi-edit/:bioskopId', component: FilmoviEditComponent },
+  { path: 'predstave-edit', component: PredstaveEditComponent },
+  { path: 'prijatelji', component: PrijateljiComponent },
+  { path: 'predstave/:predstavaId', component: PredstaveEditComponent },
+  { path: 'sale/filmovi/:filmoviId', component: SalaComponent },
+  { path: 'sale/predstave/:predstavaId', component: SalaComponent },
+  { path: 'sala-edit', component: SalaEditComponent },
+  { path: 'filmovi/bioskopi/:bioskopId', component: FilmoviComponent },
 ];
 
 @NgModule({
