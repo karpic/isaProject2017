@@ -1,16 +1,18 @@
 <div *ngIf="bioskopBool">
   <h1>Bioskop: {{bioskop.naziv}}</h1>
   <form>
-    <select [(ngModel)]="selectedMovie" name="select">
-      <option></option>
+    <select [(ngModel)]="selectedMovie" name="selectMovie">
+      <option ></option>
     </select>
   </form>
 </div>
 <div *ngIf="pozoristeBool">
   <h1>Pozoriste: {{pozoriste.naziv}}</h1>
   <form>
-    <select [(ngModel)]="selectedShow" name="select">
-      <option></option>
+    <select [(ngModel)]="selectedShow" name="selectShow">
+      <option *ngFor="let predstaveShow of pozoriste.repertoar"
+      [ngValue]="predstaveShow.id">
+      {{predstaveShow.naziv}}</option>
     </select>
   </form>
 </div>
