@@ -1,3 +1,4 @@
+import { ObavestenjaComponent } from './obavestenja/obavestenja.component';
 import { PrijateljiComponent } from './user/prijatelji/prijatelji.component';
 import { ZahteviComponent } from './user/zahtevi/zahtevi.component';
 import { Rezervacija4Component } from './rezervacija/rezervacija4/rezervacija4.component';
@@ -31,7 +32,6 @@ import { LoginComponent } from './login/login.component';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes, Router } from '@angular/router';
-import { SvePonudeComponent } from './sve-ponude/sve-ponude.component';
 import { BioskopiComponent } from './bioskopi/bioskopi.component';
 import { PozoristaComponent } from './pozorista/pozorista.component';
 import { RepertoarComponent } from './repertoar/repertoar.component';
@@ -62,6 +62,7 @@ const routes: Routes = [
   {
     path: 'fanzona', component: FanzonaComponent, canActivate: [FanzonaAuthGuard], children: [
       { path: 'prodavnica', component: ZvanicnaProdavnicaComponent },
+      { path: 'ponude', component: PregledPonudaComponent },
       { path: 'oglasi', component: OglasiComponent },
       { path: 'novioglas', component: OglasEditComponent },
       {
@@ -76,7 +77,7 @@ const routes: Routes = [
       }
     ]
   },
-  { path: ':username/ponude', component: PregledPonudaComponent },
+  { path: 'obavestenja', component: ObavestenjaComponent},
   {
     path: 'sysadmin', component: AdminSistemComponent, canActivate: [SysadminAuthGuard], children: [
       { path: 'novibioskop', component: BioskopEditComponent },

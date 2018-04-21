@@ -5,6 +5,9 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Ponuda } from '../models/ponuda';
 import { Oglas } from '../models/oglas';
 import { NgForm } from '@angular/forms';
+import * as jwt_decode from 'jwt-decode';
+
+const TOKEN_KEY = 'AuthToken';
 
 @Component({
   selector: 'app-pregled-ponuda',
@@ -12,6 +15,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./pregled-ponuda.component.css']
 })
 export class PregledPonudaComponent implements OnInit {
+  tokenPayload;
   username: String;
   ponude: Ponuda[];
   displayedOglas: Oglas;
@@ -48,11 +52,14 @@ export class PregledPonudaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.params.subscribe(
+    this.tokenPayload = jwt_decode(sessionStorage.getItem(TOKEN_KEY));
+    this.username = this.tokenPayload.sub;
+    console.log(this.username);
+    /* this.route.params.subscribe(
       (params: Params) => {
         this.username = params["username"];
       }
-    )
+    ) */
     this.getPonudeForUser();
   }
 

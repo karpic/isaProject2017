@@ -1,0 +1,7 @@
+<ul class="list-group">
+  <div *ngFor="let obavestenje of obavestenja">
+    <li class="list-group-item" *ngIf="obavestenje.username == username">
+      {{obavestenje.text}}
+    </li>
+  </div>
+</ul>

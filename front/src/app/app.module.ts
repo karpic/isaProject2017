@@ -1,3 +1,4 @@
+import { ObavestenjaService } from './services/obavestenja.service';
 import { PrijateljiComponent } from './user/prijatelji/prijatelji.component';
 import { SkalaService } from './services/skala.service';
 import { CheckLoginService } from './nav-component/check-login.service';
@@ -29,7 +30,6 @@ import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common
 import { KorisniciService } from './korisnici.service';
 import { OglasService } from './oglas.service';
 import { EqualValidatorDirective } from './validate/equal-validator.directive';
-import { SvePonudeComponent } from './sve-ponude/sve-ponude.component';
 import { ApplicationDataSharingServiceService } from './services/application-data-sharing-service.service';
 import { NovaPonudaComponent } from './nova-ponuda/nova-ponuda.component';
 import { AuthService } from './login/core/auth.service';
@@ -89,6 +89,7 @@ import { SalaService } from './sala.service';
 import { SysadminEditComponent } from './admin-sistem/sysadmin-edit/sysadmin-edit.component';
 import { SalaEditComponent } from './sala/sala-edit/sala-edit.component';
 import { AdminBpComponent } from './admin-bp/admin-bp.component';
+import { ObavestenjaComponent } from './obavestenja/obavestenja.component';
 
 
 @NgModule({
@@ -102,7 +103,6 @@ import { AdminBpComponent } from './admin-bp/admin-bp.component';
     ZvanicnaProdavnicaComponent,
     OglasiComponent,
     EqualValidatorDirective,
-    SvePonudeComponent,
     NovaPonudaComponent,
     BioskopiComponent,
     PozoristaComponent,
@@ -151,7 +151,8 @@ import { AdminBpComponent } from './admin-bp/admin-bp.component';
     SalaComponent,
     SysadminEditComponent,
     SalaEditComponent,
-    AdminBpComponent
+    AdminBpComponent,
+    ObavestenjaComponent
   ],
   imports: [
     BrowserModule,
@@ -163,6 +164,7 @@ import { AdminBpComponent } from './admin-bp/admin-bp.component';
     }),
   ],
   providers: [
+    ObavestenjaService,
     SkalaService,
     GeocoderService,
     FanzonaAuthGuard,
