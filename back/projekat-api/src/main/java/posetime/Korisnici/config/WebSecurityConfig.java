@@ -3,6 +3,7 @@ package posetime.Korisnici.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -51,8 +52,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 authorizeRequests()
                 .antMatchers("/token/*", "/").permitAll()
                 //.antMatchers("/user","/user/*").hasAnyAuthority("ROLE_ADMIN","ROLE_USER")
-                .antMatchers("/rezervacija","/bioskopi/{id}","/filmovi/{id}","/rezervacija2/*","/rezervacija3/*","rezervacija3/*","/karte").hasAnyAuthority("ROLE_USER","ROLE_ADMIN")
-                .antMatchers("/bioskopi/*","pozorista/*","/filmovi/*","/predstave/*","sale/*","/karte").hasAnyAuthority("BP_ADMIN")
+                .antMatchers(HttpMethod.POST, "/filmovi/bioskopi/*","/predstave/bioskopi/*").hasAuthority("BP_ADMIN")
+                .antMatchers(HttpMethod.PUT, "/filmovi/*","/predstave/*").hasAuthority("BP_ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/filmovi/{id}","/predstave/{id}").hasAuthority("BP_ADMIN")
+                .antMatchers("/rezervacija","/rezervacija2/*","/rezervacija3/*","rezervacija3/*","/karte","/filmovi","/predstave").hasAnyAuthority("ROLE_USER","ROLE_ADMIN")
+                .antMatchers("/bioskopi/*","pozorista/*","/predstave/*","sale/*","/karte","/filmovi","predstave").hasAnyAuthority("BP_ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()

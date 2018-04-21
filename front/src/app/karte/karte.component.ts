@@ -34,7 +34,9 @@ export class KarteComponent implements OnInit {
     }
   
   ngOnInit() {
+    
     this.getKarte();
   }
+
 
 }

@@ -9,6 +9,7 @@
     <p class="list-group-item-text">Originalna cena: {{karte.originalnaCena}}</p>
     <p class="list-group-item-text">Cena sa popustom: {{karte.popustCena}}</p>
     <button class="btn btn-primary">Rezervisi</button>
+    <button class="btn btn-danger" (click)="deleteKarta(karte)">Obrisi</button>
   </div>
 </a>
 <button class="btn btn-primary" routerLink="/karta-edit">Dodaj</button>
