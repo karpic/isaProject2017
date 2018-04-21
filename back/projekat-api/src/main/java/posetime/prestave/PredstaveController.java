@@ -5,7 +5,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import posetime.pozorista.Pozoriste;
+import posetime.pozorista.PozoristeService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -14,6 +17,9 @@ public class PredstaveController {
 
     @Autowired
     private PredstaveService predstaveService;
+
+    @Autowired
+    private PozoristeService pozoristeService;
 
     @RequestMapping(
             method = RequestMethod.GET,
@@ -78,6 +84,21 @@ public class PredstaveController {
     public ResponseEntity<Predstave> deletePredstava(@PathVariable("id") String id){
         this.predstaveService.delete(id);
         return new ResponseEntity<Predstave>(HttpStatus.NO_CONTENT);
+    }
+
+    @RequestMapping(
+            method = RequestMethod.GET,
+            value = "/predstave/repertoar/{id}"
+    )
+    public ResponseEntity<List<Predstave>> getRepertoar(@PathVariable("id") String id) {
+        Pozoriste p = pozoristeService.findOne(id);
+        ArrayList<Predstave> predstave = new ArrayList<Predstave>();
+
+        /*for(String s : p.getRepertoar()) {
+            predstave.add(predstaveService.findOne(s));
+        }*/
+
+        return new ResponseEntity<List<Predstave>>(HttpStatus.OK);
     }
 }
 

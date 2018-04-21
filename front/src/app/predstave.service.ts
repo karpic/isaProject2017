@@ -16,15 +16,15 @@ export class PredstaveService {
 
   private url = 'http://localhost:8080/predstave';
 
-  getPredstave(): Observable<Predstave[]>{
+  getPredstave(): Observable<Predstave[]> {
     return this.http.get<Predstave[]>(this.url);
 
   }
-  getPredstava(id: string): Observable<Predstave>{
-    return this.http.get<Predstave>(this.url+'/'+id);
+  getPredstava(id: string): Observable<Predstave> {
+    return this.http.get<Predstave>(this.url + '/' + id);
   }
 
-  insertPredstava(predstava: NovaPredstava): Observable<NovaPredstava>{
+  insertPredstava(predstava: NovaPredstava): Observable<NovaPredstava> {
     return this.http.post<NovaPredstava>(this.url, predstava, httpOptions).pipe(
       catchError(this.handleError<NovaPredstava>('insertPredstava'))
     );
@@ -47,10 +47,14 @@ export class PredstaveService {
     );
   }
 
+  getRepertoar(pozoristeId: string): Observable<Predstave[]> {
+    return this.http.get<Predstave[]>(this.url + '/repertoar/' + pozoristeId, httpOptions);
+  }
+
   constructor(private http: HttpClient) { }
 
 
-  private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure

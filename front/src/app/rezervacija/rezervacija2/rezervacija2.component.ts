@@ -1,3 +1,6 @@
+import { Predstave } from './../../models/predstave';
+import { PredstaveService } from './../../predstave.service';
+import { FilmoviService } from './../../filmovi.service';
 import { Filmovi } from './../../models/filmovi';
 import { PozoristeService } from './../../services/pozorista.service';
 import { Pozorista } from './../../models/pozorista';
@@ -22,8 +25,10 @@ export class Rezervacija2Component implements OnInit {
   bioskop: Bioskopi;
   pozoriste: Pozorista;
   filmovi: Filmovi[];
+  predstave: Predstave[];
 
-  constructor(private route: ActivatedRoute, private bioskopiService: BioskopiService, private pozoristeService: PozoristeService) { }
+  constructor(private route: ActivatedRoute, private bioskopiService: BioskopiService, private pozoristeService: PozoristeService,
+    private filmoviService: FilmoviService, private predstaveService: PredstaveService) { }
 
   ngOnInit() {
     if (this.route.snapshot.url[1].path === 'bioskop') {
@@ -36,7 +41,6 @@ export class Rezervacija2Component implements OnInit {
       this.pozoristeBool = false;
       this.getBioskop();
       this.getFilmovi();
-
     }
     if (this.route.snapshot.url[1].path === 'pozoriste') {
       this.route.params.subscribe(
@@ -47,6 +51,7 @@ export class Rezervacija2Component implements OnInit {
       this.bioskopBool = false;
       this.pozoristeBool = true;
       this.getPozoriste();
+      this.getPredstave();
     }
   }
 
@@ -59,8 +64,23 @@ export class Rezervacija2Component implements OnInit {
   }
 
   getFilmovi() {
-
+    this.filmoviService.getRepertoar(this.bioskopId).subscribe(
+      data => {
+        this.filmovi = data;
+        console.log(this.filmovi);
+      }
+    );
   }
+
+  getPredstave() {
+    this.predstaveService.getRepertoar(this.pozoristeId).subscribe(
+      data => {
+        this.predstave = data;
+        console.log(this.predstave);
+      }
+    );
+  }
+
 
   getPozoriste() {
     this.pozoristeService.getPozoriste(this.pozoristeId).subscribe(

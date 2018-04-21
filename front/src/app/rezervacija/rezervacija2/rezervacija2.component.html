@@ -2,17 +2,21 @@
   <h1>Bioskop: {{bioskop.naziv}}</h1>
   <form>
     <select [(ngModel)]="selectedMovie" name="selectMovie">
-      <option *ngFor="let film of bioskop.repertoar"
-      [ngValue]="film">
-      {{film}}</option>
+      <option *ngFor="let film of filmovi"
+      [ngValue]="film.id">
+      {{film.naziv}}</option>
     </select>
+    <button [routerLink]="['/rezervacija3/bioskop/' + bioskopId + '/film/' + selectedMovie]" >Izaberi</button>
   </form>
 </div>
 <div *ngIf="pozoristeBool">
   <h1>Pozoriste: {{pozoriste.naziv}}</h1>
   <form>
     <select [(ngModel)]="selectedShow" name="selectShow">
-      <option></option>
+      <option *ngFor="let predstava of predstave"
+      [ngValue]="predstava.id">
+      {{predstava.naziv}}</option>
     </select>
+    <button>Izaberi</button>
   </form>
 </div>

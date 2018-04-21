@@ -49,6 +49,10 @@ export class FilmoviService {
     );
   }
 
+  getRepertoar(bioskopId: string): Observable<Filmovi[]> {
+    return this.http.get<Filmovi[]>(this.urlBioskopi + '/' + bioskopId , httpOptions);
+  }
+
   constructor(private http: HttpClient) { }
 
 
