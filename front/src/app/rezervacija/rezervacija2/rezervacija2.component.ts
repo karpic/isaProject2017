@@ -1,3 +1,4 @@
+import { Filmovi } from './../../models/filmovi';
 import { PozoristeService } from './../../services/pozorista.service';
 import { Pozorista } from './../../models/pozorista';
 import { Bioskopi } from './../../models/bioskopi';
@@ -20,6 +21,7 @@ export class Rezervacija2Component implements OnInit {
   pozoristeId: string;
   bioskop: Bioskopi;
   pozoriste: Pozorista;
+  filmovi: Filmovi[];
 
   constructor(private route: ActivatedRoute, private bioskopiService: BioskopiService, private pozoristeService: PozoristeService) { }
 
@@ -33,6 +35,7 @@ export class Rezervacija2Component implements OnInit {
       this.bioskopBool = true;
       this.pozoristeBool = false;
       this.getBioskop();
+      this.getFilmovi();
 
     }
     if (this.route.snapshot.url[1].path === 'pozoriste') {
@@ -51,9 +54,12 @@ export class Rezervacija2Component implements OnInit {
     this.bioskopiService.getBioskop(this.bioskopId).subscribe(
       (bioskop) => {
         this.bioskop = bioskop;
-        console.log(this.bioskop);
       }
     );
+  }
+
+  getFilmovi() {
+
   }
 
   getPozoriste() {

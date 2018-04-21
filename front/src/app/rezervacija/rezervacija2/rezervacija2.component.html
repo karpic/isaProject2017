@@ -2,7 +2,9 @@
   <h1>Bioskop: {{bioskop.naziv}}</h1>
   <form>
     <select [(ngModel)]="selectedMovie" name="selectMovie">
-      <option></option>
+      <option *ngFor="let film of bioskop.repertoar"
+      [ngValue]="film">
+      {{film}}</option>
     </select>
   </form>
 </div>
@@ -10,9 +12,7 @@
   <h1>Pozoriste: {{pozoriste.naziv}}</h1>
   <form>
     <select [(ngModel)]="selectedShow" name="selectShow">
-      <option *ngFor="let predstaveShow of pozoriste.repertoar"
-      [ngValue]="predstaveShow.id">
-      {{predstaveShow.naziv}}</option>
+      <option></option>
     </select>
   </form>
 </div>
