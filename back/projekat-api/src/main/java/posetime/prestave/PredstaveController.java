@@ -20,7 +20,10 @@ public class PredstaveController {
 
     @Autowired
     private PozoristeService pozoristeService;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6e9b236aa6fa3b6db0eed9a41629b14cefe4d959
     @RequestMapping(
             method = RequestMethod.GET,
             value ="/predstave",
@@ -47,12 +50,15 @@ public class PredstaveController {
 
     @RequestMapping(
             method = RequestMethod.POST,
-            value = "/predstave",
+            value = "/predstave/pozorista/{id}",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<Predstave> insertPredstava(@RequestBody Predstave predstave) throws Exception{
+    public ResponseEntity<Predstave> insertPredstava(@RequestBody Predstave predstave, @PathVariable ("id") String id) throws Exception{
         Predstave createdPredstava  = this.predstaveService.create(predstave);
+        Pozoriste p = pozoristeService.findOne(id);
+        p.getRepertoar().add(createdPredstava.getId());
+        pozoristeService.update(p);
         return new ResponseEntity<Predstave>(createdPredstava, HttpStatus.CREATED);
     }
 

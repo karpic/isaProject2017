@@ -90,6 +90,7 @@ import { SysadminEditComponent } from './admin-sistem/sysadmin-edit/sysadmin-edi
 import { SalaEditComponent } from './sala/sala-edit/sala-edit.component';
 import { AdminBpComponent } from './admin-bp/admin-bp.component';
 import { ObavestenjaComponent } from './obavestenja/obavestenja.component';
+import { KartaEditComponent } from './karte/karta-edit/karta-edit.component';
 
 
 @NgModule({
@@ -152,7 +153,8 @@ import { ObavestenjaComponent } from './obavestenja/obavestenja.component';
     SysadminEditComponent,
     SalaEditComponent,
     AdminBpComponent,
-    ObavestenjaComponent
+    ObavestenjaComponent,
+    KartaEditComponent
   ],
   imports: [
     BrowserModule,

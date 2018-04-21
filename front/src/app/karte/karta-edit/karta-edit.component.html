@@ -1,0 +1,38 @@
+<div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+  <form #novaKartaForm="ngForm" (ngSubmit)="novaKartaSubmit(novaKartaForm)">
+    <div class="form-group">
+      <label for="projPred">Naziv projPred</label>
+      <input type="text" id="projPred" name="projPred" class="form-control" required ngModel #projPredKarta="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="datum">Datum</label>
+      <input type="text" id="datum" name="datum" class="form-control" required ngModel #datumKarta="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="vreme">Vreme</label>
+      <input type="text" id="vreme" name="vreme" class="form-control" required ngModel #vremeKarta="ngModel">
+    </div>
+   
+    <div class="form-group">
+      <label for="sala">Sala</label>
+      <input type="text" id="sala" name="sala" class="form-control" required ngModel #salaKarta="ngModel">
+    </div>
+
+    <div class="form-group">
+      <label for="brSedista">Termin filma</label>
+      <input type="text" id="brSedista" name="brSedista" class="form-control" required ngModel #brSedistaKarta="ngModel">
+    </div>
+
+    <div class="form-group">
+      <label for="originlnaCena">Cena filma</label>
+      <input type="text" id="originlnaCena" name="originlnaCena" class="form-control" required ngModel #originlnaCenaKarta="ngModel">
+    </div>
+
+    <div class="form-group">
+      <label for="popustCena">Cena filma</label>
+      <input type="text" id="popustCena" name="popustCena" class="form-control" required ngModel #popustCenaKarta="ngModel">
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!novaKartaForm.valid">Dodaj</button>
+</form>
+</div>

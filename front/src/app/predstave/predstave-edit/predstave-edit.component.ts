@@ -5,6 +5,8 @@ import { PredstaveService } from '../../predstave.service';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Pozorista } from '../../models/pozorista';
+import { PozoristeService } from '../../services/pozorista.service';
 
 @Component({
   selector: 'app-predstave-edit',
@@ -13,15 +15,16 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class PredstaveEditComponent implements OnInit {
 
-  novaPredstava: NovaPredstava = new NovaPredstava("","","","","","","","","","",1);
+  novaPredstava: NovaPredstava = new NovaPredstava("","","","","","","","","","",0);
   updtPredstava: Predstave;
   editFlag: boolean;
   predstavaId: string;
   predstavaEdt : Predstave;
   predstave: Predstave[];
-
+  pozoristeId: string;
 
   constructor(private predstaveService: PredstaveService,
+              private pozoristeService: PozoristeService,
               private location: Location,
               private route: ActivatedRoute) { }
 
@@ -39,7 +42,7 @@ export class PredstaveEditComponent implements OnInit {
                 this.novaPredstava.sala = forma.value.sala;
                 this.novaPredstava.termin = forma.value.termin;   
                 this.novaPredstava.cena = forma.value.cena;            
-                this.predstaveService.insertPredstava(this.novaPredstava).subscribe();
+                this.predstaveService.insertPredstava(this.novaPredstava,this.pozoristeId).subscribe();
                 forma.reset();
                 this.location.back();
               }
@@ -58,14 +61,21 @@ export class PredstaveEditComponent implements OnInit {
 
 
   ngOnInit() {
-    if(this.route.snapshot.params['predstavaId']){
+    if (this.route.snapshot.url[0].path === 'predstave') {
       this.route.params.subscribe(
         (params: Params) => {
-          this.predstavaId = params["predstavaId"];
+          this.predstavaId = params['predstavaId'];
         }
       );
       this.getPredstava();
-    }  
+    } else if (this.route.snapshot.url[0].path === 'predstave-edit') {
+      this.route.params.subscribe(
+        (params: Params) => {
+          this.pozoristeId = params['pozoristeId'];
+        }
+      );
+    }
+
   }
 
 }
