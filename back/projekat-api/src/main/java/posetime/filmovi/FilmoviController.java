@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import posetime.bioskopi.Bioskop;
 import posetime.bioskopi.BioskopService;
 
+import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -60,6 +62,25 @@ public class FilmoviController {
         b.getRepertoar().add(createdFilm.getId());
         bioskopService.update(b);
         return new ResponseEntity<Filmovi>(createdFilm, HttpStatus.CREATED);
+    }
+
+    @RequestMapping(
+            method = RequestMethod.GET,
+            value = "/filmovi/bioskopi/{id}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<List<Filmovi>> getRepertoar(@PathVariable ("id") String id){
+        Bioskop bioskop = bioskopService.findOne(id);
+        ArrayList<Filmovi> filmovi = new ArrayList<Filmovi>();
+
+        for(String s : bioskop.getRepertoar()) {
+            filmovi.add(filmoviService.findOne(s));
+            System.out.println("FILM: " + filmoviService.findOne(s));
+        }
+
+        return new ResponseEntity<List<Filmovi>>(filmovi,HttpStatus.OK);
+
     }
 
     @RequestMapping(

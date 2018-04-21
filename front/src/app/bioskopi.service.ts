@@ -14,17 +14,17 @@ const httpOptions = {
 export class BioskopiService {
 
   private url = 'http://localhost:8080/bioskopi';
-  
 
-  getBioskopi(): Observable<Bioskopi[]>{
+
+  getBioskopi(): Observable<Bioskopi[]> {
     return this.http.get<Bioskopi[]>(this.url);
 
   }
-  getBioskop(id: string): Observable<Bioskopi>{
-    return this.http.get<Bioskopi>(this.url+'/'+id);
+  getBioskop(id: string): Observable<Bioskopi> {
+    return this.http.get<Bioskopi>(this.url + '/' + id);
   }
 
-  insertBioskop(bioskop: NoviBioskop): Observable<NoviBioskop>{
+  insertBioskop(bioskop: NoviBioskop): Observable<NoviBioskop> {
     return this.http.post<NoviBioskop>(this.url, bioskop, httpOptions).pipe(
       catchError(this.handleError<NoviBioskop>('insertBioskop'))
     );
@@ -49,7 +49,7 @@ export class BioskopiService {
 
   constructor(private http: HttpClient) { }
 
-  private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure
