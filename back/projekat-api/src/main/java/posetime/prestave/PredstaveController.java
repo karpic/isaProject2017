@@ -20,10 +20,7 @@ public class PredstaveController {
 
     @Autowired
     private PozoristeService pozoristeService;
-<<<<<<< HEAD
-
-=======
->>>>>>> 6e9b236aa6fa3b6db0eed9a41629b14cefe4d959
+    
     @RequestMapping(
             method = RequestMethod.GET,
             value ="/predstave",
