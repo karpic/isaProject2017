@@ -51,7 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 authorizeRequests()
                 .antMatchers("/token/*", "/").permitAll()
                 //.antMatchers("/user","/user/*").hasAnyAuthority("ROLE_ADMIN","ROLE_USER")
-                .antMatchers("/rezervacija","/rezervacija2/*","/rezervacija3/*","rezervacija3/*","/karte").hasAnyAuthority("ROLE_USER","ROLE_ADMIN")
+                .antMatchers("/rezervacija","/bioskopi/{id}","/filmovi/{id}","/rezervacija2/*","/rezervacija3/*","rezervacija3/*","/karte").hasAnyAuthority("ROLE_USER","ROLE_ADMIN")
                 .antMatchers("/bioskopi/*","pozorista/*","/filmovi/*","/predstave/*","sale/*","/karte").hasAnyAuthority("BP_ADMIN")
                 .anyRequest().authenticated()
                 .and()

@@ -20,7 +20,7 @@ public class PredstaveController {
 
     @Autowired
     private PozoristeService pozoristeService;
-    
+
     @RequestMapping(
             method = RequestMethod.GET,
             value ="/predstave",

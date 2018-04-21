@@ -29,13 +29,15 @@ public class Korisnik {
     private List<String> zahtevi;
     private List<String> ponude;
     private List<String> obavestenja;
+    private List<String> rezervacije;
+
 
 
     public Korisnik() {
 
     }
 
-    public Korisnik(String ime, String prezime, String email, String password, String brtel, String grad, List<String> roles, List<String> prijatelji, List<String> zahtevi, List<String> ponude, List<String> obavestenja) {
+    public Korisnik(List<String> rezervacije,String ime, String prezime, String email, String password, String brtel, String grad, List<String> roles, List<String> prijatelji, List<String> zahtevi, List<String> ponude, List<String> obavestenja) {
         this.ime = ime;
         this.prezime = prezime;
         this.email = email;
@@ -48,6 +50,15 @@ public class Korisnik {
         this.ponude = ponude;
         this.obavestenja = obavestenja;
         this.confirmationToken = "";
+        this.rezervacije = rezervacije;
+    }
+
+    public List<String> getRezervacije() {
+        return rezervacije;
+    }
+
+    public void setRezervacije(List<String> rezervacije) {
+        this.rezervacije = rezervacije;
     }
 
     public boolean isPasswordChanged() {

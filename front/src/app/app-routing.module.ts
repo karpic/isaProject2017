@@ -120,6 +120,7 @@ const routes: Routes = [
   { path: 'sala-edit', component: SalaEditComponent },
   { path: 'filmovi/bioskopi/:bioskopId', component: FilmoviComponent },
   { path: 'karta-edit', component: KartaEditComponent},
+  { path: 'rezervacija3/bioskop/:bioskopId/film/:filmId', component: Rezervacija3Component}
 ];
 
 @NgModule({
