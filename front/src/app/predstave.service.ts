@@ -15,6 +15,7 @@ const httpOptions = {
 export class PredstaveService {
 
   private url = 'http://localhost:8080/predstave';
+  private urlPozorista = 'http://localhost:8080/predstave/pozorista';
 
   getPredstave(): Observable<Predstave[]>{
     return this.http.get<Predstave[]>(this.url);
@@ -24,8 +25,8 @@ export class PredstaveService {
     return this.http.get<Predstave>(this.url+'/'+id);
   }
 
-  insertPredstava(predstava: NovaPredstava): Observable<NovaPredstava>{
-    return this.http.post<NovaPredstava>(this.url, predstava, httpOptions).pipe(
+  insertPredstava(predstava: NovaPredstava, pozoristeId: string): Observable<NovaPredstava>{
+    return this.http.post<NovaPredstava>(this.urlPozorista + '/' + pozoristeId, predstava, httpOptions).pipe(
       catchError(this.handleError<NovaPredstava>('insertPredstava'))
     );
   }

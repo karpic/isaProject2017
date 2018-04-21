@@ -53,6 +53,7 @@ import { SysadminEditComponent } from './admin-sistem/sysadmin-edit/sysadmin-edi
 import { SalaComponent } from './sala/sala.component';
 import { SalaEditComponent } from './sala/sala-edit/sala-edit.component';
 import { AdminBpComponent } from './admin-bp/admin-bp.component';
+import { KartaEditComponent } from './karte/karta-edit/karta-edit.component';
 
 
 
@@ -111,13 +112,14 @@ const routes: Routes = [
   { path: 'predstave/pozorista/:pozoristeId', component: PredstaveComponent },
   { path: 'filmovi-edit', component: FilmoviEditComponent },
   { path: 'filmovi-edit/:bioskopId', component: FilmoviEditComponent },
-  { path: 'predstave-edit', component: PredstaveEditComponent },
+  { path: 'predstave-edit/:pozoristeId', component: PredstaveEditComponent },
   { path: 'prijatelji', component: PrijateljiComponent },
   { path: 'predstave/:predstavaId', component: PredstaveEditComponent },
   { path: 'sale/filmovi/:filmoviId', component: SalaComponent },
   { path: 'sale/predstave/:predstavaId', component: SalaComponent },
   { path: 'sala-edit', component: SalaEditComponent },
   { path: 'filmovi/bioskopi/:bioskopId', component: FilmoviComponent },
+  { path: 'karta-edit', component: KartaEditComponent},
 ];
 
 @NgModule({

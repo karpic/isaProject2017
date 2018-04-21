@@ -28,6 +28,11 @@ export class KarteComponent implements OnInit {
       );
     }
 
+    deleteKarta(karta: Karta) {
+      this.kartaService.deleteKarta(karta).subscribe();
+      this.karte = this.karte.filter(k => k !== karta);
+    }
+  
   ngOnInit() {
     this.getKarte();
   }
