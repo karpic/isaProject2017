@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import posetime.prestave.Predstave;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Document (collection = "Pozorista")
@@ -14,7 +15,7 @@ public class Pozoriste {
     private String naziv;
     private String adresa;
     private String opis;
-    private Predstave repertoar;
+    private ArrayList<String> repertoar;
     private String brmesta;
     private String admin;
 
@@ -29,7 +30,7 @@ public class Pozoriste {
     public Pozoriste() {
 
     }
-    public Pozoriste(String id, String naziv, String adresa, String opis, Predstave repertoar, String brmesta){
+    public Pozoriste(String id, String naziv, String adresa, String opis, ArrayList<String> repertoar, String brmesta){
 
         this.id=id;
         this.naziv=naziv;
@@ -71,11 +72,11 @@ public class Pozoriste {
         this.opis = opis;
     }
 
-    public Predstave getRepertoar() {
+    public ArrayList<String> getRepertoar() {
         return repertoar;
     }
 
-    public void setRepertoar(Predstave repertoar) {
+    public void setRepertoar(ArrayList<String> repertoar) {
         this.repertoar = repertoar;
     }
 

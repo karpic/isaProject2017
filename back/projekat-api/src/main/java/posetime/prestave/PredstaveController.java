@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import posetime.pozorista.Pozoriste;
+import posetime.pozorista.PozoristeService;
 
 import java.util.List;
 
@@ -15,6 +17,8 @@ public class PredstaveController {
     @Autowired
     private PredstaveService predstaveService;
 
+    @Autowired
+    private PozoristeService pozoristeService;
     @RequestMapping(
             method = RequestMethod.GET,
             value ="/predstave",
@@ -41,12 +45,15 @@ public class PredstaveController {
 
     @RequestMapping(
             method = RequestMethod.POST,
-            value = "/predstave",
+            value = "/predstave/pozorista/{id}",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<Predstave> insertPredstava(@RequestBody Predstave predstave) throws Exception{
+    public ResponseEntity<Predstave> insertPredstava(@RequestBody Predstave predstave, @PathVariable ("id") String id) throws Exception{
         Predstave createdPredstava  = this.predstaveService.create(predstave);
+        Pozoriste p = pozoristeService.findOne(id);
+        p.getRepertoar().add(createdPredstava.getId());
+        pozoristeService.update(p);
         return new ResponseEntity<Predstave>(createdPredstava, HttpStatus.CREATED);
     }
 

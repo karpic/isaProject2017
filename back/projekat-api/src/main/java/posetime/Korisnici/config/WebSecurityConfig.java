@@ -52,7 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/token/*", "/").permitAll()
                 //.antMatchers("/user","/user/*").hasAnyAuthority("ROLE_ADMIN","ROLE_USER")
                 .antMatchers("/rezervacija","/rezervacija2/*","/rezervacija3/*","rezervacija3/*","/karte").hasAnyAuthority("ROLE_USER","ROLE_ADMIN")
-                .antMatchers("/bioskopi/*","pozorista/*","/filmovi/*","/predstave/*","sale/*").hasAnyAuthority("BP_ADMIN")
+                .antMatchers("/bioskopi/*","pozorista/*","/filmovi/*","/predstave/*","sale/*","/karte").hasAnyAuthority("BP_ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
@@ -63,7 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/user","/user/*","/confirm","/register","/bioskopi","/pozorista","/filmovi/bioskopi/*");
+        web.ignoring().antMatchers("/user","/user/*","/confirm","/register","/bioskopi","/pozorista");
 
     }
 
