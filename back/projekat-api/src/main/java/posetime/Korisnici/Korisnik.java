@@ -31,8 +31,6 @@ public class Korisnik {
     private List<String> obavestenja;
     private List<String> rezervacije;
 
-
-
     public Korisnik() {
 
     }

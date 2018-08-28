@@ -55,10 +55,8 @@ import { BioskopEditComponent } from './admin-sistem/bioskop-edit/bioskop-edit.c
 import { PozoristeEditComponent } from './admin-sistem/pozoriste-edit/pozoriste-edit.component';
 import { UserComponent } from './user/user.component';
 import { FanAdminAuthGuard } from './auth-guards/fanadmin-auth-guard.service';
-
 import { AgmCoreModule } from '@agm/core';
 import { GmLokacijaComponent } from './gm-lokacija/gm-lokacija.component';
-
 import { LoginUserService } from './login/login-user.service';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { FanzonaAdminEditComponent } from './admin-sistem/fanzona-admin-edit/fanzona-admin-edit.component';
@@ -73,10 +71,6 @@ import { PozoristaItemComponent } from './pozorista/pozorista-item/pozorista-ite
 import { PozoristaListComponent } from './pozorista/pozorista-list/pozorista-list.component';
 import { KarteComponent } from './karte/karte.component';
 import { KartaService } from './karta.service';
-import { RezervacijaComponent } from './rezervacija/rezervacija.component';
-import { Rezervacija2Component } from './rezervacija/rezervacija2/rezervacija2.component';
-import { Rezervacija3Component } from './rezervacija/rezervacija3/rezervacija3.component';
-import { Rezervacija4Component } from './rezervacija/rezervacija4/rezervacija4.component';
 import { FilmoviComponent } from './filmovi/filmovi.component';
 import { PredstaveComponent } from './predstave/predstave.component';
 import { ZahteviComponent } from './user/zahtevi/zahtevi.component';
@@ -139,10 +133,6 @@ import { KartaEditComponent } from './karte/karta-edit/karta-edit.component';
     PozoristaItemComponent,
     PozoristaListComponent,
     KarteComponent,
-    RezervacijaComponent,
-    Rezervacija2Component,
-    Rezervacija3Component,
-    Rezervacija4Component,
     FilmoviComponent,
     PredstaveComponent,
     ZahteviComponent,

@@ -40,6 +40,7 @@ public class Sala {
 
 
     }
+
     public Sala(String id, int brmesta, int brSlobodnih) {
         this.id = id;
         this.brmesta = brmesta;

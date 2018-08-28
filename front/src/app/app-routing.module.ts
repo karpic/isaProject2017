@@ -1,10 +1,6 @@
 import { ObavestenjaComponent } from './obavestenja/obavestenja.component';
 import { PrijateljiComponent } from './user/prijatelji/prijatelji.component';
 import { ZahteviComponent } from './user/zahtevi/zahtevi.component';
-import { Rezervacija4Component } from './rezervacija/rezervacija4/rezervacija4.component';
-import { Rezervacija3Component } from './rezervacija/rezervacija3/rezervacija3.component';
-import { Rezervacija2Component } from './rezervacija/rezervacija2/rezervacija2.component';
-import { RezervacijaComponent } from './rezervacija/rezervacija.component';
 import { SkalaComponent } from './admin-sistem/skala/skala.component';
 import { SysadminAuthGuard } from './auth-guards/sysadmin-auth-guard.service';
 import { RecenzijaComponent } from './admin-fanzona/recenzija/recenzija.component';
@@ -102,11 +98,6 @@ const routes: Routes = [
   { path: 'bioskopi-list', component: BioskopiListComponent },
   { path: 'pozorista-list', component: PozoristaListComponent },
   { path: 'karte', component: KarteComponent },
-  { path: 'rezervacija', component: RezervacijaComponent },
-  { path: 'rezervacija2/bioskop/:bioskopId', component: Rezervacija2Component },
-  { path: 'rezervacija2/pozoriste/:pozoristeId', component: Rezervacija2Component },
-  { path: 'rezervacija3', component: Rezervacija3Component },
-  { path: 'rezervacija4', component: Rezervacija4Component },
   { path: 'user/zahtevi', component: ZahteviComponent },
   { path: 'filmovi/bioskopi/:bioskopId', component: FilmoviComponent },
   { path: 'predstave/pozorista/:pozoristeId', component: PredstaveComponent },
@@ -120,7 +111,6 @@ const routes: Routes = [
   { path: 'sala-edit', component: SalaEditComponent },
   { path: 'filmovi/bioskopi/:bioskopId', component: FilmoviComponent },
   { path: 'karta-edit', component: KartaEditComponent},
-  { path: 'rezervacija3/bioskop/:bioskopId/film/:filmId', component: Rezervacija3Component}
 ];
 
 @NgModule({
