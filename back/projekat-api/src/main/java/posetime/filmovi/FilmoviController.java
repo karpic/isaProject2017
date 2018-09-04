@@ -57,7 +57,7 @@ public class FilmoviController {
     )
     public ResponseEntity<Filmovi> insertFilm(@RequestBody Filmovi filmovi, @PathVariable ("id") String id) throws Exception{
         Filmovi createdFilm  = this.filmoviService.create(filmovi);
-        System.out.println("IDDDD: " + id);
+
         Bioskop b = bioskopService.findOne(id);
         b.getRepertoar().add(createdFilm.getId());
         bioskopService.update(b);

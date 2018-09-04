@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import posetime.projekcije.Projekcija;
+import posetime.projekcije.ProjekcijaService;
 
 import java.util.List;
 
@@ -14,6 +16,10 @@ public class SalaController {
 
     @Autowired
     private SalaService salaService;
+
+
+    @Autowired
+    private ProjekcijaService projekcijaService;
 
     public SalaController(SalaService salaService){this.salaService = salaService;}
 
@@ -42,12 +48,15 @@ public class SalaController {
 
     @RequestMapping(
             method = RequestMethod.POST,
-            value = "/sale",
+            value = "/sale/projekcije/{id}",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<Sala> insertSala(@RequestBody Sala sale) throws Exception{
+    public ResponseEntity<Sala> insertSala(@RequestBody Sala sale, @PathVariable ("id") String id) throws Exception{
         Sala createdSala  = this.salaService.create(sale);
+        Projekcija projekcija = this.projekcijaService.findOne(id);
+        projekcija.getSala().add(createdSala.getId());
+        projekcijaService.update(projekcija);
         return new ResponseEntity<Sala>(createdSala, HttpStatus.CREATED);
     }
 

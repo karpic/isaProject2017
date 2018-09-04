@@ -50,6 +50,7 @@ public class FilmoviServiceImpl implements FilmoviService {
         filmUpdt.setSala(film.getSala());
         filmUpdt.setTermin(film.getTermin());
         filmUpdt.setCena(film.getCena());
+        filmUpdt.setProjekcije(film.getProjekcije());
 
         Filmovi updateFilm = this.filmoviRepository.save(filmUpdt);
         return updateFilm;
