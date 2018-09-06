@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import posetime.Sala.Sala;
+import posetime.Sala.SalaService;
 import posetime.filmovi.Filmovi;
 import posetime.filmovi.FilmoviService;
 
@@ -21,6 +23,8 @@ public class ProjekcijaController {
     @Autowired
     FilmoviService filmoviService;
 
+    @Autowired
+    SalaService salaService;
     @RequestMapping(
             method = RequestMethod.GET,
             value ="/projekcije",
@@ -52,7 +56,9 @@ public class ProjekcijaController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<Projekcija> insertProjekcija(@RequestBody Projekcija projekcija,@PathVariable ("id") String id) throws Exception{
+
         Projekcija createdProjekcija  = this.projekcijaService.create(projekcija);
+
         Filmovi film = filmoviService.findOne(id);
 
         film.getProjekcije().add(createdProjekcija.getId());

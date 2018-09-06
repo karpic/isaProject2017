@@ -21,7 +21,7 @@ public class Filmovi {
     private String poster;
     private String ocena;
     private String opis;
-    private Sala sala;
+    private String sala;
     private String termin;
     private int cena;
     private ArrayList<String> projekcije;
@@ -31,7 +31,7 @@ public class Filmovi {
 
     }
 
-    public Filmovi(String id, String naziv, String glumci, String zanr, String reditelj, String trajanje, String poster, String ocena, String opis, Sala sala, String termin, int cena, ArrayList<String> projekcije) {
+    public Filmovi(String id, String naziv, String glumci, String zanr, String reditelj, String trajanje, String poster, String ocena, String opis, String sala, String termin, int cena, ArrayList<String> projekcije) {
         this.id = id;
         this.naziv = naziv;
         this.glumci = glumci;
@@ -119,11 +119,11 @@ public class Filmovi {
         this.opis = opis;
     }
 
-    public Sala getSala() {
+    public String getSala() {
         return sala;
     }
 
-    public void setSala(Sala sala) {
+    public void setSala(String sala) {
         this.sala = sala;
     }
 

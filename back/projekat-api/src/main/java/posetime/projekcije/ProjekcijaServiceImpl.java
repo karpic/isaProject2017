@@ -27,6 +27,7 @@ public class ProjekcijaServiceImpl  implements ProjekcijaService{
     @Override
     public Projekcija create(Projekcija karta) throws Exception {
         Projekcija savedKarta = this.projekcijaRepository.insert(karta);
+
         return savedKarta;
 
     }

@@ -11,7 +11,6 @@ public class Sala {
     private int brmesta;
     private int brSlobodnih;
 
-
     public String getId() {
         return id;
     }

@@ -55,7 +55,7 @@ public class SalaController {
     public ResponseEntity<Sala> insertSala(@RequestBody Sala sale, @PathVariable ("id") String id) throws Exception{
         Sala createdSala  = this.salaService.create(sale);
         Projekcija projekcija = this.projekcijaService.findOne(id);
-        projekcija.getSala().add(createdSala.getId());
+        projekcija.setSala(createdSala.getId());
         projekcijaService.update(projekcija);
         return new ResponseEntity<Sala>(createdSala, HttpStatus.CREATED);
     }
