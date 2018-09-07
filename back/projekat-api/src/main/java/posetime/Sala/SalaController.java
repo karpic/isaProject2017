@@ -8,7 +8,11 @@ import org.springframework.web.bind.annotation.*;
 import posetime.projekcije.Projekcija;
 import posetime.projekcije.ProjekcijaService;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin("*")
@@ -55,6 +59,11 @@ public class SalaController {
     public ResponseEntity<Sala> insertSala(@RequestBody Sala sale, @PathVariable ("id") String id) throws Exception{
         Sala createdSala  = this.salaService.create(sale);
         Projekcija projekcija = this.projekcijaService.findOne(id);
+
+
+        boolean[] b = new boolean[createdSala.getBrmesta()];
+        projekcija.setBr_mesta(b);
+
         projekcija.setSala(createdSala.getId());
         projekcijaService.update(projekcija);
         return new ResponseEntity<Sala>(createdSala, HttpStatus.CREATED);
