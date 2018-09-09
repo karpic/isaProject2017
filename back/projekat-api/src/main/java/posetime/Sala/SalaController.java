@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import posetime.projekcije.Projekcija;
 import posetime.projekcije.ProjekcijaService;
+import posetime.projekcijePoz.ProjekcijaPoz;
+import posetime.projekcijePoz.ProjekcijaPozService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,6 +26,11 @@ public class SalaController {
 
     @Autowired
     private ProjekcijaService projekcijaService;
+
+    @Autowired
+    private ProjekcijaPozService projekcijaPozService;
+
+
 
     public SalaController(SalaService salaService){this.salaService = salaService;}
 
@@ -64,8 +71,30 @@ public class SalaController {
         boolean[] b = new boolean[createdSala.getBrmesta()];
         projekcija.setBr_mesta(b);
 
+
         projekcija.setSala(createdSala.getId());
         projekcijaService.update(projekcija);
+        return new ResponseEntity<Sala>(createdSala, HttpStatus.CREATED);
+    }
+
+
+    @RequestMapping(
+            method = RequestMethod.POST,
+            value = "/sale/projekcijePoz/{id}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Sala> insertSalaPoz(@RequestBody Sala sale, @PathVariable ("id") String id) throws Exception{
+        Sala createdSala  = this.salaService.create(sale);
+
+        ProjekcijaPoz projekcijaPoz =  this.projekcijaPozService.findOne(id);
+
+        boolean[] b = new boolean[createdSala.getBrmesta()];
+
+        projekcijaPoz.setBr_mesta(b);
+
+        projekcijaPoz.setSala(createdSala.getId());
+        projekcijaPozService.update(projekcijaPoz);
         return new ResponseEntity<Sala>(createdSala, HttpStatus.CREATED);
     }
 

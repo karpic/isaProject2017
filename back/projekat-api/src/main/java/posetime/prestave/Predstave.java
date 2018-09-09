@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import posetime.Sala.Sala;
 
+import java.util.ArrayList;
+
 @Document(collection = "Predstave")
 public class Predstave {
 
@@ -20,6 +22,7 @@ public class Predstave {
     private Sala sala;
     private String termin;
     private int cena;
+    private ArrayList<String> projekcijePoz;
 
 
     public String getId() {
@@ -118,7 +121,15 @@ public class Predstave {
         this.cena = cena;
     }
 
-    public Predstave(String id, String naziv, String glumci, String zanr, String reditelj, String trajanje, String poster, String ocena, String opis, Sala sala, String termin, int cena) {
+    public ArrayList<String> getProjekcijePoz() {
+        return projekcijePoz;
+    }
+
+    public void setProjekcijePoz(ArrayList<String> projekcijePoz) {
+        this.projekcijePoz = projekcijePoz;
+    }
+
+    public Predstave(String id, String naziv, String glumci, String zanr, String reditelj, String trajanje, String poster, String ocena, String opis, Sala sala, String termin, int cena, ArrayList<String> projekcijePoz) {
         this.id = id;
         this.naziv = naziv;
         this.glumci = glumci;
@@ -132,6 +143,7 @@ public class Predstave {
         this.sala = sala;
         this.termin = termin;
         this.cena = cena;
+        this.projekcijePoz = projekcijePoz;
 
     }
 
