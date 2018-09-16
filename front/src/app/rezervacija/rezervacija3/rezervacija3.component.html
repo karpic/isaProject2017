@@ -16,53 +16,94 @@
       <div class="col-md-12">
         <div *ngIf="filmBool">
           <h4>Projekcije za film {{film?.naziv}}</h4>
+          <div class="table-responsive">
+
+
+            <table id="mytable" class="table table-bordred table-striped">
+
+              <thead>
+                <th>Datum</th>
+                <th>Termin</th>
+                <th>Mesta za rezervaciju</th>
+                <th>Pozovi prijatelje</th>
+                <th>Rezervisi</th>
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let projekcija of projekcije; let i=index">
+                  <td>
+                    Datum
+                  </td>
+                  <td>{{projekcija.termin}}</td>
+                  <td>
+                    <select multiple [(ngModel)]="selectedSeatsProjekcija[i]" name="selectSeat">
+                      <option *ngFor="let s of projekcija.br_mesta; let c=index" [ngValue]="c">
+                        {{c + 1}}
+                      </option>
+                    </select>
+                  </td>
+                  <td>
+                    <select multiple [(ngModel)]="selectedFriends" name="selectFriends">
+                      <option *ngFor="let f of friends" [ngValue]="f.email">
+                        {{f.ime}} {{f.prezime}}
+                      </option>
+                    </select>
+                  </td>
+                  <td>
+                    <p data-placement="top" data-toggle="Rezervisi" title="Rezervisi">
+                      <button (click)="rezervisiFilm(i)" class="btn btn-primary btn-xs" data-title="Rezervisi">Rezervisi</button>
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         <div *ngIf="predstavaBool">
           <h4>Projekcije za predstavu {{predstava?.naziv}}</h4>
+          <div class="table-responsive">
+
+
+            <table id="mytable" class="table table-bordred table-striped">
+
+              <thead>
+                <th>Datum</th>
+                <th>Termin</th>
+                <th>Mesta za rezervaciju</th>
+                <th>Pozovi prijatelje</th>
+                <th>Rezervisi</th>
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let projekcija of projekcijePoz; let i=index">
+                  <td>
+                    Datum
+                  </td>
+                  <td>{{projekcija.termin}}</td>
+                  <td>
+                    <select multiple [(ngModel)]="selectedSeatsProjekcija[i]" name="selectSeat">
+                      <option *ngFor="let s of projekcija.br_mesta; let c=index" [ngValue]="c">
+                        {{c + 1}}
+                      </option>
+                    </select>
+                  </td>
+                  <td>
+                    <select multiple [(ngModel)]="selectedFriends" name="selectFriends">
+                      <option *ngFor="let f of friends" [ngValue]="f.email">
+                        {{f.ime}} {{f.prezime}}
+                      </option>
+                    </select>
+                  </td>
+                  <td>
+                    <p data-placement="top" data-toggle="Rezervisi" title="Rezervisi">
+                      <button (click)="rezervisiPredstavu(i)" class="btn btn-primary btn-xs" data-title="Rezervisi">Rezervisi</button>
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div class="table-responsive">
-
-
-          <table id="mytable" class="table table-bordred table-striped">
-
-            <thead>
-              <th>Datum</th>
-              <th>Termin</th>
-              <th>Mesta za rezervaciju</th>
-              <th>Pozovi prijatelje</th>
-              <th>Rezervisi</th>
-            </thead>
-            <tbody>
-
-              <tr *ngFor="let projekcija of projekcijePoz; let i=index">
-                <td>
-                  Datum
-                </td>
-                <td>{{projekcija.termin}}</td>
-                <td>
-                  <select multiple [(ngModel)]="selectedSeatsProjekcija[i]" name="selectSeat">
-                    <option *ngFor="let s of projekcija.br_mesta; let c=index" [ngValue]="c">
-                      {{c + 1}}
-                    </option>
-                  </select>
-                </td>
-                <td>
-                  <select multiple [(ngModel)]="selectedFriends" name="selectFriends">
-                    <option *ngFor="let f of friends" [ngValue]="f.email">
-                      {{f.ime}} {{f.prezime}}
-                    </option>
-                  </select>
-                </td>
-                <td>
-                  <p data-placement="top" data-toggle="Rezervisi" title="Rezervisi">
-                    <button (click)="rezervisi(i)" class="btn btn-primary btn-xs" data-title="Rezervisi">Rezervisi</button>
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
       </div>
     </div>
   </div>

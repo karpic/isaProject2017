@@ -91,10 +91,10 @@ export class Rezervacija3Component implements OnInit {
           this.projekcijaService.getProjekcija(s).subscribe(
             data => {
               this.projekcije.push(data);
+              this.selectedSeatsProjekcija.push([]);
             }
           );
         }
-
       }
     );
   }
@@ -115,14 +115,23 @@ export class Rezervacija3Component implements OnInit {
     );
   }
 
-  rezervisi(i: number) {
+  rezervisiPredstavu(i: number) {
     this.projekcijaPozUpd = this.projekcijePoz[i];
-    console.log(i);
     for (const s of this.selectedSeatsProjekcija[i]) {
-      console.log(s);
       this.projekcijaPozUpd.br_mesta[s] = true;
     }
-    console.log(this.projekcijaPozUpd);
+    for (const e of this.friends) {
+      console.log(e.email);
+    }
+  }
+
+  rezervisiFilm(i: number) {
+    this.projekcijaUpd = this.projekcije[i];
+
+    for (const s of this.selectedSeatsProjekcija[i]) {
+      this.projekcijaUpd.br_mesta[s] = true;
+    }
+
     for (const e of this.friends) {
       console.log(e.email);
     }
