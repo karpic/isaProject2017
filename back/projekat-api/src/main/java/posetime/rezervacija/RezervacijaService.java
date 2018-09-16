@@ -8,7 +8,8 @@ public interface RezervacijaService {
 
     Rezervacija addRezervacija(Rezervacija r);
     Rezervacija update(Rezervacija r);
-    List<Rezervacija> getByKorisnik(Korisnik k);
+    List<Rezervacija> getByKorisnik(String k);
+    List<Rezervacija> getAll();
     void deleteRezervacija(Rezervacija r);
 
 }

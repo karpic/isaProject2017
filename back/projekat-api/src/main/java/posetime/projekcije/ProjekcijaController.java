@@ -55,6 +55,7 @@ public class ProjekcijaController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
+
     public ResponseEntity<Projekcija> insertProjekcija(@RequestBody Projekcija projekcija,@PathVariable ("id") String id) throws Exception{
 
         Projekcija createdProjekcija  = this.projekcijaService.create(projekcija);

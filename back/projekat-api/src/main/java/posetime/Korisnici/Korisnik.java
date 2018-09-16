@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Document(collection = "Korisnici")
@@ -43,12 +44,12 @@ public class Korisnik {
         this.brtel = brtel;
         this.grad = grad;
         this.roles = roles;
-        this.prijatelji = prijatelji;
-        this.zahtevi = zahtevi;
-        this.ponude = ponude;
-        this.obavestenja = obavestenja;
+        this.prijatelji = new ArrayList<String>();
+        this.zahtevi = new ArrayList<String>();
+        this.ponude = new ArrayList<String>();
+        this.obavestenja = new ArrayList<String>();
         this.confirmationToken = "";
-        this.rezervacije = rezervacije;
+        this.rezervacije = new ArrayList<String>();
     }
 
     public List<String> getRezervacije() {
