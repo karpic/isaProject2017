@@ -26,7 +26,7 @@ export class ProjekcijaPozService {
     return this.http.get<ProjekcijaPoz>(this.url + '/' + id);
   }
 
-  updatePredstava(projekcijaPoz: ProjekcijaPoz): Observable<ProjekcijaPoz> {
+  updateProjekcijaPoz(projekcijaPoz: ProjekcijaPoz): Observable<ProjekcijaPoz> {
     const id = typeof projekcijaPoz === 'string' ? projekcijaPoz : projekcijaPoz.id;
     const url = `${this.url}/${id}`;
     return this.http.put<ProjekcijaPoz>(url, projekcijaPoz, httpOptions).pipe(
