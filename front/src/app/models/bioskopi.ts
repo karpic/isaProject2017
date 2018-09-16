@@ -4,7 +4,7 @@ export class Bioskopi {
         public naziv: string,
         public adresa: string,
         public opis: string,
-        public repertoar: Array<String>,
+        public repertoar: Array<string>,
         public brmesta: string,
         public admin: String
     ) {}

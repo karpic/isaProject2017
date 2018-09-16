@@ -1,3 +1,6 @@
+import { ProjekcijaPozService } from './projekcija-poz.service';
+import { ProjekcijaService } from './projekcija.service';
+import { RezervacijaService } from './rezervacija/rezervacija.service';
 import { ObavestenjaService } from './services/obavestenja.service';
 import { PrijateljiComponent } from './user/prijatelji/prijatelji.component';
 import { SkalaService } from './services/skala.service';
@@ -85,6 +88,11 @@ import { SalaEditComponent } from './sala/sala-edit/sala-edit.component';
 import { AdminBpComponent } from './admin-bp/admin-bp.component';
 import { ObavestenjaComponent } from './obavestenja/obavestenja.component';
 import { KartaEditComponent } from './karte/karta-edit/karta-edit.component';
+import { RezervacijaComponent } from './rezervacija/rezervacija.component';
+import { Rezervacija2Component } from './rezervacija/rezervacija2/rezervacija2.component';
+import { Rezervacija3Component } from './rezervacija/rezervacija3/rezervacija3.component';
+import { Rezervacija4Component } from './rezervacija/rezervacija4/rezervacija4.component';
+
 
 
 @NgModule({
@@ -144,7 +152,11 @@ import { KartaEditComponent } from './karte/karta-edit/karta-edit.component';
     SalaEditComponent,
     AdminBpComponent,
     ObavestenjaComponent,
-    KartaEditComponent
+    KartaEditComponent,
+    RezervacijaComponent,
+    Rezervacija2Component,
+    Rezervacija3Component,
+    Rezervacija4Component
   ],
   imports: [
     BrowserModule,
@@ -178,6 +190,9 @@ import { KartaEditComponent } from './karte/karta-edit/karta-edit.component';
     FilmoviService,
     PredstaveService,
     SalaService,
+    RezervacijaService,
+    ProjekcijaService,
+    ProjekcijaPozService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: Interceptor,

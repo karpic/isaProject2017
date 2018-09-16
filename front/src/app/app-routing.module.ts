@@ -1,3 +1,5 @@
+import { Rezervacija2Component } from './rezervacija/rezervacija2/rezervacija2.component';
+import { RezervacijaComponent } from './rezervacija/rezervacija.component';
 import { ObavestenjaComponent } from './obavestenja/obavestenja.component';
 import { PrijateljiComponent } from './user/prijatelji/prijatelji.component';
 import { ZahteviComponent } from './user/zahtevi/zahtevi.component';
@@ -50,6 +52,7 @@ import { SalaComponent } from './sala/sala.component';
 import { SalaEditComponent } from './sala/sala-edit/sala-edit.component';
 import { AdminBpComponent } from './admin-bp/admin-bp.component';
 import { KartaEditComponent } from './karte/karta-edit/karta-edit.component';
+import { Rezervacija3Component } from './rezervacija/rezervacija3/rezervacija3.component';
 
 
 
@@ -111,6 +114,11 @@ const routes: Routes = [
   { path: 'sala-edit', component: SalaEditComponent },
   { path: 'filmovi/bioskopi/:bioskopId', component: FilmoviComponent },
   { path: 'karta-edit', component: KartaEditComponent},
+  { path: 'rezervacija', component: RezervacijaComponent},
+  { path: 'rezervacija2/bioskop/:bioskopId', component: Rezervacija2Component},
+  { path: 'rezervacija2/pozoriste/:pozoristeId', component: Rezervacija2Component},
+  { path: 'rezervacija3/bioskop/:filmId', component: Rezervacija3Component},
+  { path: 'rezervacija3/pozoriste/:predstavaId', component: Rezervacija3Component}
 ];
 
 @NgModule({

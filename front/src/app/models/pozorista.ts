@@ -1,4 +1,4 @@
-import { Predstave } from "./predstave";
+import { Predstave } from './predstave';
 
 export class Pozorista {
     constructor (
@@ -6,8 +6,8 @@ export class Pozorista {
         public naziv: string,
         public adresa: string,
         public opis: string,
-        public repertoar: Array<Predstave>,
+        public repertoar: Array<string>,
         public brmesta: string,
         public admin: String
-    ){}
+    ) {}
 }
