@@ -4,7 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import posetime.Sala.SalaService;
-import posetime.projekcije.Projekcija;
+
+import java.util.Date;
 
 @Document(collection = "ProjekcijePoz")
 public class ProjekcijaPoz {
@@ -18,16 +19,25 @@ public class ProjekcijaPoz {
     private String  sala;
     private boolean[] br_mesta;
     private String termin;
+    private Date datum;
 
 
     public ProjekcijaPoz(){
 
     }
-    public ProjekcijaPoz(String id, String sala, boolean[] br_mesta, String termin) {
-        this.id = id;
+    public ProjekcijaPoz(String sala, boolean[] br_mesta, String termin, Date datum) {
         this.sala = sala;
         this.br_mesta = br_mesta;
         this.termin = termin;
+        this.datum = datum;
+    }
+
+    public Date getDatum() {
+        return datum;
+    }
+
+    public void setDatum(Date datum) {
+        this.datum = datum;
     }
 
     public SalaService getSalaService() {

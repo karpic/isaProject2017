@@ -56,7 +56,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.PUT, "/filmovi/*","/predstave/*").hasAuthority("BP_ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/filmovi/{id}","/predstave/{id}").hasAuthority("BP_ADMIN")
                 .antMatchers("/rezervacija","/rezervacija2/*","/rezervacija3/*","rezervacija3/*","/karte","/filmovi","/predstave").hasAnyAuthority("ROLE_USER","ROLE_ADMIN")
-                .antMatchers("/bioskopi/*","pozorista/*","/predstave/*","sale/*","/karte","/filmovi","predstave").hasAnyAuthority("BP_ADMIN")
+                .antMatchers("/bioskopi/*","sale/*","/karte","/filmovi","predstave").hasAnyAuthority("BP_ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
@@ -67,7 +67,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/filmovi/bioskopi/*","/sale","/sale/*","/user","/user/*","/confirm","/register","/bioskopi","/pozorista","/projekcije","/projekcije/filmovi/*","/filmovi/*","/bioskopi/*","/sale/projekcije/*","/projekcijePoz/predstave/*","/sale/projekcijePoz/*");
+        web.ignoring().antMatchers("/filmovi/bioskopi/*","/pozorista/*","/predstave/*","/sale","/sale/*","/user","/user/*","/confirm","/register","/bioskopi","/pozorista","/projekcije","/projekcije/filmovi/*","/filmovi/*","/bioskopi/*","/sale/projekcije/*","/projekcijePoz/predstave/*","/sale/projekcijePoz/*");
 
     }
 

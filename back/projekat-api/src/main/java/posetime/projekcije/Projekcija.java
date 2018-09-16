@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import posetime.Sala.SalaService;
 
-import java.util.ArrayList;
+import java.util.Date;
 
 @Document(collection ="Projekcije")
 public class Projekcija {
@@ -16,9 +16,10 @@ public class Projekcija {
 
     @Id
     private String id;
-    private String  sala;
+    private String sala;
     private boolean[] br_mesta;
     private String termin;
+    private Date datum;
 
 
 
@@ -27,12 +28,20 @@ public class Projekcija {
     }
 
 
-    public Projekcija(String id, String sala, boolean[] br_mesta, String termin) {
-        this.id = id;
+    public Projekcija(String sala, boolean[] br_mesta, String termin, Date datum) {
         this.sala = sala;
         this.br_mesta =  br_mesta;
         this.termin = termin;
 
+        this.datum = datum;
+    }
+
+    public Date getDatum() {
+        return datum;
+    }
+
+    public void setDatum(Date datum) {
+        this.datum = datum;
     }
 
     public String getSala() {

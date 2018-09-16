@@ -11,6 +11,7 @@ public class Rezervacija {
     private String id;
     private String id_ustanove;
     private String id_dela;
+    private String id_projekcije;
     private Korisnik korisnik;
     private int broj_mesta;
     private String termin;
@@ -19,13 +20,15 @@ public class Rezervacija {
     public Rezervacija() {
 
     }
-    public Rezervacija(String id_ustanove, String id_dela, Korisnik korisnik, int broj_mesta, String termin, String sala) {
+    public Rezervacija(String id_ustanove, String id_dela, String id_projekcije, Korisnik korisnik, int broj_mesta, String termin, String sala) {
         this.id_ustanove = id_ustanove;
         this.id_dela = id_dela;
+        this.id_projekcije = id_projekcije;
         this.korisnik = korisnik;
         this.broj_mesta = broj_mesta;
         this.termin = termin;
         this.sala = sala;
+
     }
 
     public String getId() {
@@ -74,6 +77,14 @@ public class Rezervacija {
 
     public void setTermin(String termin) {
         this.termin = termin;
+    }
+
+    public String getId_projekcije() {
+        return id_projekcije;
+    }
+
+    public void setId_projekcije(String id_projekcije) {
+        this.id_projekcije = id_projekcije;
     }
 
     public String getSala() {
