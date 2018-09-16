@@ -49,6 +49,8 @@ public class ProjekcijaServiceImpl  implements ProjekcijaService{
         return updateKarta;
     }
 
+
+
     @Override
     public void delete(String id) {
         this.projekcijaRepository.delete(id);

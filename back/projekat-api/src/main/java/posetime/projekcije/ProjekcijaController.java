@@ -9,6 +9,7 @@ import posetime.Sala.Sala;
 import posetime.Sala.SalaService;
 import posetime.filmovi.Filmovi;
 import posetime.filmovi.FilmoviService;
+import posetime.projekcijePoz.ProjekcijaPoz;
 
 import java.util.List;
 
@@ -67,5 +68,26 @@ public class ProjekcijaController {
         return new ResponseEntity<Projekcija>(createdProjekcija, HttpStatus.CREATED);
     }
 
+
+    @RequestMapping(
+            method = RequestMethod.PUT,
+            value = "/projekcije/{id}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Projekcija> updateProjekcija(@PathVariable("id") String id, @RequestBody Projekcija projekcijaPoz) throws Exception{
+        Projekcija projPoz = this.projekcijaService.findOne(id);
+
+        if(projPoz == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        Projekcija updateProjekcijaPoz = this.projekcijaService.update(projekcijaPoz);
+        if (updateProjekcijaPoz == null) {
+            return new ResponseEntity<Projekcija>(
+                    HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ResponseEntity<>(updateProjekcijaPoz, HttpStatus.OK);
+    }
 
 }
