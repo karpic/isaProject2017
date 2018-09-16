@@ -6,8 +6,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import posetime.Sala.SalaService;
+import posetime.pozorista.Pozoriste;
 import posetime.prestave.Predstave;
 import posetime.prestave.PredstaveService;
+import posetime.projekcije.Projekcija;
 
 import java.util.List;
 
@@ -64,5 +66,26 @@ public class ProjekcijaPozController {
         predstava.getProjekcijePoz().add(createdProjekcija.getId());
         predstaveService.update(predstava);
         return new ResponseEntity<ProjekcijaPoz>(createdProjekcija, HttpStatus.CREATED);
+    }
+
+    @RequestMapping(
+            method = RequestMethod.PUT,
+            value = "/projekcijePoz/{id}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<ProjekcijaPoz> updateProjekcijaPoz(@PathVariable("id") String id, @RequestBody ProjekcijaPoz projekcijaPoz) throws Exception{
+        ProjekcijaPoz projPoz = this.projekcijaPozServiceService.findOne(id);
+
+        if(projPoz == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        ProjekcijaPoz updateProjekcijaPoz = this.projekcijaPozServiceService.update(projekcijaPoz);
+        if (updateProjekcijaPoz == null) {
+            return new ResponseEntity<ProjekcijaPoz>(
+                    HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ResponseEntity<>(updateProjekcijaPoz, HttpStatus.OK);
     }
 }
