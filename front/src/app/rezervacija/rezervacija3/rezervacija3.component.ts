@@ -15,6 +15,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProjekcijaService } from '../../projekcija.service';
 import { ProjekcijaPozService } from '../../projekcija-poz.service';
 import { ProjekcijaPoz } from '../../models/projekcijaPoz';
+import { RezervacijaService } from '../rezervacija.service';
+import { Rezervacija } from '../../models/rezervacija';
 
 @Component({
   selector: 'app-rezervacija3',
@@ -26,6 +28,8 @@ export class Rezervacija3Component implements OnInit {
 
   filmBool: boolean;
   predstavaBool: boolean;
+  bioskopId: string;
+  pozoristeId: string;
   filmId: string;
   film: Filmovi;
   predstava: Predstave;
@@ -38,11 +42,13 @@ export class Rezervacija3Component implements OnInit {
   selectedFriends = [];
   projekcijaUpd: Projekcija;
   projekcijaPozUpd: ProjekcijaPoz;
+  rezervacija: Rezervacija;
+  brojMesta = 0;
 
   constructor(private route: ActivatedRoute, private bioskopiService: BioskopiService, private pozoristeService: PozoristeService,
     private filmoviService: FilmoviService, private predstaveService: PredstaveService,
     private projekcijaService: ProjekcijaService, private projekcijaPozService: ProjekcijaPozService,
-    private loginUserService: LoginUserService) { }
+    private loginUserService: LoginUserService, private rezervacijaService: RezervacijaService) { }
 
   ngOnInit() {
     if (this.route.snapshot.url[1].path === 'bioskop') {
@@ -119,10 +125,23 @@ export class Rezervacija3Component implements OnInit {
     this.projekcijaPozUpd = this.projekcijePoz[i];
     for (const s of this.selectedSeatsProjekcija[i]) {
       this.projekcijaPozUpd.br_mesta[s] = true;
+      this.brojMesta = this.brojMesta + 1;
+      console.log(this.brojMesta);
     }
     for (const e of this.friends) {
       console.log(e.email);
     }
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.pozoristeId = params['pozoristeId'];
+      }
+    );
+    this.rezervacija = new Rezervacija(this.pozoristeId, this.predstavaId, this.projekcijaPozUpd.id, this.brojMesta,
+       this.projekcijaPozUpd.termin, 'sala');
+    console.log(this.rezervacija);
+    this.projekcijaPozService.updatePredstava(this.projekcijaPozUpd).subscribe();
+    this.rezervacijaService.insertRezervacija(this.user.email, this.rezervacija).subscribe();
+    console.log('prosao kroz servis');
   }
 
   rezervisiFilm(i: number) {
@@ -135,6 +154,13 @@ export class Rezervacija3Component implements OnInit {
     for (const e of this.friends) {
       console.log(e.email);
     }
+
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.bioskopId = params['bioskopId'];
+      }
+    );
+    console.log(this.bioskopId);
   }
 
 }

@@ -36,7 +36,7 @@ export class ProjekcijaPozService {
 
   constructor(private http: HttpClient) { }
 
-  
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
@@ -51,5 +51,5 @@ export class ProjekcijaPozService {
     };
   }
 
-  
+
 }

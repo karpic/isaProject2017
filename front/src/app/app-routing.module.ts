@@ -117,8 +117,8 @@ const routes: Routes = [
   { path: 'rezervacija', component: RezervacijaComponent},
   { path: 'rezervacija2/bioskop/:bioskopId', component: Rezervacija2Component},
   { path: 'rezervacija2/pozoriste/:pozoristeId', component: Rezervacija2Component},
-  { path: 'rezervacija3/bioskop/:filmId', component: Rezervacija3Component},
-  { path: 'rezervacija3/pozoriste/:predstavaId', component: Rezervacija3Component}
+  { path: 'rezervacija3/bioskop/:bioskopId/:filmId', component: Rezervacija3Component},
+  { path: 'rezervacija3/pozoriste/:pozoristeId/:predstavaId', component: Rezervacija3Component}
 ];
 
 @NgModule({

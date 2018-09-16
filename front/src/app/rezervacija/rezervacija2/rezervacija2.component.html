@@ -4,7 +4,7 @@
     <select [(ngModel)]="selectedMovie" name="selectMovie">
       <option  *ngFor="let film of filmovi">{{film.naziv}}</option>
     </select>
-    <button [routerLink]="['/rezervacija3/bioskop/' + selectedMovie]">Izaberi film</button>
+    <button [routerLink]="['/rezervacija3/bioskop/'+ bioskopId + '/' + selectedMovie]">Izaberi film</button>
   </form>
 </div>
 <div *ngIf="pozoristeBool">
@@ -15,6 +15,6 @@
       [ngValue]="predstaveShow.id">
       {{predstaveShow.naziv}}</option>
     </select>
-    <button [routerLink]="['/rezervacija3/pozoriste/' + selectedShow]">Izaberi predstavu</button>
+    <button [routerLink]="['/rezervacija3/pozoriste/' + pozoristeId + '/' + selectedShow]">Izaberi predstavu</button>
   </form>
 </div>
